@@ -7,6 +7,7 @@
   input:
     uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 1000
     uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 1000
   output:
     uk-derby:policies/derby/council-tax-reduction#maximum_council_tax_support_rate: 0.8
     uk-derby:policies/derby/council-tax-reduction#maximum_eligible_council_tax: 1000
@@ -20,6 +21,7 @@
   input:
     uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 2000
     uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 1000
   output:
     uk-derby:policies/derby/council-tax-reduction#maximum_eligible_council_tax: 1500
     uk-derby:policies/derby/council-tax-reduction#maximum_council_tax_support_award: 1200
@@ -32,6 +34,46 @@
   input:
     uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 0
     uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 1000
   output:
     uk-derby:policies/derby/council-tax-reduction#maximum_eligible_council_tax: 0
+    uk-derby:policies/derby/council-tax-reduction#maximum_council_tax_support_award: 0
+- name: scheme parameters are as printed
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 1000
+    uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 0
+  output:
+    uk-derby:policies/derby/council-tax-reduction#minimum_claimant_contribution_rate: 0.2
+    uk-derby:policies/derby/council-tax-reduction#capital_limit: 6000
+- name: capital at the limit still allows an award
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 1000
+    uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 6000
+  output:
+    uk-derby:policies/derby/council-tax-reduction#capital_within_limit: holds
+    uk-derby:policies/derby/council-tax-reduction#maximum_council_tax_support_award: 800
+- name: capital in excess of the limit means no CTS
+  period:
+    period_kind: custom
+    name: calendar_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-derby:policies/derby/council-tax-reduction#input.council_tax_due: 1000
+    uk-derby:policies/derby/council-tax-reduction#input.band_b_property_yearly_charge: 1500
+    uk-derby:policies/derby/council-tax-reduction#input.applicant_capital: 6000.01
+  output:
+    uk-derby:policies/derby/council-tax-reduction#capital_within_limit: not_holds
     uk-derby:policies/derby/council-tax-reduction#maximum_council_tax_support_award: 0

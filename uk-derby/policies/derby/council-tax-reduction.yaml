@@ -64,6 +64,44 @@ rules:
         formula: |-
           min(max(0, council_tax_due), max(0, band_b_property_yearly_charge))
 
+  - name: capital_limit
+    kind: parameter
+    dtype: Money
+    unit: GBP
+    period: Year
+    source: Derby CTS Scheme 2026–2027, section 4(1), page 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-derby/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: The Council’s CTS Scheme sets a limit of capital to be held of £6000.00.
+    versions:
+      - effective_from: '0001-01-01'
+        formula: |-
+          6000
+
+  - name: capital_within_limit
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Derby CTS Scheme 2026–2027, section 4(1), page 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-derby/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: Capital held in excess of the capital limit means that no CTS can be awarded.
+    versions:
+      - effective_from: '0001-01-01'
+        formula: |-
+          applicant_capital <= capital_limit
+
   - name: maximum_council_tax_support_award
     kind: derived
     entity: Person
@@ -84,7 +122,12 @@ rules:
             source:
               corpus_citation_path: uk-derby/manual/council-tax-reduction-scheme-2026-2027/page-4
               excerpt: The minimum contribution that all CTS claimants have to pay towards their Council Tax is 20%.
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-derby/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: Capital held in excess of the capital limit means that no CTS can be awarded.
     versions:
       - effective_from: '0001-01-01'
         formula: |-
-          max(0, maximum_eligible_council_tax * maximum_council_tax_support_rate)
+          if not capital_within_limit: 0 else: max(0, maximum_eligible_council_tax * maximum_council_tax_support_rate)

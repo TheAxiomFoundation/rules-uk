@@ -1039,4 +1039,10 @@ entries:
 - legal_id: uk-southampton:policies/southampton/council-tax-reduction#class_b_excess_income_reduction_rate
   source: manual
   since: '2026-07-24'
-ceiling: 346
+- legal_id: uk-derby:policies/derby/council-tax-reduction#capital_limit
+  source: manual
+  since: '2026-07-24'
+- legal_id: uk-derby:policies/derby/council-tax-reduction#capital_within_limit
+  source: manual
+  since: '2026-07-24'
+ceiling: 348

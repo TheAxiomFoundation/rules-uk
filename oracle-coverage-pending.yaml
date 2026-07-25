@@ -1144,4 +1144,7 @@ entries:
 - legal_id: uk-coventry:policies/coventry/council-tax-reduction#zero_support_rate
   source: manual
   since: '2026-07-25'
-ceiling: 381
+- legal_id: uk-coventry:policies/coventry/council-tax-reduction#maximum_reduction_liability_rate
+  source: manual
+  since: '2026-07-25'
+ceiling: 382

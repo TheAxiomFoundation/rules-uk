@@ -1,0 +1,645 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+  summary: |-
+    Coventry's 2026-27 working-age scheme uses weekly net income less the applicable amount to select one of five discount bands (80%, 65%, 40%, 20%, or 0%). The award applies the selected rate to eligible council tax liability after non-dependant deductions, subject to the £16,000 capital limit. Pages 1-7 concern the out-of-scope pension-age prescribed scheme.
+  deferred_outputs:
+    - output: uk-coventry:policies/coventry/council-tax-reduction/schedule-1#applicable_amount
+      reason: The category-specific personal allowances and premium schedules used to calculate the applicable amount are outside this award-surface module.
+    - output: uk-coventry:policies/coventry/council-tax-reduction/section-1.7#class_e_alternative_maximum_reduction
+      reason: The separate second-adult alternative maximum reduction class is outside this working-age Class D award surface.
+rules:
+  - name: band_1
+    kind: parameter
+    dtype: Number
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "1 80% £0-£14.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: band_2
+    kind: parameter
+    dtype: Number
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "2 65% £15-£39.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: band_3
+    kind: parameter
+    dtype: Number
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "3 40% £40.00-£69.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: band_4
+    kind: parameter
+    dtype: Number
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "4 20% £70.00-£79.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: band_5
+    kind: parameter
+    dtype: Number
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "5 0% £80.00 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "1 80% £0-£14.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: band_2_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "2 65% £15-£39.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.65
+
+  - name: band_3_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "3 40% £40.00-£69.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.40
+
+  - name: band_4_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "4 20% £70.00-£79.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: zero_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "5 0% £80.00 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: band_2_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "2 65% £15-£39.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          15
+
+  - name: band_3_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "3 40% £40.00-£69.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          40
+
+  - name: band_4_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "4 20% £70.00-£79.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          70
+
+  - name: zero_support_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "5 0% £80.00 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          80
+
+  - name: capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 1.7 Class D(g)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: non_dependant_low_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: non_dependant_middle_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: non_dependant_high_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: non_dependant_deduction_low
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£5.20 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5.20
+
+  - name: non_dependant_deduction_middle
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£10.60 x1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10.60
+
+  - name: non_dependant_deduction_high
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£13.30 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          13.30
+
+  - name: non_dependant_deduction_top
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          15.95
+
+  - name: capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 1.7 Class D(g)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          applicant_capital <= capital_limit
+
+  - name: tariff_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if applicant_capital <= tariff_income_threshold: 0 else: ceil((applicant_capital - tariff_income_threshold) / tariff_income_capital_step) * tariff_income_weekly_amount_per_step
+
+  - name: weekly_excess_income
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "the applicant's calculated weekly net income (from all sources) including earnings, unearned income and tariff income from capital; LESS; • the applicant's weekly applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, applicant_weekly_net_income_excluding_tariff + tariff_income_weekly - applicant_weekly_applicable_amount)
+
+  - name: excess_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "Band Council Tax Reduction (Discount) Weekly excess income threshold 1 80% £0-£14.99 2 65% £15-£39.99 3 40% £40.00-£69.99 4 20% £70.00-£79.99 5 0% £80.00 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if weekly_excess_income < band_2_lower_threshold: band_1 else: if weekly_excess_income < band_3_lower_threshold: band_2 else: if weekly_excess_income < band_4_lower_threshold: band_3 else: if weekly_excess_income < zero_support_lower_threshold: band_4 else: band_5
+
+  - name: selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "Band Council Tax Reduction (Discount) Weekly excess income threshold 1 80% £0-£14.99 2 65% £15-£39.99 3 40% £40.00-£69.99 4 20% £70.00-£79.99 5 0% £80.00 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if excess_income_band == band_1: maximum_support_rate else: if excess_income_band == band_2: band_2_support_rate else: if excess_income_band == band_3: band_3_support_rate else: if excess_income_band == band_4: band_4_support_rate else: zero_support_rate
+
+  - name: non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if non_dependant_is_exempt: 0 else: if non_dependant_normal_gross_weekly_income < non_dependant_low_income_threshold: non_dependant_deduction_low else: if non_dependant_normal_gross_weekly_income < non_dependant_middle_income_threshold: non_dependant_deduction_middle else: if non_dependant_normal_gross_weekly_income < non_dependant_high_income_threshold: non_dependant_deduction_high else: non_dependant_deduction_top
+
+  - name: maximum_council_tax_reduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "A is the amount set by the appropriate authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, annual_council_tax_liability_after_statutory_discounts - annual_non_dependant_deductions)
+
+  - name: council_tax_reduction_award
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Coventry Council Tax Reduction Scheme 2026/27, Schedule 2 paragraph 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-114
+              excerpt: "Any reduction will be calculated based on the council tax liability defined within Section 57 of this scheme (maximum council tax reduction)"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-coventry/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if capital_eligible: maximum_council_tax_reduction * selected_support_rate else: 0

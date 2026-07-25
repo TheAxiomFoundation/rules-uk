@@ -39,8 +39,8 @@ rules:
           - path: versions[0].formula
             kind: amount
             source:
-              corpus_citation_path: uk-kingston-upon-thames/manual/council-tax-reduction-scheme-2026-2027/page-76
-              excerpt: "not exceeding £16,000"
+              corpus_citation_path: uk-kingston-upon-thames/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "any person whose capital exceeds £16000"
     versions:
       - effective_from: '2026-04-01'
         formula: |-
@@ -391,8 +391,8 @@ rules:
           - path: versions[0].formula
             kind: condition
             source:
-              corpus_citation_path: uk-kingston-upon-thames/manual/council-tax-reduction-scheme-2026-2027/page-76
-              excerpt: "not exceeding £16,000"
+              corpus_citation_path: uk-kingston-upon-thames/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "any person whose capital exceeds £16000"
     versions:
       - effective_from: '2026-04-01'
         formula: |-

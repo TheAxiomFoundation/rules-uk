@@ -10,10 +10,10 @@
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_non_dependant_deductions: 0
   output:
-    uk-coventry:policies/coventry/council-tax-reduction#maximum_support_rate: 0.80
+    uk-coventry:policies/coventry/council-tax-reduction#maximum_support_rate: 0.8
     uk-coventry:policies/coventry/council-tax-reduction#band_2_support_rate: 0.65
-    uk-coventry:policies/coventry/council-tax-reduction#band_3_support_rate: 0.40
-    uk-coventry:policies/coventry/council-tax-reduction#band_4_support_rate: 0.20
+    uk-coventry:policies/coventry/council-tax-reduction#band_3_support_rate: 0.4
+    uk-coventry:policies/coventry/council-tax-reduction#band_4_support_rate: 0.2
     uk-coventry:policies/coventry/council-tax-reduction#zero_support_rate: 0
     uk-coventry:policies/coventry/council-tax-reduction#band_2_lower_threshold: 15
     uk-coventry:policies/coventry/council-tax-reduction#band_3_lower_threshold: 40
@@ -26,9 +26,8 @@
     uk-coventry:policies/coventry/council-tax-reduction#tariff_income_weekly: 0
     uk-coventry:policies/coventry/council-tax-reduction#weekly_excess_income: 14.99
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 1
-    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.80
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 800
-
+    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.8
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 640
 - name: coventry_ctr_band_2_lower_edge
   period:
     period_kind: tax_year
@@ -43,8 +42,7 @@
   output:
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 2
     uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.65
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 650
-
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 520
 - name: coventry_ctr_band_3
   period:
     period_kind: tax_year
@@ -58,9 +56,8 @@
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_non_dependant_deductions: 0
   output:
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 3
-    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.40
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 400
-
+    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.4
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 320
 - name: coventry_ctr_band_4
   period:
     period_kind: tax_year
@@ -74,9 +71,8 @@
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_non_dependant_deductions: 0
   output:
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 4
-    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.20
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 200
-
+    uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0.2
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 160
 - name: coventry_ctr_band_4_upper_edge
   period:
     period_kind: tax_year
@@ -90,8 +86,7 @@
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_non_dependant_deductions: 0
   output:
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 4
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 200
-
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 160
 - name: coventry_ctr_band_5_zero_award
   period:
     period_kind: tax_year
@@ -107,7 +102,6 @@
     uk-coventry:policies/coventry/council-tax-reduction#excess_income_band: 5
     uk-coventry:policies/coventry/council-tax-reduction#selected_support_rate: 0
     uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 0
-
 - name: coventry_ctr_tariff_income_partial_step_rounds_up
   period:
     period_kind: tax_year
@@ -123,8 +117,7 @@
     uk-coventry:policies/coventry/council-tax-reduction#capital_eligible: holds
     uk-coventry:policies/coventry/council-tax-reduction#tariff_income_weekly: 2
     uk-coventry:policies/coventry/council-tax-reduction#weekly_excess_income: 2
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 800
-
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 640
 - name: coventry_ctr_capital_cliff
   period:
     period_kind: tax_year
@@ -139,7 +132,6 @@
   output:
     uk-coventry:policies/coventry/council-tax-reduction#capital_eligible: not_holds
     uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 0
-
 - name: coventry_ctr_non_dependant_parameter_table
   period:
     period_kind: tax_year
@@ -152,12 +144,11 @@
     uk-coventry:policies/coventry/council-tax-reduction#non_dependant_low_income_threshold: 279
     uk-coventry:policies/coventry/council-tax-reduction#non_dependant_middle_income_threshold: 485
     uk-coventry:policies/coventry/council-tax-reduction#non_dependant_high_income_threshold: 605
-    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_low: 5.20
-    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_middle: 10.60
-    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_high: 13.30
+    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_low: 5.2
+    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_middle: 10.6
+    uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_high: 13.3
     uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_top: 15.95
     uk-coventry:policies/coventry/council-tax-reduction#non_dependant_deduction_weekly: 15.95
-
 - name: coventry_ctr_non_dependant_deductions_reduce_liability
   period:
     period_kind: tax_year
@@ -170,9 +161,8 @@
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
     uk-coventry:policies/coventry/council-tax-reduction#input.annual_non_dependant_deductions: 100
   output:
-    uk-coventry:policies/coventry/council-tax-reduction#maximum_council_tax_reduction: 900
-    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 720
-
+    uk-coventry:policies/coventry/council-tax-reduction#maximum_council_tax_reduction: 700
+    uk-coventry:policies/coventry/council-tax-reduction#council_tax_reduction_award: 560
 - name: coventry_ctr_exempt_non_dependant_zero_deduction
   period:
     period_kind: tax_year

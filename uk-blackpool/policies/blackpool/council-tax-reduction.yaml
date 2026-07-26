@@ -1,0 +1,883 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+  summary: |-
+    Blackpool's operative 2026-2027 local working-age scheme uses a 100 percent
+    maximum, a 2 6/7 percent daily excess-income taper (20 percent weekly),
+    a £16,000 capital limit with £1 weekly tariff income for each £250 or part
+    above £6,000, and four working-age non-dependant deduction bands. After the
+    means-test assessment, the scheme reduces the award by 27.11 percent for
+    ordinary working-age claimants or 13.56 percent for the protected classes
+    listed in section 59A.2. No minimum-award floor or council-tax band cap is
+    stated. The pension-age prescribed scheme and its Class C alternative
+    maximum reduction are outside this working-age module.
+  deferred_outputs:
+    - output: uk-blackpool:policies/blackpool/council-tax-reduction/schedule-1#applicable_premiums_amount
+      reason: >-
+        Schedule 1 contains category-specific premium eligibility and amount
+        schedules used in the applicable amount. This award-surface module
+        accepts the calculated weekly applicable amount as an input and does
+        not treat omitted premiums as zero.
+rules:
+  - name: blackpool_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "shall be 100 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: blackpool_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "the prescribed amount is £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: blackpool_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: blackpool_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: blackpool_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: blackpool_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: blackpool_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 14.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "multiply the maximum amount by 12 and divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: blackpool_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: blackpool_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1 weekly equivalent
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "shall be 2 6/7 per cent."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_daily_taper_rate * blackpool_council_tax_reduction_days_per_week
+
+  - name: blackpool_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 6.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "not less than 16 hours a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: blackpool_council_tax_reduction_non_dependant_minimum_age
+    kind: parameter
+    dtype: Number
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "aged 18 or over"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          18
+
+  - name: blackpool_council_tax_reduction_non_dependant_first_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.2(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: blackpool_council_tax_reduction_non_dependant_second_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.2(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: blackpool_council_tax_reduction_non_dependant_third_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.2(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: blackpool_council_tax_reduction_non_dependant_weekly_deduction_by_income_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: blackpool_council_tax_reduction_non_dependant_income_band
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              table:
+                header: "Working-age non-dependant normal gross weekly income and deduction"
+                row_key: "normal gross weekly income band"
+                column_key: "weekly deduction before multiplication by 1/7"
+              excerpt: |-
+                58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: blackpool_council_tax_reduction_standard_entitlement_reduction_rate
+    kind: parameter
+    dtype: Rate
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Schedule 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-137
+              excerpt: "a percentage reduction of 27.11% will be applied with the exception of the claimants listed in section 59A.2 who will have a percentage reduction of 13.56% applied."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.2711
+
+  - name: blackpool_council_tax_reduction_protected_entitlement_reduction_rate
+    kind: parameter
+    dtype: Rate
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Schedule 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-137
+              excerpt: "a percentage reduction of 27.11% will be applied with the exception of the claimants listed in section 59A.2 who will have a percentage reduction of 13.56% applied."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.1356
+
+  - name: blackpool_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 1.6-1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_blackpool and blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+
+  - name: blackpool_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no entitlement to support if capital exceeds prescribed amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_assessed_capital_for_year <= blackpool_council_tax_reduction_capital_limit
+
+  - name: blackpool_council_tax_reduction_award_conditions_satisfied
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Class D and E conditions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "have made a valid application for reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and blackpool_council_tax_reduction_capital_eligible
+
+  - name: blackpool_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "Where the claimant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000. 42.2 Notwithstanding paragraph 42.1 where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if blackpool_council_tax_reduction_assessed_capital_for_year <= blackpool_council_tax_reduction_tariff_income_threshold: 0 else: ceil((min(blackpool_council_tax_reduction_assessed_capital_for_year, blackpool_council_tax_reduction_capital_limit) - blackpool_council_tax_reduction_tariff_income_threshold) / blackpool_council_tax_reduction_tariff_income_capital_step) * blackpool_council_tax_reduction_tariff_income_weekly_amount_per_step
+
+  - name: blackpool_council_tax_reduction_countable_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "it shall be treated as equivalent to a weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly + blackpool_council_tax_reduction_tariff_income_weekly
+
+  - name: blackpool_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Class D and section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "the person’s income4 is less than their applicable amount5 or the applicant or partner is in receipt of income support, jobseekers’ allowance (income based) or employment and support allowance (income related)"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies: 0 else: max(0, blackpool_council_tax_reduction_countable_income_weekly - blackpool_council_tax_reduction_applicable_amount_weekly)
+
+  - name: blackpool_council_tax_reduction_income_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "their excess income multiplied by the taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_excess_income_weekly * blackpool_council_tax_reduction_withdrawal_rate
+
+  - name: blackpool_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "their excess income multiplied by the taper"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_income_taper_deduction_weekly * blackpool_council_tax_reduction_weeks_per_year
+
+  - name: blackpool_council_tax_reduction_non_dependant_in_remunerative_work
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 6.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "not less than 16 hours a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_non_dependant_weekly_hours >= blackpool_council_tax_reduction_remunerative_work_hours
+
+  - name: blackpool_council_tax_reduction_non_dependant_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not blackpool_council_tax_reduction_non_dependant_in_remunerative_work: 0 else: if blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income < blackpool_council_tax_reduction_non_dependant_first_income_cutoff: 0 else: if blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income < blackpool_council_tax_reduction_non_dependant_second_income_cutoff: 1 else: if blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income < blackpool_council_tax_reduction_non_dependant_third_income_cutoff: 2 else: 3
+
+  - name: blackpool_council_tax_reduction_adult_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 3.1, 58.1 and 58.6-58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "‘non-dependant’ means any person"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "a non-dependant aged 18 or over"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "No deduction shall be made in respect of a non-dependant;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_person_is_non_dependant and blackpool_council_tax_reduction_non_dependant_age >= blackpool_council_tax_reduction_non_dependant_minimum_age and not blackpool_council_tax_reduction_non_dependant_is_exempt
+
+  - name: blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 58.1-58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: |-
+                58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "No deduction shall be made in respect of a non-dependant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if blackpool_council_tax_reduction_adult_deduction_applies: blackpool_council_tax_reduction_non_dependant_weekly_deduction_by_income_band[blackpool_council_tax_reduction_non_dependant_income_band] else: 0
+
+  - name: blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly / blackpool_council_tax_reduction_days_per_week
+
+  - name: blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 58
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "the non-dependant deductions in respect of a day"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly * blackpool_council_tax_reduction_weeks_per_year
+
+  - name: blackpool_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "shall be 100 per cent, of the amount A/B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "less any deductions in respect of non­ dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, blackpool_council_tax_reduction_eligible_liability_for_year * blackpool_council_tax_reduction_maximum_support_rate - blackpool_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: blackpool_council_tax_reduction_assessed_amount_before_schedule_6_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax support"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, blackpool_council_tax_reduction_maximum_amount_for_year - blackpool_council_tax_reduction_income_taper_deduction_for_year)
+
+  - name: blackpool_council_tax_reduction_section_59a_2_protected_class
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59A.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant or their partner receive, Disability Living Allowance or a Personal Independence Payment;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "An applicant who is a lone parent and who is responsible and resides with a child under 5 years old ;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant or their partners receives carers allowance;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant or their partner is in receipt of a war pension, war widows’ pension, war disablement pension or equivalent;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant or their partner receive: o Income Support; or o Income Related Employment and Support Allowance; or o Income Based Jobseeker’s Allowance;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant or their partner is in receipt of Universal Credit and immediately prior to receipt of that were in receipt of: o Income Support; or o Income Related Employment and Support Allowance; or o Income Based Jobseeker’s Allowance;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant, or their partner, is in receipt of Jobseeker’s Allowance Contribution Based;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant, or their partner, is in receipt of Main Phase Employment and Support Allowance and are in the Work Related Activity Group;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant is in receipt of Maximum Universal Credit and is neither employed, self-employed or in receipt of any other income which is taken into account when calculating their Universal Credit award;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Where the applicant is in receipt of Universal Credit which includes any of the following elements: o Limited capability for work o Limited capability for work & work related activity."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+          or blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+          or blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+          or blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+          or blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+          or blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+          or blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+          or blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+          or blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+          or blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+
+  - name: blackpool_council_tax_reduction_selected_entitlement_reduction_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Schedule 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-137
+              excerpt: "a percentage reduction of 27.11% will be applied with the exception of the claimants listed in section 59A.2 who will have a percentage reduction of 13.56% applied."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if blackpool_council_tax_reduction_section_59a_2_protected_class: blackpool_council_tax_reduction_protected_entitlement_reduction_rate else: blackpool_council_tax_reduction_standard_entitlement_reduction_rate
+
+  - name: blackpool_council_tax_reduction_retained_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Blackpool Council Tax Reduction Scheme 2026/27 Schedule 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-137
+              excerpt: "at the end of the assessment, a percentage reduction of 27.11% will be applied"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          blackpool_council_tax_reduction_maximum_support_rate - blackpool_council_tax_reduction_selected_entitlement_reduction_rate
+
+  - name: blackpool_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 59.1, 59A and Schedule 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "Any entitlement calculated in accordance with this scheme shall be reduced by a percentage as shown in Schedule 6."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-137
+              excerpt: "For working age claimants , at the end of the assessment, a percentage reduction of 27.11% will be applied with the exception of the claimants listed in section 59A.2 who will have a percentage reduction of 13.56% applied."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if blackpool_council_tax_reduction_award_conditions_satisfied: blackpool_council_tax_reduction_assessed_amount_before_schedule_6_for_year * blackpool_council_tax_reduction_retained_support_rate else: 0
+
+  - name: blackpool_maximum_support_rate_restatement
+    kind: source_relation
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 57.1
+    source_relation:
+      type: restates
+      target: uk:regulations/uksi/2012/2886/schedule/paragraph/29#maximum_council_tax_reduction_percentage
+    metadata:
+      match:
+        corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-70
+
+  - name: blackpool_daily_taper_restatement
+    kind: source_relation
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 59.1
+    source_relation:
+      type: restates
+      target: uk:regulations/uksi/2012/2886/schedule/paragraph/17#income_excess_reduction_percentage
+    metadata:
+      match:
+        corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-72
+
+  - name: blackpool_capital_limit_restatement
+    kind: source_relation
+    source: Blackpool Council Tax Reduction Scheme 2026/27 section 33.1
+    source_relation:
+      type: restates
+      target: uk:regulations/uksi/2012/2886/schedule/paragraph/23#capital_disqualification_limit
+    metadata:
+      match:
+        corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-53
+
+  - name: blackpool_tariff_income_restatement
+    kind: source_relation
+    source: Blackpool Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    source_relation:
+      type: restates
+      target: uk:regulations/uksi/2012/2886/schedule/paragraph/72#weekly_income_treated_as_from_non_pensioner_capital
+    metadata:
+      match:
+        corpus_citation_path: uk-blackpool/manual/council-tax-reduction-scheme-2026-2027/page-58

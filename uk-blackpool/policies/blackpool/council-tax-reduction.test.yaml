@@ -1,0 +1,559 @@
+- name: blackpool_ctr_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_maximum_support_rate: 1
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_capital_limit: 16000
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_threshold: 6000
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_capital_step: 250
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_days_per_week: 7
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_weeks_per_year: 52
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_withdrawal_rate: '0.2000000000000000000000000002'
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_remunerative_work_hours: 16
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_minimum_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_first_income_cutoff: 279
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_second_income_cutoff: 485
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_third_income_cutoff: 605
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_standard_entitlement_reduction_rate: 0.2711
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_protected_entitlement_reduction_rate: 0.1356
+- name: blackpool_ctr_ordinary_full_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_working_age_scheme_applies: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_capital_eligible: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_award_conditions_satisfied: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_countable_income_weekly: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_excess_income_weekly: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_income_taper_deduction_weekly: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_maximum_amount_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_assessed_amount_before_schedule_6_for_year
+    : 1000
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_section_59a_2_protected_class: not_holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_selected_entitlement_reduction_rate: 0.2711
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_retained_support_rate: 0.7289
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 728.9
+- name: blackpool_ctr_protected_full_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_section_59a_2_protected_class: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_selected_entitlement_reduction_rate: 0.1356
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_retained_support_rate: 0.8644
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 864.4
+- name: blackpool_ctr_positive_taper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 105
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 100
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_countable_income_weekly: 105
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_excess_income_weekly: 5
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_income_taper_deduction_weekly: 1
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_income_taper_deduction_for_year: 52
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_assessed_amount_before_schedule_6_for_year
+    : 948
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 690.9972
+- name: blackpool_ctr_taper_exhausts_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 100
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_assessed_amount_before_schedule_6_for_year
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 0
+- name: blackpool_ctr_tariff_at_threshold
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 6000
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 0
+- name: blackpool_ctr_tariff_first_partial_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 6001
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 1
+- name: blackpool_ctr_tariff_second_partial_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 6251
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 2
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_countable_income_weekly: 2
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_excess_income_weekly: 2
+- name: blackpool_ctr_capital_limit_is_eligible_with_passporting
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 16000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 100
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_capital_eligible: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 40
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_excess_income_weekly: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 728.9
+- name: blackpool_ctr_capital_cliff_not_bypassed_by_passporting
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 16001
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_capital_eligible: not_holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_award_conditions_satisfied: not_holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_tariff_income_weekly: 40
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 0
+- name: blackpool_ctr_non_dependant_not_in_remunerative_work_uses_band_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 700
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_in_remunerative_work: not_holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_adult_deduction_applies: holds
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : '0.7428571428571428571428571429'
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 270.4
+- name: blackpool_ctr_non_dependant_second_band_lower_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 279
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 1
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : '1.5142857142857142857142857143'
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 551.2
+- name: blackpool_ctr_non_dependant_third_band_lower_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 485
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 2
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : 1.9
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 691.6
+- name: blackpool_ctr_non_dependant_top_band_lower_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 605
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 3
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 15.95
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : '2.2785714285714285714285714286'
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 829.4
+- name: blackpool_ctr_under_18_non_dependant_has_zero_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 17
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 605
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_adult_deduction_applies: not_holds
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 0
+- name: blackpool_ctr_exempt_non_dependant_has_zero_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 605
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_adult_deduction_applies: not_holds
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 0
+- name: blackpool_ctr_non_dependant_deduction_precedes_schedule_6_reduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.local_authority_is_blackpool: true
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_working_age_scheme_applicant
+    : true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_assessed_capital_for_year: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_income_excluding_tariff_weekly
+    : 0
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicable_amount_weekly: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_legacy_income_based_benefit_passport_applies
+    : false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_eligible_liability_for_year: 1000
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_deductions_for_year
+    : 100
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_dla_or_pip
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_is_lone_parent_with_child_under_five
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_carers_allowance
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_qualifying_war_pension
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_followed_legacy_income_based_benefit
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_contribution_based_jsa
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_or_partner_receives_main_phase_esa_work_related_activity
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_applicant_receives_maximum_uc_without_earned_or_other_counted_income
+    : false
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_universal_credit_includes_lcw_or_lcwra
+    : false
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_maximum_amount_for_year: 900
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_annual_amount: 656.01
+- name: blackpool_ctr_non_dependant_second_band_immediately_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 278.99
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 0
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : '0.7428571428571428571428571429'
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 270.4
+- name: blackpool_ctr_non_dependant_third_band_immediately_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 484.99
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 1
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : '1.5142857142857142857142857143'
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 551.2
+- name: blackpool_ctr_non_dependant_top_band_immediately_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_person_is_non_dependant: true
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_age: 18
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_is_exempt: false
+    uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_weekly_hours: 16
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#input.blackpool_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 604.99
+  output:
+    uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_non_dependant_income_band: 2
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_day
+    : 1.9
+    ? uk-blackpool:policies/blackpool/council-tax-reduction#blackpool_council_tax_reduction_individual_non_dependant_deduction_for_year
+    : 691.6

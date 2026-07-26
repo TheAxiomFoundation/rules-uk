@@ -1,0 +1,1256 @@
+format: rulespec/v1
+rules:
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_standard_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "shall be 78 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.78
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "The amount specified is paragraph 57.1 shall be 100% of the band relevant to the dwelling"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_standard_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "the prescribed amount is £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_protected_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, working-age Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "The capital limit set in classes D and E above will be £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 1(e)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-176
+              excerpt: "must not have capital or savings greater than £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "capital calculated in accordance with this scheme exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_tariff_income_upper_capital
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "but not exceeding £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 42.1 and 42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 42.1 and 42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£0.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_weekly_taper_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "shall be 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£0.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          bath_and_north_east_somerset_council_tax_reduction_daily_taper_rate * bath_and_north_east_somerset_council_tax_reduction_days_per_week
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_non_remunerative_work_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "sub­ paragraph (a) does not apply, £0.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_remunerative_work_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "in remunerative work, £0.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_non_dependant_work_status_index
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax support) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £0.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub­ paragraph (a) does not apply, £0.00 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if non_dependant_is_in_remunerative_work: bath_and_north_east_somerset_council_tax_reduction_remunerative_work_index else: bath_and_north_east_somerset_council_tax_reduction_non_remunerative_work_index
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_non_dependant_weekly_deduction_by_work_status
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: bath_and_north_east_somerset_council_tax_reduction_non_dependant_work_status_index
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax support) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £0.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub­ paragraph (a) does not apply, £0.00 x 1/7."
+              table:
+                header: "Working-age Classes D and E non-dependant deductions"
+                row_key: "remunerative-work status"
+                column_key: "weekly deduction before multiplication by 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_zero_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "6 £448.06 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_full_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "1 £0.00 - £98.05 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_85_percent_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "2 £98.06 - £198.05 85%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_60_percent_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "3 £198.06 - £298.05 60%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_40_percent_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "4 £298.06 - £398.05 40%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_20_percent_support_band_index
+    kind: parameter
+    dtype: Integer
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "5 £398.06 - £448.05 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+              table:
+                header: "Class F weekly income bands and percentage reductions"
+                row_key: "support-band index"
+                column_key: "percentage reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 0.85
+          3: 0.60
+          4: 0.40
+          5: 0.20
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 single-person income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+              table:
+                header: "Class F single-person weekly income ranges"
+                row_key: "support-band index"
+                column_key: "lower bound"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 448.06
+          1: 0
+          2: 98.06
+          3: 198.06
+          4: 298.06
+          5: 398.06
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 couple income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+              table:
+                header: "Class F couple weekly income ranges"
+                row_key: "support-band index"
+                column_key: "lower bound"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 503.93
+          1: 0
+          2: 153.93
+          3: 253.93
+          4: 353.93
+          5: 453.93
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_increment
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          50
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_maximum_children_for_band_adjustment
+    kind: parameter
+    dtype: Number
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "subject to a maximum of 2 children or young people"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 1(d)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-176
+              excerpt: "have been assessed by the Secretary of State for Work and Pensions (DWP) for Universal Credit and either been awarded Universal Credit, or would have been awarded Universal Credit other than for any amendments, pre-payments, sanctions or waiting days"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          applicant_or_partner_has_been_assessed_for_universal_credit and applicant_or_partner_has_or_would_have_qualifying_universal_credit_award
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "Where the applicant or their partner is in receipt of; • Support Component of Employment and Support Allowance (ESA); or • Enhanced Disability Premium (EDP); or • Enhanced Disability Premium for Dependants; or • Disability Child Premium for Dependents (DCP); or • Severe Disability Premium (SDP)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          applicant_or_partner_receives_listed_protected_component_or_premium
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_selected_capital_limit
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 33.1 and working-age Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "the prescribed amount is £10,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "The capital limit set in classes D and E above will be £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies: bath_and_north_east_somerset_council_tax_reduction_legacy_protected_capital_limit else: bath_and_north_east_somerset_council_tax_reduction_legacy_standard_capital_limit
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "no entitlement to support if capital exceeds prescribed amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          legacy_assessed_capital <= bath_and_north_east_somerset_council_tax_reduction_legacy_selected_capital_limit
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 1(e)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-176
+              excerpt: "must not have capital or savings greater than £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_capital <= bath_and_north_east_somerset_council_tax_reduction_class_f_capital_limit
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_capital_exceeds_tariff_threshold
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "capital calculated in accordance with this scheme exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          legacy_assessed_capital > bath_and_north_east_somerset_council_tax_reduction_tariff_income_threshold
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_tariff_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 42.1 and 42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £10,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_legacy_capital_exceeds_tariff_threshold: ceil((min(legacy_assessed_capital, bath_and_north_east_somerset_council_tax_reduction_tariff_income_upper_capital) - bath_and_north_east_somerset_council_tax_reduction_tariff_income_threshold) / bath_and_north_east_somerset_council_tax_reduction_tariff_income_capital_step) * bath_and_north_east_somerset_council_tax_reduction_tariff_income_weekly_amount_per_step else: 0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_excess_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "Where an applicant’s income exceeds their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, legacy_weekly_income_excluding_tariff + bath_and_north_east_somerset_council_tax_reduction_legacy_tariff_income_weekly - legacy_weekly_applicable_amount)
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_selected_maximum_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Day
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 57.1 and 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "shall be 78 per cent, of the amount A/B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "shall be 100% of the band relevant to the dwelling"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies: bath_and_north_east_somerset_council_tax_reduction_legacy_protected_maximum_support_rate else: bath_and_north_east_somerset_council_tax_reduction_legacy_standard_maximum_support_rate
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_eligible_annual_liability
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 57.1 and 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "(a) A is the lower of either; i. the amount set by the appropriate authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; or ii. the amount set by the appropriate authority as the council tax for the relevant financial year in respect of a dwelling within Band D subject to any discount which may be appropriate to the person’s circumstances"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "100% of the band relevant to the dwelling in which he is a resident"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies: legacy_actual_annual_council_tax_liability_after_discounts else: min(legacy_actual_annual_council_tax_liability_after_discounts, legacy_band_d_annual_council_tax_liability_after_discounts)
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax support) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £0.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub­ paragraph (a) does not apply, £0.00 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (bath_and_north_east_somerset_council_tax_reduction_non_dependant_weekly_deduction_by_work_status[bath_and_north_east_somerset_council_tax_reduction_non_remunerative_work_index] * number_of_non_dependants_not_in_remunerative_work) + (bath_and_north_east_somerset_council_tax_reduction_non_dependant_weekly_deduction_by_work_status[bath_and_north_east_somerset_council_tax_reduction_remunerative_work_index] * number_of_non_dependants_in_remunerative_work)
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_maximum_support_daily
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 57.1, 57.1A, and 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "shall be 78 per cent, of the amount A/B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "(b) B is the number of days in that financial year"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, (bath_and_north_east_somerset_council_tax_reduction_legacy_eligible_annual_liability * bath_and_north_east_somerset_council_tax_reduction_legacy_selected_maximum_support_rate / legacy_number_of_days_in_financial_year) - (bath_and_north_east_somerset_council_tax_reduction_legacy_non_dependant_deduction_weekly / bath_and_north_east_somerset_council_tax_reduction_days_per_week))
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_taper_deduction_daily
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax support"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          bath_and_north_east_somerset_council_tax_reduction_legacy_excess_income_weekly * bath_and_north_east_somerset_council_tax_reduction_daily_taper_rate
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_award_daily
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, working-age Class E and paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "their council tax support shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax support"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "no entitlement to support if capital exceeds prescribed amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible: max(0, bath_and_north_east_somerset_council_tax_reduction_legacy_maximum_support_daily - bath_and_north_east_somerset_council_tax_reduction_legacy_taper_deduction_daily) else: 0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_legacy_award_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, paragraphs 57.1 and 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "maximum council tax support in respect of a day"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£0.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          bath_and_north_east_somerset_council_tax_reduction_legacy_award_daily * bath_and_north_east_somerset_council_tax_reduction_days_per_week
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person who normally resides in their household, subject to a maximum of 2 children or young people"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_increment * min(max(0, class_f_number_of_children_or_young_people), bath_and_north_east_somerset_council_tax_reduction_class_f_maximum_children_for_band_adjustment)
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_band_2_lower_bound
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5 and income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "2 £98.06 - £198.05 85%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "2 £153.93 - £253.92 85%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (if class_f_applicant_has_partner: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_85_percent_support_band_index] else: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_85_percent_support_band_index]) + bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_band_3_lower_bound
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5 and income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "3 £198.06 - £298.05 60%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "3 £253.93 - £353.92 60%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (if class_f_applicant_has_partner: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_60_percent_support_band_index] else: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_60_percent_support_band_index]) + bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_band_4_lower_bound
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5 and income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "4 £298.06 - £398.05 40%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "4 £353.93 - £453.92 40%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (if class_f_applicant_has_partner: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_40_percent_support_band_index] else: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_40_percent_support_band_index]) + bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_band_5_lower_bound
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5 and income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "5 £398.06 - £448.05 20%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "5 £453.93 - £503.92 20%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (if class_f_applicant_has_partner: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_20_percent_support_band_index] else: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_20_percent_support_band_index]) + bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_zero_band_lower_bound
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraph 5 and income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "6 £448.06 0%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "6 £503.93 0%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "increased at the upper and lower ends of the values by £50 for each child or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (if class_f_applicant_has_partner: bath_and_north_east_somerset_council_tax_reduction_class_f_couple_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_zero_support_band_index] else: bath_and_north_east_somerset_council_tax_reduction_class_f_single_lower_bound_by_band[bath_and_north_east_somerset_council_tax_reduction_zero_support_band_index]) + bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_2_boundary
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 1 and Band 2 boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_weekly_income < bath_and_north_east_somerset_council_tax_reduction_class_f_band_2_lower_bound
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_3_boundary
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 2 and Band 3 boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_weekly_income < bath_and_north_east_somerset_council_tax_reduction_class_f_band_3_lower_bound
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_4_boundary
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 3 and Band 4 boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_weekly_income < bath_and_north_east_somerset_council_tax_reduction_class_f_band_4_lower_bound
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_5_boundary
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 4 and Band 5 boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_weekly_income < bath_and_north_east_somerset_council_tax_reduction_class_f_band_5_lower_bound
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_zero_band_boundary
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 Band 5 and Band 6 boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "5 £398.06 - £448.05 20% 6 £448.06 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          class_f_assessed_weekly_income < bath_and_north_east_somerset_council_tax_reduction_class_f_zero_band_lower_bound
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_2_boundary: bath_and_north_east_somerset_council_tax_reduction_full_support_band_index else: if bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_3_boundary: bath_and_north_east_somerset_council_tax_reduction_85_percent_support_band_index else: if bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_4_boundary: bath_and_north_east_somerset_council_tax_reduction_60_percent_support_band_index else: if bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_5_boundary: bath_and_north_east_somerset_council_tax_reduction_40_percent_support_band_index else: if bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_zero_band_boundary: bath_and_north_east_somerset_council_tax_reduction_20_percent_support_band_index else: bath_and_north_east_somerset_council_tax_reduction_zero_support_band_index
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Week
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 income-band table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          bath_and_north_east_somerset_council_tax_reduction_class_f_support_rate_by_band[bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index]
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_class_f_award_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, Schedule 6 paragraphs 2 and 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-176
+              excerpt: "‘Council Tax Liability’ means the actual weekly Council Tax liability of the applicant after any discounts, disregards, exemptions, or reductions."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-180
+              excerpt: "the reduction applied will be equal to a percentage of the liability"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-176
+              excerpt: "must not have capital or savings greater than £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_class_f_capital_eligible: max(0, class_f_actual_weekly_council_tax_liability * bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate) else: 0
+
+  - name: bath_and_north_east_somerset_council_tax_reduction_award_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bath and North East Somerset Council Tax Reduction Scheme 2026/27, working-age Classes D, E, and F
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "Applies to persons defined by Classes D and E"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-175
+              excerpt: "Schedule 6 Class F only"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-90
+              excerpt: "shall be 78 per cent, of the amount A/B"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+              excerpt: "Single Person Income Band Weekly Income Range Percentage reduction 1 £0.00 - £98.05 100% 2 £98.06 - £198.05 85% 3 £198.06 - £298.05 60% 4 £298.06 - £398.05 40% 5 £398.06 - £448.05 20% 6 £448.06 0% Couple Income Band Weekly Income Range Percentage reduction 1 £0.00 - £153.92 100% 2 £153.93 - £253.92 85% 3 £253.93 - £353.92 60% 4 £353.93 - £453.92 40% 5 £453.93 - £503.92 20% 6 £503.93 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bath_and_north_east_somerset_council_tax_reduction_class_f_applies: max(0, bath_and_north_east_somerset_council_tax_reduction_class_f_award_weekly) else: max(0, bath_and_north_east_somerset_council_tax_reduction_legacy_award_weekly)
+
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
+  summary: |-
+    The adopted scheme operates from 1 April 2026 through 31 March 2027. Its
+    working-age award surface is hybrid: non-UC Classes D and E use a 78%
+    maximum subject to a Band D liability cap, with a 100% actual-band override
+    for listed protected classes and a 2 6/7% daily excess-income taper; UC
+    Class F applies the printed 100%, 85%, 60%, 40%, 20%, or 0% income-band
+    rate directly to actual weekly liability. Pension-age provisions are outside
+    this module.
+  deferred_outputs:
+    - output: uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction/schedule-1#legacy_weekly_applicable_amount
+      reason: The category-specific personal allowances and premium schedules used to calculate the Classes D and E applicable amount are outside this award-surface module.
+    - output: uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction/sections-15-32#legacy_weekly_income_excluding_tariff
+      reason: The detailed working-age legacy income assessment and disregard schedules are outside this award-surface module.
+    - output: uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction/schedule-6/paragraphs-2-4#class_f_assessed_weekly_income
+      reason: The component-level Universal Credit income and disregard calculation is outside this award-surface module; this module consumes its assessed weekly result.

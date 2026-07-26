@@ -1,0 +1,1654 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+  summary: |-
+    Section 13A of the Local Government Finance Act 1992 delegates working-age Council Tax Reduction scheme design to North Yorkshire Council, so the Council's adopted 2026-2027 scheme document is the operative source for these local rules. The statutory delegation and national prescribed/default schemes were checked at uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. North Yorkshire's operative working-age calculation is a banded discount scheme, not the pension-age taper printed earlier in the composite document. The local award uses a 100 percent maximum, family-specific weekly income bands of 100, 75, 50, or 25 percent, a capital cliff at £6,000, specified passported benefits, and a £40 disability-premium income disregard. The working-age text contains no tariff-income rule or non-dependant deduction.
+  deferred_outputs:
+    - output: uk-north-yorkshire:policies/north-yorkshire/council-tax-reduction/sections-11-to-25-and-schedule-2#assessed_weekly_income_before_disability_premium_disregard
+      reason: The award surface consumes assessed weekly applicant-and-partner income after the scheme's earnings calculations and general income disregards. Those underlying income-definition schedules are outside this module.
+    - output: uk-north-yorkshire:policies/north-yorkshire/council-tax-reduction/schedule-2/paragraph-72#qualifies_for_disability_premium_income_disregard
+      reason: Paragraph 72 preserves a £40 disregard where counterfactual disability-premium entitlement exists. This module encodes the amount and its effect, while the premium-entitlement classifier remains a future self-scoped output.
+    - output: uk-north-yorkshire:policies/north-yorkshire/council-tax-reduction/sections-27-to-34-and-schedule-3#assessed_capital
+      reason: The award surface applies the local £6,000 cliff to assessed capital. The scheme's valuation, attribution, notional-capital, and capital-disregard schedules are outside this module.
+rules:
+  - name: north_yorkshire_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: north_yorkshire_council_tax_reduction_band_a_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: north_yorkshire_council_tax_reduction_band_b_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: north_yorkshire_council_tax_reduction_band_c_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.50
+
+  - name: north_yorkshire_council_tax_reduction_band_d_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.25
+
+  - name: north_yorkshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: north_yorkshire_council_tax_reduction_disability_premium_income_disregard_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "a further disregard of £40 shall be a made from their income."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          40
+
+  - name: north_yorkshire_council_tax_reduction_band_a_minimum_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.00
+
+  - name: north_yorkshire_council_tax_reduction_single_band_a_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          151.00
+
+  - name: north_yorkshire_council_tax_reduction_single_band_b_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          151.01
+
+  - name: north_yorkshire_council_tax_reduction_single_band_b_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          201.00
+
+  - name: north_yorkshire_council_tax_reduction_single_band_c_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          201.01
+
+  - name: north_yorkshire_council_tax_reduction_single_band_c_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          263.00
+
+  - name: north_yorkshire_council_tax_reduction_single_band_d_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          263.01
+
+  - name: north_yorkshire_council_tax_reduction_single_band_d_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 single Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          331.00
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_a_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          208.00
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_b_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          208.01
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_b_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          259.00
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_c_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          259.01
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_c_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          325.00
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_d_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          325.01
+
+  - name: north_yorkshire_council_tax_reduction_couple_band_d_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 couple Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          389.00
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_a_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          273.00
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_b_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          273.01
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_b_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          325.00
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_c_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          325.01
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_c_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          376.00
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_d_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          376.01
+
+  - name: north_yorkshire_council_tax_reduction_one_child_band_d_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 one-child Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          441.00
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_a_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          338.00
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_b_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          338.01
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_b_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          389.00
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_c_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          389.01
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_c_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          441.00
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_d_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          441.01
+
+  - name: north_yorkshire_council_tax_reduction_two_plus_children_band_d_upper_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-or-more-children Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          491.00
+
+  - name: north_yorkshire_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 working-age Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The Council has resolved that there will be one class of persons who will receive a reduction in line with the adopted scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_north_yorkshire
+          and council_tax_reduction_household_in_england
+          and north_yorkshire_council_tax_reduction_applicant_is_in_working_age_class
+
+  - name: north_yorkshire_council_tax_reduction_family_is_single
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Single £ Couples £ Family with One Child £ Family with Two or more children £"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not north_yorkshire_council_tax_reduction_applicant_has_partner
+          and not north_yorkshire_council_tax_reduction_applicant_has_dependant_child_or_young_person
+          and not north_yorkshire_council_tax_reduction_applicant_has_two_or_more_dependant_children_or_young_persons
+
+  - name: north_yorkshire_council_tax_reduction_family_is_couple
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Single £ Couples £ Family with One Child £ Family with Two or more children £"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_applicant_has_partner
+          and not north_yorkshire_council_tax_reduction_applicant_has_dependant_child_or_young_person
+          and not north_yorkshire_council_tax_reduction_applicant_has_two_or_more_dependant_children_or_young_persons
+
+  - name: north_yorkshire_council_tax_reduction_family_has_one_child
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Family with One Child £ Family with Two or more children £"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_applicant_has_dependant_child_or_young_person
+          and not north_yorkshire_council_tax_reduction_applicant_has_two_or_more_dependant_children_or_young_persons
+
+  - name: north_yorkshire_council_tax_reduction_family_has_two_or_more_children
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 two-child category cap
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_applicant_has_dependant_child_or_young_person
+          and north_yorkshire_council_tax_reduction_applicant_has_two_or_more_dependant_children_or_young_persons
+
+  - name: north_yorkshire_council_tax_reduction_family_category_recognised
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_family_is_single
+          or north_yorkshire_council_tax_reduction_family_is_couple
+          or north_yorkshire_council_tax_reduction_family_has_one_child
+          or north_yorkshire_council_tax_reduction_family_has_two_or_more_children
+
+  - name: north_yorkshire_council_tax_reduction_passported_to_band_a
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "*Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band A level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_applicant_or_partner_receives_income_support
+          or north_yorkshire_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or north_yorkshire_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: north_yorkshire_council_tax_reduction_disability_disregard_exhausts_income
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "a further disregard of £40 shall be a made from their income."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_qualifies_for_disability_premium_income_disregard
+          and north_yorkshire_council_tax_reduction_weekly_income_before_disability_premium_disregard <= north_yorkshire_council_tax_reduction_disability_premium_income_disregard_weekly
+
+  - name: north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "Where, the applicant, would, but for the implementation of this scheme, be entitled to a disabled child premium, disability premium, an enhanced disability premium or a severe disability premium, a further disregard of £40 shall be a made from their income."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_yorkshire_council_tax_reduction_qualifies_for_disability_premium_income_disregard: (if north_yorkshire_council_tax_reduction_disability_disregard_exhausts_income: north_yorkshire_council_tax_reduction_band_a_minimum_income_weekly else: north_yorkshire_council_tax_reduction_weekly_income_before_disability_premium_disregard - north_yorkshire_council_tax_reduction_disability_premium_income_disregard_weekly) else: north_yorkshire_council_tax_reduction_weekly_income_before_disability_premium_disregard
+
+  - name: north_yorkshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_assessed_capital_for_year < north_yorkshire_council_tax_reduction_capital_limit
+
+  - name: north_yorkshire_council_tax_reduction_band_a_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 Band A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_passported_to_band_a
+          or (
+            north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_band_a_minimum_income_weekly
+            and (
+              (north_yorkshire_council_tax_reduction_family_is_single and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_single_band_a_upper_income_weekly)
+              or (north_yorkshire_council_tax_reduction_family_is_couple and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_couple_band_a_upper_income_weekly)
+              or (north_yorkshire_council_tax_reduction_family_has_one_child and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_one_child_band_a_upper_income_weekly)
+              or (north_yorkshire_council_tax_reduction_family_has_two_or_more_children and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_two_plus_children_band_a_upper_income_weekly)
+            )
+          )
+
+  - name: north_yorkshire_council_tax_reduction_band_b_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 Band B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not north_yorkshire_council_tax_reduction_passported_to_band_a
+          and (
+            (
+              north_yorkshire_council_tax_reduction_family_is_single
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_single_band_b_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_single_band_b_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_is_couple
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_couple_band_b_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_couple_band_b_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_one_child
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_one_child_band_b_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_one_child_band_b_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_two_or_more_children
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_two_plus_children_band_b_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_two_plus_children_band_b_upper_income_weekly
+            )
+          )
+
+  - name: north_yorkshire_council_tax_reduction_band_c_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 Band C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not north_yorkshire_council_tax_reduction_passported_to_band_a
+          and (
+            (
+              north_yorkshire_council_tax_reduction_family_is_single
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_single_band_c_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_single_band_c_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_is_couple
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_couple_band_c_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_couple_band_c_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_one_child
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_one_child_band_c_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_one_child_band_c_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_two_or_more_children
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_two_plus_children_band_c_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_two_plus_children_band_c_upper_income_weekly
+            )
+          )
+
+  - name: north_yorkshire_council_tax_reduction_band_d_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1 Band D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not north_yorkshire_council_tax_reduction_passported_to_band_a
+          and (
+            (
+              north_yorkshire_council_tax_reduction_family_is_single
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_single_band_d_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_single_band_d_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_is_couple
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_couple_band_d_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_couple_band_d_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_one_child
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_one_child_band_d_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_one_child_band_d_upper_income_weekly
+            )
+            or (
+              north_yorkshire_council_tax_reduction_family_has_two_or_more_children
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment >= north_yorkshire_council_tax_reduction_two_plus_children_band_d_lower_income_weekly
+              and north_yorkshire_council_tax_reduction_weekly_income_for_band_assessment <= north_yorkshire_council_tax_reduction_two_plus_children_band_d_upper_income_weekly
+            )
+          )
+
+  - name: north_yorkshire_council_tax_reduction_income_within_discount_grid
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have income above the levels specified within the scheme;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "the person’s income is within a range of incomes specified within Schedule 1;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_band_a_applies
+          or north_yorkshire_council_tax_reduction_band_b_applies
+          or north_yorkshire_council_tax_reduction_band_c_applies
+          or north_yorkshire_council_tax_reduction_band_d_applies
+
+  - name: north_yorkshire_council_tax_reduction_selected_discount_fraction
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_yorkshire_council_tax_reduction_band_a_applies: north_yorkshire_council_tax_reduction_band_a_support_rate else: if north_yorkshire_council_tax_reduction_band_b_applies: north_yorkshire_council_tax_reduction_band_b_support_rate else: if north_yorkshire_council_tax_reduction_band_c_applies: north_yorkshire_council_tax_reduction_band_c_support_rate else: if north_yorkshire_council_tax_reduction_band_d_applies: north_yorkshire_council_tax_reduction_band_d_support_rate else: north_yorkshire_council_tax_reduction_band_a_support_rate - north_yorkshire_council_tax_reduction_band_a_support_rate
+
+  - name: north_yorkshire_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 Class D and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(g) not have capital savings of £6,000 or above; (h) not have income above the levels specified within the scheme; (i) be a person in respect of whom a day in which s/he is liable to pay council tax falls within a week in respect of which the person’s income is within a range of incomes specified within Schedule 1; and (j) has made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_working_age_scheme_applies
+          and would_claim_council_tax_reduction
+          and north_yorkshire_council_tax_reduction_capital_eligible
+          and north_yorkshire_council_tax_reduction_family_category_recognised
+          and north_yorkshire_council_tax_reduction_income_within_discount_grid
+
+  - name: north_yorkshire_council_tax_reduction_maximum_council_tax_reduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "the amount of a person’s maximum Council Tax Reduction in respect of a day for which he is liable to pay council tax, shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_yorkshire_council_tax_reduction_maximum_eligible_liability_for_year * north_yorkshire_council_tax_reduction_maximum_liability_rate
+
+  - name: simulated_north_yorkshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    rounding: half_up
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 working-age Schedule 1 award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme c. The income of the applicant and partner as defined within this scheme; d. The capital of the applicant and partner as defined within this scheme."
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              table:
+                header: Council Tax Reduction Level and weekly income range by family category
+                row_key: Council Tax Reduction Level
+                column_key: Passported or family category
+              excerpt: |-
+                Council Tax Reduction Level Passported Single £ Couples £ Family with One Child £ Family with Two or more children £ Band A – 100%
+
+                Relevant Benefit* 0.00 to 151.00 0.00 to 208.00 0.00 to 273.00 0.00 to 338.00 Band B – 75%
+
+                N/A 151.01 to 201.00 208.01 to 259.00 273.01 to 325.00 338.01 to 389.00 Band C– 50%
+
+                N/A 201.01 to 263.00 259.01 to 325.00 325.01 to 376.00 389.01 to 441.00 Band D – 25% N/A 263.01 to 331.00 325.01 to 389.00 376.01 to 441.00 441.01 to 491.00
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "members of his household– (a) the applicant shall be treated as possessing capital and income belonging to each such member"
+          - path: rounding
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "where an amount is to be rounded to the nearest penny, a fraction of a penny shall be disregarded if it is less than half a penny and shall otherwise be treated as a whole penny."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_yorkshire_council_tax_reduction_award_conditions_met: north_yorkshire_council_tax_reduction_maximum_council_tax_reduction_for_year * north_yorkshire_council_tax_reduction_selected_discount_fraction else: north_yorkshire_council_tax_reduction_maximum_council_tax_reduction_for_year - north_yorkshire_council_tax_reduction_maximum_council_tax_reduction_for_year
+
+  - name: north_yorkshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Yorkshire Council Tax Reduction Scheme 2026/27 final working-age local award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-yorkshire/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_north_yorkshire_council_tax_reduction_annual_amount

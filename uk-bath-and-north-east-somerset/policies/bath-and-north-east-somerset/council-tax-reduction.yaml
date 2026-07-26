@@ -1239,13 +1239,6 @@ module:
     required: true
   source_verification:
     corpus_citation_path: uk-bath-and-north-east-somerset/manual/council-tax-reduction-scheme-2026-2027/page-181
-    upstream_source_check:
-      status: delegated_scheme
-      checked_paths:
-        - uk/statutes/ukpga/1992/14/13A
-        - uk/regulations/uksi/2012/2885
-        - uk/regulations/uksi/2012/2886
-      rationale: Section 13A delegates the working-age scheme to Bath and North East Somerset Council, so the authority's adopted 2026/27 scheme document is the operative source for these locally set parameters and award calculations.
   summary: |-
     The adopted scheme operates from 1 April 2026 through 31 March 2027. Its
     working-age award surface is hybrid: non-UC Classes D and E use a 78%

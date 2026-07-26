@@ -1,0 +1,1235 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+  summary: |-
+    Medway's adopted working-age Council Tax Reduction scheme is effective from
+    1 April 2026 and uses six weekly-income discount bands across four family
+    categories. LGFA 1992 section 13A and Schedule 1A delegate working-age
+    scheme design to Medway, making this adopted scheme operative. The
+    2 6/7 per cent taper printed for pensioner Class B is outside this
+    working-age module.
+  deferred_outputs:
+    - output: uk-medway:policies/medway/council-tax-reduction/class-e#prescribed_requirements_award_for_year
+      reason: >-
+        Working-age Class E war-pension cases are assessed under the prescribed
+        requirements scheme. This alignment module selects a source-named
+        boundary amount for that separately composed prescribed calculation.
+    - output: uk-medway:policies/medway/council-tax-reduction/48A.2-48A.4#annual_non_dependant_deductions_after_coordination
+      reason: >-
+        Couple and polygamous-marriage one-deduction coordination and
+        apportionment between jointly liable people require resident
+        relationships outside this household award surface. The final formula
+        consumes their coordinated annual total as a source-named boundary
+        amount.
+rules:
+  - name: medway_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "shall be 65 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.65
+
+  - name: medway_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "capital is greater than £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: medway_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 34A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: medway_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 34A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: medway_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 34A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: medway_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "£10 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: medway_council_tax_reduction_non_dependant_minimum_age
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "aged 18 or over in remunerative work, £10 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          18
+
+  - name: medway_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 1* 65%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: medway_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 2 55%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: medway_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 3 45%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: medway_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 4 35%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: medway_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 5 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: medway_council_tax_reduction_band_6
+    kind: parameter
+    dtype: Number
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 6 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
+
+  - name: medway_council_tax_reduction_band_2_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_family_category
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 2 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 118
+          1: 160
+          2: 222
+          3: 295
+
+  - name: medway_council_tax_reduction_band_3_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_family_category
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 3 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 173
+          1: 215
+          2: 284
+          3: 357
+
+  - name: medway_council_tax_reduction_band_4_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_family_category
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 4 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 228
+          1: 270
+          2: 344
+          3: 419
+
+  - name: medway_council_tax_reduction_band_5_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_family_category
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 5 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 284
+          1: 326
+          2: 407
+          3: 480
+
+  - name: medway_council_tax_reduction_band_6_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_family_category
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 6 0% £333+ £381+ £467+ £554+"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 6 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 333
+          1: 381
+          2: 467
+          3: 554
+
+  - name: medway_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: medway_council_tax_reduction_income_band
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band/Discount percent Single person Couple with no children or young person Couple or Lone Parent with one child/young person Couple or Lone Parent with two or more children/young persons Band 1* 65% £0.00 to £117.99 £0.00 to £159.99 £0.00 to £221.99 £0.00 to £294.99 Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99 Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99 Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99 Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99 Band 6 0% £333+ £381+ £467+ £554+"
+              table:
+                header: "Band/Discount percent"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0.65
+          2: 0.55
+          3: 0.45
+          4: 0.35
+          5: 0.20
+          6: 0
+
+  - name: medway_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: medway_council_tax_reduction_non_dependant_deduction_band
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "48A.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 48 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £10 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5 x 1/7. Where no evidence is provided by the applicant as to whether the non-dependant is in remunerative work, the higher deduction shall be made."
+              table:
+                header: "48A.0 Non-dependant deductions"
+                row_key: "remunerative-work band"
+                column_key: "weekly deduction before multiplication by 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5
+          1: 10
+
+  - name: medway_council_tax_reduction_family_is_couple_without_children
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Couple with no children or young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_applicant_has_partner
+          and medway_council_tax_reduction_family_has_no_child_or_young_person
+
+  - name: medway_council_tax_reduction_family_has_one_child
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Couple or Lone Parent with one child/young person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_family_has_one_child_or_young_person
+
+  - name: medway_council_tax_reduction_family_has_two_or_more_children
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Couple or Lone Parent with two or more children/young persons"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons
+
+  - name: medway_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Single person Couple with no children or young person Couple or Lone Parent with one child/young person Couple or Lone Parent with two or more children/young persons"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family facts"
+                column_key: "family category"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_family_has_two_or_more_children: 3 else: if medway_council_tax_reduction_family_has_one_child: 2 else: if medway_council_tax_reduction_family_is_couple_without_children: 1 else: 0
+
+  - name: medway_council_tax_reduction_band_2_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_band_2_lower_income_threshold_by_family[medway_council_tax_reduction_family_category]
+
+  - name: medway_council_tax_reduction_band_3_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_band_3_lower_income_threshold_by_family[medway_council_tax_reduction_family_category]
+
+  - name: medway_council_tax_reduction_band_4_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_band_4_lower_income_threshold_by_family[medway_council_tax_reduction_family_category]
+
+  - name: medway_council_tax_reduction_band_5_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_band_5_lower_income_threshold_by_family[medway_council_tax_reduction_family_category]
+
+  - name: medway_council_tax_reduction_band_6_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 6 0% £333+ £381+ £467+ £554+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_band_6_lower_income_threshold_by_family[medway_council_tax_reduction_family_category]
+
+  - name: medway_council_tax_reduction_capital_above_tariff_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 34A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "capital calculated in accordance with this scheme exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_assessed_capital
+          > medway_council_tax_reduction_tariff_income_threshold
+
+  - name: medway_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "capital is greater than £16,000 shall not be entitled to any Council Tax Reduction whatsoever"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_assessed_capital
+          <= medway_council_tax_reduction_capital_limit
+
+  - name: medway_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraphs 34A.1-34A.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_capital_above_tariff_threshold: ceil((min(medway_council_tax_reduction_assessed_capital, medway_council_tax_reduction_capital_limit) - medway_council_tax_reduction_tariff_income_threshold) / medway_council_tax_reduction_tariff_income_capital_step) * medway_council_tax_reduction_tariff_income_weekly_amount_per_step else: 0
+
+  - name: medway_council_tax_reduction_weekly_income_including_tariff
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 34A.1 and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "treated as equivalent to a weekly income"
+          - path: versions[0].formula
+            kind: unit
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "all incomes shown within the table above are weekly"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_excluding_tariff
+          + medway_council_tax_reduction_tariff_income_weekly
+
+  - name: medway_council_tax_reduction_passported_band_one_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit
+
+  - name: medway_council_tax_reduction_weekly_income_below_band_2_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 1* 65% £0.00 to £117.99 £0.00 to £159.99 £0.00 to £221.99 £0.00 to £294.99 Band 2 55% £118.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_including_tariff
+          < medway_council_tax_reduction_band_2_lower_income_threshold
+
+  - name: medway_council_tax_reduction_weekly_income_below_band_3_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 2-3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99 Band 3 45% £173.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_including_tariff
+          < medway_council_tax_reduction_band_3_lower_income_threshold
+
+  - name: medway_council_tax_reduction_weekly_income_below_band_4_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 3-4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99 Band 4 35% £228.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_including_tariff
+          < medway_council_tax_reduction_band_4_lower_income_threshold
+
+  - name: medway_council_tax_reduction_weekly_income_below_band_5_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 4-5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99 Band 5 20% £284.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_including_tariff
+          < medway_council_tax_reduction_band_5_lower_income_threshold
+
+  - name: medway_council_tax_reduction_weekly_income_below_band_6_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 5-6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99 Band 6 0% £333+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_weekly_income_including_tariff
+          < medway_council_tax_reduction_band_6_lower_income_threshold
+
+  - name: medway_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band/Discount percent Single person Couple with no children or young person Couple or Lone Parent with one child/young person Couple or Lone Parent with two or more children/young persons Band 1* 65% £0.00 to £117.99 £0.00 to £159.99 £0.00 to £221.99 £0.00 to £294.99 Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99 Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99 Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99 Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99 Band 6 0% £333+ £381+ £467+ £554+"
+              table:
+                header: "Band/Discount percent"
+                row_key: "weekly income and family category"
+                column_key: "income band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_passported_band_one_applies: medway_council_tax_reduction_band_1 else: if medway_council_tax_reduction_weekly_income_below_band_2_start: medway_council_tax_reduction_band_1 else: if medway_council_tax_reduction_weekly_income_below_band_3_start: medway_council_tax_reduction_band_2 else: if medway_council_tax_reduction_weekly_income_below_band_4_start: medway_council_tax_reduction_band_3 else: if medway_council_tax_reduction_weekly_income_below_band_5_start: medway_council_tax_reduction_band_4 else: if medway_council_tax_reduction_weekly_income_below_band_6_start: medway_council_tax_reduction_band_5 else: medway_council_tax_reduction_band_6
+
+  - name: medway_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "Band/Discount percent Single person Couple with no children or young person Couple or Lone Parent with one child/young person Couple or Lone Parent with two or more children/young persons Band 1* 65% £0.00 to £117.99 £0.00 to £159.99 £0.00 to £221.99 £0.00 to £294.99 Band 2 55% £118.00 to £172.99 £160.00 to £214.99 £222.00 to £283.99 £295.00 to £356.99 Band 3 45% £173.00 to £227.99 £215.00 to £269.99 £284.00 to £343.99 £357.00 to £418.99 Band 4 35% £228.00 to £283.99 £270.00 to £325.99 £344.00 to £406.99 £419.00 to £479.99 Band 5 20% £284.00 to £332.99 £326.00 to £380.99 £407.00 to £466.99 £480.00 to £553.99 Band 6 0% £333+ £381+ £467+ £554+"
+              table:
+                header: "Band/Discount percent"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_discount_rate_by_band[medway_council_tax_reduction_income_band]
+
+  - name: medway_council_tax_reduction_non_dependant_is_adult
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "a non-dependant aged 18 or over"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_non_dependant_age
+          >= medway_council_tax_reduction_non_dependant_minimum_age
+
+  - name: medway_council_tax_reduction_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraphs 48A.1 and 48A.5-48A.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "in respect of a non-dependant aged 18 or over"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_person_is_non_dependant
+          and medway_council_tax_reduction_non_dependant_is_adult
+          and not medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection
+          and not medway_council_tax_reduction_non_dependant_is_exempt
+
+  - name: medway_council_tax_reduction_high_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "in remunerative work, £10 x 1/7"
+          - path: versions[0].formula
+            kind: default
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "Where no evidence is provided by the applicant as to whether the non-dependant is in remunerative work, the higher deduction shall be made."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_non_dependant_in_remunerative_work
+          or medway_council_tax_reduction_non_dependant_work_status_evidence_missing
+
+  - name: medway_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5 x 1/7"
+              table:
+                header: "48A.0 Non-dependant deductions"
+                row_key: "remunerative-work condition"
+                column_key: "deduction band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_high_non_dependant_deduction_applies: 1 else: 0
+
+  - name: medway_council_tax_reduction_weekly_non_dependant_deduction_before_exemptions
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5 x 1/7"
+              table:
+                header: "48A.0 Non-dependant deductions"
+                row_key: "remunerative-work band"
+                column_key: "weekly deduction before exemptions"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_non_dependant_weekly_deduction_by_band[medway_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: medway_council_tax_reduction_daily_non_dependant_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraphs 48A.1 and 48A.5-48A.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "48A.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 48 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £10 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5 x 1/7. Where no evidence is provided by the applicant as to whether the non-dependant is in remunerative work, the higher deduction shall be made."
+              table:
+                header: "48A.0 Non-dependant deductions"
+                row_key: "remunerative-work band"
+                column_key: "daily deduction"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_non_dependant_deduction_applies: medway_council_tax_reduction_weekly_non_dependant_deduction_before_exemptions / medway_council_tax_reduction_days_per_week else: 0
+
+  - name: medway_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "shall be 65 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under paragraph 48A.0 (Non-dependant deductions)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, medway_council_tax_reduction_annual_liability_after_statutory_discounts * medway_council_tax_reduction_maximum_support_rate - medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination)
+
+  - name: medway_council_tax_reduction_class_d_banded_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_maximum_amount_for_year
+          * medway_council_tax_reduction_selected_discount_rate
+
+  - name: medway_council_tax_reduction_class_e_protection_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "Those working age applicants who (or where their partner) is in receipt of a war pension or war disablement pension"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_working_age_scheme_applies
+          and medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension
+
+  - name: medway_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraph 1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "this scheme only applies to a person who; (a) has not attained the qualifying age for state pension credit; or (b) has attained the qualifying age for state pension credit if he, and his partner, is a person on income support, on an income-based jobseeker’s allowance, on an income-related employment and support allowance or on universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition
+
+  - name: medway_council_tax_reduction_class_d_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "Class D\n\nTo obtain reduction the individual (or partner) must:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "Class E\n\nThose working age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_medway
+          and medway_council_tax_reduction_working_age_scheme_applies
+          and medway_council_tax_reduction_class_d_conditions_met
+          and would_claim_council_tax_reduction
+          and medway_council_tax_reduction_capital_eligible
+          and not medway_council_tax_reduction_class_e_protection_applies
+
+  - name: medway_council_tax_reduction_class_e_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Medway Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "shall be entitled to make a claim for reduction and will be assessed under Council Tax Reduction Schemes (Prescribed Requirements) (England) Regulations 2012 as amended."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_medway
+          and medway_council_tax_reduction_working_age_scheme_applies
+          and would_claim_council_tax_reduction
+          and medway_council_tax_reduction_class_e_protection_applies
+
+  - name: simulated_medway_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 Classes D-E and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "will be assessed under Council Tax Reduction Schemes (Prescribed Requirements) (England) Regulations 2012 as amended."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if medway_council_tax_reduction_class_e_award_applies: medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year else: if medway_council_tax_reduction_class_d_award_applies: medway_council_tax_reduction_class_d_banded_amount_for_year else: 0
+
+  - name: medway_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Medway Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "effective from 1st April 2026 for a period of one financial year"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_medway_council_tax_reduction_annual_amount
+
+  - name: medway_tariff_income_restatement
+    kind: source_relation
+    source_relation:
+      type: restates
+      target: uk:regulations/uksi/2012/2886/schedule/paragraph/72#weekly_income_treated_as_from_non_pensioner_capital
+    source: Medway Council Tax Reduction Scheme 2026/27 paragraphs 34A.1-34A.2
+    metadata:
+      match:
+        corpus_citation_path: uk-medway/manual/council-tax-reduction-scheme-2026-2027/page-39

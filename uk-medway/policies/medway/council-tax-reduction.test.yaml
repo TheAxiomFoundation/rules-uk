@@ -1,0 +1,539 @@
+- name: medway_working_age_band_1_parameter_and_award_surface
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 0
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_maximum_support_rate: 0.65
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_limit: 16000
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_threshold: 6000
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_capital_step: 250
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_days_per_week: 7
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_minimum_age: 18
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_1: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_2: 2
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_3: 3
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_4: 4
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_5: 5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_6: 6
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_is_couple_without_children: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_has_one_child: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_has_two_or_more_children: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_category: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_2_lower_income_threshold: 118
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_3_lower_income_threshold: 173
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_4_lower_income_threshold: 228
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_5_lower_income_threshold: 284
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_6_lower_income_threshold: 333
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_above_tariff_threshold: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_eligible: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_including_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_passported_band_one_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_2_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_3_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_4_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_5_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_6_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.65
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_maximum_amount_for_year: 650
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_banded_amount_for_year: 422.5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_protection_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_working_age_scheme_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_award_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_award_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#simulated_medway_council_tax_reduction_annual_amount: 422.5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 422.5
+
+- name: medway_couple_without_children_uses_all_second_column_thresholds
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_is_couple_without_children: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_category: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_2_lower_income_threshold: 160
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_3_lower_income_threshold: 215
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_4_lower_income_threshold: 270
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_5_lower_income_threshold: 326
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_6_lower_income_threshold: 381
+
+- name: medway_one_child_uses_all_third_column_thresholds
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_has_one_child: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_category: 2
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_2_lower_income_threshold: 222
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_3_lower_income_threshold: 284
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_4_lower_income_threshold: 344
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_5_lower_income_threshold: 407
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_6_lower_income_threshold: 467
+
+- name: medway_two_or_more_children_uses_all_fourth_column_thresholds
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_has_two_or_more_children: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_family_category: 3
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_2_lower_income_threshold: 295
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_3_lower_income_threshold: 357
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_4_lower_income_threshold: 419
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_5_lower_income_threshold: 480
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_band_6_lower_income_threshold: 554
+
+- name: medway_working_age_band_cliff_replaces_pensioner_taper_at_118
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 118
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_2_start: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_3_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 2
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.55
+
+- name: medway_band_1_includes_117_99_for_single_person
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 117.99
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_2_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.65
+
+- name: medway_band_3_starts_at_173_for_single_person
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 173
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_3_start: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_4_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 3
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: medway_band_4_starts_at_228_for_single_person
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 228
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_4_start: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_5_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 4
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.35
+
+- name: medway_band_5_starts_at_284_for_single_person
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 284
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_5_start: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_6_start: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.20
+
+- name: medway_band_6_starts_at_333_and_has_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 333
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 0
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_below_band_6_start: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 6
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_banded_amount_for_year: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 0
+
+- name: medway_passporting_benefit_forces_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 999
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: true
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_passported_band_one_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.65
+
+- name: medway_capital_at_tariff_threshold_has_no_tariff_income
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 6000
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_above_tariff_threshold: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 0
+
+- name: medway_first_partial_tariff_step_changes_the_income_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 6001
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 117
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_above_tariff_threshold: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_income_including_tariff: 118
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_income_band: 2
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.55
+
+- name: medway_complete_250_tariff_step_is_one_pound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 6250
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 1
+
+- name: medway_next_partial_tariff_step_rounds_up_to_two_pounds
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 6251
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 2
+
+- name: medway_capital_at_limit_remains_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 16000
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_eligible: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_tariff_income_weekly: 40
+
+- name: medway_capital_above_limit_has_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 16001
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 0
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_capital_eligible: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_award_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#simulated_medway_council_tax_reduction_annual_amount: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 0
+
+- name: medway_low_non_dependant_deduction_is_five_sevenths_daily
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 18
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_is_adult: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_high_non_dependant_deduction_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_non_dependant_deduction_before_exemptions: 5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: '0.7142857142857142857142857143'
+
+- name: medway_high_non_dependant_deduction_is_ten_sevenths_daily
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 18
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_high_non_dependant_deduction_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_weekly_non_dependant_deduction_before_exemptions: 10
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: '1.4285714285714285714285714286'
+
+- name: medway_missing_work_evidence_uses_high_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 18
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: true
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_high_non_dependant_deduction_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: '1.4285714285714285714285714286'
+
+- name: medway_under_18_non_dependant_has_no_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 17
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_is_adult: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: 0
+
+- name: medway_applicant_protection_suppresses_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 18
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: 0
+
+- name: medway_individual_exemption_suppresses_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_person_is_non_dependant: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_age: 18
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_is_exempt: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_non_dependant_work_status_evidence_missing: false
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_daily_non_dependant_deduction: 0
+
+- name: medway_non_dependant_deduction_precedes_band_discount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 100
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 0
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_maximum_amount_for_year: 550
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_selected_discount_rate: 0.65
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_banded_amount_for_year: 357.5
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 357.5
+
+- name: medway_class_e_war_pension_protection_uses_prescribed_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 900
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_protection_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_working_age_scheme_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_award_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_award_applies: holds
+    uk-medway:policies/medway/council-tax-reduction#simulated_medway_council_tax_reduction_annual_amount: 900
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 900
+
+- name: medway_pension_age_war_pension_case_cannot_enter_local_class_e
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_has_partner: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_assessed_capital: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_weekly_income_excluding_tariff: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-medway:policies/medway/council-tax-reduction#input.local_authority_is_medway: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: false
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_d_conditions_met: true
+    uk-medway:policies/medway/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_applicant_or_partner_receives_war_pension_or_war_disablement_pension: true
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-medway:policies/medway/council-tax-reduction#input.medway_council_tax_reduction_class_e_prescribed_requirements_award_for_year: 900
+  output:
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_protection_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_d_award_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_class_e_award_applies: not_holds
+    uk-medway:policies/medway/council-tax-reduction#simulated_medway_council_tax_reduction_annual_amount: 0
+    uk-medway:policies/medway/council-tax-reduction#medway_council_tax_reduction_annual_amount: 0

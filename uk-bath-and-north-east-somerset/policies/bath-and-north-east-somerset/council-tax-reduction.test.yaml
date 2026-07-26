@@ -1,0 +1,645 @@
+- name: bath_and_north_east_somerset_ctr_grounded_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<:
+      - &invariant_inputs
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_actual_annual_council_tax_liability_after_discounts: 3650
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_number_of_days_in_financial_year: 365
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.number_of_non_dependants_not_in_remunerative_work: 2
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.number_of_non_dependants_in_remunerative_work: 3
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.non_dependant_is_in_remunerative_work: false
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_actual_weekly_council_tax_liability: 100
+      - &legacy_default_inputs
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 0
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+      - &class_f_default_inputs
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 0
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+        uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_standard_maximum_support_rate: 0.78
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_protected_maximum_support_rate: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_standard_capital_limit: 10000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_protected_capital_limit: 16000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_capital_limit: 6000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_tariff_income_threshold: 6000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_tariff_income_upper_capital: 10000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_tariff_income_capital_step: 250
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_days_per_week: 7
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_weekly_taper_rate: '0.2000000000000000000000000002'
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_non_remunerative_work_index: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_remunerative_work_index: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_zero_support_band_index: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_full_support_band_index: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_85_percent_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_60_percent_support_band_index: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_40_percent_support_band_index: 4
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_20_percent_support_band_index: 5
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_increment: 50
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_maximum_children_for_band_adjustment: 2
+
+- name: bath_and_north_east_somerset_ctr_legacy_standard_band_d_cap_and_zero_nondependant_table
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_applies: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_non_dependant_work_status_index: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_selected_maximum_support_rate: 0.78
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_eligible_annual_liability: 2920
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_non_dependant_deduction_weekly: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_maximum_support_daily: 6.24
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_award_weekly: 43.68
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 43.68
+
+- name: bath_and_north_east_somerset_ctr_uc_assessed_without_qualifying_award_falls_back_to_legacy
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_applies: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 43.68
+
+- name: bath_and_north_east_somerset_ctr_legacy_protected_rate_capital_and_tariff_cap
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 12000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 16
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_protected_class_applies: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_selected_capital_limit: 16000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_tariff_income_weekly: 16
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_selected_maximum_support_rate: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_eligible_annual_liability: 3650
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 70
+
+- name: bath_and_north_east_somerset_ctr_legacy_tariff_threshold
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 6000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_exceeds_tariff_threshold: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_tariff_income_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_legacy_tariff_partial_step_and_taper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 6251
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 8
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 3650
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_exceeds_tariff_threshold: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_tariff_income_weekly: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_excess_income_weekly: 10
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_taper_deduction_daily: '0.285714285714285714285714286'
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 52.6
+
+- name: bath_and_north_east_somerset_ctr_legacy_standard_capital_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 10001
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_selected_capital_limit: 10000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_legacy_protected_capital_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 16001
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 2920
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_capital_eligible: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_legacy_taper_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *class_f_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_receives_listed_protected_component_or_premium: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_income_excluding_tariff: 273
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_weekly_applicable_amount: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.legacy_band_d_annual_council_tax_liability_after_discounts: 3650
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_taper_deduction_daily: 7.8
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_legacy_award_daily: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_1_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 98.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_applies: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_capital_eligible: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_2_lower_bound: 98.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_3_lower_bound: 198.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_4_lower_bound: 298.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_5_lower_bound: 398.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_zero_band_lower_bound: 448.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_2_boundary: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_3_boundary: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_4_boundary: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_band_5_boundary: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_income_below_zero_band_boundary: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_award_weekly: 100
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 100
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_2_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 98.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 0.85
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 85
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_2_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 198.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 85
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_3_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 198.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 0.60
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 60
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_3_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 298.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 60
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_4_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 298.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 4
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 0.40
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 40
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_4_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 398.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 4
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 40
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_5_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 398.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 5
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 0.20
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 20
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_band_5_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 448.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 5
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 20
+
+- name: bath_and_north_east_somerset_ctr_class_f_single_zero_band_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 448.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_selected_support_rate: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_1_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 153.92
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_2_lower_bound: 153.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 100
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_2_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 153.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 85
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_2_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 253.92
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 85
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_3_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 253.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 60
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_3_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 353.92
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 60
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_4_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 353.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 4
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 40
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_4_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 453.92
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 4
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 40
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_5_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 453.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 5
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 20
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_band_5_upper_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 503.92
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 5
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 20
+
+- name: bath_and_north_east_somerset_ctr_class_f_couple_zero_band_lower_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 503.93
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0
+
+- name: bath_and_north_east_somerset_ctr_class_f_two_child_adjusted_boundary_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 198.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment: 100
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_band_2_lower_bound: 198.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 1
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 100
+
+- name: bath_and_north_east_somerset_ctr_class_f_child_adjustment_cap_and_boundary
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 3
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 198.06
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_child_band_adjustment: 100
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_support_band_index: 2
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 85
+
+- name: bath_and_north_east_somerset_ctr_class_f_capital_limit_inclusive
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 6000
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 98.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_capital_eligible: holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 100
+
+- name: bath_and_north_east_somerset_ctr_class_f_capital_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: [*invariant_inputs, *legacy_default_inputs]
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_been_assessed_for_universal_credit: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.applicant_or_partner_has_or_would_have_qualifying_universal_credit_award: true
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_capital: 6001
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_assessed_weekly_income: 98.05
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_applicant_has_partner: false
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#input.class_f_number_of_children_or_young_people: 0
+  output:
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_capital_eligible: not_holds
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_class_f_award_weekly: 0
+    uk-bath-and-north-east-somerset:policies/bath-and-north-east-somerset/council-tax-reduction#bath_and_north_east_somerset_council_tax_reduction_award_weekly: 0

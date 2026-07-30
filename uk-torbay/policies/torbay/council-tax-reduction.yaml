@@ -1,0 +1,527 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+  summary: |-
+    Torbay's adopted working-age Council Tax Reduction scheme is effective from
+    1 April 2026 for one financial year. It caps maximum reduction at 75 percent
+    of liability, then selects a 75, 55, 40, 20, or 0 percent discount from a
+    six-family-column weekly-income grid. Applicants with capital of £6,000 or
+    more receive no reduction. Passported applicants receive 75 percent. The
+    working-age banded scheme has no excess-income taper, tariff-income step,
+    non-dependant deduction schedule, minimum-award floor, council-tax band cap,
+    or separately stated protected-class rate. Pension-age provisions are
+    outside this module.
+rules:
+  - name: torbay_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 75 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: torbay_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 paragraph 26.1 and Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "the prescribed amount is £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: torbay_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "75% £0 to £108.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: torbay_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "55% £108.01 to £141.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: torbay_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "40% £141.01 to £172.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: torbay_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "20% £172.01 to £204.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: torbay_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "0% £204.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: torbay_council_tax_reduction_band_2_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: torbay_council_tax_reduction_family_category
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 55 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "55% £108.01 to £141.00 £158.01 to £201.00 £243.01 to £286.00 £329.01 to £370.00 £243.01 to £286.00 £329.01 to £370.00"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "55 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 108.01
+          1: 158.01
+          2: 243.01
+          3: 329.01
+
+  - name: torbay_council_tax_reduction_band_3_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: torbay_council_tax_reduction_family_category
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 40 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "40% £141.01 to £172.00 £201.01 to £242.00 £286.01 to £329.00 £370.01 to £413.00 £286.01 to £329.00 £370.01 to £413.00"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "40 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 141.01
+          1: 201.01
+          2: 286.01
+          3: 370.01
+
+  - name: torbay_council_tax_reduction_band_4_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: torbay_council_tax_reduction_family_category
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 20 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "20% £172.01 to £204.00 £242.01 to £285.00 £329.01 to £370.00 £413.01 to £455.00 £329.01 to £370.00 £413.01 to £455.00"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "20 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 172.01
+          1: 242.01
+          2: 329.01
+          3: 413.01
+
+  - name: torbay_council_tax_reduction_band_5_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: torbay_council_tax_reduction_family_category
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 0 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "0% £204.01+ £285.01+ £370.01+ £455.01+ £370.01+ £455.01+"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "0 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 204.01
+          1: 285.01
+          2: 370.01
+          3: 455.01
+
+  - name: torbay_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: torbay_council_tax_reduction_income_band
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "75% £0 to £108.00 £0 to £158.00 £0 to £243.00 £0 to £329.00 £0 to £243.00 £0 to £329.00 55% £108.01 to £141.00 £158.01 to £201.00 £243.01 to £286.00 £329.01 to £370.00 £243.01 to £286.00 £329.01 to £370.00 40% £141.01 to £172.00 £201.01 to £242.00 £286.01 to £329.00 £370.01 to £413.00 £286.01 to £329.00 £370.01 to £413.00 20% £172.01 to £204.00 £242.01 to £285.00 £329.01 to £370.00 £413.01 to £455.00 £329.01 to £370.00 £413.01 to £455.00 0% £204.01+ £285.01+ £370.01+ £455.01+ £370.01+ £455.01+"
+              table:
+                header: "Level of Discount"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0.75
+          2: 0.55
+          3: 0.40
+          4: 0.20
+          5: 0
+
+  - name: torbay_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Single Couple Single and 1 Child Single 2+ Children Couple and 1 Child Couple 2+ Children"
+              table:
+                header: "Level of Discount"
+                row_key: "family facts"
+                column_key: "family category"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if torbay_council_tax_reduction_number_of_children >= 2: 3 else: if torbay_council_tax_reduction_number_of_children >= 1: 2 else: if torbay_council_tax_reduction_applicant_has_partner: 1 else: 0
+
+  - name: torbay_council_tax_reduction_band_2_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "55% £108.01 to £141.00 £158.01 to £201.00 £243.01 to £286.00 £329.01 to £370.00 £243.01 to £286.00 £329.01 to £370.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_band_2_lower_income_threshold_by_family[torbay_council_tax_reduction_family_category]
+
+  - name: torbay_council_tax_reduction_band_3_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "40% £141.01 to £172.00 £201.01 to £242.00 £286.01 to £329.00 £370.01 to £413.00 £286.01 to £329.00 £370.01 to £413.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_band_3_lower_income_threshold_by_family[torbay_council_tax_reduction_family_category]
+
+  - name: torbay_council_tax_reduction_band_4_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "20% £172.01 to £204.00 £242.01 to £285.00 £329.01 to £370.00 £413.01 to £455.00 £329.01 to £370.00 £413.01 to £455.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_band_4_lower_income_threshold_by_family[torbay_council_tax_reduction_family_category]
+
+  - name: torbay_council_tax_reduction_band_5_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "0% £204.01+ £285.01+ £370.01+ £455.01+ £370.01+ £455.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_band_5_lower_income_threshold_by_family[torbay_council_tax_reduction_family_category]
+
+  - name: torbay_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "no reduction shall be granted when the applicant has an amount of £6,000 or greater"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_assessed_capital
+          < torbay_council_tax_reduction_capital_limit
+
+  - name: torbay_council_tax_reduction_passported_band_one_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at 75%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit
+
+  - name: torbay_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "75% £0 to £108.00 £0 to £158.00 £0 to £243.00 £0 to £329.00 £0 to £243.00 £0 to £329.00 55% £108.01 to £141.00 £158.01 to £201.00 £243.01 to £286.00 £329.01 to £370.00 £243.01 to £286.00 £329.01 to £370.00 40% £141.01 to £172.00 £201.01 to £242.00 £286.01 to £329.00 £370.01 to £413.00 £286.01 to £329.00 £370.01 to £413.00 20% £172.01 to £204.00 £242.01 to £285.00 £329.01 to £370.00 £413.01 to £455.00 £329.01 to £370.00 £413.01 to £455.00 0% £204.01+ £285.01+ £370.01+ £455.01+ £370.01+ £455.01+"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "weekly income and family category"
+                column_key: "income band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if torbay_council_tax_reduction_passported_band_one_applies: torbay_council_tax_reduction_band_1 else: if torbay_council_tax_reduction_weekly_income < torbay_council_tax_reduction_band_2_lower_income_threshold: torbay_council_tax_reduction_band_1 else: if torbay_council_tax_reduction_weekly_income < torbay_council_tax_reduction_band_3_lower_income_threshold: torbay_council_tax_reduction_band_2 else: if torbay_council_tax_reduction_weekly_income < torbay_council_tax_reduction_band_4_lower_income_threshold: torbay_council_tax_reduction_band_3 else: if torbay_council_tax_reduction_weekly_income < torbay_council_tax_reduction_band_5_lower_income_threshold: torbay_council_tax_reduction_band_4 else: torbay_council_tax_reduction_band_5
+
+  - name: torbay_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "75% £0 to £108.00 £0 to £158.00 £0 to £243.00 £0 to £329.00 £0 to £243.00 £0 to £329.00 55% £108.01 to £141.00 £158.01 to £201.00 £243.01 to £286.00 £329.01 to £370.00 £243.01 to £286.00 £329.01 to £370.00 40% £141.01 to £172.00 £201.01 to £242.00 £286.01 to £329.00 £370.01 to £413.00 £286.01 to £329.00 £370.01 to £413.00 20% £172.01 to £204.00 £242.01 to £285.00 £329.01 to £370.00 £413.01 to £455.00 £329.01 to £370.00 £413.01 to £455.00 0% £204.01+ £285.01+ £370.01+ £455.01+ £370.01+ £455.01+"
+              table:
+                header: "Level of Discount"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          torbay_council_tax_reduction_discount_rate_by_band[torbay_council_tax_reduction_income_band]
+
+  - name: torbay_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Torbay Council Tax Reduction Scheme 2026/27 working-age scope
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "working age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_torbay
+          and torbay_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+
+  - name: simulated_torbay_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 paragraph 48.1 and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 75 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if torbay_council_tax_reduction_working_age_scheme_applies and torbay_council_tax_reduction_capital_eligible: torbay_council_tax_reduction_annual_liability_after_statutory_discounts * min(torbay_council_tax_reduction_maximum_support_rate, torbay_council_tax_reduction_selected_discount_rate) else: 0
+
+  - name: torbay_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Torbay Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-torbay/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_torbay_council_tax_reduction_annual_amount

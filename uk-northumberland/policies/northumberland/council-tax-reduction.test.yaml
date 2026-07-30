@@ -1,0 +1,731 @@
+- name: northumberland_single_income_105_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 105
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0
+
+- name: northumberland_single_income_105_01_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 105.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_single_income_155_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 155
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_single_income_155_01_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 155.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_single_income_205_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 205
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_single_income_205_01_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 205.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_single_income_315_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 315
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_single_income_315_01_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 315.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_single_income_405_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 405
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_single_income_405_01_band_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 405.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 6
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0
+
+- name: northumberland_couple_income_155_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 155
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_is_couple_without_children: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0
+
+- name: northumberland_couple_income_155_01_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 155.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_couple_income_210_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 210
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_couple_income_210_01_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 210.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_couple_income_265_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 265
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_couple_income_265_01_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 265.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_couple_income_365_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 365
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_couple_income_365_01_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 365.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_couple_income_465_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 465
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_couple_income_465_01_band_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 465.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 6
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0
+
+- name: northumberland_one_dependant_income_245_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 245
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_has_one_child: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0
+
+- name: northumberland_one_dependant_income_245_01_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 245.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_one_dependant_income_290_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 290
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_one_dependant_income_290_01_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 290.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_one_dependant_income_365_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 365
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_one_dependant_income_365_01_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 365.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_one_dependant_income_445_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 445
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_one_dependant_income_445_01_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 445.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_one_dependant_income_545_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 545
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_one_dependant_income_545_01_band_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 545.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 6
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0
+
+- name: northumberland_two_dependants_income_335_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 335
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_has_two_or_more_children: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0
+
+- name: northumberland_two_dependants_income_335_01_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 335.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_two_dependants_income_355_band_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 355
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 2
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.9
+
+- name: northumberland_two_dependants_income_355_01_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 355.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_two_dependants_income_405_band_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 405
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 3
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.7
+
+- name: northumberland_two_dependants_income_405_01_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 405.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_two_dependants_income_495_band_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 495
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 4
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.4
+
+- name: northumberland_two_dependants_income_495_01_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 495.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_two_dependants_income_605_band_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 605
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 5
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0.2
+
+- name: northumberland_two_dependants_income_605_01_band_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 605.01
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 6
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 0
+
+- name: northumberland_eligible_side_of_capital_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 100
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.local_authority_is_northumberland: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_class_d_conditions_met: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_capital: 7999.99
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_maximum_support_rate: 1.0
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_capital_limit: 8000
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_is_couple_without_children: not_holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_has_one_child: not_holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_has_two_or_more_children: not_holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_family_category: 0
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_band_2_lower_income_threshold: 105.01
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_band_3_lower_income_threshold: 155.01
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_band_4_lower_income_threshold: 205.01
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_band_5_lower_income_threshold: 315.01
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_band_6_lower_income_threshold: 405.01
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_capital_eligible: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income: 100
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_passported_band_one_applies: not_holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income_below_band_2_start: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income_below_band_3_start: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income_below_band_4_start: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income_below_band_5_start: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_weekly_income_below_band_6_start: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_maximum_amount_for_year: 1000
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_class_d_banded_amount_for_year: 1000
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_working_age_scheme_applies: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_class_d_award_applies: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#simulated_northumberland_council_tax_reduction_annual_amount: 1000
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_annual_amount: 1000
+
+- name: northumberland_capital_cliff_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 100
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.local_authority_is_northumberland: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_meets_working_age_scheme_age_condition: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_class_d_conditions_met: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_capital: 8000
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_maximum_support_rate: 1.0
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_capital_limit: 8000
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_capital_eligible: not_holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#simulated_northumberland_council_tax_reduction_annual_amount: 0
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_annual_amount: 0
+
+- name: northumberland_passported_benefit_selects_band_one
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_has_partner: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_no_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_one_child_or_young_person: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons: false
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit: true
+    uk-northumberland:policies/northumberland/council-tax-reduction#input.northumberland_council_tax_reduction_assessed_weekly_income: 1000
+  output:
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_passported_band_one_applies: holds
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_income_band: 1
+    uk-northumberland:policies/northumberland/council-tax-reduction#northumberland_council_tax_reduction_selected_discount_rate: 1.0

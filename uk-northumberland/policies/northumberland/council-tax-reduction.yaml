@@ -1,0 +1,855 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+  summary: |-
+    Northumberland's adopted working-age Council Tax Reduction scheme is effective from
+    1 April 2026 and uses six weekly-income discount bands across four family
+    categories. LGFA 1992 section 13A and Schedule 1A delegate working-age
+    scheme design to Northumberland, making this adopted scheme operative. The
+    2 6/7 per cent taper printed for pensioner Class B is outside this
+    working-age module.
+  deferred_outputs:
+    - output: uk-northumberland:policies/northumberland/council-tax-reduction/sections-11-to-25-and-schedules-2-and-4#assessed_weekly_income
+      reason: Detailed income calculation and disregard schedules are outside this award surface.
+    - output: uk-northumberland:policies/northumberland/council-tax-reduction/sections-27-to-34-and-schedule-3#assessed_capital
+      reason: Detailed capital valuation and disregard schedules are outside this award surface.
+rules:
+  - name: northumberland_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: northumberland_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Any applicant whose capital is £8,000 or above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          8000
+
+
+
+
+
+
+  - name: northumberland_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 1* 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: northumberland_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 90%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: northumberland_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 70%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: northumberland_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 40%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: northumberland_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 5 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: northumberland_council_tax_reduction_band_6
+    kind: parameter
+    dtype: Number
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 6 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
+
+  - name: northumberland_council_tax_reduction_band_2_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: northumberland_council_tax_reduction_family_category
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 2 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 105.01
+          1: 155.01
+          2: 245.01
+          3: 335.01
+
+  - name: northumberland_council_tax_reduction_band_3_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: northumberland_council_tax_reduction_family_category
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 3 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 155.01
+          1: 210.01
+          2: 290.01
+          3: 355.01
+
+  - name: northumberland_council_tax_reduction_band_4_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: northumberland_council_tax_reduction_family_category
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 4 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 205.01
+          1: 265.01
+          2: 365.01
+          3: 405.01
+
+  - name: northumberland_council_tax_reduction_band_5_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: northumberland_council_tax_reduction_family_category
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 5 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 315.01
+          1: 365.01
+          2: 445.01
+          3: 495.01
+
+  - name: northumberland_council_tax_reduction_band_6_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: northumberland_council_tax_reduction_family_category
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 6 0% £405.01 or more £465.01 or more\n\n£545.01 or more\n\n£605.01 or more"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family category"
+                column_key: "Band 6 lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 405.01
+          1: 465.01
+          2: 545.01
+          3: 605.01
+
+  - name: northumberland_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: northumberland_council_tax_reduction_income_band
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Discount Single Couple Family with 1 dependant Family with 2 dependants Band 1* 100% £0 to £105.00 £0 to £155.00 £0 to £245.00 £0 to £335.00 Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00 Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00 Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00 Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00\n\nBand 6 0% £405.01 or more £465.01 or more\n\n£545.01 or more\n\n£605.01 or more"
+              table:
+                header: "Band/Discount percent"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 1.00
+          2: 0.90
+          3: 0.70
+          4: 0.40
+          5: 0.20
+          6: 0
+
+
+  - name: northumberland_council_tax_reduction_family_is_couple_without_children
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Couple"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_applicant_has_partner
+          and northumberland_council_tax_reduction_family_has_no_child_or_young_person
+
+  - name: northumberland_council_tax_reduction_family_has_one_child
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Family with 1 dependant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_family_has_one_child_or_young_person
+
+  - name: northumberland_council_tax_reduction_family_has_two_or_more_children
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Family with 2 dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_family_has_two_or_more_children_or_young_persons
+
+  - name: northumberland_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Single Couple Family with 1 dependant Family with 2 dependants"
+              table:
+                header: "Band/Discount percent"
+                row_key: "family facts"
+                column_key: "family category"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if northumberland_council_tax_reduction_family_has_two_or_more_children: 3 else: if northumberland_council_tax_reduction_family_has_one_child: 2 else: if northumberland_council_tax_reduction_family_is_couple_without_children: 1 else: 0
+
+  - name: northumberland_council_tax_reduction_band_2_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_band_2_lower_income_threshold_by_family[northumberland_council_tax_reduction_family_category]
+
+  - name: northumberland_council_tax_reduction_band_3_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_band_3_lower_income_threshold_by_family[northumberland_council_tax_reduction_family_category]
+
+  - name: northumberland_council_tax_reduction_band_4_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_band_4_lower_income_threshold_by_family[northumberland_council_tax_reduction_family_category]
+
+  - name: northumberland_council_tax_reduction_band_5_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_band_5_lower_income_threshold_by_family[northumberland_council_tax_reduction_family_category]
+
+  - name: northumberland_council_tax_reduction_band_6_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Band 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 6 0% £405.01 or more £465.01 or more\n\n£545.01 or more\n\n£605.01 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_band_6_lower_income_threshold_by_family[northumberland_council_tax_reduction_family_category]
+
+
+  - name: northumberland_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Any applicant whose capital is £8,000 or above shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_assessed_capital
+          < northumberland_council_tax_reduction_capital_limit
+
+
+  - name: northumberland_council_tax_reduction_weekly_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: unit
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "all incomes shown within the table above are weekly in accordance with the scheme requirements and definitions."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_assessed_weekly_income
+
+  - name: northumberland_council_tax_reduction_passported_band_one_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_applicant_or_partner_receives_band_one_passporting_benefit
+
+  - name: northumberland_council_tax_reduction_weekly_income_below_band_2_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 1* 100% £0 to £105.00 £0 to £155.00 £0 to £245.00 £0 to £335.00 Band 2 90% £105.01"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_weekly_income
+          < northumberland_council_tax_reduction_band_2_lower_income_threshold
+
+  - name: northumberland_council_tax_reduction_weekly_income_below_band_3_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 2-3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00 Band 3 70% £155.01"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_weekly_income
+          < northumberland_council_tax_reduction_band_3_lower_income_threshold
+
+  - name: northumberland_council_tax_reduction_weekly_income_below_band_4_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 3-4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00 Band 4 40% £205.01"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_weekly_income
+          < northumberland_council_tax_reduction_band_4_lower_income_threshold
+
+  - name: northumberland_council_tax_reduction_weekly_income_below_band_5_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 4-5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00 Band 5 20% £315.01"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_weekly_income
+          < northumberland_council_tax_reduction_band_5_lower_income_threshold
+
+  - name: northumberland_council_tax_reduction_weekly_income_below_band_6_start
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 Bands 5-6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00\n\nBand 6 0% £405.01"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_weekly_income
+          < northumberland_council_tax_reduction_band_6_lower_income_threshold
+
+  - name: northumberland_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Discount Single Couple Family with 1 dependant Family with 2 dependants Band 1* 100% £0 to £105.00 £0 to £155.00 £0 to £245.00 £0 to £335.00 Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00 Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00 Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00 Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00\n\nBand 6 0% £405.01 or more £465.01 or more\n\n£545.01 or more\n\n£605.01 or more"
+              table:
+                header: "Band/Discount percent"
+                row_key: "weekly income and family category"
+                column_key: "income band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if northumberland_council_tax_reduction_passported_band_one_applies: northumberland_council_tax_reduction_band_1 else: if northumberland_council_tax_reduction_weekly_income_below_band_2_start: northumberland_council_tax_reduction_band_1 else: if northumberland_council_tax_reduction_weekly_income_below_band_3_start: northumberland_council_tax_reduction_band_2 else: if northumberland_council_tax_reduction_weekly_income_below_band_4_start: northumberland_council_tax_reduction_band_3 else: if northumberland_council_tax_reduction_weekly_income_below_band_5_start: northumberland_council_tax_reduction_band_4 else: if northumberland_council_tax_reduction_weekly_income_below_band_6_start: northumberland_council_tax_reduction_band_5 else: northumberland_council_tax_reduction_band_6
+
+  - name: northumberland_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Discount Single Couple Family with 1 dependant Family with 2 dependants Band 1* 100% £0 to £105.00 £0 to £155.00 £0 to £245.00 £0 to £335.00 Band 2 90% £105.01 to £155.00 £155.01 to £210.00 £245.01 to £290.00 £335.01 to £355.00 Band 3 70% £155.01 to £205.00 £210.01 to £265.00 £290.01 to £365.00 £355.01 to £405.00 Band 4 40% £205.01 to £315.00 £265.01 to £365.00 £365.01 to £445.00 £405.01 to £495.00 Band 5 20% £315.01 to £405.00 £365.01 to £465.00\n\n£445.01 to £545.00\n\n£495.01 to £605.00\n\nBand 6 0% £405.01 or more £465.01 or more\n\n£545.01 or more\n\n£605.01 or more"
+              table:
+                header: "Band/Discount percent"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_discount_rate_by_band[northumberland_council_tax_reduction_income_band]
+
+
+
+
+
+
+
+  - name: northumberland_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_annual_liability_after_statutory_discounts * northumberland_council_tax_reduction_maximum_support_rate
+
+  - name: northumberland_council_tax_reduction_class_d_banded_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_maximum_amount_for_year
+          * northumberland_council_tax_reduction_selected_discount_rate
+
+
+  - name: northumberland_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 paragraph 1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "this scheme only applies to a person who; (a) has not attained the qualifying age for state pension credit; or (b) has attained the qualifying age for state pension credit if he, and his partner, is a person on income support, on an income-based jobseeker’s allowance, on an income-related employment and support allowance or on universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          northumberland_council_tax_reduction_applicant_meets_working_age_scheme_age_condition
+
+  - name: northumberland_council_tax_reduction_class_d_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "Class D\n\nTo obtain a reduction the individual (or partner) must:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_northumberland
+          and northumberland_council_tax_reduction_working_age_scheme_applies
+          and northumberland_council_tax_reduction_class_d_conditions_met
+          and would_claim_council_tax_reduction
+          and northumberland_council_tax_reduction_capital_eligible
+
+
+  - name: simulated_northumberland_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 Class D and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Support scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if northumberland_council_tax_reduction_class_d_award_applies: northumberland_council_tax_reduction_class_d_banded_amount_for_year else: northumberland_council_tax_reduction_maximum_amount_for_year - northumberland_council_tax_reduction_maximum_amount_for_year
+
+  - name: northumberland_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Northumberland Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "effective from 1st April 2026 for a period of one financial year"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-northumberland/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Support scheme from 2026/27 shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_northumberland_council_tax_reduction_annual_amount

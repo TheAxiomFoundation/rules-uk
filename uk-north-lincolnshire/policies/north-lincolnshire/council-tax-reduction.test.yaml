@@ -1,0 +1,1172 @@
+- name: north_lincolnshire_single_edge_1_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 129.75
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_single_edge_1_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 129.76
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_single_edge_2_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 181.65
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_single_edge_2_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 181.66
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_single_edge_3_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.55
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_single_edge_3_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.56
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_single_edge_4_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.45
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_single_edge_4_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.46
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_couple_edge_1_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 181.65
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_couple_edge_1_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 181.66
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_couple_edge_2_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.55
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_couple_edge_2_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.56
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_couple_edge_3_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.45
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_couple_edge_3_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.46
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_couple_edge_4_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.35
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_couple_edge_4_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.36
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_one_dependant_edge_1_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.55
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_one_dependant_edge_1_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 233.56
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_one_dependant_edge_2_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.45
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_one_dependant_edge_2_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.46
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_one_dependant_edge_3_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.35
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_one_dependant_edge_3_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.36
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_one_dependant_edge_4_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.25
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_one_dependant_edge_4_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.26
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_two_dependants_edge_1_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.45
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_two_dependants_edge_1_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.46
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_two_dependants_edge_2_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.35
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_two_dependants_edge_2_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.36
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_two_dependants_edge_3_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.25
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_two_dependants_edge_3_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.26
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_two_dependants_edge_4_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 441.15
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 100
+
+- name: north_lincolnshire_two_dependants_edge_4_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 441.16
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_protected_edge_1_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.45
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.77
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 770
+
+- name: north_lincolnshire_protected_edge_1_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 285.46
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.6
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 600
+
+- name: north_lincolnshire_protected_edge_2_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.35
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 1
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.6
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 600
+
+- name: north_lincolnshire_protected_edge_2_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 337.36
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_protected_edge_3_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.25
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 400
+
+- name: north_lincolnshire_protected_edge_3_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 389.26
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_protected_edge_4_printed_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 441.15
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 3
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.2
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 200
+
+- name: north_lincolnshire_protected_edge_4_first_penny
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 441.16
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_income_band: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_capital_below_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 5999
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_capital_eligible: holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_maximum_support_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_maximum_amount_for_year: 500
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_amount_before_eligibility: 500
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_award_conditions_met: holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#simulated_north_lincolnshire_council_tax_reduction_annual_amount: 500
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_capital_at_cliff_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 6000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_capital_eligible: not_holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_award_conditions_met: not_holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#simulated_north_lincolnshire_council_tax_reduction_annual_amount: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 0
+
+- name: north_lincolnshire_passported_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 500
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_passported: holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 500
+
+- name: north_lincolnshire_parameter_assertions
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_ordinary_maximum_support_rate: 0.5
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_protected_maximum_support_rate: 0.77
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_capital_limit: 6000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_non_dependant_deduction_by_band: 0
+
+- name: north_lincolnshire_protected_passported_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.local_authority_is_north_lincolnshire: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_applicant_is_working_age: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_capital: 0
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_assessed_weekly_net_income: 500
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_partner: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_one_dependant: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_has_two_dependants: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_is_protected_group: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_support: true
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_receives_income_based_jsa: false
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#input.north_lincolnshire_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_passported: holds
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_family_category: 4
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_selected_discount_rate: 0.77
+    uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction#north_lincolnshire_council_tax_reduction_annual_amount: 770
+

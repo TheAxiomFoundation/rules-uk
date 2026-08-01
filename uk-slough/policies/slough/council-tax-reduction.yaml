@@ -1,0 +1,576 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths:
+    uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and
+    uk/regulations/uksi/2012/2886. Section 13A delegates the working-age scheme
+    to this authority, so the adopted Slough document is the operative legal
+    source for its local values.
+    Slough's adopted 2026-27 working-age scheme applies a direct discount of
+    70% for applicants without earnings, or 50%, 32%, 20%, 15%, 10%, 5%, or
+    0% according to weekly earnings. The maximum uses 100% of the lower of
+    actual discounted liability and Band C liability. Capital above £6,000
+    ends entitlement. The pension-age taper and tariff-income rules are not
+    applicable to this working-age banded award.
+  deferred_outputs:
+    - output: uk-slough:policies/slough/council-tax-reduction/schedule-2#earnings_disregards
+      reason: The detailed earnings-disregard schedule used to determine band-assessment earnings is outside this award-surface module.
+    - output: uk-slough:policies/slough/council-tax-reduction/55.3#joint_liability_apportionment
+      reason: Joint-liability apportionment requires household relationships outside this award-surface module; the formula consumes liability after that coordination.
+    - output: uk-slough:policies/slough/council-tax-reduction/56.2#couple_non_dependant_deduction_coordination
+      reason: The highest-deduction coordination for a non-dependant couple requires relationship data outside this module; the award consumes the coordinated annual total.
+rules:
+  - name: band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: earnings_band_key
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "Income Band Discount off CT Liability Earnings threshold (weekly) 1 70% Not working - - - 1 50% Earnings <£115.38 2 32% £115.39 - £184.61 3 20% £184.62 - £253.84 4 15% £253.85-£323.07 5 10% £323.08-£392.30 6 5% £392.31-£461.53 7 0% £461.54 and above"
+              table:
+                header: "income band"
+                row_key: "band key"
+                column_key: "band code"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+          6: 6
+          7: 7
+
+  - name: maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 55.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: |-
+                shall be 100 per
+
+                cent, of the amount A divided by B
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 30.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "the prescribed amount is £6,000 no reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: not_working_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "Income Band 1(Not Working) which is 70%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.70
+
+  - name: band_1_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "1 50% Earnings <£115.38"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.50
+
+  - name: band_2_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "2 32% £115.39 - £184.61"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.32
+
+  - name: band_3_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "3 20% £184.62 - £253.84"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: band_4_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "4 15% £253.85-£323.07"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.15
+
+  - name: band_5_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "5 10% £323.08-£392.30"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.10
+
+  - name: band_6_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "6 5% £392.31-£461.53"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.05
+
+  - name: band_7_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "7 0% £461.54 and above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: band_2_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "2 32% £115.39 - £184.61"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          115.39
+
+  - name: band_3_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "3 20% £184.62 - £253.84"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          184.62
+
+  - name: band_4_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "4 15% £253.85-£323.07"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          253.85
+
+  - name: band_5_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "5 10% £323.08-£392.30"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          323.08
+
+  - name: band_6_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "6 5% £392.31-£461.53"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          392.31
+
+  - name: band_7_lower_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "7 0% £461.54 and above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          461.54
+
+  - name: adult_resident_higher_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 56.1(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "normal gross weekly income is greater than or equal to £200.00."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          200
+
+  - name: adult_resident_standard_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 56.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "£5 x 1/7 for each day"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: adult_resident_higher_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 56.1(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "£11 x 1/7 for each day"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          11
+
+  - name: capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 30.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: |-
+                the prescribed amount is £6,000 no reduction
+
+                shall be granted under this scheme when the Applicant has an amount of capital
+
+                greater than this level.
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          applicant_capital <= capital_limit
+
+  - name: earnings_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraphs 1-3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "Income Band Discount off CT Liability Earnings threshold (weekly) 1 70% Not working - - - 1 50% Earnings <£115.38 2 32% £115.39 - £184.61 3 20% £184.62 - £253.84 4 15% £253.85-£323.07 5 10% £323.08-£392.30 6 5% £392.31-£461.53 7 0% £461.54 and above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if applicant_has_earned_income == false: band_codes[0] else: if applicant_weekly_earnings < band_2_lower_threshold: band_codes[1] else: if applicant_weekly_earnings < band_3_lower_threshold: band_codes[2] else: if applicant_weekly_earnings < band_4_lower_threshold: band_codes[3] else: if applicant_weekly_earnings < band_5_lower_threshold: band_codes[4] else: if applicant_weekly_earnings < band_6_lower_threshold: band_codes[5] else: if applicant_weekly_earnings < band_7_lower_threshold: band_codes[6] else: band_codes[7]
+
+  - name: selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraphs 1-3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "Income Band Discount off CT Liability Earnings threshold (weekly) 1 70% Not working - - - 1 50% Earnings <£115.38 2 32% £115.39 - £184.61 3 20% £184.62 - £253.84 4 15% £253.85-£323.07 5 10% £323.08-£392.30 6 5% £392.31-£461.53 7 0% £461.54 and above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if earnings_band == band_codes[0]: not_working_support_rate else: if earnings_band == band_codes[1]: band_1_support_rate else: if earnings_band == band_codes[2]: band_2_support_rate else: if earnings_band == band_codes[3]: band_3_support_rate else: if earnings_band == band_codes[4]: band_4_support_rate else: if earnings_band == band_codes[5]: band_5_support_rate else: if earnings_band == band_codes[6]: band_6_support_rate else: band_7_support_rate
+
+  - name: adult_resident_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 56.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "56.1 The following non-dependent deductions shall apply: a) Nil, where the non-dependent is: Under 18 years of age or a full-time student:"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "a. £5 x 1/7 for each day where the non-dependent is in receipt of Pension Credit, Income Support, Income Based Jobseeker’s Allowance, Income Related Employment and Support Allowance, an award of Universal Credit without earnings. On a contributory benefit such as new style Employment and Support Allowance, new style Job Seeker’s Allowance. Working less than 16 hours per week; or working 16 hours or more per week but his normal gross income of £199.99 or less per week. This will also apply to any non-dependent not in receipt of any income or in receipt of any other income."
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "b. £11 x 1/7 for each day where the non-dependant is working 16 hours or more per week and his normal gross weekly income is greater than or equal to £200.00."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: |-
+                No deduction shall apply where the applicant is in receipt of the care component of
+
+                Disability Living Allowance at any rate or receiving the Daily Living component of
+
+                the Personal independence Payment or registered Blind or in receipt of Armed
+
+                Forces Independence Payments.
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if non_dependant_is_exempt or applicant_is_protected_from_non_dependant_deductions: 0 else: if non_dependant_normal_gross_weekly_income < adult_resident_higher_income_threshold: adult_resident_standard_weekly_deduction else: adult_resident_higher_weekly_deduction
+
+  - name: maximum_council_tax_support
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 paragraph 55.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: |-
+                shall be 100 per
+
+                cent, of the amount A divided by B
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "A is the lower of either:"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "dwelling within Band C subject to any"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(annual_council_tax_liability_after_statutory_discounts, annual_band_c_council_tax_liability_after_statutory_discounts) * maximum_support_rate
+
+  - name: council_tax_reduction_award
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Slough Council Tax Support Scheme 2026/27 Schedule 1 paragraph 4 and paragraph 56.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-93
+              excerpt: "The amount of discount to be granted is to be based on the following factors: (a) The maximum Council Tax Support as defined within this scheme (b) The income of the applicant as defined within this scheme (c) The capital of the applicant as defined within this scheme."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "Non-Dependant Deduction An amount deducted from your entitlement depending on the Non-Dependants circumstances."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-slough/manual/council-tax-reduction-scheme-2026-2027/page-94
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Support whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if capital_eligible: max(0, maximum_council_tax_support * selected_support_rate - annual_non_dependant_deductions) else: 0

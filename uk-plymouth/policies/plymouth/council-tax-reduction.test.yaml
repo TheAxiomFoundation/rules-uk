@@ -1,0 +1,1378 @@
+- name: plymouth_ctr_parameters_and_band_1_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_working_age_scheme_applies: holds
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_maximum_liability_rate: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_capital_limit: 6000
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_days_per_week: 7
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_weeks_per_year: 52
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_band_2_lower_income_by_family: 105
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_band_3_lower_income_by_family: 171
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_band_4_lower_income_by_family: 237
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_band_5_lower_income_by_family: 340
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.8
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_non_dependant_deduction: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_maximum_amount_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#simulated_plymouth_council_tax_reduction_annual_amount: 800
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 800
+- name: plymouth_ctr_other_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 105.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_other_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 105.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_other_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 171.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_other_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 171.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_other_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 237.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_other_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 237.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_other_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 340.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_other_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 340.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_single_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 105.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_single_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 105.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_single_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 171.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_single_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 171.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_single_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 237.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_single_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 237.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_single_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 340.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_single_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 340.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_couple_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 158.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_couple_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 158.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_couple_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 222.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_couple_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 222.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_couple_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 290.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_couple_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 290.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_couple_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_couple_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_one_child_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 263.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_one_child_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 263.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_one_child_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_one_child_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_one_child_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 458.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_one_child_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 458.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_one_child_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 590.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_one_child_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 590.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_two_plus_children_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_two_plus_children_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_two_plus_children_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_two_plus_children_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_two_plus_children_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 524.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_two_plus_children_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 524.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_two_plus_children_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 719.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_two_plus_children_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 719.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_child_under_five_band_2_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_child_under_five_band_2_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 329.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.6
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 600
+- name: plymouth_ctr_child_under_five_band_3_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_child_under_five_band_3_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 393.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 3
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 400
+- name: plymouth_ctr_child_under_five_band_4_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 524.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_child_under_five_band_4_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 524.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0.2
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 200
+- name: plymouth_ctr_child_under_five_band_5_at_printed_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 719.00
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_child_under_five_band_5_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 719.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_selected_support_rate: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_capital_at_limit_is_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_capital_eligible: holds
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 800
+- name: plymouth_ctr_capital_first_penny_over_limit_is_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_capital_eligible: not_holds
+    uk-plymouth:policies/plymouth/council-tax-reduction#simulated_plymouth_council_tax_reduction_annual_amount: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_non_dependant_flat_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_non_dependant_deduction: 270.4
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 529.6
+- name: plymouth_ctr_protected_non_dependant_has_zero_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: true
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_non_dependant_deduction: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 800
+- name: plymouth_ctr_passported_overrides_income_to_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 999
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_passported_to_band_1: holds
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 800
+- name: plymouth_ctr_war_pensioner_below_protected_ceiling
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 652.99
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_war_pensioner_zero_award_income_weekly: 653
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 1
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 800
+- name: plymouth_ctr_war_pensioner_at_printed_zero_award_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 653
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0
+- name: plymouth_ctr_war_pensioner_first_penny_over_zero_award_bound
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.local_authority_is_plymouth: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_weekly_income: 653.01
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_family_category: 0
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: true
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-plymouth:policies/plymouth/council-tax-reduction#input.plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: false
+  output:
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_income_band: 5
+    uk-plymouth:policies/plymouth/council-tax-reduction#plymouth_council_tax_reduction_annual_amount: 0

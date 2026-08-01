@@ -1,0 +1,808 @@
+- name: southend_ctr_single_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: &award_invariants {uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 0, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: false, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: false, uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: false}
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_single_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_single_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_single_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_single_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_single_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_single_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_single_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_single_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_single_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_couple_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_couple_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_couple_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_couple_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_couple_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_couple_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_couple_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_couple_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_couple_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_couple_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_one_child_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_one_child_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_one_child_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_one_child_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_one_child_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_one_child_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_one_child_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_one_child_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_one_child_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_one_child_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_two_plus_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_two_plus_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 110.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_two_plus_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 1
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_two_plus_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_two_plus_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 2
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_two_plus_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 260.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_two_plus_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 500
+
+- name: southend_ctr_two_plus_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 335.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_two_plus_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 4
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.25
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 250
+
+- name: southend_ctr_two_plus_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 410.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_family_category: 3
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_income_band: 5
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_scalar_parameters_and_capital_below_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 5999.99
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_maximum_support_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_capital_limit: 6000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_band_2_lower_income: 110.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_band_3_lower_income: 185.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_band_4_lower_income: 260.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_band_5_lower_income: 335.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_band_6_lower_income: 410.01
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_capital_eligible: holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_maximum_amount_for_year: 750
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_amount_before_eligibility: 750
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_award_conditions_met: holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#simulated_southend_on_sea_council_tax_reduction_annual_amount: 750
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_capital_at_limit_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 6000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_capital_eligible: not_holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_award_conditions_met: not_holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#simulated_southend_on_sea_council_tax_reduction_annual_amount: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 0
+
+- name: southend_ctr_income_support_selects_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_relevant_benefit: holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_income_related_esa_selects_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_relevant_benefit: holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750
+
+- name: southend_ctr_income_based_jsa_selects_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.local_authority_is_southend_on_sea: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_capital: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_eligible_annual_liability: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_assessed_weekly_income: 1000
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_partner: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_one_child: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_has_two_or_more_children: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_support: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_related_esa: false
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#input.southend_on_sea_council_tax_reduction_receives_income_based_jsa: true
+  output:
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_relevant_benefit: holds
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_income_band: 0
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_selected_discount_rate: 0.75
+    uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction#southend_on_sea_council_tax_reduction_annual_amount: 750

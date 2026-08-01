@@ -1,0 +1,469 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to Southend-on-Sea, so the Council's adopted document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Southend-on-Sea's adopted 2026-27 working-age scheme is a six-band direct-discount grid, not an excess-income taper. It caps maximum reduction at 75 percent of liability, selects a 75, 50, 25, or zero percent direct discount by weekly income and family type, assigns passported applicants to Band 1, and excludes capital of £6,000 or more. The working-age text contains no tariff-income rule, non-dependant deduction schedule, minimum-award floor, or council-tax-band cap.
+  deferred_outputs:
+    - output: uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction/sections-11-to-47-and-schedules-2-to-4#assessed_weekly_income
+      reason: The award surface consumes weekly income and assessed capital after the scheme's detailed income, disregard, attribution, and valuation rules, which are outside this module.
+    - output: uk-southend-on-sea:policies/southend-on-sea/council-tax-reduction/section-48#eligible_annual_liability
+      reason: The award surface consumes council-tax liability after statutory discounts and joint-liability adjustments; valuation of that liability base is outside this module.
+rules:
+  - name: southend_on_sea_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: southend_on_sea_council_tax_reduction_family_category
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1 family rows
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Single – No Children 75% 50% 25% 0% 0% 0% Couple – No Children 75% 50% 25% 0% 0% 0% Single or Couple – 1 Child 75% 75% 50% 25% 0% 0% Single or Couple – 2 or More Children 75% 75% 75% 50% 25% 0%"
+              table:
+                header: "Household Type"
+                row_key: "household type"
+                column_key: "category code"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+
+  - name: southend_on_sea_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: southend_on_sea_council_tax_reduction_income_band
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1 bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: &grid_excerpt "Weekly Income and Discounts Household Type Band 1 £0.00– £110.00 Band 2 £110.01– £185.00 Band 3 £185.01– £260.00 Band 4 £260.01– £335.00 Band 5 £335.01– £410.00 Band 6 £410.01+ Single – No Children 75% 50% 25% 0% 0% 0% Couple – No Children 75% 50% 25% 0% 0% 0% Single or Couple – 1 Child 75% 75% 50% 25% 0% 0% Single or Couple – 2 or More Children 75% 75% 75% 50% 25% 0%"
+              table: &grid_table
+                header: "Weekly Income and Discounts Household Type"
+                row_key: "household type"
+                column_key: "income band"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+
+  - name: southend_on_sea_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "shall be 75 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: southend_on_sea_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "the prescribed amount is £6,000 and no reduction shall be granted when the applicant has an amount of £6,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: southend_on_sea_council_tax_reduction_band_2_lower_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Band 2 £110.01– £185.00"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          110.01
+
+  - name: southend_on_sea_council_tax_reduction_band_3_lower_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Band 3 £185.01– £260.00"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          185.01
+
+  - name: southend_on_sea_council_tax_reduction_band_4_lower_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Band 4 £260.01– £335.00"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          260.01
+
+  - name: southend_on_sea_council_tax_reduction_band_5_lower_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Band 5 £335.01– £410.00"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          335.01
+
+  - name: southend_on_sea_council_tax_reduction_band_6_lower_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Band 6 £410.01+"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          410.01
+
+  - name: southend_on_sea_council_tax_reduction_single_no_children_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: southend_on_sea_council_tax_reduction_income_band
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].values', kind: parameter_table, source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Single – No Children 75% 50% 25% 0% 0% 0%", table: {header: "Weekly Income and Discounts", row_key: "Single – No Children", column_key: "Band 1 to Band 6"}}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.75, 1: 0.50, 2: 0.25, 3: 0, 4: 0, 5: 0}
+
+  - name: southend_on_sea_council_tax_reduction_couple_no_children_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: southend_on_sea_council_tax_reduction_income_band
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].values', kind: parameter_table, source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Couple – No Children 75% 50% 25% 0% 0% 0%", table: {header: "Weekly Income and Discounts", row_key: "Couple – No Children", column_key: "Band 1 to Band 6"}}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.75, 1: 0.50, 2: 0.25, 3: 0, 4: 0, 5: 0}
+
+  - name: southend_on_sea_council_tax_reduction_one_child_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: southend_on_sea_council_tax_reduction_income_band
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].values', kind: parameter_table, source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Single or Couple – 1 Child 75% 75% 50% 25% 0% 0%", table: {header: "Weekly Income and Discounts", row_key: "Single or Couple – 1 Child", column_key: "Band 1 to Band 6"}}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.75, 1: 0.75, 2: 0.50, 3: 0.25, 4: 0, 5: 0}
+
+  - name: southend_on_sea_council_tax_reduction_two_or_more_children_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: southend_on_sea_council_tax_reduction_income_band
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].values', kind: parameter_table, source: {corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "Single or Couple – 2 or More Children 75% 75% 75% 50% 25% 0%", table: {header: "Weekly Income and Discounts", row_key: "Single or Couple – 2 or More Children", column_key: "Band 1 to Band 6"}}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.75, 1: 0.75, 2: 0.75, 3: 0.50, 4: 0.25, 5: 0}
+
+  - name: southend_on_sea_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if southend_on_sea_council_tax_reduction_has_two_or_more_children: southend_on_sea_council_tax_reduction_family_category_codes[3] else: if southend_on_sea_council_tax_reduction_has_one_child: southend_on_sea_council_tax_reduction_family_category_codes[2] else: if southend_on_sea_council_tax_reduction_has_partner: southend_on_sea_council_tax_reduction_family_category_codes[1] else: southend_on_sea_council_tax_reduction_family_category_codes[0]
+
+  - name: southend_on_sea_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if southend_on_sea_council_tax_reduction_assessed_weekly_income >= southend_on_sea_council_tax_reduction_band_6_lower_income: southend_on_sea_council_tax_reduction_income_band_codes[5] else: if southend_on_sea_council_tax_reduction_assessed_weekly_income >= southend_on_sea_council_tax_reduction_band_5_lower_income: southend_on_sea_council_tax_reduction_income_band_codes[4] else: if southend_on_sea_council_tax_reduction_assessed_weekly_income >= southend_on_sea_council_tax_reduction_band_4_lower_income: southend_on_sea_council_tax_reduction_income_band_codes[3] else: if southend_on_sea_council_tax_reduction_assessed_weekly_income >= southend_on_sea_council_tax_reduction_band_3_lower_income: southend_on_sea_council_tax_reduction_income_band_codes[2] else: if southend_on_sea_council_tax_reduction_assessed_weekly_income >= southend_on_sea_council_tax_reduction_band_2_lower_income: southend_on_sea_council_tax_reduction_income_band_codes[1] else: southend_on_sea_council_tax_reduction_income_band_codes[0]
+
+  - name: southend_on_sea_council_tax_reduction_relevant_benefit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          southend_on_sea_council_tax_reduction_receives_income_support
+          or southend_on_sea_council_tax_reduction_receives_income_related_esa
+          or southend_on_sea_council_tax_reduction_receives_income_based_jsa
+
+  - name: southend_on_sea_council_tax_reduction_selected_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if southend_on_sea_council_tax_reduction_relevant_benefit: southend_on_sea_council_tax_reduction_income_band_codes[0] else: southend_on_sea_council_tax_reduction_income_band
+
+  - name: southend_on_sea_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if southend_on_sea_council_tax_reduction_family_category == southend_on_sea_council_tax_reduction_family_category_codes[3]: southend_on_sea_council_tax_reduction_two_or_more_children_rate_by_band[southend_on_sea_council_tax_reduction_selected_income_band] else: if southend_on_sea_council_tax_reduction_family_category == southend_on_sea_council_tax_reduction_family_category_codes[2]: southend_on_sea_council_tax_reduction_one_child_rate_by_band[southend_on_sea_council_tax_reduction_selected_income_band] else: if southend_on_sea_council_tax_reduction_family_category == southend_on_sea_council_tax_reduction_family_category_codes[1]: southend_on_sea_council_tax_reduction_couple_no_children_rate_by_band[southend_on_sea_council_tax_reduction_selected_income_band] else: southend_on_sea_council_tax_reduction_single_no_children_rate_by_band[southend_on_sea_council_tax_reduction_selected_income_band]
+
+  - name: southend_on_sea_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "no reduction shall be granted when the applicant has an amount of £6,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          southend_on_sea_council_tax_reduction_assessed_capital < southend_on_sea_council_tax_reduction_capital_limit
+
+  - name: southend_on_sea_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "shall be 75 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          southend_on_sea_council_tax_reduction_eligible_annual_liability * southend_on_sea_council_tax_reduction_maximum_support_rate
+
+  - name: southend_on_sea_council_tax_reduction_amount_before_eligibility
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(southend_on_sea_council_tax_reduction_maximum_amount_for_year, southend_on_sea_council_tax_reduction_eligible_annual_liability * southend_on_sea_council_tax_reduction_selected_discount_rate)
+
+  - name: southend_on_sea_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have capital savings of £6,000 or above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_southend_on_sea
+          and southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+          and southend_on_sea_council_tax_reduction_capital_eligible
+
+  - name: simulated_southend_on_sea_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if southend_on_sea_council_tax_reduction_award_conditions_met: southend_on_sea_council_tax_reduction_amount_before_eligibility else: 0
+
+  - name: southend_on_sea_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Southend-on-Sea Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-southend-on-sea/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_southend_on_sea_council_tax_reduction_annual_amount
+
+inputs:
+  - {name: local_authority_is_southend_on_sea, entity: Household, dtype: Boolean, period: Year}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_applicant_is_in_working_age_class, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_assessed_capital, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: southend_on_sea_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: southend_on_sea_council_tax_reduction_eligible_annual_liability, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: southend_on_sea_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_has_one_child, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_has_two_or_more_children, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_receives_income_support, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_receives_income_related_esa, entity: Household, dtype: Boolean, period: Year}
+  - {name: southend_on_sea_council_tax_reduction_receives_income_based_jsa, entity: Household, dtype: Boolean, period: Year}

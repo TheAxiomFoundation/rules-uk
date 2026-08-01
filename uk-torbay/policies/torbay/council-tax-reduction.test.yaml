@@ -1,0 +1,478 @@
+- name: torbay_single_band_1_upper_bound
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: &single
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 108
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 0
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_band_2_lower_income_threshold: 108.01
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_band_3_lower_income_threshold: 141.01
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_band_4_lower_income_threshold: 172.01
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_band_5_lower_income_threshold: 204.01
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: torbay_single_band_2_lower_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 108.01
+  output: &band2
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 2
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.55
+
+- name: torbay_single_band_2_upper_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 141
+  output: *band2
+
+- name: torbay_single_band_3_lower_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 141.01
+  output: &band3
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 3
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.40
+
+- name: torbay_single_band_3_upper_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 172
+  output: *band3
+
+- name: torbay_single_band_4_lower_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 172.01
+  output: &band4
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 4
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.20
+
+- name: torbay_single_band_4_upper_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 204
+  output: *band4
+
+- name: torbay_single_band_5_lower_bound
+  period: *period
+  input:
+    <<: *single
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 204.01
+  output: &band5
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 5
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0
+
+- name: torbay_couple_band_1_upper_bound
+  period: *period
+  input:
+    <<: &couple
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 158
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 1
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+
+- name: torbay_couple_band_2_lower_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 158.01
+  output: *band2
+
+- name: torbay_couple_band_2_upper_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 201
+  output: *band2
+
+- name: torbay_couple_band_3_lower_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 201.01
+  output: *band3
+
+- name: torbay_couple_band_3_upper_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 242
+  output: *band3
+
+- name: torbay_couple_band_4_lower_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 242.01
+  output: *band4
+
+- name: torbay_couple_band_4_upper_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 285
+  output: *band4
+
+- name: torbay_couple_band_5_lower_bound
+  period: *period
+  input:
+    <<: *couple
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 285.01
+  output: *band5
+
+- name: torbay_single_one_child_band_1_upper_bound
+  period: *period
+  input:
+    <<: &single_one
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 1
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 243
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 2
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+
+- name: torbay_single_one_child_band_2_lower_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 243.01
+  output: *band2
+
+- name: torbay_single_one_child_band_2_upper_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 286
+  output: *band2
+
+- name: torbay_single_one_child_band_3_lower_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 286.01
+  output: *band3
+
+- name: torbay_single_one_child_band_3_upper_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329
+  output: *band3
+
+- name: torbay_single_one_child_band_4_lower_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329.01
+  output: *band4
+
+- name: torbay_single_one_child_band_4_upper_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370
+  output: *band4
+
+- name: torbay_single_one_child_band_5_lower_bound
+  period: *period
+  input:
+    <<: *single_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370.01
+  output: *band5
+
+- name: torbay_single_two_children_band_1_upper_bound
+  period: *period
+  input:
+    <<: &single_two
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 2
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 3
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+
+- name: torbay_single_two_children_band_2_lower_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329.01
+  output: *band2
+
+- name: torbay_single_two_children_band_2_upper_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370
+  output: *band2
+
+- name: torbay_single_two_children_band_3_lower_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370.01
+  output: *band3
+
+- name: torbay_single_two_children_band_3_upper_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 413
+  output: *band3
+
+- name: torbay_single_two_children_band_4_lower_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 413.01
+  output: *band4
+
+- name: torbay_single_two_children_band_4_upper_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 455
+  output: *band4
+
+- name: torbay_single_two_children_band_5_lower_bound
+  period: *period
+  input:
+    <<: *single_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 455.01
+  output: *band5
+
+- name: torbay_couple_one_child_band_1_upper_bound
+  period: *period
+  input:
+    <<: &couple_one
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 1
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 243
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 2
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+
+- name: torbay_couple_one_child_band_2_lower_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 243.01
+  output: *band2
+
+- name: torbay_couple_one_child_band_2_upper_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 286
+  output: *band2
+
+- name: torbay_couple_one_child_band_3_lower_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 286.01
+  output: *band3
+
+- name: torbay_couple_one_child_band_3_upper_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329
+  output: *band3
+
+- name: torbay_couple_one_child_band_4_lower_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329.01
+  output: *band4
+
+- name: torbay_couple_one_child_band_4_upper_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370
+  output: *band4
+
+- name: torbay_couple_one_child_band_5_lower_bound
+  period: *period
+  input:
+    <<: *couple_one
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370.01
+  output: *band5
+
+- name: torbay_couple_two_children_band_1_upper_bound
+  period: *period
+  input:
+    <<: &couple_two
+      uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: true
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 2
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+      uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_family_category: 3
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+
+- name: torbay_couple_two_children_band_2_lower_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 329.01
+  output: *band2
+
+- name: torbay_couple_two_children_band_2_upper_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370
+  output: *band2
+
+- name: torbay_couple_two_children_band_3_lower_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 370.01
+  output: *band3
+
+- name: torbay_couple_two_children_band_3_upper_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 413
+  output: *band3
+
+- name: torbay_couple_two_children_band_4_lower_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 413.01
+  output: *band4
+
+- name: torbay_couple_two_children_band_4_upper_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 455
+  output: *band4
+
+- name: torbay_couple_two_children_band_5_lower_bound
+  period: *period
+  input:
+    <<: *couple_two
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 455.01
+  output: *band5
+
+- name: torbay_capital_first_penny_below_cliff_is_eligible
+  period: *period
+  input:
+    uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 5999.99
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_capital_eligible: holds
+
+- name: torbay_capital_at_cliff_has_zero_award
+  period: *period
+  input:
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 6000
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_capital_eligible: not_holds
+    uk-torbay:policies/torbay/council-tax-reduction#simulated_torbay_council_tax_reduction_annual_amount: 0
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_annual_amount: 0
+
+- name: torbay_maximum_rate_caps_band_one_award_at_75_percent
+  period: *period
+  input:
+    uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 1000
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_working_age_scheme_applies: holds
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.75
+    uk-torbay:policies/torbay/council-tax-reduction#simulated_torbay_council_tax_reduction_annual_amount: 750
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_annual_amount: 750
+
+- name: torbay_passported_benefit_selects_75_percent_despite_high_income
+  period: *period
+  input:
+    uk-torbay:policies/torbay/council-tax-reduction#input.local_authority_is_torbay: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_is_working_age: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_has_partner: false
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_number_of_children: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_assessed_capital: 0
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_weekly_income: 999
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_applicant_or_partner_receives_passported_benefit: true
+    uk-torbay:policies/torbay/council-tax-reduction#input.torbay_council_tax_reduction_annual_liability_after_statutory_discounts: 0
+  output:
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_passported_band_one_applies: holds
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_income_band: 1
+    uk-torbay:policies/torbay/council-tax-reduction#torbay_council_tax_reduction_selected_discount_rate: 0.75

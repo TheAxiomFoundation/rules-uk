@@ -1,0 +1,426 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-34
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. LGFA 1992 section 13A delegates working-age scheme design to Peterborough City Council, so the Council's adopted scheme document is the operative legal source for these local values. Peterborough's operative 2026/27 working-age scheme is a taper scheme effective 1 April 2026. It caps maximum support at 67 percent of eligible liability, excludes capital above £6,000, expressly provides no working-age tariff income, applies a 20 percent weekly excess-income taper derived from the printed daily 2 6/7 percent, and subtracts working-age non-dependant deductions. Pension-age and alternative-maximum-reduction provisions are outside this module.
+  deferred_outputs:
+    - output: uk-peterborough:policies/peterborough/council-tax-reduction/schedule-3#applicable_amount
+      reason: Schedule 3 personal allowances, family premiums, premiums, components, and transitional additions are outside this award-surface module.
+    - output: uk-peterborough:policies/peterborough/council-tax-reduction/part-10#assessed_income_and_capital
+      reason: Detailed income disregards, attribution, and capital valuation are outside this award-surface module.
+    - output: uk-peterborough:policies/peterborough/council-tax-reduction/schedule-4#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult alternative maximum reduction is outside this working-age main-award surface.
+rules:
+  - name: peterborough_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "the maximum council tax reduction payable to a person who is not a pensioner in respect of a day is 67 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.67
+
+  - name: peterborough_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 23(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "£6,000 where the person is not a pensioner"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: peterborough_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: peterborough_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: peterborough_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 17(f), weekly rate derived from the printed daily rate
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          peterborough_council_tax_reduction_daily_taper_rate * peterborough_council_tax_reduction_days_per_week
+
+  - name: peterborough_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 28(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: peterborough_council_tax_reduction_working_age_tariff_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "There shall be no tariff income from capital for persons who are not pensioners."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: peterborough_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 10(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "not less than 16 hours a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: peterborough_council_tax_reduction_non_dependant_low_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: peterborough_council_tax_reduction_non_dependant_middle_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: peterborough_council_tax_reduction_non_dependant_high_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: peterborough_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: peterborough_council_tax_reduction_non_dependant_income_band
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              table:
+                header: Working-age non-dependant gross weekly income bands and weekly deductions
+                row_key: income band
+                column_key: weekly deduction before multiplication by 1/7
+              excerpt: "30.—(1) Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7.\n\n(2) In the case of a non-dependant aged 18 or over to whom paragraph 30.1(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £266.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: peterborough_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "person who is not a pensioner"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_peterborough and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: peterborough_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 23(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "capital exceeds £16,000 where the person is a pensioner and £6,000 where the person is not a pensioner"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          peterborough_council_tax_reduction_assessed_capital_for_year <= peterborough_council_tax_reduction_capital_limit
+
+  - name: peterborough_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, peterborough_council_tax_reduction_assessed_income_for_year - peterborough_council_tax_reduction_applicable_amount_for_year + peterborough_council_tax_reduction_working_age_tariff_income_weekly * peterborough_council_tax_reduction_weeks_per_year)
+
+  - name: peterborough_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraphs 17(f) and 32(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          peterborough_council_tax_reduction_excess_income_for_year * peterborough_council_tax_reduction_weekly_taper_rate
+
+  - name: peterborough_council_tax_reduction_non_dependant_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income < peterborough_council_tax_reduction_non_dependant_low_income_threshold: 0 else: if peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income < peterborough_council_tax_reduction_non_dependant_middle_income_threshold: 1 else: if peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income < peterborough_council_tax_reduction_non_dependant_high_income_threshold: 2 else: 3
+
+  - name: peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "the non-dependant deductions in respect of a day"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "No deduction is to be made in respect of any non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not peterborough_council_tax_reduction_is_non_dependant or peterborough_council_tax_reduction_non_dependant_exempt: 0 else: peterborough_council_tax_reduction_non_dependant_deduction_by_band[peterborough_council_tax_reduction_non_dependant_income_band] * peterborough_council_tax_reduction_weeks_per_year
+
+  - name: peterborough_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "67 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          peterborough_council_tax_reduction_eligible_liability_for_year * peterborough_council_tax_reduction_maximum_support_rate
+
+  - name: simulated_peterborough_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 paragraphs 29 and 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "that amount is the amount found by deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if peterborough_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and peterborough_council_tax_reduction_capital_eligible: max(0, peterborough_council_tax_reduction_maximum_for_year - peterborough_council_tax_reduction_income_taper_deduction_for_year - peterborough_council_tax_reduction_non_dependant_deductions_for_year) else: 0
+
+  - name: peterborough_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Peterborough City Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-peterborough/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "award of a reduction in their council tax liability"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_peterborough_council_tax_reduction_annual_amount

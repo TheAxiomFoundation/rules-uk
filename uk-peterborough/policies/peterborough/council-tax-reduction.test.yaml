@@ -1,0 +1,161 @@
+- name: peterborough_ctr_parameter_assertions
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_maximum_support_rate: 0.67
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_capital_limit: 6000
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_days_per_week: 7
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_weeks_per_year: 52
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_working_age_tariff_income_weekly: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_remunerative_work_hours: 16
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_low_income_threshold: 279
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_middle_income_threshold: 485
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_high_income_threshold: 605
+
+- name: peterborough_ctr_capital_at_limit_awarded
+  period: &tax_year
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &award_inputs
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.local_authority_is_peterborough: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_income_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_eligible_liability_for_year: 1500
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_working_age_scheme_applies: holds
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_capital_eligible: holds
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_excess_income_for_year: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_maximum_for_year: 1005
+    uk-peterborough:policies/peterborough/council-tax-reduction#simulated_peterborough_council_tax_reduction_annual_amount: 1005
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_annual_amount: 1005
+
+- name: peterborough_ctr_capital_first_penny_over_is_nil
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.local_authority_is_peterborough: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_income_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_eligible_liability_for_year: 1500
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_capital_eligible: not_holds
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_annual_amount: 0
+
+- name: peterborough_ctr_weekly_taper_reduces_award
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.local_authority_is_peterborough: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_capital_for_year: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_income_for_year: 10520
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_eligible_liability_for_year: 1500
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_excess_income_for_year: 520
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_income_taper_deduction_for_year: 104
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_annual_amount: 901
+
+- name: peterborough_ctr_taper_exhausts_award_zero_branch
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.local_authority_is_peterborough: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_capital_for_year: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_assessed_income_for_year: 16000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_eligible_liability_for_year: 1500
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_income_taper_deduction_for_year: 1200
+    uk-peterborough:policies/peterborough/council-tax-reduction#simulated_peterborough_council_tax_reduction_annual_amount: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_annual_amount: 0
+
+- name: peterborough_ctr_non_dependant_just_below_first_edge
+  period: *tax_year
+  input: &nondep_base
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 0
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: peterborough_ctr_non_dependant_at_first_edge
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 1
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: peterborough_ctr_non_dependant_just_below_second_edge
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 1
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: peterborough_ctr_non_dependant_at_second_edge
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 2
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: peterborough_ctr_non_dependant_just_below_third_edge
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 2
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: peterborough_ctr_non_dependant_at_third_edge
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: false
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_non_dependant_income_band: 3
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.4
+
+- name: peterborough_ctr_exempt_non_dependant_zero
+  period: *tax_year
+  input:
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_is_non_dependant: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_exempt: true
+    uk-peterborough:policies/peterborough/council-tax-reduction#input.peterborough_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-peterborough:policies/peterborough/council-tax-reduction#peterborough_council_tax_reduction_individual_non_dependant_deduction_for_year: 0

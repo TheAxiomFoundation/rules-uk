@@ -1,0 +1,583 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to North Lincolnshire Council, so the Council's adopted scheme document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. North Lincolnshire's operative 2026-27 working-age calculation is a banded discount scheme, not the pension-age excess-income taper printed on page 6. Ordinary applicants are capped at 50 percent of Band-B-or-lower eligible liability and the protected group at 77 percent. The five family-specific income bands award 50, 40, 20, 10, or zero percent; protected-group bands award 77, 60, 40, 20, or zero percent. Capital of £6,000 or more is an immediate eligibility cliff. The working-age text has no tariff-income rule and expressly provides no non-dependant deductions.
+  deferred_outputs:
+    - output: uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction/sections-11-to-46-and-schedules-2-to-4#assessed_weekly_net_income
+      reason: The award surface consumes weekly net income after the scheme's detailed income, disregard, attribution, and valuation rules, which are outside this module.
+    - output: uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction/section-48.1#band_b_capped_eligible_liability_for_year
+      reason: The award surface consumes liability already limited to the lower of actual discounted liability and Band B and adjusted for joint liability; calculation of that council-tax base is outside this module.
+    - output: uk-north-lincolnshire:policies/north-lincolnshire/council-tax-reduction/section-48.6#protected_group_status
+      reason: This module encodes the protected maximum and protected income grid, while the counterfactual disability-premium eligibility classifier remains a future self-scoped output.
+rules:
+  - name: north_lincolnshire_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: &grid_excerpt "Discount Weekly Net Income Single Couple Family with 1 dependant Family with 2 dependants Protected Group** Band 1* 50% £0 to £129.75 £0 to £181.65 £0 to £233.55 £0 to £285.45 Band 1* 77% £0 to £285.45 Band 2 40% £129.76 to £181.65 £181.66 to £233.55 £233.56 to £285.45 £285.46 to £337.35 Band 2 60% £285.46 to £337.35 Band 3 20% £181.66 to £233.55 £233.56 to £285.45 £285.46 to £337.35 £337.36 to £389.25 Band 3 40% £337.36 to £389.25 Band 4 10% £233.56 to £285.45 £285.46 to £337.35 £337.36 to £389.25 £389.26 to £441.15 Band 4 20% £389.26 to £441.15 Band 5 0% £285.46 or more £337.36 or more £389.26 or more £441.16 or more Band 5 0% £441.16 or more"
+              table: &grid_table
+                header: Discount and weekly net income by family category
+                row_key: discount band
+                column_key: family category
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+
+  - name: north_lincolnshire_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: north_lincolnshire_council_tax_reduction_income_band
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+
+  - name: north_lincolnshire_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 50 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.50
+
+  - name: north_lincolnshire_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "the amount specified in 48.1 shall be 77 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.77
+
+  - name: north_lincolnshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "the prescribed amount is £6,000 and no reduction shall be granted when the applicant has an amount of £6,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: north_lincolnshire_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_lincolnshire_council_tax_reduction_non_dependant_band
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.5 There shall be no non-dependant deductions."
+              table:
+                header: non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+
+  - name: north_lincolnshire_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 129.76
+          1: 181.66
+          2: 233.56
+          3: 285.46
+          4: 285.46
+
+  - name: north_lincolnshire_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 181.66
+          1: 233.56
+          2: 285.46
+          3: 337.36
+          4: 337.36
+
+  - name: north_lincolnshire_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 233.56
+          1: 285.46
+          2: 337.36
+          3: 389.26
+          4: 389.26
+
+  - name: north_lincolnshire_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 285.46
+          1: 337.36
+          2: 389.26
+          3: 441.16
+          4: 441.16
+
+  - name: north_lincolnshire_council_tax_reduction_ordinary_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: north_lincolnshire_council_tax_reduction_income_band
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.20
+          3: 0.10
+          4: 0
+
+  - name: north_lincolnshire_council_tax_reduction_protected_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: north_lincolnshire_council_tax_reduction_income_band
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.77
+          1: 0.60
+          2: 0.40
+          3: 0.20
+          4: 0
+
+  - name: north_lincolnshire_council_tax_reduction_passported_discount_rate_by_family
+    kind: parameter
+    dtype: Rate
+    indexed_by: north_lincolnshire_council_tax_reduction_family_category
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: *grid_excerpt
+              table:
+                <<: *grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.50
+          2: 0.50
+          3: 0.50
+          4: 0.77
+
+  - name: north_lincolnshire_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_lincolnshire_council_tax_reduction_is_protected_group: north_lincolnshire_council_tax_reduction_family_category_codes[4] else: if north_lincolnshire_council_tax_reduction_has_two_dependants: north_lincolnshire_council_tax_reduction_family_category_codes[3] else: if north_lincolnshire_council_tax_reduction_has_one_dependant: north_lincolnshire_council_tax_reduction_family_category_codes[2] else: if north_lincolnshire_council_tax_reduction_has_partner: north_lincolnshire_council_tax_reduction_family_category_codes[1] else: north_lincolnshire_council_tax_reduction_family_category_codes[0]
+
+  - name: north_lincolnshire_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_lincolnshire_council_tax_reduction_assessed_weekly_net_income >= north_lincolnshire_council_tax_reduction_band_5_lower_income_by_family[north_lincolnshire_council_tax_reduction_family_category]: north_lincolnshire_council_tax_reduction_income_band_codes[4] else: if north_lincolnshire_council_tax_reduction_assessed_weekly_net_income >= north_lincolnshire_council_tax_reduction_band_4_lower_income_by_family[north_lincolnshire_council_tax_reduction_family_category]: north_lincolnshire_council_tax_reduction_income_band_codes[3] else: if north_lincolnshire_council_tax_reduction_assessed_weekly_net_income >= north_lincolnshire_council_tax_reduction_band_3_lower_income_by_family[north_lincolnshire_council_tax_reduction_family_category]: north_lincolnshire_council_tax_reduction_income_band_codes[2] else: if north_lincolnshire_council_tax_reduction_assessed_weekly_net_income >= north_lincolnshire_council_tax_reduction_band_2_lower_income_by_family[north_lincolnshire_council_tax_reduction_family_category]: north_lincolnshire_council_tax_reduction_income_band_codes[1] else: north_lincolnshire_council_tax_reduction_income_band_codes[0]
+
+  - name: north_lincolnshire_council_tax_reduction_passported
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_lincolnshire_council_tax_reduction_receives_income_support
+          or north_lincolnshire_council_tax_reduction_receives_income_related_esa
+          or north_lincolnshire_council_tax_reduction_receives_income_based_jsa
+
+  - name: north_lincolnshire_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_lincolnshire_council_tax_reduction_passported: north_lincolnshire_council_tax_reduction_passported_discount_rate_by_family[north_lincolnshire_council_tax_reduction_family_category] else: if north_lincolnshire_council_tax_reduction_is_protected_group: north_lincolnshire_council_tax_reduction_protected_discount_rate_by_band[north_lincolnshire_council_tax_reduction_income_band] else: north_lincolnshire_council_tax_reduction_ordinary_discount_rate_by_band[north_lincolnshire_council_tax_reduction_income_band]
+
+  - name: north_lincolnshire_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 48
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "Where the applicant, but for this scheme, would be entitled to a Disability Premium, a Severe Disability Premium or an Enhanced Disability Premium the amount specified in 48.1 shall be 77 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_lincolnshire_council_tax_reduction_is_protected_group: north_lincolnshire_council_tax_reduction_protected_maximum_support_rate else: north_lincolnshire_council_tax_reduction_ordinary_maximum_support_rate
+
+  - name: north_lincolnshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "no reduction shall be granted when the applicant has an amount of £6,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_lincolnshire_council_tax_reduction_assessed_capital < north_lincolnshire_council_tax_reduction_capital_limit
+
+  - name: north_lincolnshire_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "the amount of a person’s maximum Council Tax Reduction in respect of a day for which he is liable to pay council tax, shall be 50 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "the amount specified in 48.1 shall be 77 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year * north_lincolnshire_council_tax_reduction_selected_maximum_support_rate
+
+  - name: north_lincolnshire_council_tax_reduction_amount_before_eligibility
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "In all cases (Table 1), the amount of reduction to be granted is to be based on the following factors: (a) The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(north_lincolnshire_council_tax_reduction_maximum_amount_for_year, north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year * north_lincolnshire_council_tax_reduction_selected_discount_rate)
+
+  - name: north_lincolnshire_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reduction whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_north_lincolnshire
+          and north_lincolnshire_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+          and north_lincolnshire_council_tax_reduction_capital_eligible
+
+  - name: simulated_north_lincolnshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Reduction Scheme from 2026/27 shall be calculated on the basis of the following banded support scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_lincolnshire_council_tax_reduction_award_conditions_met: north_lincolnshire_council_tax_reduction_amount_before_eligibility else: 0
+
+  - name: north_lincolnshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Lincolnshire Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-north-lincolnshire/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "effective from 1st April 2026 for a period of one financial year."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_north_lincolnshire_council_tax_reduction_annual_amount
+
+inputs:
+  - name: north_lincolnshire_council_tax_reduction_non_dependant_band
+    entity: Household
+    dtype: Number
+    period: Week
+  - name: local_authority_is_north_lincolnshire
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_applicant_is_working_age
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_assessed_capital
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: north_lincolnshire_council_tax_reduction_assessed_weekly_net_income
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: north_lincolnshire_council_tax_reduction_band_b_capped_eligible_liability_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: north_lincolnshire_council_tax_reduction_has_partner
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_has_one_dependant
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_has_two_dependants
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_is_protected_group
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_receives_income_support
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_receives_income_related_esa
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: north_lincolnshire_council_tax_reduction_receives_income_based_jsa
+    entity: Household
+    dtype: Boolean
+    period: Year

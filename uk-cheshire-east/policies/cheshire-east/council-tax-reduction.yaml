@@ -1,0 +1,794 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to Cheshire East, so the Council's adopted document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Cheshire East's adopted 2026-27 working-age scheme is an income-banded grid, not the 20 percent pension-age taper printed on page 6. It caps ordinary maximum support at 80 percent of Band-D-or-lower liability, applies five income-grid rates and a zero band, excludes capital of £6,000 or more, deducts £11.16 weekly for each non-exempt adult non-dependant, and suppresses awards below £2 weekly. Specified income-related benefits receive 100 percent support. The working-age scheme contains no tariff-income rule: its £6,000 capital threshold is an immediate eligibility cliff.
+  deferred_outputs:
+    - output: uk-cheshire-east:policies/cheshire-east/council-tax-reduction/sections-15-to-56-and-schedules-3-to-5#assessed_weekly_income
+      reason: The award surface consumes weekly income and assessed capital after the scheme's detailed income, disregard, attribution, and valuation rules, which are outside this module.
+    - output: uk-cheshire-east:policies/cheshire-east/council-tax-reduction/section-57.1#band_d_capped_annual_liability
+      reason: The award surface consumes liability already limited to the lower of actual discounted liability and Band D and adjusted for joint liability; valuation of that council-tax base is outside this module.
+    - output: uk-cheshire-east:policies/cheshire-east/council-tax-reduction/section-58.2-to-58.3#annual_non_dependant_deductions_after_coordination
+      reason: Couple coordination and apportionment between jointly liable people require resident relationships outside this household award surface.
+rules:
+  - name: cheshire_east_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Single Couple Couple / lone parent with 1 child Couple / lone parent with 2 or more children"
+              table:
+                header: "family category"
+                row_key: "family category"
+                column_key: "category code"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+
+  - name: cheshire_east_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: cheshire_east_council_tax_reduction_income_band
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 award rows
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "80% £120.30-£142.62 £173.63-£210.83 £248.04-£285.23 £359.65-£396.85 60% £142.63-£173.62 £210.84-£248.03 £285.24-£322.43 £396.86-£434.05 45% £173.63-£204.63 £248.04-£285.23 £322.44-£359.64 £434.06-£471.25 30% £204.64-£235.63 £285.24-£322.43 £359.65-£396.85 £471.26-£508.45 15% > £225.64 > £322.44 > £396.86 > £508.46 0%"
+              table:
+                header: "award rows"
+                row_key: "award row"
+                column_key: "band code"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+
+  - name: cheshire_east_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "shall be 80 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: cheshire_east_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "the percentage stated in 57.1 shall be 100 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: cheshire_east_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-50
+              excerpt: "the prescribed amount is £6,000 and no support shall be granted when the applicant has an amount of this level or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cheshire_east_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "less than £2.00 x 1/7, then no amount of support will be payable whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2.00
+
+  - name: cheshire_east_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "£2.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: cheshire_east_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 15A.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "multiplying the amount of the award by 12 and dividing the product by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: cheshire_east_council_tax_reduction_non_dependant_minimum_age
+    kind: parameter
+    dtype: Number
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "a non-dependant aged 18 or over in remunerative work, £11.16 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          18
+
+  - name: cheshire_east_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_non_dependant_deduction_band
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax support) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £11.16 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £11.16 x 1/7."
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "remunerative-work condition"
+                column_key: "weekly deduction before multiplication by 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 11.16
+          1: 11.16
+
+  - name: cheshire_east_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: &grid_excerpt "Single Couple Couple / lone parent with 1 child Couple / lone parent with 2 or more children Maximum award £0 - £120.29 £0 - £173.62 £0 - £248.03 £0 - £359.64 80% £120.30-£142.62 £173.63-£210.83 £248.04-£285.23 £359.65-£396.85 60% £142.63-£173.62 £210.84-£248.03 £285.24-£322.43 £396.86-£434.05 45% £173.63-£204.63 £248.04-£285.23 £322.44-£359.64 £434.06-£471.25 30% £204.64-£235.63 £285.24-£322.43 £359.65-£396.85 £471.26-£508.45 15% > £225.64 > £322.44 > £396.86 > £508.46 0%"
+              table: &grid_table
+                header: "family category and weekly income range"
+                row_key: "award rate"
+                column_key: "family category"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 120.30
+          1: 173.63
+          2: 248.04
+          3: 359.65
+
+  - name: cheshire_east_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 142.63
+          1: 210.84
+          2: 285.24
+          3: 396.86
+
+  - name: cheshire_east_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 173.63
+          1: 248.04
+          2: 322.44
+          3: 434.06
+
+  - name: cheshire_east_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 204.64
+          1: 285.24
+          2: 359.65
+          3: 471.26
+
+  - name: cheshire_east_council_tax_reduction_zero_band_printed_bound_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_east_council_tax_reduction_family_category
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 225.64
+          1: 322.44
+          2: 396.86
+          3: 508.46
+
+  - name: cheshire_east_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: cheshire_east_council_tax_reduction_income_band
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.80
+          1: 0.60
+          2: 0.45
+          3: 0.30
+          4: 0.15
+          5: 0
+
+  - name: cheshire_east_council_tax_reduction_relevant_benefit_discount_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "discount will be awarded at 100%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: cheshire_east_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_has_two_or_more_children: cheshire_east_council_tax_reduction_family_category_codes[3] else: if cheshire_east_council_tax_reduction_has_one_child: cheshire_east_council_tax_reduction_family_category_codes[2] else: if cheshire_east_council_tax_reduction_has_partner: cheshire_east_council_tax_reduction_family_category_codes[1] else: cheshire_east_council_tax_reduction_family_category_codes[0]
+
+  - name: cheshire_east_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_assessed_weekly_income > cheshire_east_council_tax_reduction_zero_band_printed_bound_by_family[cheshire_east_council_tax_reduction_family_category]: cheshire_east_council_tax_reduction_income_band_codes[5] else: if cheshire_east_council_tax_reduction_assessed_weekly_income >= cheshire_east_council_tax_reduction_band_5_lower_income_by_family[cheshire_east_council_tax_reduction_family_category]: cheshire_east_council_tax_reduction_income_band_codes[4] else: if cheshire_east_council_tax_reduction_assessed_weekly_income >= cheshire_east_council_tax_reduction_band_4_lower_income_by_family[cheshire_east_council_tax_reduction_family_category]: cheshire_east_council_tax_reduction_income_band_codes[3] else: if cheshire_east_council_tax_reduction_assessed_weekly_income >= cheshire_east_council_tax_reduction_band_3_lower_income_by_family[cheshire_east_council_tax_reduction_family_category]: cheshire_east_council_tax_reduction_income_band_codes[2] else: if cheshire_east_council_tax_reduction_assessed_weekly_income >= cheshire_east_council_tax_reduction_band_2_lower_income_by_family[cheshire_east_council_tax_reduction_family_category]: cheshire_east_council_tax_reduction_income_band_codes[1] else: cheshire_east_council_tax_reduction_income_band_codes[0]
+
+  - name: cheshire_east_council_tax_reduction_relevant_benefit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_receives_income_support
+          or cheshire_east_council_tax_reduction_receives_income_related_esa
+          or cheshire_east_council_tax_reduction_receives_income_based_jsa
+
+  - name: cheshire_east_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraphs 57.1 and 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "Where a person is in receipt of income support, income-based jobseeker’s allowance or income- related employment and support allowance the percentage stated in 57.1 shall be 100 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_relevant_benefit: cheshire_east_council_tax_reduction_protected_maximum_support_rate else: cheshire_east_council_tax_reduction_maximum_support_rate
+
+  - name: cheshire_east_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "discount will be awarded at 100%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_relevant_benefit: cheshire_east_council_tax_reduction_relevant_benefit_discount_rate else: cheshire_east_council_tax_reduction_discount_rate_by_band[cheshire_east_council_tax_reduction_income_band]
+
+  - name: cheshire_east_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-50
+              excerpt: "no support shall be granted when the applicant has an amount of this level or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_assessed_capital
+          < cheshire_east_council_tax_reduction_capital_limit
+
+  - name: cheshire_east_council_tax_reduction_non_dependant_is_adult
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "a non-dependant aged 18 or over"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_non_dependant_age
+          >= cheshire_east_council_tax_reduction_non_dependant_minimum_age
+
+  - name: cheshire_east_council_tax_reduction_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.4-58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "in respect of a non-dependant aged 18 or over"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-69
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_person_is_non_dependant
+          and cheshire_east_council_tax_reduction_non_dependant_is_adult
+          and not cheshire_east_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions
+          and not cheshire_east_council_tax_reduction_non_dependant_is_exempt
+
+  - name: cheshire_east_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "in remunerative work, £11.16 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £11.16 x 1/7."
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "remunerative-work condition"
+                column_key: "deduction band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work: cheshire_east_council_tax_reduction_income_band_codes[1] else: cheshire_east_council_tax_reduction_income_band_codes[0]
+
+  - name: cheshire_east_council_tax_reduction_daily_non_dependant_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "£11.16 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_non_dependant_deduction_applies: cheshire_east_council_tax_reduction_non_dependant_weekly_deduction_by_band[cheshire_east_council_tax_reduction_non_dependant_deduction_band] / cheshire_east_council_tax_reduction_days_per_week else: 0
+
+  - name: cheshire_east_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "shall be 80 per cent, of the amount A/B"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "less any deductions in respect of non- dependants which fall to be made under section 58 (non-dependant deductions)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, cheshire_east_council_tax_reduction_band_d_capped_annual_liability * cheshire_east_council_tax_reduction_selected_maximum_support_rate - cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination)
+
+  - name: cheshire_east_council_tax_reduction_amount_before_minimum_floor
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "The amount of discount to be granted is to be based on the following factors: (a) The maximum Council Tax Support as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_maximum_amount_for_year
+          * cheshire_east_council_tax_reduction_selected_discount_rate
+
+  - name: cheshire_east_council_tax_reduction_minimum_floor_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "is less than £2.00 x 1/7, then no amount of support will be payable whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_east_council_tax_reduction_amount_before_minimum_floor
+          >= cheshire_east_council_tax_reduction_minimum_award_weekly * cheshire_east_council_tax_reduction_weeks_per_year
+
+  - name: cheshire_east_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have capital savings of £6,000 or above"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_cheshire_east
+          and cheshire_east_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+          and cheshire_east_council_tax_reduction_capital_eligible
+          and cheshire_east_council_tax_reduction_minimum_floor_met
+
+  - name: simulated_cheshire_east_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_east_council_tax_reduction_award_conditions_met: cheshire_east_council_tax_reduction_amount_before_minimum_floor else: 0
+
+  - name: cheshire_east_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire East Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-east/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "The authority’s Council Tax Support scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_cheshire_east_council_tax_reduction_annual_amount
+
+inputs:
+  - name: local_authority_is_cheshire_east
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_applicant_is_in_working_age_class
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_assessed_capital
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cheshire_east_council_tax_reduction_assessed_weekly_income
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: cheshire_east_council_tax_reduction_band_d_capped_annual_liability
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cheshire_east_council_tax_reduction_has_partner
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_has_one_child
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_has_two_or_more_children
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_receives_income_support
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_receives_income_related_esa
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_receives_income_based_jsa
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_person_is_non_dependant
+    entity: Person
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_non_dependant_age
+    entity: Person
+    dtype: Number
+    period: Year
+  - name: cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work
+    entity: Person
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions
+    entity: Person
+    dtype: Boolean
+    period: Year
+  - name: cheshire_east_council_tax_reduction_non_dependant_is_exempt
+    entity: Person
+    dtype: Boolean
+    period: Year

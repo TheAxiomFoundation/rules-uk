@@ -1,0 +1,920 @@
+- name: cheshire_east_ctr_single_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: &award_invariants {uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 1000, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_person_is_non_dependant: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_age: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_is_exempt: false}
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 120.29
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 640
+
+- name: cheshire_east_ctr_single_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 120.3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_single_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 142.62
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_single_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 142.63
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_single_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 173.62
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_single_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 173.63
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_single_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 204.63
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_single_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 204.64
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_single_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 225.64
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_single_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 225.65
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 5
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_couple_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 173.62
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 640
+
+- name: cheshire_east_ctr_couple_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 173.63
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_couple_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 210.83
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_couple_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 210.84
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_couple_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 248.03
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_couple_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 248.04
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_couple_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 285.23
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_couple_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 285.24
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_couple_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 322.44
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_couple_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 322.45
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 5
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_one_child_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 248.03
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 640
+
+- name: cheshire_east_ctr_one_child_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 248.04
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_one_child_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 285.23
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_one_child_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 285.24
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_one_child_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 322.43
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_one_child_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 322.44
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_one_child_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 359.64
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_one_child_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 359.65
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_one_child_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 396.86
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_one_child_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 396.87
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 5
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_two_plus_edge_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 359.64
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 640
+
+- name: cheshire_east_ctr_two_plus_edge_2
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 359.65
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_two_plus_edge_3
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 396.85
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 480
+
+- name: cheshire_east_ctr_two_plus_edge_4
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 396.86
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_two_plus_edge_5
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 434.05
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 360
+
+- name: cheshire_east_ctr_two_plus_edge_6
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 434.06
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_two_plus_edge_7
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 471.25
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 240
+
+- name: cheshire_east_ctr_two_plus_edge_8
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 471.26
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_two_plus_edge_9
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 508.46
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 4
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 120
+
+- name: cheshire_east_ctr_two_plus_edge_10
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 508.47
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_family_category: 3
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_income_band: 5
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_scalar_parameters_and_capital_eligible_side
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 1000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 5999.99
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 100
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_maximum_support_rate: 0.8
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_protected_maximum_support_rate: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_capital_limit: 6000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_minimum_award_weekly: 2
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_days_per_week: 7
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_weeks_per_year: 52
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_minimum_age: 18
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_capital_eligible: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_relevant_benefit: not_holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_selected_maximum_support_rate: 0.8
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_selected_discount_rate: 0.8
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_maximum_amount_for_year: 800
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_amount_before_minimum_floor: 640
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_minimum_floor_met: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_award_conditions_met: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#simulated_cheshire_east_council_tax_reduction_annual_amount: 640
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 640
+
+- name: cheshire_east_ctr_capital_at_limit_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 1000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 6000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 100
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_capital_eligible: not_holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_award_conditions_met: not_holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#simulated_cheshire_east_council_tax_reduction_annual_amount: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_relevant_benefit_protection
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *award_invariants
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 1000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_relevant_benefit: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_selected_maximum_support_rate: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_selected_discount_rate: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 1000
+
+- name: cheshire_east_ctr_minimum_floor_zeroes_small_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 800
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 204.64
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_amount_before_minimum_floor: 96
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_minimum_floor_met: not_holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_east_ctr_non_dependant_working_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: &person_base {uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 1000, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_person_is_non_dependant: true, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_age: 18, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions: false, uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_is_exempt: false}
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work: true
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_is_adult: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_deduction_applies: holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_daily_non_dependant_deduction: "1.5942857142857142857142857143"
+
+- name: cheshire_east_ctr_non_dependant_nonworking_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: *person_base
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work: false
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_daily_non_dependant_deduction: "1.5942857142857142857142857143"
+
+- name: cheshire_east_ctr_exempt_non_dependant_zero_branch
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.local_authority_is_cheshire_east: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_capital: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_assessed_weekly_income: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_band_d_capped_annual_liability: 1000
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_annual_non_dependant_deductions_after_coordination: 0
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_partner: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_one_child: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_has_two_or_more_children: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_support: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_related_esa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_receives_income_based_jsa: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_person_is_non_dependant: true
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_age: 18
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions: false
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#input.cheshire_east_council_tax_reduction_non_dependant_is_exempt: true
+  output:
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-cheshire-east:policies/cheshire-east/council-tax-reduction#cheshire_east_council_tax_reduction_daily_non_dependant_deduction: 0

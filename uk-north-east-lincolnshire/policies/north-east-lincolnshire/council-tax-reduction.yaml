@@ -370,4 +370,4 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if capital_eligible: maximum_council_tax_reduction * selected_support_rate else: maximum_council_tax_reduction - maximum_council_tax_reduction
+          if capital_eligible: min(maximum_council_tax_reduction, band_b_capped_liability * selected_support_rate) else: maximum_council_tax_reduction - maximum_council_tax_reduction

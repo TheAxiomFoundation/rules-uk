@@ -1,0 +1,437 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-96
+  summary: |-
+    Upstream source check status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Section 13A delegates the working-age scheme to Telford and Wrekin Council, so its adopted scheme document is the operative source for the local award rules. Telford and Wrekin's operative 2026-27 working-age scheme is a banded discount scheme, not the pension-age taper printed on page 7. It applies direct discounts of 90, 75, 50, 25, or zero percent to the scheme maximum, with family-specific weekly income bands and a capital cliff above £6,000. The working-age scheme expressly has no non-dependant deductions and contains no tariff-income rule.
+  deferred_outputs:
+    - output: uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction/sections-15-to-32-and-schedules-3-to-4#assessed_weekly_income
+      reason: The underlying income calculation and disregard schedules are outside this award-surface module.
+    - output: uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction/sections-33-to-41-and-schedule-5#assessed_capital
+      reason: Capital valuation, attribution, and disregard rules are outside this award-surface module.
+rules:
+  - name: telford_and_wrekin_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-66
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: telford_and_wrekin_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "the prescribed amount is £6,000 and no support shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: telford_and_wrekin_council_tax_reduction_band_1_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &grid_atom
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-96
+              excerpt: &grid_excerpt "Council Tax Reduction level Passported Single £ Couples £ Families with one child £ Families with two or more children £ Level 1 90% Relevant benefit* 0.00 – 96.36 0.00 -151.61 0.00 – 233.86 0.00 – 317.38 Level 2 75% N/A 96.37 – 134.91 151.62 – 196.59 233.87 – 285.25 317.39 – 375.21 Level 3 50% N/A 134.92 – 173.46 196.60 – 241.56 285.26 – 336.65 375.22 – 433.02 Level 4 25% N/A 173.47 – 212.00 241.57 – 286.53 336.66 – 388.05 433.03 – 490.85 No Reduction N/A >212.oo >286.53 >388.05 >490.85"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: telford_and_wrekin_council_tax_reduction_band_2_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_atom}]}}
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+
+  - name: telford_and_wrekin_council_tax_reduction_band_3_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_atom}]}}
+    versions: [{effective_from: '2026-04-01', formula: "3"}]
+
+  - name: telford_and_wrekin_council_tax_reduction_band_4_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_atom}]}}
+    versions: [{effective_from: '2026-04-01', formula: "4"}]
+
+  - name: telford_and_wrekin_council_tax_reduction_zero_band_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_atom}]}}
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+
+  - name: telford_and_wrekin_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: telford_and_wrekin_council_tax_reduction_selected_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_atom
+              table: {header: Council Tax Reduction level and family income grid, row_key: level, column_key: reduction percentage}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 0.90, 2: 0.75, 3: 0.50, 4: 0.25}
+
+  - name: telford_and_wrekin_council_tax_reduction_single_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: telford_and_wrekin_council_tax_reduction_selected_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: &grid_table_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_atom
+              table: {header: Council Tax Reduction level and family income grid, row_key: level, column_key: weekly income range}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 212.00, 1: 0.00, 2: 96.37, 3: 134.92, 4: 173.47}
+
+  - name: telford_and_wrekin_council_tax_reduction_couple_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: telford_and_wrekin_council_tax_reduction_selected_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 286.53, 1: 0.00, 2: 151.62, 3: 196.60, 4: 241.57}
+
+  - name: telford_and_wrekin_council_tax_reduction_one_child_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: telford_and_wrekin_council_tax_reduction_selected_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 388.05, 1: 0.00, 2: 233.87, 3: 285.26, 4: 336.66}
+
+  - name: telford_and_wrekin_council_tax_reduction_two_plus_children_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: telford_and_wrekin_council_tax_reduction_selected_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 490.85, 1: 0.00, 2: 317.39, 3: 375.22, 4: 433.03}
+
+  - name: telford_and_wrekin_council_tax_reduction_no_non_dependant_band_index
+    kind: parameter
+    dtype: Integer
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &nondep_atom
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-66
+              excerpt: "58.1 There shall be no non dependant deductions"
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+
+  - name: telford_and_wrekin_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: telford_and_wrekin_council_tax_reduction_no_non_dependant_band_index
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *nondep_atom
+              table: {header: Non-dependant deductions, row_key: deduction band, column_key: weekly deduction}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0}
+
+  - name: telford_and_wrekin_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_telford_and_wrekin and council_tax_reduction_household_in_england and telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class and would_claim_council_tax_reduction
+
+  - name: telford_and_wrekin_council_tax_reduction_passported
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-96
+              excerpt: "Where an applicant or partner is in receipt of a ‘relevant benefit*’ namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          telford_and_wrekin_council_tax_reduction_receives_income_support or telford_and_wrekin_council_tax_reduction_receives_income_related_esa or telford_and_wrekin_council_tax_reduction_receives_income_based_jsa
+
+  - name: telford_and_wrekin_council_tax_reduction_family_category_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_atom}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: 3 else: if telford_and_wrekin_council_tax_reduction_has_dependant_child: 2 else: if telford_and_wrekin_council_tax_reduction_has_partner: 1 else: 0
+
+  - name: telford_and_wrekin_council_tax_reduction_band_2_lower_bound
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: &grid_formula_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_atom
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_family_category_index == 0: telford_and_wrekin_council_tax_reduction_single_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_2_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 1: telford_and_wrekin_council_tax_reduction_couple_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_2_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 2: telford_and_wrekin_council_tax_reduction_one_child_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_2_index] else: telford_and_wrekin_council_tax_reduction_two_plus_children_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_2_index]
+
+  - name: telford_and_wrekin_council_tax_reduction_band_3_lower_bound
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_formula_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_family_category_index == 0: telford_and_wrekin_council_tax_reduction_single_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_3_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 1: telford_and_wrekin_council_tax_reduction_couple_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_3_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 2: telford_and_wrekin_council_tax_reduction_one_child_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_3_index] else: telford_and_wrekin_council_tax_reduction_two_plus_children_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_3_index]
+
+  - name: telford_and_wrekin_council_tax_reduction_band_4_lower_bound
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_formula_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_family_category_index == 0: telford_and_wrekin_council_tax_reduction_single_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_4_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 1: telford_and_wrekin_council_tax_reduction_couple_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_4_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 2: telford_and_wrekin_council_tax_reduction_one_child_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_4_index] else: telford_and_wrekin_council_tax_reduction_two_plus_children_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_band_4_index]
+
+  - name: telford_and_wrekin_council_tax_reduction_last_discount_band_upper_bound
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_formula_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_family_category_index == 0: telford_and_wrekin_council_tax_reduction_single_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_zero_band_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 1: telford_and_wrekin_council_tax_reduction_couple_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_zero_band_index] else: if telford_and_wrekin_council_tax_reduction_family_category_index == 2: telford_and_wrekin_council_tax_reduction_one_child_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_zero_band_index] else: telford_and_wrekin_council_tax_reduction_two_plus_children_lower_bound_by_band[telford_and_wrekin_council_tax_reduction_zero_band_index]
+
+  - name: telford_and_wrekin_council_tax_reduction_selected_band_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_atom}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_passported: telford_and_wrekin_council_tax_reduction_band_1_index else: if telford_and_wrekin_council_tax_reduction_assessed_weekly_income < telford_and_wrekin_council_tax_reduction_band_2_lower_bound: telford_and_wrekin_council_tax_reduction_band_1_index else: if telford_and_wrekin_council_tax_reduction_assessed_weekly_income < telford_and_wrekin_council_tax_reduction_band_3_lower_bound: telford_and_wrekin_council_tax_reduction_band_2_index else: if telford_and_wrekin_council_tax_reduction_assessed_weekly_income < telford_and_wrekin_council_tax_reduction_band_4_lower_bound: telford_and_wrekin_council_tax_reduction_band_3_index else: if telford_and_wrekin_council_tax_reduction_assessed_weekly_income <= telford_and_wrekin_council_tax_reduction_last_discount_band_upper_bound: telford_and_wrekin_council_tax_reduction_band_4_index else: telford_and_wrekin_council_tax_reduction_zero_band_index
+
+  - name: telford_and_wrekin_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_formula_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          telford_and_wrekin_council_tax_reduction_support_rate_by_band[telford_and_wrekin_council_tax_reduction_selected_band_index]
+
+  - name: telford_and_wrekin_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "the prescribed amount is £6,000 and no support shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          telford_and_wrekin_council_tax_reduction_assessed_capital_for_year <= telford_and_wrekin_council_tax_reduction_capital_limit
+
+  - name: telford_and_wrekin_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-66
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year * telford_and_wrekin_council_tax_reduction_maximum_liability_rate
+
+  - name: telford_and_wrekin_council_tax_reduction_non_dependant_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *nondep_atom}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          telford_and_wrekin_council_tax_reduction_non_dependant_deduction_by_band[telford_and_wrekin_council_tax_reduction_no_non_dependant_band_index]
+
+  - name: simulated_telford_and_wrekin_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-96
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if telford_and_wrekin_council_tax_reduction_working_age_scheme_applies and telford_and_wrekin_council_tax_reduction_capital_eligible: max(0, telford_and_wrekin_council_tax_reduction_maximum_for_year * telford_and_wrekin_council_tax_reduction_selected_support_rate) else: 0
+
+  - name: telford_and_wrekin_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Telford and Wrekin Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-telford-and-wrekin/manual/council-tax-reduction-scheme-2026-2027/page-96
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_telford_and_wrekin_council_tax_reduction_annual_amount
+
+inputs:
+  local_authority_is_telford_and_wrekin: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Year}
+  telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: {dtype: Boolean, entity: Household, period: Year}
+  telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  telford_and_wrekin_council_tax_reduction_assessed_weekly_income: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  telford_and_wrekin_council_tax_reduction_has_partner: {dtype: Boolean, entity: Household, period: Week}
+  telford_and_wrekin_council_tax_reduction_has_dependant_child: {dtype: Boolean, entity: Household, period: Week}
+  telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: {dtype: Boolean, entity: Household, period: Week}
+  telford_and_wrekin_council_tax_reduction_receives_income_support: {dtype: Boolean, entity: Household, period: Week}
+  telford_and_wrekin_council_tax_reduction_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Week}
+  telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Week}

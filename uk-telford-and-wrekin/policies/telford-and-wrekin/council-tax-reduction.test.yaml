@@ -1,0 +1,758 @@
+- name: telford_ctr_single_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 96.36
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900
+- name: telford_ctr_single_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 96.37
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_single_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 134.91
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_single_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 134.92
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_single_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 173.46
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_single_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 173.47
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_single_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 212.0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_single_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 212.01
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 0
+- name: telford_ctr_couple_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 151.61
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900
+- name: telford_ctr_couple_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 151.62
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_couple_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 196.59
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_couple_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 196.6
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_couple_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 241.56
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_couple_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 241.57
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_couple_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 286.53
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_couple_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 286.54
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 0
+- name: telford_ctr_one_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 233.86
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900
+- name: telford_ctr_one_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 233.87
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_one_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 285.25
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_one_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 285.26
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_one_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 336.65
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_one_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 336.66
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_one_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 388.05
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_one_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 388.06
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 0
+- name: telford_ctr_two_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 317.38
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900
+- name: telford_ctr_two_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 317.39
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_two_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 375.21
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 750
+- name: telford_ctr_two_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 375.22
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_two_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 433.02
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 500
+- name: telford_ctr_two_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 433.03
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_two_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 490.85
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 250
+- name: telford_ctr_two_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 490.86
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 0
+- name: telford_ctr_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_capital_limit: 6000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_capital_eligible: holds
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900
+- name: telford_ctr_capital_first_penny_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_capital_eligible: not_holds
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#simulated_telford_and_wrekin_council_tax_reduction_annual_amount: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 0
+- name: telford_ctr_passported_band_one_and_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.local_authority_is_telford_and_wrekin: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_capital_for_year: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_assessed_weekly_income: 999
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_partner: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_dependant_child: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_support: true
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_related_esa: false
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#input.telford_and_wrekin_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_working_age_scheme_applies: holds
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_passported: holds
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_family_category_index: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_2_lower_bound: 96.37
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_3_lower_bound: 134.92
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_4_lower_bound: 173.47
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_last_discount_band_upper_bound: 212
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_selected_band_index: 1
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_capital_eligible: holds
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_maximum_for_year: 1000
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#simulated_telford_and_wrekin_council_tax_reduction_annual_amount: 900
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_maximum_liability_rate: 1
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_1_index: 1
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_2_index: 2
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_3_index: 3
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_band_4_index: 4
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_zero_band_index: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_selected_support_rate: 0.9
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_non_dependant_deduction_weekly: 0
+    uk-telford-and-wrekin:policies/telford-and-wrekin/council-tax-reduction#telford_and_wrekin_council_tax_reduction_annual_amount: 900

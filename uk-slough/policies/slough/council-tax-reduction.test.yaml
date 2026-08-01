@@ -1,0 +1,283 @@
+- name: slough_ctr_not_working_and_parameters
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &not_working_inputs
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 0
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+  output:
+    uk-slough:policies/slough/council-tax-reduction#maximum_support_rate: 1
+    uk-slough:policies/slough/council-tax-reduction#capital_limit: 6000
+    uk-slough:policies/slough/council-tax-reduction#not_working_support_rate: 0.7
+    uk-slough:policies/slough/council-tax-reduction#band_1_support_rate: 0.5
+    uk-slough:policies/slough/council-tax-reduction#band_2_support_rate: 0.32
+    uk-slough:policies/slough/council-tax-reduction#band_3_support_rate: 0.2
+    uk-slough:policies/slough/council-tax-reduction#band_4_support_rate: 0.15
+    uk-slough:policies/slough/council-tax-reduction#band_5_support_rate: 0.1
+    uk-slough:policies/slough/council-tax-reduction#band_6_support_rate: 0.05
+    uk-slough:policies/slough/council-tax-reduction#band_7_support_rate: 0
+    uk-slough:policies/slough/council-tax-reduction#band_2_lower_threshold: 115.39
+    uk-slough:policies/slough/council-tax-reduction#band_3_lower_threshold: 184.62
+    uk-slough:policies/slough/council-tax-reduction#band_4_lower_threshold: 253.85
+    uk-slough:policies/slough/council-tax-reduction#band_5_lower_threshold: 323.08
+    uk-slough:policies/slough/council-tax-reduction#band_6_lower_threshold: 392.31
+    uk-slough:policies/slough/council-tax-reduction#band_7_lower_threshold: 461.54
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_higher_income_threshold: 200
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_standard_weekly_deduction: 5
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_higher_weekly_deduction: 11
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 0
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.7
+    uk-slough:policies/slough/council-tax-reduction#maximum_council_tax_support: 800
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 560
+
+- name: slough_ctr_band_1_upper_bound
+  period: *period
+  input: &band1_upper
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 115.38
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 1
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.5
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 400
+
+- name: slough_ctr_band_2_lower_bound
+  period: *period
+  input: &band2_lower
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 115.39
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 2
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.32
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 256
+
+- name: slough_ctr_band_2_upper_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 184.61
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 2
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 256
+
+- name: slough_ctr_band_3_lower_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 184.62
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 3
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.2
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 160
+
+- name: slough_ctr_band_3_upper_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 253.84
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 3
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 160
+
+- name: slough_ctr_band_4_lower_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 253.85
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 4
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.15
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 120
+
+- name: slough_ctr_band_4_upper_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 323.07
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 4
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 120
+
+- name: slough_ctr_band_5_lower_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 323.08
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 5
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.1
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 80
+
+- name: slough_ctr_band_5_upper_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 392.30
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 5
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 80
+
+- name: slough_ctr_band_6_lower_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 392.31
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 6
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0.05
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 40
+
+- name: slough_ctr_band_6_upper_bound
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 461.53
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 6
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 40
+
+- name: slough_ctr_band_7_lower_bound_zero_award
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 461.54
+  output:
+    uk-slough:policies/slough/council-tax-reduction#earnings_band: 7
+    uk-slough:policies/slough/council-tax-reduction#selected_support_rate: 0
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 0
+
+- name: slough_ctr_capital_at_limit
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 0
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 6000
+  output:
+    uk-slough:policies/slough/council-tax-reduction#capital_eligible: holds
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 560
+
+- name: slough_ctr_capital_cliff
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 0
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 6000.01
+  output:
+    uk-slough:policies/slough/council-tax-reduction#capital_eligible: not_holds
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 0
+
+- name: slough_ctr_non_dependant_standard_table_row
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_is_protected_from_non_dependant_deductions: false
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 199.99
+  output:
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_deduction_weekly: 5
+
+- name: slough_ctr_non_dependant_higher_table_row
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_is_protected_from_non_dependant_deductions: false
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 200
+  output:
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_deduction_weekly: 11
+
+- name: slough_ctr_non_dependant_protected_class
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_is_protected_from_non_dependant_deductions: true
+    uk-slough:policies/slough/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 200
+  output:
+    uk-slough:policies/slough/council-tax-reduction#adult_resident_deduction_weekly: 0
+
+- name: slough_ctr_non_dependant_deduction_reduces_award
+  period: *period
+  input:
+    uk-slough:policies/slough/council-tax-reduction#input.earnings_band_key: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_capital: 0
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_has_earned_income: true
+    uk-slough:policies/slough/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-slough:policies/slough/council-tax-reduction#input.annual_band_c_council_tax_liability_after_statutory_discounts: 800
+    uk-slough:policies/slough/council-tax-reduction#input.applicant_weekly_earnings: 0
+    uk-slough:policies/slough/council-tax-reduction#input.annual_non_dependant_deductions: 100
+  output:
+    uk-slough:policies/slough/council-tax-reduction#council_tax_reduction_award: 300

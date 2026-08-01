@@ -1,0 +1,144 @@
+- name: warrington_ctr_parameters
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_maximum_support_rate: 0.78
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_weekly_taper_rate: 0.20
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_capital_limit: 6000
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_minimum_award_weekly: 2
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_middle_threshold: 279
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_high_threshold: 485
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_top_threshold: 605
+
+- name: warrington_ctr_maximum_and_taper
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.local_authority_is_warrington: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_capital: 0
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_eligible_liability_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_income_weekly: 150
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicable_amount_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_maximum_weekly_amount: 78
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_excess_income_weekly: 50
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_taper_deduction_weekly: 10
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_minimum_floor_met: holds
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_award_conditions_met: holds
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_weekly_amount: 68
+
+- name: warrington_ctr_capital_at_limit
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.local_authority_is_warrington: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_capital: 6000
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_eligible_liability_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_income_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicable_amount_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_capital_eligible: holds
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_weekly_amount: 78
+
+- name: warrington_ctr_capital_first_penny_over_is_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.local_authority_is_warrington: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_capital: 6000.01
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_eligible_liability_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_income_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicable_amount_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_capital_eligible: not_holds
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_weekly_amount: 0
+
+- name: warrington_ctr_minimum_floor_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.local_authority_is_warrington: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_capital: 0
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_eligible_liability_weekly: 10
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_assessed_income_weekly: 129.01
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_applicable_amount_weekly: 100
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_amount_before_minimum_floor_weekly: 1.998
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_minimum_floor_met: not_holds
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_weekly_amount: 0
+
+- name: warrington_ctr_non_dep_278_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 0
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: warrington_ctr_non_dep_279
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 1
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: warrington_ctr_non_dep_484_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 1
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: warrington_ctr_non_dep_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 2
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: warrington_ctr_non_dep_604_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 2
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: warrington_ctr_non_dep_605
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_non_dependant_band: 3
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: warrington_ctr_non_dep_exempt_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-warrington:policies/warrington/council-tax-reduction#input.warrington_council_tax_reduction_non_dependant_normal_gross_weekly_income: 700
+  output:
+    uk-warrington:policies/warrington/council-tax-reduction#warrington_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

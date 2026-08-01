@@ -1,0 +1,567 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to Cheshire West and Chester, so the Council's adopted document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Cheshire West and Chester's adopted 2026-27 working-age scheme is a taper scheme. Ordinary applicants receive at most 75 percent of discounted Band-D-or-lower liability; protected Classes C and D receive 100 percent but retain the Band D cap; working-age war pensioners receive 100 percent without the Band D cap and use a £16,000 capital limit with tariff income above £6,000. Other applicants face a £6,000 capital cliff. A 20 percent excess-income taper and working-age non-dependant deductions apply, and weekly entitlement of £1.99 or less is suppressed.
+  deferred_outputs:
+    - output: uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction/section-31-and-schedule-1#applicable_amount
+      reason: The personal allowances, child amounts, and premium schedules feeding the applicable amount are outside this award-surface module.
+    - output: uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction/section-33.2-to-33.7#non_dependant_coordination_and_exemptions
+      reason: Couple coordination, apportionment, and the detailed exemption schedule require resident-level facts outside this household award surface.
+rules:
+  - name: cheshire_west_and_chester_council_tax_reduction_standard_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 5.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "shall be 75 per cent of the amount of a/b"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: cheshire_west_and_chester_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 6.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "shall be 100 per cent of the amount of a/b"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cheshire_west_and_chester_council_tax_reduction_standard_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 35.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "capital limit for working age applicants of £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cheshire_west_and_chester_council_tax_reduction_war_pensioner_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 35.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: cheshire_west_and_chester_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 35.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "£1 per £250 over £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cheshire_west_and_chester_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 35.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "£1 per £250 over £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: cheshire_west_and_chester_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 35.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "£1 per £250 over £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cheshire_west_and_chester_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 34.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "shall be 20 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: cheshire_west_and_chester_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "£10 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: cheshire_west_and_chester_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 Class B amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "amount b is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_west_and_chester_council_tax_reduction_weekly_taper_rate / cheshire_west_and_chester_council_tax_reduction_days_per_week
+
+  - name: cheshire_west_and_chester_council_tax_reduction_minimum_entitlement_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 34.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "£1.99 per week or less"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.99
+
+  - name: cheshire_west_and_chester_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 weekly conversion rule
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: cheshire_west_and_chester_council_tax_reduction_non_dependant_low_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 33.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: cheshire_west_and_chester_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cheshire_west_and_chester_council_tax_reduction_non_dependant_deduction_band
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £10 x 1/7:\n\n(b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5 × 1/7."
+              table:
+                header: "33.1 Non dependant deductions"
+                row_key: "deduction band"
+                column_key: "weekly deduction"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5
+          1: 10
+
+  - name: cheshire_west_and_chester_council_tax_reduction_protected_class
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 6.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "This applies to classes C, D and war pensioners."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d or cheshire_west_and_chester_council_tax_reduction_is_war_pensioner
+
+  - name: cheshire_west_and_chester_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraphs 5.1 and 6.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "This applies to classes C, D and war pensioners."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_protected_class: cheshire_west_and_chester_council_tax_reduction_protected_maximum_support_rate else: cheshire_west_and_chester_council_tax_reduction_standard_maximum_support_rate
+
+  - name: cheshire_west_and_chester_council_tax_reduction_selected_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraphs 5.1 and 6.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "There is no restriction to any Council Tax banding where these protections apply for war pensioners"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "dwellings in valuation bands E, F, G and H then a will be the amount as it would have applied to dwellings in valuation band D."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: cheshire_west_and_chester_council_tax_reduction_actual_annual_liability_after_discounts else: min(cheshire_west_and_chester_council_tax_reduction_actual_annual_liability_after_discounts, cheshire_west_and_chester_council_tax_reduction_band_d_annual_liability_after_discounts)
+
+  - name: cheshire_west_and_chester_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraphs 35.2 and 35.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "capital limit for working age applicants of £6,000, except for those who are defined as war pensioners"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (cheshire_west_and_chester_council_tax_reduction_is_war_pensioner and cheshire_west_and_chester_council_tax_reduction_assessed_capital <= cheshire_west_and_chester_council_tax_reduction_war_pensioner_capital_limit)
+          or (not cheshire_west_and_chester_council_tax_reduction_is_war_pensioner and cheshire_west_and_chester_council_tax_reduction_assessed_capital <= cheshire_west_and_chester_council_tax_reduction_standard_capital_limit)
+
+  - name: cheshire_west_and_chester_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraphs 35.1 and 35.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "which applies to war pensioners only."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: cheshire_west_and_chester_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, cheshire_west_and_chester_council_tax_reduction_assessed_capital - cheshire_west_and_chester_council_tax_reduction_tariff_income_threshold) / cheshire_west_and_chester_council_tax_reduction_tariff_income_capital_step) * cheshire_west_and_chester_council_tax_reduction_weeks_per_year else: 0
+
+  - name: cheshire_west_and_chester_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 34.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year + cheshire_west_and_chester_council_tax_reduction_tariff_income_for_year - cheshire_west_and_chester_council_tax_reduction_applicable_amount_for_year)
+
+  - name: cheshire_west_and_chester_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 34.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "percentage of excess of income over the applicable amount which is deducted from maximum"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_west_and_chester_council_tax_reduction_excess_income_for_year * cheshire_west_and_chester_council_tax_reduction_weekly_taper_rate
+
+  - name: cheshire_west_and_chester_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraphs 33.1 and 33.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "In the case of a non-dependant aged 18 or over to whom sub-paragraph 1(a) applies, where it is shown to Cheshire West and Chester Council that his normal gross weekly income is less than £279.00, the deduction to be made under this paragraph is that specified in subparagraph 1(b)."
+              table:
+                header: "33.1A working non-dependant threshold"
+                row_key: "threshold result"
+                column_key: "deduction band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_non_dependant_in_remunerative_work and cheshire_west_and_chester_council_tax_reduction_non_dependant_normal_gross_weekly_income >= cheshire_west_and_chester_council_tax_reduction_non_dependant_low_income_threshold_weekly: 1 else: 0
+
+  - name: cheshire_west_and_chester_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "the non-dependant deductions in respect of a day referred to in maximum Council Tax Reduction shall be:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_is_non_dependant and not cheshire_west_and_chester_council_tax_reduction_non_dependant_exempt: cheshire_west_and_chester_council_tax_reduction_non_dependant_weekly_deduction_by_band[cheshire_west_and_chester_council_tax_reduction_non_dependant_deduction_band] * cheshire_west_and_chester_council_tax_reduction_weeks_per_year else: 0
+
+  - name: cheshire_west_and_chester_council_tax_reduction_amount_before_minimum_floor
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 working-age award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "which is deducted from maximum, Council Tax Reduction"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "non-dependant deductions in respect of a day referred to in maximum Council Tax Reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, cheshire_west_and_chester_council_tax_reduction_selected_eligible_liability_for_year * cheshire_west_and_chester_council_tax_reduction_selected_maximum_support_rate - cheshire_west_and_chester_council_tax_reduction_income_taper_deduction_for_year - cheshire_west_and_chester_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: cheshire_west_and_chester_council_tax_reduction_minimum_floor_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 paragraph 34.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "if an applicant’s assessed entitlement is £1.99 per week or less, then no entitlement shall be awarded"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cheshire_west_and_chester_council_tax_reduction_amount_before_minimum_floor > cheshire_west_and_chester_council_tax_reduction_minimum_entitlement_weekly * cheshire_west_and_chester_council_tax_reduction_weeks_per_year
+
+  - name: cheshire_west_and_chester_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 Classes A to D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "who has made an application for a reduction under the authority’s scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_cheshire_west_and_chester and would_claim_council_tax_reduction and cheshire_west_and_chester_council_tax_reduction_applicant_is_working_age and cheshire_west_and_chester_council_tax_reduction_capital_eligible and cheshire_west_and_chester_council_tax_reduction_minimum_floor_met
+
+  - name: simulated_cheshire_west_and_chester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "Following the application of this 20 percent taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cheshire_west_and_chester_council_tax_reduction_award_conditions_met: cheshire_west_and_chester_council_tax_reduction_amount_before_minimum_floor else: 0
+
+  - name: cheshire_west_and_chester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cheshire West and Chester Council Tax Reduction Scheme 2026/27 final working-age local award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "maximum Council Tax Reduction that can be awarded"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_cheshire_west_and_chester_council_tax_reduction_annual_amount

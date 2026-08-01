@@ -1,0 +1,168 @@
+- name: cheshire_west_and_chester_ctr_scalar_parameters
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_standard_maximum_support_rate: 0.75
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_protected_maximum_support_rate: 1
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_standard_capital_limit: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_war_pensioner_capital_limit: 16000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_threshold: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_capital_step: 250
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_days_per_week: 7
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_minimum_entitlement_weekly: 1.99
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_weeks_per_year: 52
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_non_dependant_low_income_threshold_weekly: 279
+
+- name: cheshire_west_and_chester_ctr_parameters_and_standard_award
+  period: *period
+  input:
+    <<: &base
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.local_authority_is_cheshire_west_and_chester: true
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_applicant_is_working_age: true
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_actual_annual_liability_after_discounts: 1600
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_band_d_annual_liability_after_discounts: 1200
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_applicable_amount_for_year: 10000
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_selected_eligible_liability_for_year: 1200
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_for_year: 0
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_capital_eligible: holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_minimum_floor_met: holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_award_conditions_met: holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#simulated_cheshire_west_and_chester_council_tax_reduction_annual_amount: 900
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 900
+
+- name: cheshire_west_and_chester_ctr_standard_capital_cliff_first_penny_over
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6000.01
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_capital_eligible: not_holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#simulated_cheshire_west_and_chester_council_tax_reduction_annual_amount: 0
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_west_and_chester_ctr_class_c_d_full_rate_with_band_d_cap
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_protected_class: holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_selected_maximum_support_rate: 1
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_selected_eligible_liability_for_year: 1200
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 1200
+
+- name: cheshire_west_and_chester_ctr_war_pensioner_tariff_and_no_band_cap
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6250.01
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_selected_eligible_liability_for_year: 1600
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_for_year: 104
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_excess_income_for_year: 104
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_income_taper_deduction_for_year: 20.8
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 1579.2
+
+- name: cheshire_west_and_chester_ctr_war_pensioner_capital_limit_eligible_side
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 16000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_capital_eligible: holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_tariff_income_for_year: 2080
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 1184
+
+- name: cheshire_west_and_chester_ctr_war_pensioner_capital_cliff_first_penny_over
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 16000.01
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 10000
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_capital_eligible: not_holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_west_and_chester_ctr_taper_zero_award_branch
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 14500
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_excess_income_for_year: 4500
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_income_taper_deduction_for_year: 900
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_amount_before_minimum_floor: 0
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_west_and_chester_ctr_minimum_entitlement_floor
+  period: *period
+  input:
+    <<: *base
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_class_c_or_d: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_war_pensioner: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_capital: 6000
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_assessed_income_for_year: 13982.60
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_amount_before_minimum_floor: 103.48
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_minimum_floor_met: not_holds
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_annual_amount: 0
+
+- name: cheshire_west_and_chester_ctr_non_dependant_low_band
+  period: *period
+  input:
+    <<: &person
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_is_non_dependant: true
+      uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_exempt: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_individual_non_dependant_deduction_for_year: 260
+
+- name: cheshire_west_and_chester_ctr_non_dependant_high_band_at_edge
+  period: *period
+  input:
+    <<: *person
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_exempt: false
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_individual_non_dependant_deduction_for_year: 520
+
+- name: cheshire_west_and_chester_ctr_exempt_non_dependant_zero
+  period: *period
+  input:
+    <<: *person
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_exempt: true
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#input.cheshire_west_and_chester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-cheshire-west-and-chester:policies/cheshire-west-and-chester/council-tax-reduction#cheshire_west_and_chester_council_tax_reduction_individual_non_dependant_deduction_for_year: 0

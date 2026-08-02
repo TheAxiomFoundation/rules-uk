@@ -1,0 +1,155 @@
+- name: wyre_ctr_full_award_household_conditions
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: &base
+      uk-wyre:policies/wyre/council-tax-reduction#input.local_authority_is_wyre: true
+      uk-wyre:policies/wyre/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+      uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicant_is_in_working_age_class: true
+      uk-wyre:policies/wyre/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_working_age_scheme_applies: holds
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_capital_eligible: holds
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_award_conditions_satisfied: holds
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_non_dependant_deduction_for_year: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_countable_income_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_excess_income_weekly: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_maximum_amount_for_year: 1000
+    uk-wyre:policies/wyre/council-tax-reduction#simulated_wyre_council_tax_reduction_annual_amount: 1000
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 1000
+
+- name: wyre_ctr_parameters_full_award_and_zero_nondependant_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_maximum_support_rate: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_capital_limit: 16000
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_threshold: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_capital_step: 250
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_days_per_week: 7
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_weeks_per_year: 52
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_withdrawal_rate: "0.2000000000000000000000000002"
+
+- name: wyre_ctr_tariff_first_pound_above_threshold_and_taper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_excess_income_weekly: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_income_taper_deduction_for_year: 10.4
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 989.6
+
+- name: wyre_ctr_tariff_step_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 989.6
+
+- name: wyre_ctr_tariff_next_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6251
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly: 2
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 979.2
+
+- name: wyre_ctr_capital_at_limit_still_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_capital_eligible: holds
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_tariff_income_weekly: 40
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 584
+
+- name: wyre_ctr_capital_over_limit_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_capital_eligible: not_holds
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 0
+
+- name: wyre_ctr_flat_non_dependant_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_non_dependant_deduction_for_year: 260
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 740
+
+- name: wyre_ctr_exempt_non_dependant_zero_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: true
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_annual_amount: 1000
+
+- name: wyre_ctr_taper_exhausts_award_zero_branch
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly: 200
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_applicable_amount_weekly: 100
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-wyre:policies/wyre/council-tax-reduction#input.wyre_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-wyre:policies/wyre/council-tax-reduction#wyre_council_tax_reduction_income_taper_deduction_for_year: 1040
+    uk-wyre:policies/wyre/council-tax-reduction#simulated_wyre_council_tax_reduction_annual_amount: 0

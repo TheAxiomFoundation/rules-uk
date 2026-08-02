@@ -1,0 +1,469 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Wyre's adopted document is operative.
+  summary: |-
+    Wyre's operative 2026-2027 working-age scheme uses a 100 percent maximum,
+    a 2 6/7 percent daily excess-income taper (20 percent weekly), a £16,000
+    capital limit, £1 weekly tariff income for each £250 or part above £6,000,
+    and a flat £5 weekly non-dependant deduction. No lower maximum-support cap,
+    council-tax band cap, minimum-award floor, or separate protected award rate
+    is stated. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-wyre:policies/wyre/council-tax-reduction/schedule-1#applicable_premiums_amount
+      reason: Schedule 1 contains category-specific applicable-amount components; this award surface consumes the calculated applicable amount.
+    - output: uk-wyre:policies/wyre/council-tax-reduction/section-58.3#non_dependant_exemption_classifier
+      reason: This module consumes whether the printed student, absence, training, and armed-forces exceptions apply.
+rules:
+  - name: wyre_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wyre_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 Class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: wyre_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: wyre_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: wyre_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wyre_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "£5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: wyre_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Wyre Council Tax Reduction Scheme 2026/27 weekly conversion rule
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: wyre_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: wyre_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1 weekly equivalent
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "£5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_daily_taper_rate * wyre_council_tax_reduction_days_per_week
+
+  - name: wyre_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wyre_council_tax_reduction_non_dependant_deduction_band
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 58.1-58.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax reduction) shall be £5 x 1/7"
+              table:
+                header: Non-dependant deduction applicability and weekly amount
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5
+
+  - name: wyre_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 1.6-1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "Wyre Borough Council Tax Reduction Scheme 2026/27"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_wyre and council_tax_reduction_household_in_england and wyre_council_tax_reduction_applicant_is_in_working_age_class
+
+  - name: wyre_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Wyre Council Tax Reduction Scheme 2026/27 Class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_assessed_capital_for_year <= wyre_council_tax_reduction_capital_limit
+
+  - name: wyre_council_tax_reduction_award_conditions_satisfied
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Wyre Council Tax Reduction Scheme 2026/27 Class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "have made a valid application for reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and wyre_council_tax_reduction_capital_eligible
+
+  - name: wyre_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wyre_council_tax_reduction_assessed_capital_for_year <= wyre_council_tax_reduction_tariff_income_threshold: 0 else: ceil((min(wyre_council_tax_reduction_assessed_capital_for_year, wyre_council_tax_reduction_capital_limit) - wyre_council_tax_reduction_tariff_income_threshold) / wyre_council_tax_reduction_tariff_income_capital_step) * wyre_council_tax_reduction_tariff_income_weekly_amount_per_step
+
+  - name: wyre_council_tax_reduction_countable_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 17 and 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "by adding to that amount, the weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_applicable_income_excluding_tariff_weekly + wyre_council_tax_reduction_tariff_income_weekly
+
+  - name: wyre_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, wyre_council_tax_reduction_countable_income_weekly - wyre_council_tax_reduction_applicable_amount_weekly)
+
+  - name: wyre_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "their excess income multiplied by the taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_excess_income_weekly * wyre_council_tax_reduction_withdrawal_rate * wyre_council_tax_reduction_weeks_per_year
+
+  - name: wyre_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Wyre Council Tax Reduction Scheme 2026/27 sections 58.1-58.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wyre_council_tax_reduction_has_chargeable_non_dependant and not wyre_council_tax_reduction_non_dependant_is_exempt: 1 else: 0
+
+  - name: wyre_council_tax_reduction_non_dependant_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall be £5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wyre_council_tax_reduction_non_dependant_weekly_deduction_by_band[wyre_council_tax_reduction_non_dependant_deduction_band] * wyre_council_tax_reduction_weeks_per_year
+
+  - name: wyre_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, wyre_council_tax_reduction_maximum_eligible_liability_for_year * wyre_council_tax_reduction_maximum_support_rate - wyre_council_tax_reduction_non_dependant_deduction_for_year)
+
+  - name: simulated_wyre_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "their Council Tax Reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum Council Tax Reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wyre_council_tax_reduction_award_conditions_satisfied: max(0, wyre_council_tax_reduction_maximum_amount_for_year - wyre_council_tax_reduction_income_taper_deduction_for_year) else: 0
+
+  - name: wyre_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wyre Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wyre/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "their Council Tax Reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum Council Tax Reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_wyre_council_tax_reduction_annual_amount

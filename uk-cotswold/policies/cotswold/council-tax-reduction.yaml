@@ -1,0 +1,780 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Cotswold District Council, so its adopted scheme document is the operative source for the local award parameters. The pinned singular source-verification contract strips this attestation as a live field.
+  summary: |-
+    Upstream-source status is delegated_scheme; checked paths are
+    uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and
+    uk/regulations/uksi/2012/2886. Section 13A makes Cotswold's adopted document
+    operative. Cotswold's 2026-27 working-age scheme awards ordinary applicants 100, 80,
+    60, 40, or 20 percent of Band-E-capped net liability according to a
+    ten-family-column weekly-income grid. Protected applicants instead receive
+    100 percent maximum support less non-dependant deductions and a 20 percent
+    excess-income taper. Capital above £10,000 ends entitlement; capital above
+    £6,000 produces £1 weekly tariff income per £250 or part. Pension-age rules
+    are outside this module.
+  deferred_outputs:
+    - output: uk-cotswold:policies/cotswold/council-tax-reduction/protected-applicable-amounts#applicable_amount
+      reason: Schedule 5 personal allowances, child amounts, premiums, components, and transitional additions are category-specific inputs to the protected award and are not encoded here.
+rules:
+  - name: cotswold_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 54.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-99
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cotswold_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 30.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "the prescribed amount is £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: cotswold_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 39
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "No tariff income will be applied for capital less than £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cotswold_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 39.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "for every £250 (or part of) between £6,000 and £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: cotswold_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 39.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "a tariff income of £1.00 will be added for every £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cotswold_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 55.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: cotswold_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Cotswold Council Tax Support Scheme 2026/2027 Schedule 5 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-159
+              excerpt: "shall be 2 6/7 percent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: cotswold_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Cotswold Council Tax Support Scheme 2026/2027 Schedule 5 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-159
+              excerpt: "their excess income multiplied by the taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cotswold_council_tax_reduction_daily_taper_rate * cotswold_council_tax_reduction_days_per_week
+
+  - name: cotswold_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 20.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: cotswold_council_tax_reduction_band_e_number
+    kind: parameter
+    dtype: Number
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "restricted to a council tax band E"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: cotswold_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_non_dependant_band_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 55
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7. (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7."
+              table:
+                header: non-dependant deduction
+                row_key: band
+                column_key: weekly amount
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "(a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 55.1(b). (b) not less than £279.00 but less than £485.00, the deduction to be made under this section shall be £10.60. (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30."
+              table:
+                header: non-dependant income bands
+                row_key: band
+                column_key: weekly amount
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.60
+          3: 13.30
+          4: 15.95
+
+  - name: cotswold_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: cotswold_council_tax_reduction_income_band_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Maximum % entitlement Income £ Band 1 0 – 154.48 0 – 183.08 0 – 211.69 0 – 234.58 0 – 257.47 0 – 303.24 0 – 280.35 0 – 303.24 0 – 326.12 0 – 371.89 100 Band 2 154.49 – 204.48 183.09 – 223.08 211.70 – 246.69 234.59 – 269.58 257.48 – 292.47 303.25 – 338.24 280.36 – 330.35 303.25 – 353.24 326.13 – 376.12 371.90 – 421.89 80"
+              table:
+                header: income bands
+                row_key: income band
+                column_key: maximum percent entitlement
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Band 3 204.49 – 254.48 223.09 – 273.08 246.70 – 296.69 269.59 – 319.58 292.48 – 342.47 338.25 – 388.24 330.36 – 380.35 353.25 – 403.24 376.13 – 426.12 421.90 – 471.89 60 Band 4 254.49 – 304.48 273.09 – 323.08 296.70 – 346.69 319.59 – 369.58 342.48 – 392.47 388.25 – 438.24 380.36 – 430.35 403.25 – 453.24 426.13 – 476.12 471.90 – 521.89 40 Band 5 304.49 – 354.48 323.09 – 373.08 346.70 – 396.69 369.59 – 419.58 392.48 – 442.47 438.25 – 488.24 430.36 – 480.35 453.25 – 503.24 476.13 – 526.12 521.90 – 571.89 20"
+              table:
+                header: income bands
+                row_key: income band
+                column_key: maximum percent entitlement
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 0.80
+          3: 0.60
+          4: 0.40
+          5: 0.20
+
+  - name: cotswold_council_tax_reduction_non_dependant_income_band_upper_bounds
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_non_dependant_band_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 55.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "(a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 55.1(b). (b) not less than £279.00 but less than £485.00, the deduction to be made under this section shall be £10.60. (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30."
+              table:
+                header: non-dependant income bands
+                row_key: band index
+                column_key: exclusive upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 279
+          2: 485
+          3: 605
+
+  - name: cotswold_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: cotswold_council_tax_reduction_income_band_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "The income bands are numbered 1 to 5"
+              table:
+                header: income bands
+                row_key: band index
+                column_key: band code
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+
+  - name: cotswold_council_tax_reduction_band_1_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_family_category_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Income Band Single Person Couple Lone Parent with 1 child Lone Parent 2 children Lone Parent 3 children Lone Parent 4+ children Couple with 1 child Couple with 2 children Couple with 3 children Couple with 4+ children Maximum % entitlement Income £ Band 1 0 – 154.48 0 – 183.08 0 – 211.69 0 – 234.58 0 – 257.47 0 – 303.24 0 – 280.35 0 – 303.24 0 – 326.12 0 – 371.89 100 Band 2 154.49 – 204.48 183.09 – 223.08 211.70 – 246.69 234.59 – 269.58 257.48 – 292.47 303.25 – 338.24 280.36 – 330.35 303.25 – 353.24 326.13 – 376.12 371.90 – 421.89 80"
+              table:
+                header: income bands and ten family columns
+                row_key: band-family key
+                column_key: upper weekly income
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Band 3 204.49 – 254.48 223.09 – 273.08 246.70 – 296.69 269.59 – 319.58 292.48 – 342.47 338.25 – 388.24 330.36 – 380.35 353.25 – 403.24 376.13 – 426.12 421.90 – 471.89 60 Band 4 254.49 – 304.48 273.09 – 323.08 296.70 – 346.69 319.59 – 369.58 342.48 – 392.47 388.25 – 438.24 380.36 – 430.35 403.25 – 453.24 426.13 – 476.12 471.90 – 521.89 40 Band 5 304.49 – 354.48 323.09 – 373.08 346.70 – 396.69 369.59 – 419.58 392.48 – 442.47 438.25 – 488.24 430.36 – 480.35 453.25 – 503.24 476.13 – 526.12 521.90 – 571.89 20"
+              table:
+                header: income bands and ten family columns
+                row_key: band-family key
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 154.48
+          1: 183.08
+          2: 211.69
+          3: 234.58
+          4: 257.47
+          5: 303.24
+          6: 280.35
+          7: 303.24
+          8: 326.12
+          9: 371.89
+
+  - name: cotswold_council_tax_reduction_band_2_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_family_category_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Band 2 154.49 – 204.48 183.09 – 223.08 211.70 – 246.69 234.59 – 269.58 257.48 – 292.47 303.25 – 338.24 280.36 – 330.35 303.25 – 353.24 326.13 – 376.12 371.90 – 421.89 80"
+              table:
+                header: Band 2 family columns
+                row_key: family category index
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 204.48
+          1: 223.08
+          2: 246.69
+          3: 269.58
+          4: 292.47
+          5: 338.24
+          6: 330.35
+          7: 353.24
+          8: 376.12
+          9: 421.89
+
+  - name: cotswold_council_tax_reduction_band_3_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_family_category_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Band 3 204.49 – 254.48 223.09 – 273.08 246.70 – 296.69 269.59 – 319.58 292.48 – 342.47 338.25 – 388.24 330.36 – 380.35 353.25 – 403.24 376.13 – 426.12 421.90 – 471.89 60"
+              table:
+                header: Band 3 family columns
+                row_key: family category index
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 254.48
+          1: 273.08
+          2: 296.69
+          3: 319.58
+          4: 342.47
+          5: 388.24
+          6: 380.35
+          7: 403.24
+          8: 426.12
+          9: 471.89
+
+  - name: cotswold_council_tax_reduction_band_4_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_family_category_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Band 4 254.49 – 304.48 273.09 – 323.08 296.70 – 346.69 319.59 – 369.58 342.48 – 392.47 388.25 – 438.24 380.36 – 430.35 403.25 – 453.24 426.13 – 476.12 471.90 – 521.89 40"
+              table:
+                header: Band 4 family columns
+                row_key: family category index
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 304.48
+          1: 323.08
+          2: 346.69
+          3: 369.58
+          4: 392.47
+          5: 438.24
+          6: 430.35
+          7: 453.24
+          8: 476.12
+          9: 521.89
+
+  - name: cotswold_council_tax_reduction_band_5_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cotswold_council_tax_reduction_family_category_index
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Band 5 304.49 – 354.48 323.09 – 373.08 346.70 – 396.69 369.59 – 419.58 392.48 – 442.47 438.25 – 488.24 430.36 – 480.35 453.25 – 503.24 476.13 – 526.12 521.90 – 571.89 20"
+              table:
+                header: Band 5 family columns
+                row_key: family category index
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 354.48
+          1: 373.08
+          2: 396.69
+          3: 419.58
+          4: 442.47
+          5: 488.24
+          6: 480.35
+          7: 503.24
+          8: 526.12
+          9: 571.89
+
+  - name: cotswold_council_tax_reduction_child_count_thresholds
+    kind: parameter
+    dtype: Number
+    indexed_by: cotswold_council_tax_reduction_number_of_children
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Lone Parent with 1 child Lone Parent 2 children Lone Parent 3 children Lone Parent 4+ children Couple with 1 child Couple with 2 children Couple with 3 children Couple with 4+ children"
+              table:
+                header: child-count family columns
+                row_key: child-count threshold
+                column_key: number of children
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+
+  - name: cotswold_council_tax_reduction_family_category_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Year
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Single Person Couple Lone Parent with 1 child Lone Parent 2 children Lone Parent 3 children Lone Parent 4+ children Couple with 1 child Couple with 2 children Couple with 3 children Couple with 4+ children"
+              table:
+                header: family columns
+                row_key: partner and child count
+                column_key: category
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cotswold_council_tax_reduction_applicant_has_partner: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[4]: 9 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[3]: 8 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[2]: 7 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[1]: 6 else: 1 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[4]: 5 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[3]: 4 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[2]: 3 else: if cotswold_council_tax_reduction_number_of_children >= cotswold_council_tax_reduction_child_count_thresholds[1]: 2 else: 0
+
+  - name: cotswold_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 30.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cotswold_council_tax_reduction_assessed_capital_for_year
+          <= cotswold_council_tax_reduction_capital_limit
+
+  - name: cotswold_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 39
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "For capital between £6,001 to £10,000 a tariff income of £1.00 will be added for every £250 (or part of) between £6,000 and £10,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cotswold_council_tax_reduction_assessed_capital_for_year > cotswold_council_tax_reduction_tariff_income_threshold: ceil((cotswold_council_tax_reduction_assessed_capital_for_year - cotswold_council_tax_reduction_tariff_income_threshold) / cotswold_council_tax_reduction_tariff_income_step) * cotswold_council_tax_reduction_tariff_income_weekly_amount_per_step else: 0
+
+  - name: cotswold_council_tax_reduction_weekly_income_including_tariff
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 14.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-49
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cotswold_council_tax_reduction_net_weekly_income + cotswold_council_tax_reduction_tariff_income_weekly
+
+  - name: cotswold_council_tax_reduction_non_dependant_band_index
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 55
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "(a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 55.1(b). (b) not less than £279.00 but less than £485.00, the deduction to be made under this section shall be £10.60. (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30."
+              table:
+                header: non-dependant income bands
+                row_key: weekly income
+                column_key: band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not cotswold_council_tax_reduction_is_non_dependant or cotswold_council_tax_reduction_non_dependant_exempt: 0 else: if not cotswold_council_tax_reduction_non_dependant_in_remunerative_work: 1 else: if cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income < cotswold_council_tax_reduction_non_dependant_income_band_upper_bounds[1]: 1 else: if cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income < cotswold_council_tax_reduction_non_dependant_income_band_upper_bounds[2]: 2 else: if cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income < cotswold_council_tax_reduction_non_dependant_income_band_upper_bounds[3]: 3 else: 4
+
+  - name: cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 55
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "the non-dependant deductions in respect of a day referred to in section 54"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cotswold_council_tax_reduction_non_dependant_deduction_weekly_by_band[cotswold_council_tax_reduction_non_dependant_band_index]
+
+  - name: cotswold_council_tax_reduction_income_band_candidate_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "Where the combined net weekly income falls on or within a range, then the related council tax support percentage is applied"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cotswold_council_tax_reduction_weekly_income_including_tariff <= cotswold_council_tax_reduction_band_1_upper_income_by_family[cotswold_council_tax_reduction_family_category_index]: cotswold_council_tax_reduction_income_band_codes[1] else: if cotswold_council_tax_reduction_weekly_income_including_tariff <= cotswold_council_tax_reduction_band_2_upper_income_by_family[cotswold_council_tax_reduction_family_category_index]: cotswold_council_tax_reduction_income_band_codes[2] else: if cotswold_council_tax_reduction_weekly_income_including_tariff <= cotswold_council_tax_reduction_band_3_upper_income_by_family[cotswold_council_tax_reduction_family_category_index]: cotswold_council_tax_reduction_income_band_codes[3] else: if cotswold_council_tax_reduction_weekly_income_including_tariff <= cotswold_council_tax_reduction_band_4_upper_income_by_family[cotswold_council_tax_reduction_family_category_index]: cotswold_council_tax_reduction_income_band_codes[4] else: if cotswold_council_tax_reduction_weekly_income_including_tariff <= cotswold_council_tax_reduction_band_5_upper_income_by_family[cotswold_council_tax_reduction_family_category_index]: cotswold_council_tax_reduction_income_band_codes[5] else: cotswold_council_tax_reduction_income_band_codes[0]
+
+  - name: cotswold_council_tax_reduction_income_band_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "those in receipt of income support or income-based jobseeker’s allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: 1 else: cotswold_council_tax_reduction_income_band_candidate_index
+
+  - name: cotswold_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1.9b
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "the related council tax support percentage is applied against the net annual liability calculated in 1.8 above."
+              table:
+                header: income bands
+                row_key: band
+                column_key: percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cotswold_council_tax_reduction_support_rate_by_band[cotswold_council_tax_reduction_income_band_index]
+
+  - name: cotswold_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cotswold Council Tax Support Scheme 2026/2027 section 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "working age customers for the financial year 2026/2027"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_cotswold
+          and cotswold_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+
+  - name: simulated_cotswold_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 sections 1.8 and 1.9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "CTS = Liability after any discounts/exemptions are applied less any non-dependant deductions less 20% of the amount their income exceeds their applicable amount."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "the related council tax support percentage is applied against the net annual liability calculated in 1.8 above."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cotswold_council_tax_reduction_working_age_scheme_applies and cotswold_council_tax_reduction_capital_eligible: if cotswold_council_tax_reduction_is_protected: max(0, min(cotswold_council_tax_reduction_annual_liability_after_discounts, cotswold_council_tax_reduction_band_e_annual_liability_after_discounts) * cotswold_council_tax_reduction_maximum_support_rate - cotswold_council_tax_reduction_non_dependant_deductions_for_year - max(0, cotswold_council_tax_reduction_weekly_income_including_tariff - cotswold_council_tax_reduction_protected_applicable_amount_weekly) * cotswold_council_tax_reduction_weekly_taper_rate * cotswold_council_tax_reduction_weeks_per_year) else: max(0, min(cotswold_council_tax_reduction_annual_liability_after_discounts, cotswold_council_tax_reduction_band_e_annual_liability_after_discounts) - cotswold_council_tax_reduction_non_dependant_deductions_for_year) * cotswold_council_tax_reduction_selected_support_rate else: 0
+
+  - name: cotswold_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cotswold Council Tax Support Scheme 2026/2027 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cotswold/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "Any award of council tax support will be applied to the annual liability"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_cotswold_council_tax_reduction_annual_amount

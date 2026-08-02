@@ -1,0 +1,602 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Plymouth's adopted document is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: |-
+    Plymouth's operative working-age scheme is effective from 1 April 2026 for one financial year. Schedule 1 replaces the pension-age taper text with a five-band discount surface: 80%, 60%, 40%, 20%, and 0%, selected by weekly income and family category. Paragraph 57 sets a 100% liability maximum capped at Band E; the band discount is based directly on that maximum. Capital above £6,000 produces no award. The working-age award has no tariff-income rule or excess-income taper. A flat £5.20 weekly non-dependant deduction applies unless a printed protection or exemption applies.
+  deferred_outputs:
+    - output: uk-plymouth:policies/plymouth/council-tax-reduction/sections-12-to-30-and-schedules-2-to-3#assessed_weekly_income
+      reason: The award surface consumes weekly income calculated under the scheme; the detailed earnings, self-employment, minimum-income-floor, and income-disregard schedules are outside this module.
+    - output: uk-plymouth:policies/plymouth/council-tax-reduction/sections-31-to-40-and-schedule-4#assessed_capital
+      reason: The award surface applies the local capital cliff; valuation, attribution, notional-capital, and capital-disregard rules are outside this module.
+    - output: uk-plymouth:policies/plymouth/council-tax-reduction/paragraph-57.1#a_or_band_e_capped_annual_liability
+      reason: The award surface consumes eligible liability already capped at the lower of actual liability and Band E; dwelling-band charge lookup and joint-liability apportionment are outside this module.
+    - output: uk-plymouth:policies/plymouth/council-tax-reduction/paragraphs-58.4-to-58.6#non_dependant_exemption_classifier
+      reason: This module encodes the flat deduction and consumes the printed protection/exemption result; the detailed disability, student, benefit, absence, and armed-forces classifier is deferred.
+    - output: uk-plymouth:policies/plymouth/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult alternative maximum reduction is outside this working-age award surface.
+rules:
+  - name: plymouth_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: plymouth_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 1 ­ 80%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: plymouth_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 2 ­ 60%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: plymouth_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 3 ­ 40 %"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: plymouth_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 4 ­ 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: plymouth_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 5 ­ 0%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: plymouth_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: plymouth_council_tax_reduction_income_band
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 band headings
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 1 ­ 80% Band 2 ­ 60% Band 3 ­ 40 % Band 4 ­ 20% Band 5 ­ 0%"
+              table:
+                header: Banded Discount Scheme
+                row_key: income band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0.80
+          2: 0.60
+          3: 0.40
+          4: 0.20
+          5: 0
+
+  - name: plymouth_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: plymouth_council_tax_reduction_family_category
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Non Passported - War Pensioners £0.00 £653.00 Working Age -Non Passported Child Under 5 £0.00 £329.00 £393.00 £524.00 £719.00 Non Passported - Other £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Single £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Couple £0.00 £158.00 £222.00 £290.00 £393.00 Non Passported - 1 child £0.00 £263.00 £329.00 £458.00 £590.00 Non Passported - 2 Child + £0.00 £329.00 £393.00 £524.00 £719.00"
+              table:
+                header: Banded Discount Scheme weekly income grid
+                row_key: family category
+                column_key: Band 2 lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 105
+          1: 105
+          2: 158
+          3: 263
+          4: 329
+          5: 329
+
+  - name: plymouth_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: plymouth_council_tax_reduction_family_category
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Non Passported - War Pensioners £0.00 £653.00 Working Age -Non Passported Child Under 5 £0.00 £329.00 £393.00 £524.00 £719.00 Non Passported - Other £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Single £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Couple £0.00 £158.00 £222.00 £290.00 £393.00 Non Passported - 1 child £0.00 £263.00 £329.00 £458.00 £590.00 Non Passported - 2 Child + £0.00 £329.00 £393.00 £524.00 £719.00"
+              table:
+                header: Banded Discount Scheme weekly income grid
+                row_key: family category
+                column_key: Band 3 lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 171
+          1: 171
+          2: 222
+          3: 329
+          4: 393
+          5: 393
+
+  - name: plymouth_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: plymouth_council_tax_reduction_family_category
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Non Passported - War Pensioners £0.00 £653.00 Working Age -Non Passported Child Under 5 £0.00 £329.00 £393.00 £524.00 £719.00 Non Passported - Other £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Single £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Couple £0.00 £158.00 £222.00 £290.00 £393.00 Non Passported - 1 child £0.00 £263.00 £329.00 £458.00 £590.00 Non Passported - 2 Child + £0.00 £329.00 £393.00 £524.00 £719.00"
+              table:
+                header: Banded Discount Scheme weekly income grid
+                row_key: family category
+                column_key: Band 4 lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 237
+          1: 237
+          2: 290
+          3: 458
+          4: 524
+          5: 524
+
+  - name: plymouth_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: plymouth_council_tax_reduction_family_category
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Non Passported - War Pensioners £0.00 £653.00 Working Age -Non Passported Child Under 5 £0.00 £329.00 £393.00 £524.00 £719.00 Non Passported - Other £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Single £0.00 £105.00 £171.00 £237.00 £340.00 Non Passported - Couple £0.00 £158.00 £222.00 £290.00 £393.00 Non Passported - 1 child £0.00 £263.00 £329.00 £458.00 £590.00 Non Passported - 2 Child + £0.00 £329.00 £393.00 £524.00 £719.00"
+              table:
+                header: Banded Discount Scheme weekly income grid
+                row_key: family category
+                column_key: Band 5 lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 340
+          1: 340
+          2: 393
+          3: 590
+          4: 719
+          5: 719
+
+  - name: plymouth_council_tax_reduction_war_pensioner_zero_award_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 protected war-pensioner row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Non Passported - War Pensioners £0.00 £653.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          653
+
+  - name: plymouth_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: plymouth_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "£5.20 x1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: plymouth_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Plymouth Council Tax Reduction Scheme 2026/27 weekly-income basis
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: plymouth_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: plymouth_council_tax_reduction_non_dependant_deduction_band
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "A standard deduction of £5.20 x1/7 shall be applied for non-dependant for each day that the non-dependant resides in the premises."
+              table:
+                header: Non-dependant deduction applicability
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+
+  - name: plymouth_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 1.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "This document details how the scheme will operate for working age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_plymouth
+          and council_tax_reduction_household_in_england
+          and plymouth_council_tax_reduction_applicant_is_in_working_age_class
+
+  - name: plymouth_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "capital is greater than £6,000 shall not be entitled"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          plymouth_council_tax_reduction_assessed_capital_for_year
+          <= plymouth_council_tax_reduction_capital_limit
+
+  - name: plymouth_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Where an applicant or partner is in receipt of a ‘passporting benefit*’ namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          plymouth_council_tax_reduction_applicant_or_partner_receives_income_support
+          or plymouth_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or plymouth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: plymouth_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+              table:
+                header: Banded Discount Scheme weekly income grid
+                row_key: weekly income and family category
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if plymouth_council_tax_reduction_passported_to_band_1: plymouth_council_tax_reduction_band_1 else: if plymouth_council_tax_reduction_applicant_or_partner_is_war_pensioner: (if plymouth_council_tax_reduction_weekly_income >= plymouth_council_tax_reduction_war_pensioner_zero_award_income_weekly: plymouth_council_tax_reduction_band_5 else: plymouth_council_tax_reduction_band_1) else: if plymouth_council_tax_reduction_weekly_income >= plymouth_council_tax_reduction_band_5_lower_income_by_family[plymouth_council_tax_reduction_family_category]: plymouth_council_tax_reduction_band_5 else: if plymouth_council_tax_reduction_weekly_income >= plymouth_council_tax_reduction_band_4_lower_income_by_family[plymouth_council_tax_reduction_family_category]: plymouth_council_tax_reduction_band_4 else: if plymouth_council_tax_reduction_weekly_income >= plymouth_council_tax_reduction_band_3_lower_income_by_family[plymouth_council_tax_reduction_family_category]: plymouth_council_tax_reduction_band_3 else: if plymouth_council_tax_reduction_weekly_income >= plymouth_council_tax_reduction_band_2_lower_income_by_family[plymouth_council_tax_reduction_family_category]: plymouth_council_tax_reduction_band_2 else: plymouth_council_tax_reduction_band_1
+
+  - name: plymouth_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Band 1 ­ 80% Band 2 ­ 60% Band 3 ­ 40 % Band 4 ­ 20% Band 5 ­ 0%"
+              table:
+                header: Banded Discount Scheme
+                row_key: income band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          plymouth_council_tax_reduction_support_rate_by_band[plymouth_council_tax_reduction_income_band]
+
+  - name: plymouth_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.4-58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "A standard deduction of £5.20 x1/7 shall be applied for non-dependant for each day that the non-dependant resides in the premises."
+              table:
+                header: Non-dependant deduction applicability
+                row_key: application condition
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if plymouth_council_tax_reduction_has_chargeable_non_dependant and not plymouth_council_tax_reduction_non_dependant_deduction_protected_or_exempt: 1 else: 0
+
+  - name: plymouth_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "A standard deduction of £5.20 x1/7 shall be applied for non-dependant for each day that the non-dependant resides in the premises."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          plymouth_council_tax_reduction_non_dependant_weekly_deduction_by_band[plymouth_council_tax_reduction_non_dependant_deduction_band]
+          * plymouth_council_tax_reduction_weeks_per_year
+
+  - name: plymouth_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          plymouth_council_tax_reduction_maximum_eligible_liability_for_year
+          * plymouth_council_tax_reduction_maximum_liability_rate
+
+  - name: simulated_plymouth_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-5 and paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "A standard deduction of £5.20 x1/7 shall be applied for non-dependant for each day that the non-dependant resides in the premises."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if plymouth_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and plymouth_council_tax_reduction_capital_eligible: max(0, plymouth_council_tax_reduction_maximum_amount_for_year * plymouth_council_tax_reduction_selected_support_rate - plymouth_council_tax_reduction_annual_non_dependant_deduction) else: 0
+
+  - name: plymouth_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Plymouth Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-plymouth/manual/council-tax-reduction-scheme-2026-2027/page-104
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_plymouth_council_tax_reduction_annual_amount

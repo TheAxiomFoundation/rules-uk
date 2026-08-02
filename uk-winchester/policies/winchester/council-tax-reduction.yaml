@@ -1,0 +1,681 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Winchester City Council, so its adopted 2026/27 document is the operative source for these local parameters.
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A,
+    uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Section 13A
+    delegates working-age scheme design to Winchester, so its adopted document is
+    operative. Winchester's adopted working-age Council Tax Reduction scheme is effective from
+    1 April 2026 for one financial year. Maximum reduction is 100 percent of
+    liability, and the linked grid selects a 100, 75, 45, 25, or 0 percent
+    discount from six family columns. Capital above £16,000 bars an award;
+    capital above £6,000 produces £1 weekly tariff income per £250 or part.
+    Passported applicants receive Band 1. The working-age scheme has no excess-income taper,
+    non-dependant deduction schedule, minimum-award floor, council-tax band cap,
+    or separately stated protected-class rate. Pension-age provisions are
+    outside this module.
+rules:
+  - name: winchester_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: winchester_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 26.1 and Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "the prescribed amount is £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: winchester_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 26.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: winchester_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 26.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: winchester_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraphs 26.2 and 26.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: winchester_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "100% £0-£100"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: winchester_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "75% £100.01 - £197.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: winchester_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "45% £197.51 - £265.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: winchester_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "25% £265.51 - £333.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: winchester_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "0% Over £333.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: winchester_council_tax_reduction_band_2_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: winchester_council_tax_reduction_family_category
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 75 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 75% £100.01 - £197.50 £179.51- £278.50 £249.51 - £349.00 £154.01 - £253.50 £235.51 - £334.50 £305.51 - £404.50"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "75 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 100.01
+          1: 179.51
+          2: 249.51
+          3: 154.01
+          4: 235.51
+          5: 305.51
+
+  - name: winchester_council_tax_reduction_band_3_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: winchester_council_tax_reduction_family_category
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 45 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 45% £197.51 - £265.50 £278.51 - £346.50 £349.01– £417.00 £253.51 - £321.50 £334.51 - £402.50 £404.51 - £472.50"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "45 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 197.51
+          1: 278.51
+          2: 349.01
+          3: 253.51
+          4: 334.51
+          5: 404.51
+
+  - name: winchester_council_tax_reduction_band_4_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: winchester_council_tax_reduction_family_category
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 25 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 25% £265.51 - £333.50 £346.51 - £414.50 £417.01 – £485.00 £321.51 - £389.50 £402.51 - £470.50 £472.51 - £540.50"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "25 percent lower weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 265.51
+          1: 346.51
+          2: 417.01
+          3: 321.51
+          4: 402.51
+          5: 472.51
+
+  - name: winchester_council_tax_reduction_band_5_lower_income_threshold_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: winchester_council_tax_reduction_family_category
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 0 percent row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "0% Over £333.50 Over £414.50 Over £485.00 Over £389.50 Over £470.50 Over £540.50"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "family category"
+                column_key: "25 percent upper weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 333.50
+          1: 414.50
+          2: 485.00
+          3: 389.50
+          4: 470.50
+          5: 540.50
+
+  - name: winchester_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: winchester_council_tax_reduction_income_band
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 1 100% £0-£100 £0- £179.50 £0 - £249.50 £0 - £154.00 £0 - £235.50 £0 - £305.50 Band 2 75% £100.01 - £197.50 £179.51- £278.50 £249.51 - £349.00 £154.01 - £253.50 £235.51 - £334.50 £305.51 - £404.50 Band 3 45% £197.51 - £265.50 £278.51 - £346.50 £349.01– £417.00 £253.51 - £321.50 £334.51 - £402.50 £404.51 - £472.50 Band 4 25% £265.51 - £333.50 £346.51 - £414.50 £417.01 – £485.00 £321.51 - £389.50 £402.51 - £470.50 £472.51 - £540.50 0% Over £333.50 Over £414.50 Over £485.00 Over £389.50 Over £470.50 Over £540.50"
+              table:
+                header: "Level of Discount"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 1
+          2: 0.75
+          3: 0.45
+          4: 0.25
+          5: 0
+
+  - name: winchester_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: winchester_council_tax_reduction_family_category
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Single Person Single Person with one"
+              table:
+                header: "Level of Discount"
+                row_key: "family facts"
+                column_key: "family category code"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+
+  - name: winchester_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Single Person Single Person with one"
+              table:
+                header: "Level of Discount"
+                row_key: "family facts"
+                column_key: "family category"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if winchester_council_tax_reduction_applicant_has_partner: (if winchester_council_tax_reduction_number_of_children >= 2: winchester_council_tax_reduction_family_category_codes[5] else: if winchester_council_tax_reduction_number_of_children >= 1: winchester_council_tax_reduction_family_category_codes[4] else: winchester_council_tax_reduction_family_category_codes[3]) else: (if winchester_council_tax_reduction_number_of_children >= 2: winchester_council_tax_reduction_family_category_codes[2] else: if winchester_council_tax_reduction_number_of_children >= 1: winchester_council_tax_reduction_family_category_codes[1] else: winchester_council_tax_reduction_family_category_codes[0])
+
+  - name: winchester_council_tax_reduction_band_2_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 2 75% £100.01 - £197.50 £179.51- £278.50 £249.51 - £349.00 £154.01 - £253.50 £235.51 - £334.50 £305.51 - £404.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_band_2_lower_income_threshold_by_family[winchester_council_tax_reduction_family_category]
+
+  - name: winchester_council_tax_reduction_band_3_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 3 45% £197.51 - £265.50 £278.51 - £346.50 £349.01– £417.00 £253.51 - £321.50 £334.51 - £402.50 £404.51 - £472.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_band_3_lower_income_threshold_by_family[winchester_council_tax_reduction_family_category]
+
+  - name: winchester_council_tax_reduction_band_4_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 4 25% £265.51 - £333.50 £346.51 - £414.50 £417.01 – £485.00 £321.51 - £389.50 £402.51 - £470.50 £472.51 - £540.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_band_4_lower_income_threshold_by_family[winchester_council_tax_reduction_family_category]
+
+  - name: winchester_council_tax_reduction_band_5_lower_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "0% Over £333.50 Over £414.50 Over £485.00 Over £389.50 Over £470.50 Over £540.50"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_band_5_lower_income_threshold_by_family[winchester_council_tax_reduction_family_category]
+
+  - name: winchester_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraphs 26.2 and 26.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, winchester_council_tax_reduction_assessed_capital - winchester_council_tax_reduction_tariff_income_threshold) / winchester_council_tax_reduction_tariff_income_step)
+
+  - name: winchester_council_tax_reduction_assessed_weekly_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 26.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "The calculated tariff income shall be added to all other income of the applicant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_weekly_income + winchester_council_tax_reduction_tariff_income_weekly
+
+  - name: winchester_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "no reduction shall be granted when the applicant has an amount greater that this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_assessed_capital
+          <= winchester_council_tax_reduction_capital_limit
+
+  - name: winchester_council_tax_reduction_passported_band_one_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit
+
+  - name: winchester_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 1 100% £0-£100 £0- £179.50 £0 - £249.50 £0 - £154.00 £0 - £235.50 £0 - £305.50 Band 2 75% £100.01 - £197.50 £179.51- £278.50 £249.51 - £349.00 £154.01 - £253.50 £235.51 - £334.50 £305.51 - £404.50 Band 3 45% £197.51 - £265.50 £278.51 - £346.50 £349.01– £417.00 £253.51 - £321.50 £334.51 - £402.50 £404.51 - £472.50 Band 4 25% £265.51 - £333.50 £346.51 - £414.50 £417.01 – £485.00 £321.51 - £389.50 £402.51 - £470.50 £472.51 - £540.50 0% Over £333.50 Over £414.50 Over £485.00 Over £389.50 Over £470.50 Over £540.50"
+              table:
+                header: "Level of Discount and six family columns"
+                row_key: "weekly income and family category"
+                column_key: "income band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if winchester_council_tax_reduction_passported_band_one_applies: winchester_council_tax_reduction_band_1 else: if winchester_council_tax_reduction_assessed_weekly_income < winchester_council_tax_reduction_band_2_lower_income_threshold: winchester_council_tax_reduction_band_1 else: if winchester_council_tax_reduction_assessed_weekly_income < winchester_council_tax_reduction_band_3_lower_income_threshold: winchester_council_tax_reduction_band_2 else: if winchester_council_tax_reduction_assessed_weekly_income < winchester_council_tax_reduction_band_4_lower_income_threshold: winchester_council_tax_reduction_band_3 else: if winchester_council_tax_reduction_assessed_weekly_income <= winchester_council_tax_reduction_band_5_lower_income_threshold: winchester_council_tax_reduction_band_4 else: winchester_council_tax_reduction_band_5
+
+  - name: winchester_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Band 1 100% £0-£100 £0- £179.50 £0 - £249.50 £0 - £154.00 £0 - £235.50 £0 - £305.50 Band 2 75% £100.01 - £197.50 £179.51- £278.50 £249.51 - £349.00 £154.01 - £253.50 £235.51 - £334.50 £305.51 - £404.50 Band 3 45% £197.51 - £265.50 £278.51 - £346.50 £349.01– £417.00 £253.51 - £321.50 £334.51 - £402.50 £404.51 - £472.50 Band 4 25% £265.51 - £333.50 £346.51 - £414.50 £417.01 – £485.00 £321.51 - £389.50 £402.51 - £470.50 £472.51 - £540.50 0% Over £333.50 Over £414.50 Over £485.00 Over £389.50 Over £470.50 Over £540.50"
+              table:
+                header: "Level of Discount"
+                row_key: "income band"
+                column_key: "discount percent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          winchester_council_tax_reduction_discount_rate_by_band[winchester_council_tax_reduction_income_band]
+
+  - name: winchester_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Winchester Council Tax Reduction Scheme 2026/27 working-age scope
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "working age applicants"
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "is effective from 1st April 2026 for a period of one financial year"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_winchester
+          and winchester_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+
+  - name: simulated_winchester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 paragraph 48.1 and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis\n\nof the following Banded Discount Scheme"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if winchester_council_tax_reduction_working_age_scheme_applies and winchester_council_tax_reduction_capital_eligible: min(winchester_council_tax_reduction_annual_liability_after_statutory_discounts * winchester_council_tax_reduction_maximum_support_rate, winchester_council_tax_reduction_annual_liability_after_statutory_discounts * winchester_council_tax_reduction_selected_discount_rate) else: 0
+
+  - name: winchester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Winchester Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-winchester/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis\n\nof the following Banded Discount Scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_winchester_council_tax_reduction_annual_amount

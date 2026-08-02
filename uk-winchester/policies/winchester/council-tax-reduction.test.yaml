@@ -1,0 +1,938 @@
+- name: winchester_single_edge_1_upper
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 100
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 100.01
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 197.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 265.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 333.50
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_single_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 100.01
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 197.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 197.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 265.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 265.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 333.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 333.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_single_one_child_edge_1_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 179.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 179.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 278.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 346.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 414.50
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_single_one_child_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 179.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_one_child_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 278.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_one_child_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 278.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_one_child_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 346.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_one_child_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 346.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_one_child_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 414.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_one_child_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 414.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_single_two_children_edge_1_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 249.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 249.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 349.01
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 417.01
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 485.00
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_single_two_children_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 249.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_two_children_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 349.0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_single_two_children_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 349.01
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_two_children_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 417.0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_single_two_children_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 417.01
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_two_children_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 485.0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_single_two_children_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 485.01
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_couple_edge_1_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 154.0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 154.01
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 253.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 321.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 389.50
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_couple_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 154.01
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 253.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 253.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 321.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 321.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 389.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 389.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_couple_one_child_edge_1_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 235.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 235.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 334.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 402.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 470.50
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_couple_one_child_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 235.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_one_child_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 334.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_one_child_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 334.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_one_child_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 402.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_one_child_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 402.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_one_child_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 470.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_one_child_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 1
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 470.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_couple_two_children_edge_1_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 305.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_family_category: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_2_lower_income_threshold: 305.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_3_lower_income_threshold: 404.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_4_lower_income_threshold: 472.51
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_band_5_lower_income_threshold: 540.50
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1
+
+- name: winchester_couple_two_children_edge_1_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 305.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_two_children_edge_2_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 404.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 2
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: winchester_couple_two_children_edge_2_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 404.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_two_children_edge_3_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 472.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 3
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.45
+
+- name: winchester_couple_two_children_edge_3_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 472.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_two_children_edge_4_upper
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 540.5
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 4
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0.25
+
+- name: winchester_couple_two_children_edge_4_lower
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 2
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 540.51
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 5
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_parameters_and_full_award
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_maximum_support_rate: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_capital_limit: 16000
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_threshold: 6000
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_step: 250
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_working_age_scheme_applies: holds
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 1200
+
+- name: winchester_tariff_threshold_no_income
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 6000
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_weekly: 0
+    uk-winchester:policies/winchester/council-tax-reduction#simulated_winchester_council_tax_reduction_annual_amount: 1200
+
+- name: winchester_tariff_first_partial_step
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 6000.01
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_weekly: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_assessed_weekly_income: 1
+
+- name: winchester_tariff_complete_step
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 6250
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_weekly: 1
+
+- name: winchester_tariff_second_partial_step
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 6250.01
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_tariff_income_weekly: 2
+
+- name: winchester_capital_at_limit_eligible
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 16000
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_capital_eligible: holds
+
+- name: winchester_capital_over_limit_zero
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 16000.01
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 0
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_capital_eligible: not_holds
+    uk-winchester:policies/winchester/council-tax-reduction#simulated_winchester_council_tax_reduction_annual_amount: 0
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_annual_amount: 0
+
+- name: winchester_passported_band_one
+  period: *period
+  input:
+    uk-winchester:policies/winchester/council-tax-reduction#input.local_authority_is_winchester: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_is_working_age: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_has_partner: false
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_number_of_children: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_assessed_capital: 0
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_applicant_or_partner_receives_passported_benefit: true
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_annual_liability_after_statutory_discounts: 1200
+    uk-winchester:policies/winchester/council-tax-reduction#input.winchester_council_tax_reduction_weekly_income: 999
+  output:
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_passported_band_one_applies: holds
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_income_band: 1
+    uk-winchester:policies/winchester/council-tax-reduction#winchester_council_tax_reduction_selected_discount_rate: 1

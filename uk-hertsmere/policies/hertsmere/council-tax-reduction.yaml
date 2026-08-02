@@ -1,0 +1,882 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Hertsmere Borough Council, so the authority's adopted scheme document is the operative source for its locally set values.
+  summary: |-
+    Hertsmere's operative 2026-27 working-age surface has two routes. Applicants without Universal Credit use a 20 percent excess-income taper against a maximum equal to 80 percent of Band-D-or-lower liability, or 100 percent for the printed protected group. Universal Credit applicants instead use the appendix earnings bands: the printed claimant contribution determines a 100, 80, 60, 40, 20, or zero percent award against Band-D-or-lower liability. Both routes retain the £16,000 capital limit, tariff income above £6,000 in £250 steps, and non-dependant deductions. There is no printed minimum-award floor. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-hertsmere:policies/hertsmere/council-tax-reduction/sections-12-to-32-and-schedules-1-to-4#applicable_amount_and_assessed_income
+      reason: The category-specific applicable-amount, premium, earnings, and income-disregard schedules feeding the main route are outside this award-surface module.
+    - output: uk-hertsmere:policies/hertsmere/council-tax-reduction/section-57.1#band_d_capped_annual_liability
+      reason: The award surface consumes liability already capped at the lower of actual discounted liability and Band D; council-tax charge lookup and joint-liability apportionment are outside this module.
+    - output: uk-hertsmere:policies/hertsmere/council-tax-reduction/sections-58.3-to-58.9#non_dependant_exemption_and_coordination
+      reason: Couple coordination, apportionment, and the detailed exemption classifier require resident-level facts outside this award surface.
+    - output: uk-hertsmere:policies/hertsmere/council-tax-reduction/class-f#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult alternative maximum reduction is outside this working-age Class E and Universal Credit award surface.
+rules:
+  - name: hertsmere_council_tax_reduction_standard_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "shall be 80 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: hertsmere_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "The maximum council tax reduction shown in paragraph 57.1 shall be 100%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: hertsmere_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 Class E(h)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: hertsmere_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: hertsmere_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: hertsmere_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: hertsmere_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: hertsmere_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: hertsmere_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_daily_taper_rate * hertsmere_council_tax_reduction_days_per_week
+
+  - name: hertsmere_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 weekly income convention
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "the period of 52 weeks"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: hertsmere_council_tax_reduction_uc_band_1_lower_earnings
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "1 Earning <£80 (£77) 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: hertsmere_council_tax_reduction_uc_band_2_lower_earnings
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "2 Earning £80 - £125 (£120) 40%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          80
+
+  - name: hertsmere_council_tax_reduction_uc_band_3_lower_earnings
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "3 Earning £125.01 - £250 (£241) 60%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          125.01
+
+  - name: hertsmere_council_tax_reduction_uc_band_4_lower_earnings
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "4 Earning £250.01 - £498 (£480) 80%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250.01
+
+  - name: hertsmere_council_tax_reduction_uc_band_5_lower_earnings
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "5 >£498 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          498
+
+  - name: hertsmere_council_tax_reduction_uc_band_2_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata: &uc_band_index_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "2 Earning £80 - £125 (£120) 40% 3 Earning £125.01 - £250 (£241) 60% 4 Earning £250.01 - £498 (£480) 80% 5 >£498 100%"
+              table:
+                header: "UC income bands"
+                row_key: "band"
+                column_key: "band index"
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+
+  - name: hertsmere_council_tax_reduction_uc_band_3_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata: *uc_band_index_proof
+    versions: [{effective_from: '2026-04-01', formula: "3"}]
+
+  - name: hertsmere_council_tax_reduction_uc_band_4_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata: *uc_band_index_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_uc_band_2_index + hertsmere_council_tax_reduction_uc_band_2_index
+
+  - name: hertsmere_council_tax_reduction_uc_band_5_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata: *uc_band_index_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_uc_band_2_index + hertsmere_council_tax_reduction_uc_band_3_index
+
+  - name: hertsmere_council_tax_reduction_uc_protected_band_offset
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 protected and non-protected band tables
+    metadata: *uc_band_index_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_uc_band_3_index + hertsmere_council_tax_reduction_uc_band_3_index
+
+  - name: hertsmere_council_tax_reduction_uc_claimant_contribution_rate_by_band_and_protection
+    kind: parameter
+    dtype: Rate
+    indexed_by: hertsmere_council_tax_reduction_uc_band_and_protection_key
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix tables
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "Income Bands - Protected Group Income Band Earnings per week Contribution from Claimant 0 Out of work 0% 1 Earning <£80 (£77) 20% 2 Earning £80 - £125 (£120) 40% 3 Earning £125.01 - £250 (£241) 60% 4 Earning £250.01 - £498 (£480) 80% 5 >£498 100% Income Bands - Non Protected Group Income Band Earnings per week Contribution from Claimant 0 Out of work 20% 1 Earning <£80 (£77) 20% 2 Earning £80 - £125 (£120) 40% 3 Earning £125.01 - £250 (£241) 60% 4 Earning £250.01 - £498 (£480) 80% 5 >£498 100%"
+              table:
+                header: "Protected and non-protected income bands"
+                row_key: "band and protection key"
+                column_key: "claimant contribution"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.20
+          1: 0.20
+          2: 0.40
+          3: 0.60
+          4: 0.80
+          5: 1
+          6: 0
+          7: 0.20
+          8: 0.40
+          9: 0.60
+          10: 0.80
+          11: 1
+
+  - name: hertsmere_council_tax_reduction_non_dependant_low_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: hertsmere_council_tax_reduction_non_dependant_middle_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: hertsmere_council_tax_reduction_non_dependant_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: hertsmere_council_tax_reduction_non_dependant_band_2_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata: &non_dependant_band_index_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-149
+              excerpt: "Gross income between £279.00 and £485.00 £21.20 Gross income between £485.00 and £605.00 £26.60 Gross income of £605.00 + £31.90"
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+
+  - name: hertsmere_council_tax_reduction_non_dependant_band_3_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata: *non_dependant_band_index_proof
+    versions: [{effective_from: '2026-04-01', formula: "3"}]
+
+  - name: hertsmere_council_tax_reduction_non_dependant_band_4_index
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata: *non_dependant_band_index_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_non_dependant_band_2_index + hertsmere_council_tax_reduction_non_dependant_band_2_index
+
+  - name: hertsmere_council_tax_reduction_non_dependant_protected_band_offset
+    kind: parameter
+    dtype: Number
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 protected and non-protected non-dependant tables
+    metadata: *non_dependant_band_index_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_non_dependant_band_2_index + hertsmere_council_tax_reduction_non_dependant_band_3_index
+
+  - name: hertsmere_council_tax_reduction_non_dependant_weekly_deduction_by_band_and_protection
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hertsmere_council_tax_reduction_non_dependant_band_and_protection_key
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-149
+              excerpt: "Non – Dependent deductions - protected group Non Dependent Age 18 + Student £0.00 In Receipt of Universal Credit and working less than 16 hours a week £0.00 In receipt of Income Support, State Retirement Pension, Jobseekers Allowance £0.00 Not Working £5.20 Gross income below 279.00 £5.20 Gross income between £279.00 and £485.00 £10.60 Gross income between £485.00 and £605.00 £13.30 Gross income of £577 + £15.95 Non-dependent deductions - non protected groups Non Dependent Age 18 + Student £0.00 In Receipt of Universal Credit and working less than 16 hours a week £0.00 In receipt of Income Support, State Retirement Pension, Jobseekers Allowance £0.00 Not Working £10.40 Gross income below £279.00 £10.40 Gross income between £279.00 and £485.00 £21.20 Gross income between £485.00 and £605.00 £26.60 Gross income of £605.00 + £31.90"
+              table:
+                header: "Protected and non-protected non-dependant deductions"
+                row_key: "deduction band and protection key"
+                column_key: "weekly deduction"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 10.40
+          2: 21.20
+          3: 26.60
+          4: 31.90
+          5: 0
+          6: 5.20
+          7: 10.60
+          8: 13.30
+          9: 15.95
+
+  - name: hertsmere_council_tax_reduction_protected_class
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 57.1A and appendix paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "A lone parent responsible for a child under 5 • The applicant, partner or child is in receipt of Disability Living Allowance (DLA) or Personal Independence Payments (PIP) at any rate; or • The applicant or partner is in receipt of Employment Support Allowance including the support component."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_lone_parent_with_child_under_5 or hertsmere_council_tax_reduction_household_receives_dla_or_pip or hertsmere_council_tax_reduction_applicant_or_partner_receives_esa_support_component
+
+  - name: hertsmere_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraphs 57.1-57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "The maximum council tax reduction shown in paragraph 57.1 shall be 100%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_protected_class: hertsmere_council_tax_reduction_protected_maximum_support_rate else: hertsmere_council_tax_reduction_standard_maximum_support_rate
+
+  - name: hertsmere_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 Class E(h)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_assessed_capital_for_year <= hertsmere_council_tax_reduction_capital_limit
+
+  - name: hertsmere_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, hertsmere_council_tax_reduction_assessed_capital_for_year - hertsmere_council_tax_reduction_tariff_income_threshold) / hertsmere_council_tax_reduction_tariff_income_capital_step) * hertsmere_council_tax_reduction_weeks_per_year
+
+  - name: hertsmere_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, hertsmere_council_tax_reduction_assessed_income_for_year + hertsmere_council_tax_reduction_tariff_income_for_year - hertsmere_council_tax_reduction_applicable_amount_for_year)
+
+  - name: hertsmere_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hertsmere_council_tax_reduction_excess_income_for_year * hertsmere_council_tax_reduction_weekly_taper_rate
+
+  - name: hertsmere_council_tax_reduction_uc_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "0 Out of work 0% 1 Earning <£80 (£77) 20% 2 Earning £80 - £125 (£120) 40% 3 Earning £125.01 - £250 (£241) 60% 4 Earning £250.01 - £498 (£480) 80% 5 >£498 100%"
+              table:
+                header: "UC income bands"
+                row_key: "weekly earnings"
+                column_key: "band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not hertsmere_council_tax_reduction_uc_has_earnings: 0 else: if hertsmere_council_tax_reduction_uc_weekly_earnings < hertsmere_council_tax_reduction_uc_band_2_lower_earnings: 1 else: if hertsmere_council_tax_reduction_uc_weekly_earnings < hertsmere_council_tax_reduction_uc_band_3_lower_earnings: hertsmere_council_tax_reduction_uc_band_2_index else: if hertsmere_council_tax_reduction_uc_weekly_earnings < hertsmere_council_tax_reduction_uc_band_4_lower_earnings: hertsmere_council_tax_reduction_uc_band_3_index else: if hertsmere_council_tax_reduction_uc_weekly_earnings <= hertsmere_council_tax_reduction_uc_band_5_lower_earnings: hertsmere_council_tax_reduction_uc_band_4_index else: hertsmere_council_tax_reduction_uc_band_5_index
+
+  - name: hertsmere_council_tax_reduction_uc_band_and_protection_key
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "The level of discount available will also depend on whether the applicant is within the protected group."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_protected_class: hertsmere_council_tax_reduction_uc_income_band + hertsmere_council_tax_reduction_uc_protected_band_offset else: hertsmere_council_tax_reduction_uc_income_band
+
+  - name: hertsmere_council_tax_reduction_uc_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix paragraphs 4 and 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "Council Tax Reduction will be calculated in according the level of discount applicable for the earnings level shown in the tables below."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "this will be calculated as a percentage of their Council Tax liability as specified in the tables below."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1 - hertsmere_council_tax_reduction_uc_claimant_contribution_rate_by_band_and_protection[hertsmere_council_tax_reduction_uc_band_and_protection_key]
+
+  - name: hertsmere_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraph 58 and appendix table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-149
+              excerpt: "Student £0.00 In Receipt of Universal Credit and working less than 16 hours a week £0.00 In receipt of Income Support, State Retirement Pension, Jobseekers Allowance £0.00 Not Working £5.20 Gross income below 279.00 £5.20 Gross income between £279.00 and £485.00 £10.60 Gross income between £485.00 and £605.00 £13.30"
+              table:
+                header: "Non-dependant deduction bands"
+                row_key: "status or weekly gross income"
+                column_key: "band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_non_dependant_exempt: 0 else: if hertsmere_council_tax_reduction_non_dependant_normal_gross_weekly_income < hertsmere_council_tax_reduction_non_dependant_low_income_threshold_weekly: 1 else: if hertsmere_council_tax_reduction_non_dependant_normal_gross_weekly_income < hertsmere_council_tax_reduction_non_dependant_middle_income_threshold_weekly: hertsmere_council_tax_reduction_non_dependant_band_2_index else: if hertsmere_council_tax_reduction_non_dependant_normal_gross_weekly_income < hertsmere_council_tax_reduction_non_dependant_high_income_threshold_weekly: hertsmere_council_tax_reduction_non_dependant_band_3_index else: hertsmere_council_tax_reduction_non_dependant_band_4_index
+
+  - name: hertsmere_council_tax_reduction_non_dependant_band_and_protection_key
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-149
+              excerpt: "Non – Dependent deductions - protected group"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_household_is_protected: hertsmere_council_tax_reduction_non_dependant_deduction_band + hertsmere_council_tax_reduction_non_dependant_protected_band_offset else: hertsmere_council_tax_reduction_non_dependant_deduction_band
+
+  - name: hertsmere_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 appendix non-dependant tables
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-148
+              excerpt: "Where the applicant has a non-dependant residing in the household the following deductions will be made:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_is_non_dependant: hertsmere_council_tax_reduction_non_dependant_weekly_deduction_by_band_and_protection[hertsmere_council_tax_reduction_non_dependant_band_and_protection_key] * hertsmere_council_tax_reduction_weeks_per_year else: 0
+
+  - name: hertsmere_council_tax_reduction_main_route_amount_before_conditions
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 paragraphs 57.1 and 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "less any deductions in respect of non- dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, hertsmere_council_tax_reduction_band_d_capped_annual_liability * hertsmere_council_tax_reduction_selected_maximum_support_rate - hertsmere_council_tax_reduction_income_taper_deduction_for_year - hertsmere_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: hertsmere_council_tax_reduction_uc_route_amount_before_conditions
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 banded-scheme appendix paragraphs 4-7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "Maximum Council Tax Reduction including the restriction to Band D Council Tax levels"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "this will be calculated as a percentage of their Council Tax liability as specified in the tables below."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, hertsmere_council_tax_reduction_band_d_capped_annual_liability * hertsmere_council_tax_reduction_uc_selected_support_rate - hertsmere_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: hertsmere_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 working-age classes and appendix
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "have made a valid application for reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_hertsmere and would_claim_council_tax_reduction and hertsmere_council_tax_reduction_applicant_is_working_age and hertsmere_council_tax_reduction_capital_eligible
+
+  - name: simulated_hertsmere_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "The banded scheme is for all applicants, (or where they have a partners) are in receipt of Universal Credit."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-147
+              excerpt: "Where the applicant or partners does not receive Universal Credit, any Council Tax reduction will be calculated in line with the main scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hertsmere_council_tax_reduction_award_conditions_met: if hertsmere_council_tax_reduction_household_receives_universal_credit: hertsmere_council_tax_reduction_uc_route_amount_before_conditions else: hertsmere_council_tax_reduction_main_route_amount_before_conditions else: 0
+
+  - name: hertsmere_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hertsmere Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: condition
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "Council Tax Reduction Scheme 2026/27"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hertsmere/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "their council tax reduction shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_hertsmere_council_tax_reduction_annual_amount

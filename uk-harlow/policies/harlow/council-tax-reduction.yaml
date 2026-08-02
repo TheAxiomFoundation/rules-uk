@@ -1,0 +1,460 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Harlow's adopted document is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Section 13A of the Local Government Finance Act 1992 delegates the working-age scheme to Harlow, so the Council's adopted scheme document is the operative source for its locally set values. Harlow's adopted 2026-27 working-age scheme caps maximum support at 76 percent of eligible liability, subtracts working-age non-dependant deductions, and withdraws support at 2 6/7 percent daily (20 percent weekly) of excess income. Capital above £6,000 is an immediate eligibility cliff; because the incorporated Housing Benefit tariff starts above £6,000, no non-zero tariff-income interval is reachable on the active award surface. No minimum-award floor is printed. The pension-age prescribed scheme and second-adult rebate are outside this module.
+  deferred_outputs:
+    - output: uk-harlow:policies/harlow/council-tax-reduction/schedule-1#applicable_amount
+      reason: The category-specific personal allowances, premiums, components, and transitional additions used to calculate the applicable amount are outside this award-surface module.
+    - output: uk-harlow:policies/harlow/council-tax-reduction/sections-15-to-40-and-schedules-3-to-5#assessed_income_and_capital
+      reason: Detailed income disregards, attribution, and capital valuation are outside this award-surface module.
+    - output: uk-harlow:policies/harlow/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult rebate is outside this working-age Class D and E module.
+rules:
+  - name: harlow_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "shall be 76 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.76
+
+  - name: harlow_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.0285714285714285714285714286
+
+  - name: harlow_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: harlow_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 59.1 daily percentage converted by the printed seven-day denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "shall be 2 6/7 per cent."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harlow_council_tax_reduction_daily_taper_rate * harlow_council_tax_reduction_days_per_week
+
+  - name: harlow_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-56
+              excerpt: "the prescribed amount is £6,000 and no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: harlow_council_tax_reduction_non_dependant_middle_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279.00
+
+  - name: harlow_council_tax_reduction_non_dependant_high_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485.00
+
+  - name: harlow_council_tax_reduction_non_dependant_top_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605.00
+
+  - name: harlow_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harlow_council_tax_reduction_non_dependant_band
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: |-
+                (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7.
+
+                58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/70, but less than £577.00, the deduction to be made under this section shall be £12.80 x 1/7;
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "income band"
+                column_key: "weekly deduction"
+          - path: versions[0].values[0]
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£5.20 x 1/7"
+          - path: versions[0].values[3]
+            kind: amount
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: harlow_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-56
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harlow_council_tax_reduction_assessed_capital <= harlow_council_tax_reduction_capital_limit
+
+  - name: harlow_council_tax_reduction_non_dependant_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "(a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/70, but less than £577.00, the deduction to be made under this section shall be £12.80 x 1/7;"
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "normal gross weekly income"
+                column_key: "deduction band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harlow_council_tax_reduction_non_dependant_normal_gross_weekly_income < harlow_council_tax_reduction_non_dependant_middle_threshold: 0 else: if harlow_council_tax_reduction_non_dependant_normal_gross_weekly_income < harlow_council_tax_reduction_non_dependant_high_threshold: 1 else: if harlow_council_tax_reduction_non_dependant_normal_gross_weekly_income < harlow_council_tax_reduction_non_dependant_top_threshold: 2 else: 3
+
+  - name: harlow_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "the non-dependant deductions in respect of a day"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harlow_council_tax_reduction_non_dependant_deduction_applies: harlow_council_tax_reduction_non_dependant_deduction_by_band[harlow_council_tax_reduction_non_dependant_band] else: 0
+
+  - name: harlow_council_tax_reduction_maximum_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "shall be 76 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, harlow_council_tax_reduction_eligible_liability_weekly * harlow_council_tax_reduction_maximum_support_rate - harlow_council_tax_reduction_non_dependant_deductions_weekly)
+
+  - name: harlow_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "Where an applicant’s income exceeds their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, harlow_council_tax_reduction_assessed_income_weekly - harlow_council_tax_reduction_applicable_amount_weekly)
+
+  - name: harlow_council_tax_reduction_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harlow_council_tax_reduction_excess_income_weekly * harlow_council_tax_reduction_weekly_taper_rate
+
+  - name: harlow_council_tax_reduction_calculated_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, harlow_council_tax_reduction_maximum_weekly_amount - harlow_council_tax_reduction_taper_deduction_weekly)
+
+  - name: harlow_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harlow Council Tax Reduction Scheme 2026/27 Class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital savings above £6,000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "have made a valid application for reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_harlow and harlow_council_tax_reduction_applicant_is_in_working_age_class and would_claim_council_tax_reduction and harlow_council_tax_reduction_capital_eligible
+
+  - name: harlow_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harlow Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harlow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harlow_council_tax_reduction_award_conditions_met: harlow_council_tax_reduction_calculated_weekly_amount else: 0
+
+inputs:
+  - name: local_authority_is_harlow
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: harlow_council_tax_reduction_applicant_is_in_working_age_class
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: harlow_council_tax_reduction_assessed_capital
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: harlow_council_tax_reduction_eligible_liability_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: harlow_council_tax_reduction_assessed_income_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: harlow_council_tax_reduction_applicable_amount_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: harlow_council_tax_reduction_non_dependant_deductions_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: harlow_council_tax_reduction_non_dependant_deduction_applies
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: harlow_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP

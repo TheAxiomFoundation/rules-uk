@@ -556,6 +556,11 @@ rules:
     metadata:
       proof:
         atoms:
+          - path: versions[0].effective_from
+            kind: condition
+            source:
+              corpus_citation_path: uk-cheshire-west-and-chester/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "Council Tax Reduction Scheme 2026/27"
           - path: versions[0].formula
             kind: formula
             source:

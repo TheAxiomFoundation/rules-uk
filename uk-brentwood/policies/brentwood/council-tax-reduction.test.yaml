@@ -1,0 +1,1114 @@
+- name: brentwood_ctr_parameters_and_full_grid_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_maximum_support_rate: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_capital_limit: 6000
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_0: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_1: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_2: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_3: 3
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_4: 4
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_5: 5
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_6: 6
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_no_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_one_dependant: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_protected_support_rate: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_passported_support_rate: 0.75
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_band_f_g_h_owner_support_rate: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_0_income_75_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_0_income_75_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_0_income_150_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_0_income_150_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_0_income_225_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_0_income_225_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_0_income_300_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_0_income_300_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_0_income_375_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_0_income_375_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_0_income_450_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_0_income_450_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_1_income_75_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_1_income_75_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_1_income_150_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_1_income_150_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_1_income_225_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_1_income_225_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_1_income_300_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_1_income_300_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_1_income_375_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_1_income_375_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_1_income_450_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_1_income_450_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_dependants_2_income_75_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_2_income_75_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 75.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_2_income_150_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_2_income_150_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 150.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_2_income_225_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_dependants_2_income_225_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 225.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_2_income_300_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_2_income_300_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 300.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_2_income_375_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 600
+
+- name: brentwood_ctr_dependants_2_income_375_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 375.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_2_income_450_upper_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 300
+
+- name: brentwood_ctr_dependants_2_income_450_next_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 100
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_capital_over_limit_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 100
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_protected_positive_award_increases_to_full
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 350
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: true
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 1200
+
+- name: brentwood_ctr_protection_does_not_revive_zero_grid_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 450.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 1
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: true
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_passported_award_is_75_percent
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 500
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_band_f_g_h_owner_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 100
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 2
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_no_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 100
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_annual_non_dependant_deduction: 0
+
+- name: brentwood_ctr_working_age_scheme_applies
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: brentwood_ctr_capital_eligible_at_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_capital_eligible: holds
+
+- name: brentwood_ctr_zero_income_is_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_income_band: 1
+
+- name: brentwood_ctr_no_dependants_band_1_grid_rate
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_grid_support_rate: 0.75
+
+- name: brentwood_ctr_income_support_is_passported
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_passported: holds
+
+- name: brentwood_ctr_passported_selected_rate
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_selected_support_rate: 0.75
+
+- name: brentwood_ctr_maximum_amount_is_full_liability
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_maximum_amount_for_year: 1200
+
+- name: brentwood_ctr_simulated_full_grid_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#simulated_brentwood_council_tax_reduction_annual_amount: 900
+
+- name: brentwood_ctr_simulated_award_zero_above_capital_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.local_authority_is_brentwood: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_weekly_income: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_number_of_dependants: 0
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_owner_in_band_f_g_or_h: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-brentwood:policies/brentwood/council-tax-reduction#input.brentwood_council_tax_reduction_household_receives_protecting_disability_benefit: false
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#simulated_brentwood_council_tax_reduction_annual_amount: 0
+
+- name: brentwood_ctr_non_dependant_deduction_band_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-brentwood:policies/brentwood/council-tax-reduction#brentwood_council_tax_reduction_non_dependant_deduction_band: 0

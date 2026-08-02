@@ -1,0 +1,272 @@
+- name: milton_keynes_parameters_and_standard_maximum_household
+  period: &id001
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &id002
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_working_age_scheme_applies
+    : holds
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_capital_eligible: holds
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_selected_maximum_support_rate
+    : 0.8
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_maximum_for_year: 800
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_excess_income_for_year: 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_taper_deduction_for_year: 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#simulated_milton_keynes_council_tax_reduction_annual_amount: 800
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 800
+- name: milton_keynes_parameters_and_standard_maximum_scalar
+  period: *id001
+  input: *id002
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_standard_maximum_support_rate
+    : 0.8
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_protected_maximum_support_rate
+    : 1
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_capital_limit: 6000
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_days_per_week: 7
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_weekly_taper_rate: 0.2
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_first_income_cutoff
+    : 279
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_second_income_cutoff
+    : 485
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_third_income_cutoff
+    : 605
+- name: milton_keynes_protected_maximum
+  period: *id001
+  input:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_selected_maximum_support_rate
+    : 1
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_maximum_for_year: 1000
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 1000
+- name: milton_keynes_taper_and_non_dependant_deduction
+  period: *id001
+  input:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 100
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 100
+  output:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_excess_income_for_year: 100
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_taper_deduction_for_year: 20
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_maximum_for_year: 700
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 680
+- name: milton_keynes_capital_at_limit_is_eligible
+  period: *id001
+  input:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 6000
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_capital_eligible: holds
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 800
+- name: milton_keynes_capital_first_penny_over_is_zero
+  period: *id001
+  input:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 6000.01
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_capital_eligible: not_holds
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#simulated_milton_keynes_council_tax_reduction_annual_amount: 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 0
+- name: milton_keynes_taper_zero_award
+  period: *id001
+  input:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.local_authority_is_milton_keynes: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_capital_for_year
+    : 0
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_protected_person: false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_assessed_income_for_year
+    : 4000
+  output:
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_taper_deduction_for_year: 800
+    uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_annual_amount: 0
+- name: milton_keynes_non_dependant_below_first_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 278.99
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+- name: milton_keynes_non_dependant_at_first_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 279
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 1
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+- name: milton_keynes_non_dependant_below_second_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 484.99
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 1
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+- name: milton_keynes_non_dependant_at_second_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 485
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 2
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+- name: milton_keynes_non_dependant_below_third_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 604.99
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 2
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+- name: milton_keynes_non_dependant_at_third_edge
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 605
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 3
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 15.95
+- name: milton_keynes_non_working_non_dependant_uses_low_deduction
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : false
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 0
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+- name: milton_keynes_exempt_non_dependant_has_zero_deduction
+  period: *id001
+  input:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 1000
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#input.milton_keynes_council_tax_reduction_non_dependant_is_exempt
+    : true
+  output:
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_non_dependant_income_band
+    : 3
+    ? uk-milton-keynes:policies/milton-keynes/council-tax-reduction#milton_keynes_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 0

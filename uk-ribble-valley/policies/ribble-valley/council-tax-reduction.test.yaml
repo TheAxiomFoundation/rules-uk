@@ -1,0 +1,286 @@
+- name: ribble_valley_parameters_and_standard_maximum_household
+  period: &id001
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &id002
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_working_age_scheme_applies
+    : holds
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_capital_eligible: holds
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_maximum_for_year: 1000
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_excess_income_for_year: 0
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_taper_deduction_for_year: 0
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#simulated_ribble_valley_council_tax_reduction_annual_amount: 1000
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 1000
+- name: ribble_valley_parameters_and_standard_maximum_scalar
+  period: *id001
+  input: *id002
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_maximum_support_rate
+    : 1
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_capital_limit: 16000
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_days_per_week: 7
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_threshold: 6000
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_step: 250
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_weeks_per_year: 52
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_first_income_cutoff
+    : 279
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_second_income_cutoff
+    : 485
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_third_income_cutoff
+    : 605
+- name: ribble_valley_taper_and_non_dependant_deduction
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 100
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 100
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_excess_income_for_year: 100
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_taper_deduction_for_year: 20
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_maximum_for_year: 900
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 880
+- name: ribble_valley_capital_at_limit_is_eligible
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 16000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_capital_eligible: holds
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_for_year: 2080
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 584
+- name: ribble_valley_tariff_threshold_has_no_tariff
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 6000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_for_year: 0
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 1000
+- name: ribble_valley_first_penny_over_tariff_threshold
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 6000.01
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_tariff_income_for_year: 52
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_taper_deduction_for_year: 10.4
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 989.6
+- name: ribble_valley_capital_first_penny_over_is_zero
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 16000.01
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 0
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_capital_eligible: not_holds
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#simulated_ribble_valley_council_tax_reduction_annual_amount: 0
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 0
+- name: ribble_valley_taper_zero_award
+  period: *id001
+  input:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.local_authority_is_ribble_valley: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_applicable_amount_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_assessed_income_for_year
+    : 5000
+  output:
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_taper_deduction_for_year: 1000
+    uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_annual_amount: 0
+- name: ribble_valley_non_dependant_below_first_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 278.99
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+- name: ribble_valley_non_dependant_at_first_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 279
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 1
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+- name: ribble_valley_non_dependant_below_second_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 484.99
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 1
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 10.6
+- name: ribble_valley_non_dependant_at_second_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 485
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 2
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+- name: ribble_valley_non_dependant_below_third_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 604.99
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 2
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 13.3
+- name: ribble_valley_non_dependant_at_third_edge
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 605
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 3
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 15.95
+- name: ribble_valley_non_working_non_dependant_uses_low_deduction
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : false
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : false
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 0
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 5.2
+- name: ribble_valley_exempt_non_dependant_has_zero_deduction
+  period: *id001
+  input:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work
+    : true
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 1000
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#input.ribble_valley_council_tax_reduction_non_dependant_is_exempt
+    : true
+  output:
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_non_dependant_income_band
+    : 3
+    ? uk-ribble-valley:policies/ribble-valley/council-tax-reduction#ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    : 0

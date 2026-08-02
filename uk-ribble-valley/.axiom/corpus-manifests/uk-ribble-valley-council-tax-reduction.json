@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "ribble-valley-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-ribble-valley",
+   "document_class": "manual",
+   "citation_path": "uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "Ribble Valley Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.ribblevalley.gov.uk/downloads/file/4373/council-tax-support-scheme-2026-2027",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "Ribble Valley",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

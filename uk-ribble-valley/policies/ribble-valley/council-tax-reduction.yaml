@@ -1,0 +1,494 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Ribble Valley's adopted document is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A,
+    uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Section 13A
+    delegates the working-age scheme to Ribble Valley, so its adopted document is
+    operative. The scheme applies from 1 April 2026 through 31 March 2027. Its
+    working-age maximum is 100 percent of eligible liability, with no lower cap or
+    separate protected-class rate. Excess income is withdrawn at 2 6/7 percent per
+    day, exactly 20 percent per week. Capital above £16,000 excludes the applicant;
+    capital above £6,000 produces £1 weekly tariff income for each complete £250 or
+    part thereof. Non-dependant deductions are £5.20, £10.60, £13.30, or £15.95 per
+    week. No minimum-award floor or council-tax band cap is printed. Pension-age
+    provisions and separate second-adult reduction are outside this module.
+  deferred_outputs:
+    - output: uk-ribble-valley:policies/ribble-valley/council-tax-reduction/schedule-1#applicable_amount
+      reason: Schedule 1's personal allowances, premiums, components, and transitional additions are outside this award-surface module; the calculated applicable amount is consumed as an input.
+    - output: uk-ribble-valley:policies/ribble-valley/council-tax-reduction/section-62-and-schedule-2#second_adult_reduction
+      reason: The separate Class F alternative maximum Council Tax Reduction is outside this working-age main-award surface.
+rules:
+  - name: ribble_valley_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ribble_valley_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-55
+              excerpt: "the prescribed amount is £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: ribble_valley_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: ribble_valley_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: ribble_valley_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "a weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ribble_valley_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 14.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: ribble_valley_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: ribble_valley_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: ribble_valley_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 daily rate converted by the printed seven-day denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall be 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ribble_valley_council_tax_reduction_daily_taper_rate * ribble_valley_council_tax_reduction_days_per_week
+
+  - name: ribble_valley_council_tax_reduction_non_dependant_first_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: ribble_valley_council_tax_reduction_non_dependant_second_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: ribble_valley_council_tax_reduction_non_dependant_third_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: ribble_valley_council_tax_reduction_non_dependant_weekly_deduction_by_income_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ribble_valley_council_tax_reduction_non_dependant_income_band
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              table:
+                header: "Working-age non-dependant normal gross weekly income and deduction"
+                row_key: "income band"
+                column_key: "weekly deduction"
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: ribble_valley_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_ribble_valley and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: ribble_valley_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-55
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ribble_valley_council_tax_reduction_assessed_capital_for_year <= ribble_valley_council_tax_reduction_capital_limit
+
+  - name: ribble_valley_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ribble_valley_council_tax_reduction_maximum_eligible_liability_for_year * ribble_valley_council_tax_reduction_maximum_support_rate - ribble_valley_council_tax_reduction_non_dependant_deductions_for_year
+
+  - name: ribble_valley_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 Class E and paragraph 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, ribble_valley_council_tax_reduction_assessed_income_for_year + ribble_valley_council_tax_reduction_tariff_income_for_year - ribble_valley_council_tax_reduction_applicable_amount_for_year)
+
+  - name: ribble_valley_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ribble_valley_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, ribble_valley_council_tax_reduction_assessed_capital_for_year - ribble_valley_council_tax_reduction_tariff_income_threshold) / ribble_valley_council_tax_reduction_tariff_income_step) * ribble_valley_council_tax_reduction_weeks_per_year
+
+  - name: ribble_valley_council_tax_reduction_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "their excess income multiplied by the taper"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ribble_valley_council_tax_reduction_excess_income_for_year * ribble_valley_council_tax_reduction_weekly_taper_rate
+
+  - name: ribble_valley_council_tax_reduction_non_dependant_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not ribble_valley_council_tax_reduction_non_dependant_in_remunerative_work: 0 else: if ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income < ribble_valley_council_tax_reduction_non_dependant_first_income_cutoff: 0 else: if ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income < ribble_valley_council_tax_reduction_non_dependant_second_income_cutoff: 1 else: if ribble_valley_council_tax_reduction_non_dependant_normal_gross_weekly_income < ribble_valley_council_tax_reduction_non_dependant_third_income_cutoff: 2 else: 3
+
+  - name: ribble_valley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 58
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "No deduction shall be made in respect of any non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ribble_valley_council_tax_reduction_non_dependant_is_exempt: 0 else: ribble_valley_council_tax_reduction_non_dependant_weekly_deduction_by_income_band[ribble_valley_council_tax_reduction_non_dependant_income_band]
+
+  - name: simulated_ribble_valley_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: condition
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "the period 1st April 2026 until 31st March 2027"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ribble_valley_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and ribble_valley_council_tax_reduction_capital_eligible: max(0, ribble_valley_council_tax_reduction_maximum_for_year - ribble_valley_council_tax_reduction_taper_deduction_for_year) else: 0
+
+  - name: ribble_valley_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ribble Valley Council Tax Reduction Scheme 2026/27 working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ribble-valley/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "their council tax reduction shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_ribble_valley_council_tax_reduction_annual_amount

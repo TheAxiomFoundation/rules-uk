@@ -1,0 +1,784 @@
+- name: dartford_ctr_single_edge_104_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 103.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_working_age_scheme_applies: holds
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.8
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_single_edge_104_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 104
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_maximum_amount_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_single_edge_168_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 167.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#simulated_dartford_council_tax_reduction_annual_amount: 600
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_single_edge_168_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 168
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_single_edge_233_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 232.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_single_edge_233_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 233
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_single_edge_334_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 333.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_single_edge_334_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 334
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 5
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0
+    uk-dartford:policies/dartford/council-tax-reduction#simulated_dartford_council_tax_reduction_annual_amount: 0
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_couple_edge_155_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 154.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.8
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_couple_edge_155_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 155
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_couple_edge_219_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 218.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_couple_edge_219_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 219
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_couple_edge_284_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 283.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_couple_edge_284_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 284
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_couple_edge_385_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 384.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_couple_edge_385_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 385
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 1
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 5
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_one_child_edge_233_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 232.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.8
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_one_child_edge_233_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 233
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_one_child_edge_297_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 296.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_one_child_edge_297_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 297
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_one_child_edge_360_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 359.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_one_child_edge_360_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 360
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_one_child_edge_490_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 489.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_one_child_edge_490_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 490
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 2
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 5
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_two_plus_children_edge_309_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 308.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.8
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_two_plus_children_edge_309_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 309
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_two_plus_children_edge_385_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 384.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.6
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 600
+- name: dartford_ctr_two_plus_children_edge_385_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 385
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_two_plus_children_edge_450_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 449.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 400
+- name: dartford_ctr_two_plus_children_edge_450_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 450
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_two_plus_children_edge_578_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 577.99
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0.2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 200
+- name: dartford_ctr_two_plus_children_edge_578_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 578
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 3
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 5
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_selected_support_rate: 0
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_parameters_and_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_maximum_liability_rate: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_band_1: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_band_2: 2
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_band_3: 3
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_band_4: 4
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_band_5: 5
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_capital_limit: 6000
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_minimum_award_weekly: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_weeks_per_year: 52
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_capital_eligible: holds
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_capital_above_limit_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_capital_eligible: not_holds
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_passported_high_income_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 1000
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_passported_to_band_1: holds
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_income_band: 1
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 800
+- name: dartford_ctr_minimum_award_below_floor_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 64
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 0
+- name: dartford_ctr_minimum_award_at_floor
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-dartford:policies/dartford/council-tax-reduction#input.local_authority_is_dartford: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_maximum_eligible_liability_for_year: 65
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_weekly_income: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_family_category: 0
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-dartford:policies/dartford/council-tax-reduction#input.dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-dartford:policies/dartford/council-tax-reduction#dartford_council_tax_reduction_annual_amount: 52

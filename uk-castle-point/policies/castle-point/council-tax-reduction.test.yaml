@@ -1,0 +1,831 @@
+- name: castle_point_parameter_assertions
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_maximum_support_rate: 0.70
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_capital_limit: 6000
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_no_non_dependant_band_index: 0
+
+- name: castle_point_working_age_scheme_applies
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: &base_inputs
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: castle_point_passported_judgment
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_passported: not_holds
+
+- name: castle_point_passported_judgment_holds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_passported: holds
+
+- name: castle_point_working_age_scheme_does_not_apply
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_working_age_scheme_applies: not_holds
+
+- name: castle_point_family_category
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_family_category_index: 0
+
+- name: castle_point_selected_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_selected_band_index: 1
+
+- name: castle_point_selected_support_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_selected_support_rate: 0.70
+
+- name: castle_point_capital_eligible_judgment
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_capital_eligible: holds
+
+- name: castle_point_capital_ineligible_judgment
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_capital_eligible: not_holds
+
+- name: castle_point_maximum_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_inputs
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_maximum_annual_amount: 700
+
+- name: castle_point_no_children_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.15
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_no_children_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.16
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_no_children_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.73
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_no_children_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.74
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_no_children_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.30
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_no_children_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.31
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_no_children_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.87
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_no_children_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.88
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_no_children_edge_5_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.45
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_no_children_edge_5_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.46
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_one_child_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.15
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_one_child_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.16
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_one_child_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.73
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_one_child_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.74
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_one_child_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.30
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_one_child_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.31
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_one_child_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.87
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_one_child_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.88
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_one_child_edge_5_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.45
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_one_child_edge_5_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.46
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_two_plus_children_edge_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.15
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_two_plus_children_edge_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 171.16
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_two_plus_children_edge_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.73
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_two_plus_children_edge_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 256.74
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_two_plus_children_edge_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.30
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_two_plus_children_edge_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 342.31
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_two_plus_children_edge_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.87
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 280
+
+- name: castle_point_two_plus_children_edge_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 427.88
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_two_plus_children_edge_5_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.45
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 140
+
+- name: castle_point_two_plus_children_edge_5_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 513.46
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_passported_receives_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 999.99
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_capital_at_limit_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100.00
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 490
+
+- name: castle_point_capital_over_limit_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100.00
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_annual_amount: 0
+
+- name: castle_point_non_dependant_deduction_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.local_authority_is_castle_point: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_capital_for_year: 0
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_assessed_weekly_income: 100.00
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_dependant_child: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_has_two_or_more_dependant_children: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_support: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_based_jsa: false
+    uk-castle-point:policies/castle-point/council-tax-reduction#input.castle_point_council_tax_reduction_receives_income_related_esa: false
+  output:
+    uk-castle-point:policies/castle-point/council-tax-reduction#castle_point_council_tax_reduction_non_dependant_deduction_weekly: 0

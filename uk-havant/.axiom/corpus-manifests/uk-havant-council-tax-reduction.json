@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "havant-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-havant",
+   "document_class": "manual",
+   "citation_path": "uk-havant/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "Havant Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.havant.gov.uk/sites/default/files/2026-03/Havant%20S13A%20202627%20Council%20Tax%20Support%20Scheme%20Final.pdf",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "Havant",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

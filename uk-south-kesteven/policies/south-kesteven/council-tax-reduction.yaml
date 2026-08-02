@@ -1,0 +1,603 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-67
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to South Kesteven District Council, so the Council's adopted document is the operative source for its local values and award calculation.
+  summary: |-
+    South Kesteven's operative 2026-27 working-age taper scheme covers 100 percent of eligible liability for ordinary classes D and F, but 80 percent for locally defined vulnerable classes E and G. Excess income is withdrawn at 2 6/7 percent per day (20 percent per week). Capital above £16,000 excludes an applicant; capital over £10,000 produces £1 weekly tariff income per £500 or part. Paragraph 30 supplies four non-dependant deduction bands. No minimum-award floor or council-tax band cap is printed. The pension-age and separate second-adult surfaces are outside this module.
+  deferred_outputs:
+    - output: uk-south-kesteven:policies/south-kesteven/council-tax-reduction/schedule-3#applicable_amount
+      reason: Schedule 3's personal allowances and premium schedules are outside this award-surface module; the calculated applicable amount is consumed as an input.
+    - output: uk-south-kesteven:policies/south-kesteven/council-tax-reduction/paragraphs-16a-and-17a#vulnerable_class
+      reason: The detailed premium and Schedule 8 tests defining vulnerable classes E and G are outside this award-surface module; vulnerable status is consumed as an input.
+    - output: uk-south-kesteven:policies/south-kesteven/council-tax-reduction/schedule-4#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult rebate calculation is outside this primary working-age award surface.
+rules:
+  - name: south_kesteven_council_tax_reduction_standard_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 29
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "Council Tax Reduction Scheme Rules 2026/27"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_kesteven_council_tax_reduction_vulnerable_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 29A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "80 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: south_kesteven_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 tariff-income upper capital bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: south_kesteven_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "in excess of £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: south_kesteven_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "£1 for each £500 in excess of £10,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          500
+
+  - name: south_kesteven_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "£1 for each £500 in excess of £10,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_kesteven_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 daily deduction conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: south_kesteven_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 class E amount B percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: south_kesteven_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 class E excess-income percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_daily_taper_rate * south_kesteven_council_tax_reduction_days_per_week
+
+  - name: south_kesteven_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "not less than 16 hours a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: south_kesteven_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 weekly-to-annual conversion denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+
+  - name: south_kesteven_council_tax_reduction_non_dependant_mid_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "not less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: south_kesteven_council_tax_reduction_non_dependant_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "not less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: south_kesteven_council_tax_reduction_non_dependant_top_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "not less than £485.00 but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: south_kesteven_council_tax_reduction_weekly_deduction_by_income_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: south_kesteven_council_tax_reduction_non_dependant_income_band
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              table:
+                header: Working-age non-dependant normal gross weekly income and deduction
+                row_key: income band
+                column_key: weekly deduction
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom paragraph (a) does not apply, £5.20 x 1/7.\n\n(2) In the case of a non-dependant aged 18 or over to whom sub-para- graph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is-- (a) less than £279.00, the deduction to be made under this paragraph is that specified in sub-paragraph (1)(b); (b) not less than £279.00 but less than £485.00, the deduction to be made under this paragraph is £10.60; (c) not less than £485.00 but less than £605.00, the deduction to be made under this paragraph is £13.30."
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: south_kesteven_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 working-age class D and E eligibility surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "persons who are not pensioners who fall within any of classes D, F or H"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_south_kesteven and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: south_kesteven_council_tax_reduction_has_universal_credit_award
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 UC applicable-amount condition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "an award of universal credit"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_universal_credit_for_year > 0
+
+  - name: south_kesteven_council_tax_reduction_applicable_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 applicable amount for working-age UC cases
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "the authority must use the calculation or estimate of the maximum amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_kesteven_council_tax_reduction_has_universal_credit_award: south_kesteven_council_tax_reduction_uc_maximum_amount_for_year else: south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year
+
+  - name: south_kesteven_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 working-age capital upper bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_assessed_capital_for_year <= south_kesteven_council_tax_reduction_capital_limit
+
+  - name: south_kesteven_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 72 working-age tariff income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "£1 for any excess which is not a complete £500"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_kesteven_council_tax_reduction_has_universal_credit_award: 0 else: south_kesteven_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, south_kesteven_council_tax_reduction_assessed_capital_for_year - south_kesteven_council_tax_reduction_tariff_income_threshold) / south_kesteven_council_tax_reduction_tariff_income_step) * south_kesteven_council_tax_reduction_weeks_per_year
+
+  - name: south_kesteven_council_tax_reduction_applicable_income_with_tariff_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 income calculation including capital tariff
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "is to be treated as if it were a weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_applicable_income_for_year + south_kesteven_council_tax_reduction_tariff_income_for_year
+
+  - name: south_kesteven_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 class E excess-income amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_kesteven_council_tax_reduction_relevant_income_based_benefit: 0 else: max(0, south_kesteven_council_tax_reduction_applicable_income_with_tariff_for_year - south_kesteven_council_tax_reduction_applicable_amount_for_year)
+
+  - name: south_kesteven_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "amount B is 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_excess_income_for_year * south_kesteven_council_tax_reduction_withdrawal_rate
+
+  - name: south_kesteven_council_tax_reduction_non_dependant_in_remunerative_work
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 remunerative-work definition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "not less than 16 hours a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_kesteven_council_tax_reduction_non_dependant_weekly_hours >= south_kesteven_council_tax_reduction_remunerative_work_hours
+
+  - name: south_kesteven_council_tax_reduction_non_dependant_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "normal gross weekly income is-- (a) less than £279.00, the deduction to be made under this paragraph is that specified in sub-paragraph (1)(b); (b) not less than £279.00 but less than £485.00, the deduction to be made under this paragraph is £10.60; (c) not less than £485.00 but less than £605.00, the deduction to be made under this paragraph is £13.30."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not south_kesteven_council_tax_reduction_non_dependant_in_remunerative_work: 0 else: if south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < south_kesteven_council_tax_reduction_non_dependant_mid_income_threshold_weekly: 0 else: if south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < south_kesteven_council_tax_reduction_non_dependant_high_income_threshold_weekly: 1 else: if south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < south_kesteven_council_tax_reduction_non_dependant_top_income_threshold_weekly: 2 else: 3
+
+  - name: south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraph 30 working-age non-dependant deductions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "normal gross weekly income"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-63
+              excerpt: "No deduction is to be made in respect of a non-dependant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not south_kesteven_council_tax_reduction_is_non_dependant or south_kesteven_council_tax_reduction_non_dependant_exempt: 0 else: south_kesteven_council_tax_reduction_weekly_deduction_by_income_band[south_kesteven_council_tax_reduction_non_dependant_income_band] * south_kesteven_council_tax_reduction_weeks_per_year
+
+  - name: south_kesteven_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 paragraphs 29 and 29A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "Where a person falls within classes A-D, F or H"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Where a person falls within classes E or G"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_kesteven_council_tax_reduction_vulnerable_class: south_kesteven_council_tax_reduction_vulnerable_maximum_support_rate else: south_kesteven_council_tax_reduction_standard_maximum_support_rate
+
+  - name: simulated_south_kesteven_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 working-age classes D and E amount calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "less any deductions in respect of non-dependants"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "who has made an application"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_kesteven_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and south_kesteven_council_tax_reduction_capital_eligible: max(0, south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year * south_kesteven_council_tax_reduction_selected_maximum_support_rate - south_kesteven_council_tax_reduction_income_taper_deduction_for_year - south_kesteven_council_tax_reduction_non_dependant_deductions_for_year) else: 0
+
+  - name: south_kesteven_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Kesteven Council Tax Reduction Scheme 2026-2027 final working-age local award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-67
+              excerpt: "the amount of the reduction to which he is entitled"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_south_kesteven_council_tax_reduction_annual_amount

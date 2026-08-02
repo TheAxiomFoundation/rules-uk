@@ -1,0 +1,308 @@
+- name: south_kesteven_ctr_full_liability_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_working_age_scheme_applies: holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_has_universal_credit_award: not_holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_capital_eligible: holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#simulated_south_kesteven_council_tax_reduction_annual_amount: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 1800
+
+- name: south_kesteven_ctr_capital_over_limit_is_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_capital_eligible: not_holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#simulated_south_kesteven_council_tax_reduction_annual_amount: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 0
+
+- name: south_kesteven_ctr_tariff_income_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 12000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_for_year: 208
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_applicable_income_with_tariff_for_year: 208
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_excess_income_for_year: 208
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_income_taper_deduction_for_year: 41.6
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 1758.4
+
+- name: south_kesteven_ctr_universal_credit_uses_uc_maximum_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 12000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 12000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 12000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_has_universal_credit_award: holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_applicable_amount_for_year: 12000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_excess_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 1800
+
+- name: south_kesteven_ctr_non_dependant_top_band_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 829.4
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 970.6
+
+- name: south_kesteven_ctr_non_dependant_top_band_individual_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.4
+
+- name: south_kesteven_ctr_exempt_non_dependant_has_no_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 0
+
+- name: south_kesteven_ctr_parameter_values
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_standard_maximum_support_rate: 1
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_vulnerable_maximum_support_rate: 0.8
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_capital_limit: 16000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_threshold: 10000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_step: 500
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_days_per_week: 7
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_withdrawal_rate: 0.2
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_remunerative_work_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_weeks_per_year: 52
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_mid_income_threshold_weekly: 279
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_high_income_threshold_weekly: 485
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_top_income_threshold_weekly: 605
+
+- name: south_kesteven_ctr_vulnerable_class_uses_eighty_percent
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_selected_maximum_support_rate: 0.8
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 800
+
+- name: south_kesteven_ctr_capital_at_limit_is_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_capital_eligible: holds
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_tariff_income_for_year: 624
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 1675.2
+
+- name: south_kesteven_ctr_taper_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.local_authority_is_south_kesteven: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_vulnerable_class: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_assessed_capital_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_universal_credit_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_applicable_income_for_year: 5000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_relevant_income_based_benefit: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_income_taper_deduction_for_year: 1000
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_annual_amount: 0
+
+- name: south_kesteven_non_dependant_below_first_edge
+  period: &nd_period {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: &nd_below_first
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 0
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: south_kesteven_non_dependant_at_first_edge
+  period: *nd_period
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 1
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: south_kesteven_non_dependant_below_second_edge
+  period: *nd_period
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 1
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: south_kesteven_non_dependant_at_second_edge
+  period: *nd_period
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 2
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: south_kesteven_non_dependant_below_third_edge
+  period: *nd_period
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 2
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: south_kesteven_non_dependant_at_third_edge
+  period: *nd_period
+  input:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_is_non_dependant: true
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_exempt: false
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#input.south_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_non_dependant_income_band: 3
+    uk-south-kesteven:policies/south-kesteven/council-tax-reduction#south_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.4

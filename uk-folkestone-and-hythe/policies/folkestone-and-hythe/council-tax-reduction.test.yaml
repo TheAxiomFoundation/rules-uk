@@ -1,0 +1,414 @@
+- name: folkestone_ctr_family_1_edge_1
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 150
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 1
+
+- name: folkestone_ctr_family_1_edge_2
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 150.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_1_edge_3
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 200
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_1_edge_4
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 200.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_1_edge_5
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 251
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_1_edge_6
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 251.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_1_edge_7
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 368
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_1_edge_8
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 368.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 0
+
+- name: folkestone_ctr_family_2_edge_1
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 212
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 1
+
+- name: folkestone_ctr_family_2_edge_2
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 212.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_2_edge_3
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 254
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_2_edge_4
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 254.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_2_edge_5
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 291
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_2_edge_6
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 291.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_2_edge_7
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 408
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_2_edge_8
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 408.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 2
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 0
+
+- name: folkestone_ctr_family_3_edge_1
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 286
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 1
+
+- name: folkestone_ctr_family_3_edge_2
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 286.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_3_edge_3
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 322
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_3_edge_4
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 322.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_3_edge_5
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 388
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_3_edge_6
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 388.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_3_edge_7
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 479
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_3_edge_8
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 479.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 3
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 0
+
+- name: folkestone_ctr_family_4_edge_1
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 357
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 1
+
+- name: folkestone_ctr_family_4_edge_2
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 357.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_4_edge_3
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 448
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 2
+
+- name: folkestone_ctr_family_4_edge_4
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 448.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_4_edge_5
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 550
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 3
+
+- name: folkestone_ctr_family_4_edge_6
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 550.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_4_edge_7
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 647
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 4
+
+- name: folkestone_ctr_family_4_edge_8
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 647.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 4
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_income_band: 0
+
+- name: folkestone_ctr_parameters_tariff_and_award
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 6251
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 147
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_maximum_liability_rate: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_band_1: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_capital_limit: 16000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_tariff_income_threshold: 6000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_tariff_income_step: 250
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_tariff_income_per_step: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_weeks_per_year: 52
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_tariff_income_weekly: 2
+
+- name: folkestone_ctr_tariff_income_at_disregard
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 6000
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_tariff_income_weekly: 0
+
+- name: folkestone_ctr_tariff_and_non_dependant_award
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 6251
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 147
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_annual_amount: 480
+
+- name: folkestone_ctr_capital_at_limit
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 16000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_capital_eligible: holds
+
+- name: folkestone_ctr_capital_over_limit_zero_award
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 16000.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_capital_eligible: not_holds
+
+- name: folkestone_ctr_exempt_non_dependant
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: true
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_non_dependant_band: 0
+
+- name: folkestone_ctr_capital_over_limit_annual_zero_award
+  period: *period
+  input:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_assessed_capital: 16000.01
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_weekly_income: 0
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_family_category: 1
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_passported_to_band_1: true
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability: 1000
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#input.folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction#folkestone_and_hythe_council_tax_reduction_annual_amount: 0

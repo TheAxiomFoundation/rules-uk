@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "south-derbyshire-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-south-derbyshire",
+   "document_class": "manual",
+   "citation_path": "uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "South Derbyshire Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.southderbyshire.gov.uk/assets/attach/15700/South-Derbyshire-CTR-scheme-2026-2027.pdf",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "South Derbyshire",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

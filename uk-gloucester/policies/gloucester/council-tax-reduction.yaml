@@ -1,0 +1,488 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-35
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Gloucester City Council, so the Council's adopted scheme document is the operative source for its local values and award calculation.
+  summary: |-
+    Gloucester's operative 2026-27 working-age scheme covers 100 percent of eligible
+    liability. It subtracts working-age non-dependant deductions inside the maximum,
+    then withdraws 2 6/7 percent of weekly excess income per day (20 percent per week).
+    Capital over £16,000 excludes the applicant; capital over £6,000 produces £1 weekly
+    tariff income for each £250 or incomplete £250. No working-age band cap or minimum
+    award floor is printed. The pension-age prescribed scheme is outside this module.
+  deferred_outputs:
+    - output: uk-gloucester:policies/gloucester/council-tax-reduction/schedule-3#applicable_amount
+      reason: Schedule 3's category-specific personal allowances, premiums, components, and transitional additions are outside this award-surface module; the calculated applicable amount is consumed as an input.
+    - output: uk-gloucester:policies/gloucester/council-tax-reduction/paragraph-30#non_dependant_exempt
+      reason: Paragraph 30's disability, benefit, student, and residence tests are outside this award-surface module; exemption status is consumed as an input.
+rules:
+  - name: gloucester_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 29(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: gloucester_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: gloucester_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "in excess of £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: gloucester_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: gloucester_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "£1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: gloucester_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "£12.40 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: gloucester_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 28(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: gloucester_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: gloucester_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 daily rate converted using the printed seven-day denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "amount B is 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "£12.40 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          gloucester_council_tax_reduction_daily_taper_rate * gloucester_council_tax_reduction_days_per_week
+
+  - name: gloucester_council_tax_reduction_non_dependant_first_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "less than £377.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          377
+
+  - name: gloucester_council_tax_reduction_non_dependant_second_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "not less than £377.00 but less than £469.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          469
+
+  - name: gloucester_council_tax_reduction_non_dependant_weekly_deduction_by_income_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: gloucester_council_tax_reduction_non_dependant_income_band
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30(1)-(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              table:
+                header: "Working-age non-dependant normal gross weekly income and deduction"
+                row_key: "income band"
+                column_key: "weekly deduction"
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £12.40 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom paragraph (a) does not apply, £4.05 x 1/7. (2) Subject to the provisions in paragraph 3, in the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is— (a) less than £217.00, the deduction to be made under this paragraph is that specified in subparagraph (1)(b); (b) not less than £217.00 but less than £377.00, the deduction to be made under this paragraph is £8.25; (c) not less than £377.00 but less than £469.00, the deduction to be made under this paragraph is £10.35."
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              table:
+                header: "Working-age override"
+                row_key: "income band"
+                column_key: "weekly deduction"
+              excerpt: "(a) less than £377.00, the deduction to be made under this paragraph is £6.00 or; (b) is not in remunerative work the deduction to be made under this paragraph is £6.00;"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 6.00
+          1: 10.35
+          2: 12.40
+
+  - name: gloucester_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "person who is not a pensioner"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_gloucester and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: gloucester_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          gloucester_council_tax_reduction_assessed_capital_for_year <= gloucester_council_tax_reduction_capital_limit
+
+  - name: gloucester_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "£1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          gloucester_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, gloucester_council_tax_reduction_assessed_capital_for_year - gloucester_council_tax_reduction_tariff_income_threshold) / gloucester_council_tax_reduction_tariff_income_step) * gloucester_council_tax_reduction_weeks_per_year
+
+  - name: gloucester_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, gloucester_council_tax_reduction_assessed_income_for_year + gloucester_council_tax_reduction_tariff_income_for_year - gloucester_council_tax_reduction_applicable_amount_for_year)
+
+  - name: gloucester_council_tax_reduction_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraphs 17(f) and 32(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "amount B is 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "the amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          gloucester_council_tax_reduction_excess_income_for_year * gloucester_council_tax_reduction_weekly_taper_rate
+
+  - name: gloucester_council_tax_reduction_non_dependant_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30(2)-(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "not less than £377.00 but less than £469.00, the deduction to be made under this paragraph is £10.35"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "less than £377.00, the deduction to be made under this paragraph is £6.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not gloucester_council_tax_reduction_non_dependant_in_remunerative_work: 0 else: if gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income < gloucester_council_tax_reduction_non_dependant_first_income_cutoff: 0 else: if gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income < gloucester_council_tax_reduction_non_dependant_second_income_cutoff: 1 else: 2
+
+  - name: gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "the deduction to be made under this paragraph is £6.00"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "No deduction is to be made in respect of any non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if gloucester_council_tax_reduction_non_dependant_is_exempt: 0 else: gloucester_council_tax_reduction_non_dependant_weekly_deduction_by_income_band[gloucester_council_tax_reduction_non_dependant_income_band]
+
+  - name: gloucester_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 29(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "100 per cent of the amount A/B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "less any deductions in respect of non- dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          gloucester_council_tax_reduction_maximum_eligible_liability_for_year * gloucester_council_tax_reduction_maximum_support_rate - gloucester_council_tax_reduction_non_dependant_deductions_for_year
+
+  - name: simulated_gloucester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 paragraph 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "that amount is the amount which is the maximum council tax reduction"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "the amount found by deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "comes into force on 1 April 2026"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if gloucester_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and gloucester_council_tax_reduction_capital_eligible: max(0, gloucester_council_tax_reduction_maximum_for_year - gloucester_council_tax_reduction_taper_deduction_for_year) else: 0
+
+  - name: gloucester_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Gloucester Council Tax Reduction Scheme 2026-2027 working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-gloucester/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "the amount of the reduction to which he is entitled is as follows"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_gloucester_council_tax_reduction_annual_amount

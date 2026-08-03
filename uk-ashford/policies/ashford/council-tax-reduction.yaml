@@ -1,0 +1,645 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Ashford Borough Council, so the Council's adopted document is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: |-
+    Upstream-source status: delegated_scheme. Section 13A delegates the working-age
+    scheme to Ashford, so its adopted document is operative. The 2026-27 award is
+    a five-band discount, not an excess-income taper: 90%, 75%, 60%, 45%, or 30%
+    of the scheme-defined maximum, selected from separate single/couple weekly-
+    income rows. Capital over £10,000 gives no award; capital above £6,000 adds
+    £1 weekly tariff income for every £250 or incomplete £250. A flat £10 weekly
+    non-dependant deduction applies unless the applicant or non-dependant is in a
+    printed protected/exempt class. No minimum-award floor is stated. Pension-age
+    prescribed provisions are outside this working-age module.
+  deferred_outputs:
+    - output: uk-ashford:policies/ashford/council-tax-reduction/sections-12-to-30-and-schedules-2-to-3#assessed_weekly_income
+      reason: Detailed earnings, self-employment, minimum-income-floor, and income-disregard calculations are outside this award-surface module.
+    - output: uk-ashford:policies/ashford/council-tax-reduction/sections-31-to-40-and-schedule-4#assessed_capital
+      reason: Capital valuation, attribution, notional-capital, and disregard rules are outside this award-surface module.
+    - output: uk-ashford:policies/ashford/council-tax-reduction/paragraph-57.1#band_d_capped_annual_liability
+      reason: The module consumes eligible liability already capped at the lower of actual liability and Band D; charge lookup and joint-liability apportionment are outside this award surface.
+    - output: uk-ashford:policies/ashford/council-tax-reduction/paragraphs-58.3-to-58.6#non_dependant_protection_or_exemption
+      reason: The detailed disability, benefit, student, absence, and other exemption classifier is consumed as an input.
+rules:
+  - name: ashford_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "shall be 90 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.90
+
+  - name: ashford_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: &band1_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Bands Band 1 Band 2 Band 3 Band 4 Band 5 90% 75% 60% 45% 30%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ashford_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *band1_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: ashford_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *band1_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: ashford_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *band1_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: ashford_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *band1_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: ashford_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: ashford_council_tax_reduction_income_band
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 band headings
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Bands Band 1 Band 2 Band 3 Band 4 Band 5 90% 75% 60% 45% 30%"
+              table:
+                header: Bands
+                row_key: income band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0.90
+          2: 0.75
+          3: 0.60
+          4: 0.45
+          5: 0.30
+
+  - name: ashford_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_family_category
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: &grid_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Single £0.00 to £127.11 £127.12 to £190.66 £190.67 to £254.21 £254.22 to £317.77 £317.78 to £381.32 Couple £0.00 to £168.75 £168.76 to £232.30 £232.31 to £295.85 £295.86 to £359.41 £359.42 to £422.96"
+              table:
+                header: Banded Discount Scheme
+                row_key: family category
+                column_key: weekly income bands
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 127.12
+          1: 168.76
+
+  - name: ashford_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_family_category
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 190.67
+          1: 232.31
+
+  - name: ashford_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_family_category
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 254.22
+          1: 295.86
+
+  - name: ashford_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_family_category
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 317.78
+          1: 359.42
+
+  - name: ashford_council_tax_reduction_band_5_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_family_category
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid upper bounds
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 381.32
+          1: 422.96
+
+  - name: ashford_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 31.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "the prescribed amount is £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: ashford_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 40.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "in excess of £6,000 but not exceeding £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: ashford_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 40.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "£1 for each £250 in excess of £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: ashford_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 40.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "£1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ashford_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 13.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: ashford_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ashford_council_tax_reduction_non_dependant_deduction_band
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "the non-dependant deductions in respect of a day referred to in paragraph 29 are in respect of a non-dependant aged 18 or over, £10.00 x 1/7"
+              table:
+                header: Non-dependant deduction applicability
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 10.00
+
+  - name: ashford_council_tax_reduction_family_category
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 family rows
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Single £0.00 to £127.11 £127.12 to £190.66 £190.67 to £254.21 £254.22 to £317.77 £317.78 to £381.32 Couple £0.00 to £168.75 £168.76 to £232.30 £232.31 to £295.85 £295.86 to £359.41 £359.42 to £422.96"
+              table:
+                header: Banded Discount Scheme
+                row_key: applicant has partner
+                column_key: family category
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ashford_council_tax_reduction_applicant_has_partner: 1 else: 0
+
+  - name: ashford_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 31.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "no reduction shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_assessed_capital_for_year
+          <= ashford_council_tax_reduction_capital_limit
+
+  - name: ashford_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 40.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "£1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_tariff_income_weekly_amount_per_step
+          * ceil(max(0, ashford_council_tax_reduction_assessed_capital_for_year - ashford_council_tax_reduction_tariff_income_threshold) / ashford_council_tax_reduction_tariff_income_step)
+
+  - name: ashford_council_tax_reduction_weekly_income_with_tariff
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 40.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "is to be treated as if it were a weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_assessed_weekly_income
+          + ashford_council_tax_reduction_tariff_income_weekly
+
+  - name: ashford_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Where an applicant or partner is in receipt of a ‘relevant benefit’ namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance; discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit
+
+  - name: ashford_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+              table:
+                header: Banded Discount Scheme
+                row_key: weekly income and family category
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ashford_council_tax_reduction_passported_to_band_1: ashford_council_tax_reduction_band_1 else: if ashford_council_tax_reduction_weekly_income_with_tariff >= ashford_council_tax_reduction_band_5_lower_income_by_family[ashford_council_tax_reduction_family_category]: ashford_council_tax_reduction_band_5 else: if ashford_council_tax_reduction_weekly_income_with_tariff >= ashford_council_tax_reduction_band_4_lower_income_by_family[ashford_council_tax_reduction_family_category]: ashford_council_tax_reduction_band_4 else: if ashford_council_tax_reduction_weekly_income_with_tariff >= ashford_council_tax_reduction_band_3_lower_income_by_family[ashford_council_tax_reduction_family_category]: ashford_council_tax_reduction_band_3 else: if ashford_council_tax_reduction_weekly_income_with_tariff >= ashford_council_tax_reduction_band_2_lower_income_by_family[ashford_council_tax_reduction_family_category]: ashford_council_tax_reduction_band_2 else: ashford_council_tax_reduction_band_1
+
+  - name: ashford_council_tax_reduction_income_within_grid
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Single £0.00 to £127.11 £127.12 to £190.66 £190.67 to £254.21 £254.22 to £317.77 £317.78 to £381.32 Couple £0.00 to £168.75 £168.76 to £232.30 £232.31 to £295.85 £295.86 to £359.41 £359.42 to £422.96"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_passported_to_band_1
+          or ashford_council_tax_reduction_weekly_income_with_tariff <= ashford_council_tax_reduction_band_5_upper_income_by_family[ashford_council_tax_reduction_family_category]
+
+  - name: ashford_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Bands Band 1 Band 2 Band 3 Band 4 Band 5 90% 75% 60% 45% 30%"
+              table:
+                header: Bands
+                row_key: income band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_support_rate_by_band[ashford_council_tax_reduction_income_band]
+
+  - name: ashford_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.3-58.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "the non-dependant deductions in respect of a day referred to in paragraph 29 are in respect of a non-dependant aged 18 or over, £10.00 x 1/7"
+              table:
+                header: Non-dependant deduction applicability
+                row_key: application condition
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ashford_council_tax_reduction_has_chargeable_non_dependant and not ashford_council_tax_reduction_non_dependant_protected_or_exempt: 1 else: 0
+
+  - name: ashford_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£10.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_non_dependant_weekly_deduction_by_band[ashford_council_tax_reduction_non_dependant_deduction_band]
+          * ashford_council_tax_reduction_weeks_per_year
+
+  - name: ashford_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 1.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "This document details how the scheme will operate for working age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_ashford
+          and council_tax_reduction_household_in_england
+          and ashford_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+
+  - name: ashford_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "shall be 90 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ashford_council_tax_reduction_maximum_eligible_liability_for_year
+          * ashford_council_tax_reduction_maximum_support_rate
+
+  - name: simulated_ashford_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-5 and paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "Any applicant who capital is greater than £10,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ashford_council_tax_reduction_working_age_scheme_applies and ashford_council_tax_reduction_capital_eligible and ashford_council_tax_reduction_income_within_grid: max(0, ashford_council_tax_reduction_maximum_amount_for_year * ashford_council_tax_reduction_selected_support_rate - ashford_council_tax_reduction_annual_non_dependant_deduction) else: 0
+
+  - name: ashford_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ashford Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ashford/manual/council-tax-reduction-scheme-2026-2027/page-100
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_ashford_council_tax_reduction_annual_amount

@@ -1,0 +1,542 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths:
+    #     - uk/statutes/ukpga/1992/14/13A
+    #     - uk/regulations/uksi/2012/2885
+    #     - uk/regulations/uksi/2012/2886
+    #   rationale: Section 13A of the Local Government Finance Act 1992 delegates the working-age scheme to Lancaster City Council, so the Council's adopted scheme document is the operative legal source for its locally set values.
+  summary: |-
+    Upstream-source status: delegated_scheme. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Section 13A of the Local Government Finance Act 1992 delegates the working-age scheme to Lancaster City Council, so the Council's adopted scheme document is the operative legal source for its locally set values. Lancaster's adopted 2026-27 working-age scheme covers 100 percent of eligible liability, less working-age non-dependant deductions and a 2 6/7 percent daily (20 percent weekly) taper on excess income. Capital above £16,000 is an eligibility cliff; capital above £6,000 and no more than £16,000 produces £1 weekly tariff income for each complete £250 or part thereof. The working-age text contains no minimum-award floor or council-tax-band cap. The pension-age prescribed scheme and second-adult rebate are outside this module.
+  deferred_outputs:
+    - output: uk-lancaster:policies/lancaster/council-tax-reduction/schedule-1#applicable_amount
+      reason: The category-specific personal allowances, premiums, components, and transitional additions used to calculate the applicable amount are outside this award-surface module.
+    - output: uk-lancaster:policies/lancaster/council-tax-reduction/sections-15-to-40-and-schedules-3-to-5#assessed_income_and_capital
+      reason: Detailed income disregards, attribution, and capital valuation are outside this award-surface module.
+    - output: uk-lancaster:policies/lancaster/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult rebate is outside this working-age Class D and E module.
+rules:
+  - name: lancaster_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: lancaster_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 2 6/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.0285714285714285714285714286
+
+  - name: lancaster_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: lancaster_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 59.1 daily percentage converted by the printed seven-day denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 2 6/7 per cent."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          lancaster_council_tax_reduction_daily_taper_rate * lancaster_council_tax_reduction_days_per_week
+
+  - name: lancaster_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "the prescribed amount is £16,000 and no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: lancaster_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: lancaster_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: lancaster_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "a weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: lancaster_council_tax_reduction_non_dependant_middle_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279.00
+
+  - name: lancaster_council_tax_reduction_non_dependant_high_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485.00
+
+  - name: lancaster_council_tax_reduction_non_dependant_top_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605.00
+
+  - name: lancaster_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: lancaster_council_tax_reduction_non_dependant_band
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "income band"
+                column_key: "weekly deduction"
+          - path: versions[0].values[0]
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£5.20 x 1/7"
+          - path: versions[0].values[3]
+            kind: amount
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: lancaster_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          lancaster_council_tax_reduction_assessed_capital <= lancaster_council_tax_reduction_capital_limit
+
+  - name: lancaster_council_tax_reduction_non_dependant_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "58.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+              table:
+                header: "58.0 Non-dependant deductions"
+                row_key: "normal gross weekly income"
+                column_key: "deduction band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if lancaster_council_tax_reduction_non_dependant_normal_gross_weekly_income < lancaster_council_tax_reduction_non_dependant_middle_threshold: 0 else: if lancaster_council_tax_reduction_non_dependant_normal_gross_weekly_income < lancaster_council_tax_reduction_non_dependant_high_threshold: 1 else: if lancaster_council_tax_reduction_non_dependant_normal_gross_weekly_income < lancaster_council_tax_reduction_non_dependant_top_threshold: 2 else: 3
+
+  - name: lancaster_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "the non-dependant deductions in respect of a day"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if lancaster_council_tax_reduction_non_dependant_deduction_applies: lancaster_council_tax_reduction_non_dependant_deduction_by_band[lancaster_council_tax_reduction_non_dependant_band] else: 0
+
+  - name: lancaster_council_tax_reduction_maximum_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, lancaster_council_tax_reduction_eligible_liability_weekly * lancaster_council_tax_reduction_maximum_support_rate - lancaster_council_tax_reduction_non_dependant_deductions_weekly)
+
+  - name: lancaster_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Where an applicant’s income exceeds their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, lancaster_council_tax_reduction_assessed_income_weekly + lancaster_council_tax_reduction_tariff_income_weekly - lancaster_council_tax_reduction_applicable_amount_weekly)
+
+  - name: lancaster_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          lancaster_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, lancaster_council_tax_reduction_assessed_capital - lancaster_council_tax_reduction_tariff_income_threshold) / lancaster_council_tax_reduction_tariff_income_step)
+
+  - name: lancaster_council_tax_reduction_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          lancaster_council_tax_reduction_excess_income_weekly * lancaster_council_tax_reduction_weekly_taper_rate
+
+  - name: lancaster_council_tax_reduction_amount_before_eligibility_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, lancaster_council_tax_reduction_maximum_weekly_amount - lancaster_council_tax_reduction_taper_deduction_weekly)
+
+  - name: lancaster_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Lancaster Council Tax Reduction Scheme 2026/27 Class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "have made a valid application for reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_lancaster and lancaster_council_tax_reduction_applicant_is_in_working_age_class and would_claim_council_tax_reduction and lancaster_council_tax_reduction_capital_eligible
+
+  - name: lancaster_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Lancaster Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "for the period 1st April 2026 until 31st March 2027."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-lancaster/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if lancaster_council_tax_reduction_award_conditions_met: lancaster_council_tax_reduction_amount_before_eligibility_weekly else: 0
+
+inputs:
+  - name: local_authority_is_lancaster
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: lancaster_council_tax_reduction_applicant_is_in_working_age_class
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: lancaster_council_tax_reduction_assessed_capital
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: lancaster_council_tax_reduction_eligible_liability_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: lancaster_council_tax_reduction_assessed_income_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: lancaster_council_tax_reduction_applicable_amount_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: lancaster_council_tax_reduction_non_dependant_deductions_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: lancaster_council_tax_reduction_non_dependant_deduction_applies
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: lancaster_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP

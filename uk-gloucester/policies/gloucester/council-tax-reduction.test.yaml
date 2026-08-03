@@ -1,0 +1,194 @@
+- name: gloucester_parameters_and_full_maximum
+  period: &year
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    <<: &base
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.local_authority_is_gloucester: true
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+      uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_applicable_amount_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_maximum_support_rate: 1
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_capital_limit: 16000
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_threshold: 6000
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_step: 250
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_days_per_week: 7
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_weeks_per_year: 52
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_first_income_cutoff: 377
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_second_income_cutoff: 469
+
+- name: gloucester_simulated_full_award
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_working_age_scheme_applies: holds
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_maximum_for_year: 1000
+    uk-gloucester:policies/gloucester/council-tax-reduction#simulated_gloucester_council_tax_reduction_annual_amount: 1000
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 1000
+
+- name: gloucester_taper_and_non_dependant_deduction
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 100
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 100
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_excess_income_for_year: 100
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_taper_deduction_for_year: 20
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_maximum_for_year: 900
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 880
+
+- name: gloucester_tariff_threshold_has_no_tariff
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 1000
+
+- name: gloucester_tariff_first_incomplete_step
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_for_year: 52
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_taper_deduction_for_year: 10.4
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 989.6
+
+- name: gloucester_tariff_complete_step
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_for_year: 52
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 989.6
+
+- name: gloucester_tariff_second_incomplete_step
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 6250.01
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_for_year: 104
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 979.2
+
+- name: gloucester_capital_at_limit_is_eligible
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_capital_eligible: holds
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_tariff_income_for_year: 2080
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 584
+
+- name: gloucester_capital_first_penny_over_is_zero
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 0
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_capital_eligible: not_holds
+    uk-gloucester:policies/gloucester/council-tax-reduction#simulated_gloucester_council_tax_reduction_annual_amount: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 0
+
+- name: gloucester_taper_zero_award
+  period: *year
+  input:
+    <<: *base
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_capital_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_assessed_income_for_year: 5000
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_taper_deduction_for_year: 1000
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_annual_amount: 0
+
+- name: gloucester_non_dependant_below_first_edge
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 376.99
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 6
+
+- name: gloucester_non_dependant_at_first_edge
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 377
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 1
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.35
+
+- name: gloucester_non_dependant_below_second_edge
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 468.99
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 1
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.35
+
+- name: gloucester_non_dependant_at_second_edge
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 469
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 2
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 12.4
+
+- name: gloucester_non_working_non_dependant_uses_low_deduction
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: false
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 0
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 6
+
+- name: gloucester_exempt_non_dependant_has_zero_deduction
+  period: *year
+  input:
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+    uk-gloucester:policies/gloucester/council-tax-reduction#input.gloucester_council_tax_reduction_non_dependant_is_exempt: true
+  output:
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_non_dependant_income_band: 2
+    uk-gloucester:policies/gloucester/council-tax-reduction#gloucester_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

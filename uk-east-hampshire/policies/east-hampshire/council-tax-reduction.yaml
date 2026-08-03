@@ -1,0 +1,388 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths:
+    #     - uk/statutes/ukpga/1992/14/13A
+    #     - uk/regulations/uksi/2012/2885
+    #     - uk/regulations/uksi/2012/2886
+    #   rationale: Section 13A delegates the working-age scheme to East Hampshire, so the authority's adopted 2026/27 scheme document is the operative legal source for these local parameters and award rules.
+  summary: |-
+    East Hampshire Council Tax Support working-age alignment surface for 2026/27: maximum support is 100 percent of eligible liability, capital above £16,000 excludes entitlement, tariff income begins above £10,000 in £250 steps, and excess income is withdrawn at the printed daily rate of 2 6/7 percent (20 percent weekly). Paragraph 30 is expressly pensioners only, so its non-dependant deduction bands are outside this working-age award surface and no working-age non-dependant deduction is composed into the maximum.
+  deferred_outputs:
+    - output: uk-east-hampshire:policies/east-hampshire/council-tax-reduction/applicable-amount#working_age_applicable_amount_schedule_components
+      reason: Paragraph 26 incorporates personal allowances, child amounts, premiums, components, and transitional additions from Schedule 3. Those category-specific schedules are outside this local award-surface module.
+    - output: uk-east-hampshire:policies/east-hampshire/council-tax-reduction/alternative-maximum#second_adult_rebate_amount
+      reason: Paragraphs 18, 31, and Schedule 4 provide a separate alternative maximum reduction (second-adult rebate), outside this class D/E award calculation.
+rules:
+  - name: east_hampshire_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 paragraph 29
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: east_hampshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 tariff-income upper capital bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: east_hampshire_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-79
+              excerpt: "in excess of £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: east_hampshire_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-79
+              excerpt: "each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: east_hampshire_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-79
+              excerpt: "£1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: east_hampshire_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 class E daily-to-weekly conversion denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: east_hampshire_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 class E amount B percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: east_hampshire_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 class E excess-income percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_hampshire_council_tax_reduction_daily_taper_rate * east_hampshire_council_tax_reduction_days_per_week
+
+  - name: east_hampshire_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 weekly-to-annual conversion denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: east_hampshire_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 working-age class D and E eligibility surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "persons who are not pensioners"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_east_hampshire and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: east_hampshire_council_tax_reduction_has_universal_credit_award
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 UC applicable-amount condition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "has, an award of universal credit,"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_hampshire_council_tax_reduction_universal_credit_for_year > 0
+
+  - name: east_hampshire_council_tax_reduction_applicable_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 applicable amount for working-age UC cases
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "the authority must use the calculation or estimate of the maximum amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_hampshire_council_tax_reduction_has_universal_credit_award: east_hampshire_council_tax_reduction_uc_maximum_amount_for_year else: east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year
+
+  - name: east_hampshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 working-age capital upper bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_hampshire_council_tax_reduction_assessed_capital_for_year <= east_hampshire_council_tax_reduction_capital_limit
+
+  - name: east_hampshire_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 paragraph 72 working-age tariff income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-79
+              excerpt: "£1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_hampshire_council_tax_reduction_has_universal_credit_award: 0 else: east_hampshire_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, east_hampshire_council_tax_reduction_assessed_capital_for_year - east_hampshire_council_tax_reduction_tariff_income_threshold) / east_hampshire_council_tax_reduction_tariff_income_step) * east_hampshire_council_tax_reduction_weeks_per_year
+
+  - name: east_hampshire_council_tax_reduction_applicable_income_with_tariff_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 income calculation including capital tariff
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-79
+              excerpt: "is to be treated as if it were a weekly income"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_hampshire_council_tax_reduction_applicable_income_for_year + east_hampshire_council_tax_reduction_tariff_income_for_year
+
+  - name: east_hampshire_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 class E excess-income amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_hampshire_council_tax_reduction_relevant_income_based_benefit: 0 else: max(0, east_hampshire_council_tax_reduction_applicable_income_with_tariff_for_year - east_hampshire_council_tax_reduction_applicable_amount_for_year)
+
+  - name: east_hampshire_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "amount B is 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_hampshire_council_tax_reduction_excess_income_for_year * east_hampshire_council_tax_reduction_withdrawal_rate
+
+  - name: simulated_east_hampshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 working-age classes D and E amount calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "who has made an application"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_hampshire_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and east_hampshire_council_tax_reduction_capital_eligible: max(0, east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year * east_hampshire_council_tax_reduction_maximum_support_rate - east_hampshire_council_tax_reduction_income_taper_deduction_for_year) else: 0
+
+  - name: east_hampshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Hampshire Council Tax Reduction Scheme 2026-2027 final working-age local award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "classes of person who are to be entitled to a reduction under the scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_east_hampshire_council_tax_reduction_annual_amount

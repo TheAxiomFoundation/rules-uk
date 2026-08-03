@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "east-hampshire-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-east-hampshire",
+   "document_class": "manual",
+   "citation_path": "uk-east-hampshire/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "East Hampshire Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.easthants.gov.uk/sites/default/files/2026-03/Council%20tax%20support%20scheme%202026-27.pdf",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "East Hampshire",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

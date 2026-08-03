@@ -1,0 +1,180 @@
+- name: east_hampshire_ctr_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_maximum_support_rate: 1
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_capital_limit: 16000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_threshold: 10000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_step: 250
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_days_per_week: 7
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_withdrawal_rate: 0.2
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_weeks_per_year: 52
+
+- name: east_hampshire_ctr_working_age_scheme_applies
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: east_hampshire_ctr_has_universal_credit_award
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 1
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_has_universal_credit_award: holds
+
+- name: east_hampshire_ctr_uc_applicable_amount
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 1
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 7000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_applicable_amount_for_year: 7000
+
+- name: east_hampshire_ctr_applicable_income_includes_zero_uc_tariff
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 1
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 12345
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_applicable_income_with_tariff_for_year: 12345
+
+- name: east_hampshire_ctr_income_based_benefit_has_no_excess_income
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_excess_income_for_year: 0
+
+- name: east_hampshire_ctr_simulated_award_outside_working_age_scheme
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.would_claim_council_tax_reduction: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#simulated_east_hampshire_council_tax_reduction_annual_amount: 0
+
+- name: east_hampshire_ctr_full_liability_award
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 12000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 12000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_annual_amount: 1800
+
+- name: east_hampshire_ctr_taper_reduces_award
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 12000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 13000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_income_taper_deduction_for_year: 200
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_annual_amount: 1600
+
+- name: east_hampshire_ctr_tariff_threshold_no_income
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 10000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_for_year: 0
+
+- name: east_hampshire_ctr_tariff_partial_step_rounds_up
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 10001
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_for_year: 52
+
+- name: east_hampshire_ctr_tariff_complete_step
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 10250
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_tariff_income_for_year: 52
+
+- name: east_hampshire_ctr_capital_at_limit_eligible
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_capital_eligible: holds
+
+- name: east_hampshire_ctr_capital_over_limit_zero_award
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_capital_eligible: not_holds
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_annual_amount: 0
+
+- name: east_hampshire_ctr_taper_exhausts_award
+  period: { period_kind: tax_year, start: '2026-04-01', end: '2027-03-31' }
+  input:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.local_authority_is_east_hampshire: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_universal_credit_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_applicable_income_for_year: 9000
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#input.east_hampshire_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-east-hampshire:policies/east-hampshire/council-tax-reduction#east_hampshire_council_tax_reduction_annual_amount: 0

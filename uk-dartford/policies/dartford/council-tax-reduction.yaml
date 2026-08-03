@@ -1,0 +1,491 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Dartford's adopted document is operative.
+  summary: |-
+    Dartford's operative 2026-27 working-age scheme is a five-band weekly-income discount scheme, not an excess-income taper. The pensioner Class B text on page 6 contains the 2 6/7 per cent taper, but Schedule 1 governs working-age awards with rates of 80%, 60%, 40%, 20%, and 0%. Paragraph 39.1 defines the maximum as 100% of eligible liability, and Schedule 1 bases the discount on that maximum. Capital above £6,000 produces no award, with no working-age tariff-income interval below the cliff. The scheme prints no working-age non-dependant deduction rule. Awards below £1 per week are nil.
+  deferred_outputs:
+    - output: uk-dartford:policies/dartford/council-tax-reduction/sections-12-to-26-and-schedule-2#assessed_weekly_income
+      reason: Detailed earnings, self-employment, minimum-income-floor, and income-disregard calculations are outside this award-surface module.
+    - output: uk-dartford:policies/dartford/council-tax-reduction/sections-28-to-34-and-schedule-3#assessed_capital
+      reason: Capital valuation, attribution, notional-capital, and disregard rules are outside this award-surface module.
+    - output: uk-dartford:policies/dartford/council-tax-reduction/paragraphs-39.1-to-39.4#maximum_eligible_liability
+      reason: The award surface consumes eligible liability after statutory discounts and joint-liability apportionment.
+    - output: uk-dartford:policies/dartford/council-tax-reduction/pension-age-class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age alternative maximum reduction is outside the working-age award surface.
+rules:
+  - name: dartford_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: Dartford Council Tax Reduction Scheme 2026/27 paragraph 39.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-54
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: dartford_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "1 80% £0 - £103.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: dartford_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "2 60% £104 - £167.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: dartford_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "3 40% £168 - £232.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: dartford_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "4 20% £233 - £333.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: dartford_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "5 0% £334+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: dartford_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: dartford_council_tax_reduction_income_band
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: Band
+                column_key: Discount
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0.80
+          2: 0.60
+          3: 0.40
+          4: 0.20
+          5: 0
+
+  - name: dartford_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: dartford_council_tax_reduction_family_category
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: family category
+                column_key: Band 2 lower income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 104
+          1: 155
+          2: 233
+          3: 309
+
+  - name: dartford_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: dartford_council_tax_reduction_family_category
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: family category
+                column_key: Band 3 lower income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 168
+          1: 219
+          2: 297
+          3: 385
+
+  - name: dartford_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: dartford_council_tax_reduction_family_category
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: family category
+                column_key: Band 4 lower income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 233
+          1: 284
+          2: 360
+          3: 450
+
+  - name: dartford_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: dartford_council_tax_reduction_family_category
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: family category
+                column_key: Band 5 lower income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 334
+          1: 385
+          2: 490
+          3: 578
+
+  - name: dartford_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dartford Council Tax Reduction Scheme 2026/27 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "the prescribed amount is £6,000 and no support shall be granted when the applicant has an amount greater that this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: dartford_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Dartford Council Tax Reduction Scheme 2026/27 paragraph 39.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-55
+              excerpt: "the award is less than £1 per week, no reduction whatsoever will be granted"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: dartford_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Dartford Council Tax Reduction Scheme 2026/27 weekly-income conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: dartford_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Dartford Council Tax Reduction Scheme 2026/27 paragraph 1.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "both pension credit age and working age applicants"
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "effective from 1st April 2026 for a period of one financial year"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_dartford
+          and council_tax_reduction_household_in_england
+          and dartford_council_tax_reduction_applicant_is_in_working_age_class
+
+  - name: dartford_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dartford_council_tax_reduction_assessed_capital_for_year
+          <= dartford_council_tax_reduction_capital_limit
+
+  - name: dartford_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Where an applicant or partner is in receipt of a relevant benefit namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be award at Band 1 level (80%)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dartford_council_tax_reduction_applicant_or_partner_receives_income_support
+          or dartford_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or dartford_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: dartford_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Weekly Income levels Band Discount Single person Couple with no children or young person Couple or Lone Parent with one child /young person Couple or Lone Parent with two or more children /young persons 1 80% Relevant benefit (Passported) 1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: weekly income and family category
+                column_key: Band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dartford_council_tax_reduction_passported_to_band_1: dartford_council_tax_reduction_band_1 else: if dartford_council_tax_reduction_weekly_income >= dartford_council_tax_reduction_band_5_lower_income_by_family[dartford_council_tax_reduction_family_category]: dartford_council_tax_reduction_band_5 else: if dartford_council_tax_reduction_weekly_income >= dartford_council_tax_reduction_band_4_lower_income_by_family[dartford_council_tax_reduction_family_category]: dartford_council_tax_reduction_band_4 else: if dartford_council_tax_reduction_weekly_income >= dartford_council_tax_reduction_band_3_lower_income_by_family[dartford_council_tax_reduction_family_category]: dartford_council_tax_reduction_band_3 else: if dartford_council_tax_reduction_weekly_income >= dartford_council_tax_reduction_band_2_lower_income_by_family[dartford_council_tax_reduction_family_category]: dartford_council_tax_reduction_band_2 else: dartford_council_tax_reduction_band_1
+
+  - name: dartford_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "1 80% £0 - £103.99 £0 - £154.99 £0 - £232.99 £0 - £308.99 2 60% £104 - £167.99 £155 - £218.99 £233 - £296.99 £309 - £384.99 3 40% £168 - £232.99 £219 - £283.99 £297 - £359.99 £385 - £449.99 4 20% £233 - £333.99 £284 - £384.99 £360 - £489.99 £450 - £577.99 5 0% £334+ £385+ £490+ £578+"
+              table:
+                header: Weekly Income levels
+                row_key: Band
+                column_key: Discount
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dartford_council_tax_reduction_support_rate_by_band[dartford_council_tax_reduction_income_band]
+
+  - name: dartford_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dartford Council Tax Reduction Scheme 2026/27 paragraph 39.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-54
+              excerpt: "shall be 100 per cent, of the amount A divided by B where; (a) A is the amount set by the appropriate authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; and (b) B is the number of days in that financial year"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dartford_council_tax_reduction_maximum_eligible_liability_for_year
+          * dartford_council_tax_reduction_maximum_liability_rate
+
+  - name: simulated_dartford_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dartford Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2 and paragraph 39.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "The amount of discount to be granted is to be based on the following factors: (a) The maximum Council Tax Reduction as defined within this scheme"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-55
+              excerpt: "Where any reduction is calculated and the award is less than £1 per week, no reduction whatsoever will be granted."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dartford_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and dartford_council_tax_reduction_capital_eligible: (if dartford_council_tax_reduction_maximum_amount_for_year * dartford_council_tax_reduction_selected_support_rate < dartford_council_tax_reduction_minimum_award_weekly * dartford_council_tax_reduction_weeks_per_year: 0 else: dartford_council_tax_reduction_maximum_amount_for_year * dartford_council_tax_reduction_selected_support_rate) else: 0
+
+  - name: dartford_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dartford Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dartford/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Calculation of the amount of Council Tax Reduction in accordance with the Discount Scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_dartford_council_tax_reduction_annual_amount

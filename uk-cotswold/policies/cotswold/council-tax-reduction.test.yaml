@@ -1,0 +1,1567 @@
+- name: cotswold_single_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 154.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_family_category_index: 0
+
+- name: cotswold_single_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 154.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_single_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 204.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_single_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 204.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_single_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 254.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_single_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 254.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_single_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 304.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_single_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 304.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_couple_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 183.08
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_couple_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 183.09
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 223.08
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 223.09
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 273.08
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 273.09
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 323.08
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 323.09
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_lone_1_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 211.69
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_lone_1_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 211.70
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_1_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 246.69
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_1_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 246.70
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_1_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 296.69
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_1_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 296.70
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_1_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 346.69
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_1_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 346.70
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_lone_2_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 234.58
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_lone_2_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 234.59
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_2_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 269.58
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_2_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 269.59
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_2_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 319.58
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_2_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 319.59
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_2_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 369.58
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_2_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 369.59
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_lone_3_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 257.47
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_lone_3_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 257.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_3_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 292.47
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_3_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 292.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_3_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 342.47
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_3_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 342.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_3_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 392.47
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_3_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 392.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_lone_4_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 303.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_lone_4_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 303.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_4_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 338.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_lone_4_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 338.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_4_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 388.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_lone_4_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 388.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_4_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 438.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_lone_4_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 438.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_couple_1_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 280.35
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_couple_1_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 280.36
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_1_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 330.35
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_1_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 330.36
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_1_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 380.35
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_1_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 380.36
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_1_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 430.35
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_1_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 430.36
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_couple_2_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 303.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_couple_2_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 303.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_2_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 353.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_2_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 353.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_2_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 403.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_2_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 403.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_2_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 453.24
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_2_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 453.25
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 2
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_couple_3_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 326.12
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_couple_3_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 326.13
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_3_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 376.12
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_3_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 376.13
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_3_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 426.12
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_3_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 426.13
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_3_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 476.12
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_3_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 476.13
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_couple_4_edge_1_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 371.89
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 1
+
+- name: cotswold_couple_4_edge_1_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 371.90
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_4_edge_2_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 421.89
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 2
+
+- name: cotswold_couple_4_edge_2_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 421.90
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_4_edge_3_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 471.89
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 3
+
+- name: cotswold_couple_4_edge_3_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 471.90
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_4_edge_4_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 521.89
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 4
+
+- name: cotswold_couple_4_edge_4_above
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 521.90
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 5
+
+- name: cotswold_full_banded_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 1800
+
+- name: cotswold_band_two_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 154.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 1440
+
+- name: cotswold_zero_award_above_band_five
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 354.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#simulated_cotswold_council_tax_reduction_annual_amount: 0
+
+- name: cotswold_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 10000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_capital_eligible: holds
+
+- name: cotswold_capital_above_limit_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 10000.01
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 0
+
+- name: cotswold_tariff_threshold_no_income
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_weekly: 0
+
+- name: cotswold_tariff_first_partial_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_weekly: 1
+
+- name: cotswold_tariff_full_steps
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_weekly: 12
+
+- name: cotswold_protected_taper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 200
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 52
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 100
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 708
+
+- name: cotswold_protected_taper_zero_floor
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 1000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_annual_amount: 0
+
+- name: cotswold_non_dependant_exempt
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: cotswold_non_dependant_not_working
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.2
+
+- name: cotswold_non_dependant_low
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.2
+
+- name: cotswold_non_dependant_mid
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.6
+
+- name: cotswold_non_dependant_high
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.3
+
+- name: cotswold_non_dependant_top
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: cotswold_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_maximum_support_rate: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_capital_limit: 10000
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_threshold: 6000
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_step: 250
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_days_per_week: 7
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_weekly_taper_rate: '0.2000000000000000000000000002'
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_weeks_per_year: 52
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_band_e_number: 5
+
+- name: cotswold_family_category_couple_three_children
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 3
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_family_category_index: 8
+
+- name: cotswold_weekly_income_including_first_tariff_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_weekly_income_including_tariff: 101
+
+- name: cotswold_non_dependant_band_mid
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_non_dependant_band_index: 2
+
+- name: cotswold_non_dependant_band_not_applicable
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_non_dependant: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_exempt: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_non_dependant_band_index: 0
+
+- name: cotswold_income_band_candidate_single_first_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 154.48
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_candidate_index: 1
+
+- name: cotswold_income_band_above_grid
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 571.90
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 4
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_candidate_index: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_income_band_index: 0
+
+- name: cotswold_selected_support_rate_second_band
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 154.49
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_selected_support_rate: 0.8
+
+- name: cotswold_working_age_scheme_applies
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#cotswold_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: simulated_cotswold_full_banded_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.local_authority_is_cotswold: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_is_working_age: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_net_weekly_income: 100
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_has_partner: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_number_of_children: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_applicant_or_partner_receives_passported_benefit: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_is_protected: false
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_protected_applicable_amount_weekly: 0
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_annual_liability_after_discounts: 2000
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_band_e_annual_liability_after_discounts: 1800
+    uk-cotswold:policies/cotswold/council-tax-reduction#input.cotswold_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cotswold:policies/cotswold/council-tax-reduction#simulated_cotswold_council_tax_reduction_annual_amount: 1800

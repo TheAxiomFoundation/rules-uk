@@ -1,0 +1,198 @@
+- name: maldon_ctr_printed_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_maximum_support_rate: 0.8
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_capital_limit: 6000
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_tariff_income_threshold: 6000
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_days_per_week: 7
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_band_2_threshold: 195
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_band_3_threshold: 338
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_band_4_threshold: 420
+
+- name: maldon_ctr_full_award_at_capital_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_actual_liability_for_year: 2000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_band_d_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_income_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_capital_eligible: holds
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_maximum_amount_for_year: 1440
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_annual_amount: 1440
+
+- name: maldon_ctr_capital_cliff_and_tariff_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_actual_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_band_d_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_income_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_capital_eligible: not_holds
+    uk-maldon:policies/maldon/council-tax-reduction#simulated_maldon_council_tax_reduction_annual_amount: 0
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_annual_amount: 0
+
+- name: maldon_ctr_taper_and_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_actual_liability_for_year: 2000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_band_d_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_income_for_year: 11000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_deductions_for_year: 520
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_excess_income_for_year: 1000
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_income_taper_deduction_for_year: 200
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_annual_amount: 720
+
+- name: maldon_ctr_taper_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_actual_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_band_d_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_income_for_year: 17200
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#simulated_maldon_council_tax_reduction_annual_amount: 0
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_annual_amount: 0
+
+- name: maldon_ctr_nondep_below_195
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 194.99
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_individual_non_dependant_deduction_weekly: 10
+
+- name: maldon_ctr_nondep_at_195
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 195
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_individual_non_dependant_deduction_weekly: 10
+
+- name: maldon_ctr_nondep_below_338
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 337.99
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 2
+
+- name: maldon_ctr_nondep_at_338
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 338
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 3
+
+- name: maldon_ctr_nondep_below_420
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 419.99
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 3
+
+- name: maldon_ctr_nondep_at_420
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 420
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_individual_non_dependant_deduction_weekly: 10
+
+- name: maldon_ctr_exempt_nondep_zero_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_is_non_dependant: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_exempt: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 500
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: maldon_ctr_working_age_scheme_applies
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#maldon_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: maldon_ctr_simulated_full_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-maldon:policies/maldon/council-tax-reduction#input.local_authority_is_maldon: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-maldon:policies/maldon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_actual_liability_for_year: 2000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_band_d_liability_for_year: 1800
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_assessed_income_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-maldon:policies/maldon/council-tax-reduction#input.maldon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-maldon:policies/maldon/council-tax-reduction#simulated_maldon_council_tax_reduction_annual_amount: 1440

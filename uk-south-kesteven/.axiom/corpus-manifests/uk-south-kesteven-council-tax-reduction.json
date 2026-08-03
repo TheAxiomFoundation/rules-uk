@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "south-kesteven-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-south-kesteven",
+   "document_class": "manual",
+   "citation_path": "uk-south-kesteven/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "South Kesteven Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.southkesteven.gov.uk/sites/default/files/2026-04/South%20Kesteven%20District%20Council%20-%20Council%20Tax%20Support%20Scheme%20Rules%20-%202026-27.pdf",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "South Kesteven",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

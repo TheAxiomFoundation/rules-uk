@@ -1,0 +1,252 @@
+- name: chorley_ctr_full_liability_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.local_authority_is_chorley: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_applicable_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_relevant_income_based_benefit: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_working_age_scheme_applies: holds
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_has_universal_credit_award: not_holds
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_capital_eligible: holds
+    uk-chorley:policies/chorley/council-tax-reduction#simulated_chorley_council_tax_reduction_annual_amount: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_annual_amount: 1800
+
+- name: chorley_ctr_capital_over_limit_is_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.local_authority_is_chorley: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_applicable_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_relevant_income_based_benefit: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_capital_eligible: not_holds
+    uk-chorley:policies/chorley/council-tax-reduction#simulated_chorley_council_tax_reduction_annual_amount: 0
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_annual_amount: 0
+
+- name: chorley_ctr_tariff_income_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.local_authority_is_chorley: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_applicable_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_relevant_income_based_benefit: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_for_year: 624
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_applicable_income_with_tariff_for_year: 624
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_excess_income_for_year: 624
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_income_taper_deduction_for_year: 124.8
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_annual_amount: 1675.2
+
+- name: chorley_ctr_universal_credit_uses_uc_maximum_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.local_authority_is_chorley: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 12000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_uc_maximum_amount_for_year: 12000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_applicable_income_for_year: 12000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_relevant_income_based_benefit: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_has_universal_credit_award: holds
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_applicable_amount_for_year: 12000
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_excess_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_annual_amount: 1800
+
+- name: chorley_ctr_non_dependant_top_band_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.local_authority_is_chorley: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_applicable_income_for_year: 0
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_relevant_income_based_benefit: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_deductions_for_year: 829.40
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_annual_amount: 970.60
+
+- name: chorley_ctr_non_dependant_top_band_individual_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.40
+
+- name: chorley_ctr_exempt_non_dependant_has_no_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 0
+
+- name: chorley_ctr_parameter_values
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_maximum_support_rate: 1
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_capital_limit: 16000
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_threshold: 6000
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_step: 250
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_days_per_week: 7
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_withdrawal_rate: 0.2
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_weeks_per_year: 52
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_remunerative_work_hours: 16
+
+- name: chorley_ctr_capital_at_limit_remains_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_capital_eligible: holds
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_for_year: 2080
+
+- name: chorley_ctr_tariff_threshold_edges
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_for_year: 52
+
+- name: chorley_ctr_at_tariff_threshold_has_no_tariff_income
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_tariff_income_for_year: 0
+
+- name: chorley_ctr_non_dependant_below_first_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_band: 0
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.40
+
+- name: chorley_ctr_non_dependant_at_first_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_band: 1
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.20
+
+- name: chorley_ctr_non_dependant_below_second_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_band: 1
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.20
+
+- name: chorley_ctr_non_dependant_at_second_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_band: 2
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.60
+
+- name: chorley_ctr_non_dependant_below_top_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_is_non_dependant: true
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_exempt: false
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-chorley:policies/chorley/council-tax-reduction#input.chorley_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_non_dependant_band: 2
+    uk-chorley:policies/chorley/council-tax-reduction#chorley_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.60

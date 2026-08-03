@@ -1,0 +1,457 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so Broxbourne's adopted document is operative.
+  summary: |-
+    Broxbourne's working-age Council Tax Reduction award surface for 2026-27. Ordinary cases receive at most 75 percent of Band-E-capped liability; the disability classes printed at paragraph 57.1A receive 100 percent of actual eligible liability. A 25 percent weekly excess-income taper and two-band non-dependant deductions reduce the maximum. Capital above £16,000 ends entitlement, while capital above £6,000 creates weekly tariff income in £250 steps.
+  deferred_outputs:
+    - output: uk-broxbourne:policies/broxbourne/council-tax-reduction/sections-12-to-32-and-schedules-1-to-4#applicable_amount_and_assessed_income
+      reason: The award surface consumes applicable amount and assessed income; detailed personal allowances, premiums, earnings, UC, and income-disregard schedules are outside this module.
+    - output: uk-broxbourne:policies/broxbourne/council-tax-reduction/sections-34-to-41-and-schedule-5#assessed_capital
+      reason: The award surface encodes the capital cliff and tariff but consumes assessed capital; valuation, attribution, notional-capital, and disregard rules are outside this module.
+    - output: uk-broxbourne:policies/broxbourne/council-tax-reduction/paragraph-57.1#band_e_capped_annual_liability
+      reason: Ordinary maximum support consumes liability capped at the lower of actual liability and Band E; dwelling charge lookup, discounts, and joint-liability apportionment are outside this module.
+    - output: uk-broxbourne:policies/broxbourne/council-tax-reduction/paragraphs-57.1A-and-58.6-to-58.9#protection_and_exemption_classifier
+      reason: This module consumes whether the claimant is in a printed 100-percent protected class and whether a non-dependant deduction is exempt; the detailed benefit, disability, student, absence, and armed-forces classifiers are deferred.
+    - output: uk-broxbourne:policies/broxbourne/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult alternative maximum reduction is outside this working-age module.
+rules:
+  - name: broxbourne_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 75 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: broxbourne_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 100 per cent, of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: broxbourne_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "the prescribed amount is £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: broxbourne_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: broxbourne_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: broxbourne_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: broxbourne_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "£5.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: broxbourne_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 3 4/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.03571428571428571428571428571
+
+  - name: broxbourne_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 59.1; weekly rate derived from the printed daily percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "prescribed daily percentage"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          broxbourne_council_tax_reduction_daily_taper_rate * broxbourne_council_tax_reduction_days_per_week
+
+  - name: broxbourne_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 15A.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: broxbourne_council_tax_reduction_non_dependant_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "normal gross weekly income is not more than £150.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          150
+
+  - name: broxbourne_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: broxbourne_council_tax_reduction_non_dependant_deduction_band
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) in respect of a non-dependant aged 18 or over where his normal gross weekly income is not more than £150.00, the deduction shall be £5.00 x 1/7; (b) in respect of a non-dependant aged 18 or over where his normal gross weekly income is more than £150.00, the deduction shall be £11.55 x 1/7."
+              table:
+                header: Non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.00
+          2: 11.55
+
+  - name: broxbourne_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 1.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "both pension credit age and working age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_broxbourne and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: broxbourne_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          broxbourne_council_tax_reduction_assessed_capital_for_year <= broxbourne_council_tax_reduction_capital_limit
+
+  - name: broxbourne_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-58
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          broxbourne_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, broxbourne_council_tax_reduction_assessed_capital_for_year - broxbourne_council_tax_reduction_tariff_income_threshold) / broxbourne_council_tax_reduction_tariff_income_step) * broxbourne_council_tax_reduction_weeks_per_year
+
+  - name: broxbourne_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, broxbourne_council_tax_reduction_assessed_income_for_year + broxbourne_council_tax_reduction_tariff_income_for_year - broxbourne_council_tax_reduction_applicable_amount_for_year)
+
+  - name: broxbourne_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          broxbourne_council_tax_reduction_excess_income_for_year * broxbourne_council_tax_reduction_withdrawal_rate
+
+  - name: broxbourne_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.6-58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) in respect of a non-dependant aged 18 or over where his normal gross weekly income is not more than £150.00, the deduction shall be £5.00 x 1/7; (b) in respect of a non-dependant aged 18 or over where his normal gross weekly income is more than £150.00, the deduction shall be £11.55 x 1/7."
+              table:
+                header: Non-dependant deduction band selection
+                row_key: adult status, exemption, and gross weekly income
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not broxbourne_council_tax_reduction_is_non_dependant or broxbourne_council_tax_reduction_non_dependant_exempt or not broxbourne_council_tax_reduction_non_dependant_is_aged_18_or_over: 0 else: if broxbourne_council_tax_reduction_non_dependant_normal_gross_weekly_income <= broxbourne_council_tax_reduction_non_dependant_income_threshold_weekly: 1 else: 2
+
+  - name: broxbourne_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "the non-dependant deductions in respect of a day"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          broxbourne_council_tax_reduction_non_dependant_weekly_deduction_by_band[broxbourne_council_tax_reduction_non_dependant_deduction_band] * broxbourne_council_tax_reduction_weeks_per_year
+
+  - name: broxbourne_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 paragraphs 57.1-57.1A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "A is the lower of either"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "council tax for the relevant financial year in respect of a dwelling within Band E"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if broxbourne_council_tax_reduction_protected_class: broxbourne_council_tax_reduction_actual_eligible_liability_for_year * broxbourne_council_tax_reduction_protected_maximum_support_rate else: broxbourne_council_tax_reduction_band_e_capped_eligible_liability_for_year * broxbourne_council_tax_reduction_ordinary_maximum_support_rate
+
+  - name: simulated_broxbourne_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 working-age award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if broxbourne_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and broxbourne_council_tax_reduction_capital_eligible: max(0, broxbourne_council_tax_reduction_maximum_for_year - broxbourne_council_tax_reduction_income_taper_deduction_for_year - broxbourne_council_tax_reduction_non_dependant_deductions_for_year) else: 0
+
+  - name: broxbourne_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Broxbourne Council Tax Reduction Scheme 2026/27 final working-age local award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-broxbourne/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "entitled to a reduction under the scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_broxbourne_council_tax_reduction_annual_amount

@@ -1,0 +1,421 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+  summary: |-
+    Folkestone and Hythe's 2026/27 working-age scheme is a four-band weekly-income grid, not an excess-income taper. It awards 100%, 75%, 50%, or 25% of the scheme-defined maximum, which is 100% of the lower of actual discounted liability and Band D liability. Capital over £16,000 produces no award; capital over £6,000 adds £1 weekly tariff income per £250 or part. A flat £10 weekly non-dependant deduction applies unless the printed benefit exemption applies. The 2 6/7% daily taper on page 6 belongs only to the out-of-scope pensioner Class B.
+  deferred_outputs:
+    - output: uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction/sections-14-to-38-and-schedules-2-to-3#assessed_weekly_income_and_capital
+      reason: Detailed income, disregard, capital valuation, and attribution rules are outside this award-surface module.
+    - output: uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction/paragraph-39.1#band_d_capped_eligible_liability
+      reason: The module consumes liability already capped at the lower of actual discounted liability and Band D; charge lookup and joint-liability apportionment are outside scope.
+    - output: uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction/paragraphs-39.6-to-39.7#non_dependant_exemption_and_couple_classifier
+      reason: The flat deduction is encoded; detailed benefit-status and couple classification is deferred.
+    - output: uk-folkestone-and-hythe:policies/folkestone-and-hythe/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult reduction is outside this working-age module.
+rules:
+  - name: folkestone_and_hythe_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 39.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_1
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata: &band1proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(1) 100% discount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata: &band2proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(2) 75% discount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata: &band3proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(3) 50% discount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata: &band4proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(4) 25% discount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_0
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(4) 25% discount 251.01 to 368.00 291.01 to 408.00 388.01 to 479.00 550.01 to 647.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: folkestone_and_hythe_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: folkestone_and_hythe_council_tax_reduction_income_band
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "(1) 100% discount 0.00 to 150.00 0.00 to 212.00 0.00 to 286.00 0.00 to 357.00 (2) 75% discount 150.01 to 200.00 212.01 to 254.00 286.01 to 322.00 357.01 to 448.00 (3) 50% discount 200.01 to 251.00 254.01 to 291.00 322.01 to 388.00 448.01 to 550.00 (4) 25% discount 251.01 to 368.00 291.01 to 408.00 388.01 to 479.00 550.01 to 647.00"
+              table: {header: Banded Discount Scheme, row_key: band, column_key: discount}
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1.00
+          2: 0.75
+          3: 0.50
+          4: 0.25
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: folkestone_and_hythe_council_tax_reduction_family_category
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1 grid
+    metadata: &gridproof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "Band Single Person Couple Household with 1 Child Household with 2 or more children Weekly income (£) Weekly income (£) Weekly income (£) Weekly income (£) (1) 100% discount 0.00 to 150.00 0.00 to 212.00 0.00 to 286.00 0.00 to 357.00 (2) 75% discount 150.01 to 200.00 212.01 to 254.00 286.01 to 322.00 357.01 to 448.00 (3) 50% discount 200.01 to 251.00 254.01 to 291.00 322.01 to 388.00 448.01 to 550.00 (4) 25% discount 251.01 to 368.00 291.01 to 408.00 388.01 to 479.00 550.01 to 647.00"
+              table: {header: Banded Discount Scheme, row_key: family, column_key: weekly income}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 150.01, 1: 150.01, 2: 212.01, 3: 286.01, 4: 357.01}
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: folkestone_and_hythe_council_tax_reduction_family_category
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1 grid
+    metadata: *gridproof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 200.01, 1: 200.01, 2: 254.01, 3: 322.01, 4: 448.01}
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: folkestone_and_hythe_council_tax_reduction_family_category
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1 grid
+    metadata: *gridproof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 251.01, 1: 251.01, 2: 291.01, 3: 388.01, 4: 550.01}
+
+  - name: folkestone_and_hythe_council_tax_reduction_band_4_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: folkestone_and_hythe_council_tax_reduction_family_category
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1 grid
+    metadata: *gridproof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 368.00, 1: 368.00, 2: 408.00, 3: 479.00, 4: 647.00}
+
+  - name: folkestone_and_hythe_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "the prescribed amount is £16,000 and no support shall be granted when the applicant has an amount greater that this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: folkestone_and_hythe_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "income above £6,000 then a tariff income will be calculated"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: folkestone_and_hythe_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "£1 per week for every £250 or part thereof"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: folkestone_and_hythe_council_tax_reduction_tariff_income_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "£1 per week for every £250 or part thereof"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: folkestone_and_hythe_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 weekly-income conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: folkestone_and_hythe_council_tax_reduction_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: folkestone_and_hythe_council_tax_reduction_non_dependant_band
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraphs 39.5-39.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Any award shall be reduced by an amount of £10.00 per week for each non dependant who resides within the premises. 39.6 Paragraph 39.5 will not apply where any non-dependant is in receipt of Job Seekers Allowance (Income Based), Employment Support Allowance (Income Related), Income Support, Pension Credit (Guaranteed Credit), or Universal Credit where the Universal Credit applicant has no earnings."
+              table: {header: Non-dependant deduction, row_key: band, column_key: weekly deduction}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 10.00}
+
+  - name: folkestone_and_hythe_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "no support shall be granted when the applicant has an amount greater that this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          folkestone_and_hythe_council_tax_reduction_assessed_capital
+          <= folkestone_and_hythe_council_tax_reduction_capital_limit
+
+  - name: folkestone_and_hythe_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "The tariff shall be calculated as £1 per week for every £250 or part thereof above the disregard level of £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if folkestone_and_hythe_council_tax_reduction_assessed_capital <= folkestone_and_hythe_council_tax_reduction_tariff_income_threshold: 0 else: ceil((folkestone_and_hythe_council_tax_reduction_assessed_capital - folkestone_and_hythe_council_tax_reduction_tariff_income_threshold) / folkestone_and_hythe_council_tax_reduction_tariff_income_step) * folkestone_and_hythe_council_tax_reduction_tariff_income_per_step
+
+  - name: folkestone_and_hythe_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+              table: {header: Banded Discount Scheme, row_key: weekly income and family, column_key: band}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if folkestone_and_hythe_council_tax_reduction_passported_to_band_1: folkestone_and_hythe_council_tax_reduction_band_1 else: if folkestone_and_hythe_council_tax_reduction_weekly_income + folkestone_and_hythe_council_tax_reduction_tariff_income_weekly > folkestone_and_hythe_council_tax_reduction_band_4_upper_income_by_family[folkestone_and_hythe_council_tax_reduction_family_category]: folkestone_and_hythe_council_tax_reduction_band_0 else: if folkestone_and_hythe_council_tax_reduction_weekly_income + folkestone_and_hythe_council_tax_reduction_tariff_income_weekly >= folkestone_and_hythe_council_tax_reduction_band_4_lower_income_by_family[folkestone_and_hythe_council_tax_reduction_family_category]: folkestone_and_hythe_council_tax_reduction_band_4 else: if folkestone_and_hythe_council_tax_reduction_weekly_income + folkestone_and_hythe_council_tax_reduction_tariff_income_weekly >= folkestone_and_hythe_council_tax_reduction_band_3_lower_income_by_family[folkestone_and_hythe_council_tax_reduction_family_category]: folkestone_and_hythe_council_tax_reduction_band_3 else: if folkestone_and_hythe_council_tax_reduction_weekly_income + folkestone_and_hythe_council_tax_reduction_tariff_income_weekly >= folkestone_and_hythe_council_tax_reduction_band_2_lower_income_by_family[folkestone_and_hythe_council_tax_reduction_family_category]: folkestone_and_hythe_council_tax_reduction_band_2 else: folkestone_and_hythe_council_tax_reduction_band_1
+
+  - name: folkestone_and_hythe_council_tax_reduction_non_dependant_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 paragraphs 39.5-39.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Any award shall be reduced by an amount of £10.00 per week for each non dependant who resides within the premises."
+              table: {header: Non-dependant deduction, row_key: condition, column_key: band}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if folkestone_and_hythe_council_tax_reduction_has_chargeable_non_dependant and not folkestone_and_hythe_council_tax_reduction_non_dependant_exempt: 1 else: 0
+
+  - name: folkestone_and_hythe_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Folkestone and Hythe Council Tax Reduction Scheme 2026 Schedule 1 and paragraphs 27.1, 39.1, 39.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-57
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-folkestone-and-hythe/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Any award shall be reduced by an amount of £10.00 per week for each non dependant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if folkestone_and_hythe_council_tax_reduction_capital_eligible: max(0, folkestone_and_hythe_council_tax_reduction_maximum_eligible_liability * folkestone_and_hythe_council_tax_reduction_maximum_liability_rate * folkestone_and_hythe_council_tax_reduction_support_rate_by_band[folkestone_and_hythe_council_tax_reduction_income_band] - folkestone_and_hythe_council_tax_reduction_weekly_deduction_by_band[folkestone_and_hythe_council_tax_reduction_non_dependant_band] * folkestone_and_hythe_council_tax_reduction_weeks_per_year) else: 0

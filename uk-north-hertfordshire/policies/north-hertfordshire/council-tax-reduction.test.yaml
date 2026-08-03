@@ -1,0 +1,1318 @@
+- name: north_hertfordshire_ctr_single_0_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_single_0_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_0_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 193.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_0_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 193.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_0_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 256.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_0_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 256.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_0_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 320.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_0_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 320.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_single_1_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 180.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_single_1_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 180.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_1_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 262.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_1_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 262.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_1_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 325.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_1_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 325.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_1_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 390.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_1_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 390.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_single_2_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 250.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_single_2_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 250.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_2_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 317.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_2_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 317.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_2_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 380.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_2_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 380.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_2_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 444.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_2_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 444.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_single_3_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 357.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_single_3_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 357.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_3_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 406.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_single_3_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 406.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_3_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 470.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_single_3_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 470.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_3_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 533.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_single_3_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 533.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_couple_0_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 154.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_couple_0_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 154.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_0_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 235.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_0_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 235.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_0_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 299.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_0_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 299.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_0_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 363.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_0_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 363.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_couple_1_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 236.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_couple_1_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 236.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_1_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 302.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_1_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 302.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_1_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 365.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_1_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 365.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_1_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 428.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_1_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 428.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 1
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_couple_2_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 306.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_couple_2_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 306.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_2_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 360.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_2_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 360.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_2_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 423.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_2_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 423.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_2_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 486.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_2_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 486.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 2
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_couple_3_edge_1_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 376.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_couple_3_edge_1_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 376.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_3_edge_2_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 418.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 750
+
+- name: north_hertfordshire_ctr_couple_3_edge_2_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 418.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_3_edge_3_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 481.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 450
+
+- name: north_hertfordshire_ctr_couple_3_edge_3_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 481.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_3_edge_4_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 545.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_couple_3_edge_4_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 545.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 16000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 100
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_capital_over_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 16000.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 100
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_passported_band_1
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 999
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 1000
+
+- name: north_hertfordshire_ctr_four_children_capped_at_three
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 500
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 4
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 250
+
+- name: north_hertfordshire_ctr_zero_award_high_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 3
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_annual_amount: 0
+
+- name: north_hertfordshire_ctr_derived_family_category
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: &derived_single_no_children_band_1_inputs
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_family_category: 0
+
+- name: north_hertfordshire_ctr_derived_band_2_lower_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_band_2_lower_income: 110.01
+
+- name: north_hertfordshire_ctr_derived_band_3_lower_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_band_3_lower_income: 193.01
+
+- name: north_hertfordshire_ctr_derived_band_4_lower_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_band_4_lower_income: 256.01
+
+- name: north_hertfordshire_ctr_derived_band_5_lower_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_band_5_lower_income: 320.01
+
+- name: north_hertfordshire_ctr_derived_income_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_income_band: 0
+
+- name: north_hertfordshire_ctr_derived_passported_to_band_1
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_passported_to_band_1: not_holds
+
+- name: north_hertfordshire_ctr_derived_passported_to_band_1_positive
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_passported_to_band_1: holds
+
+- name: north_hertfordshire_ctr_derived_selected_income_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_income_band: 0
+
+- name: north_hertfordshire_ctr_derived_selected_support_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_selected_support_rate: 1.00
+
+- name: north_hertfordshire_ctr_derived_capital_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_capital_eligible: holds
+
+- name: north_hertfordshire_ctr_derived_capital_ineligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 16000.01
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_capital_eligible: not_holds
+
+- name: north_hertfordshire_ctr_derived_maximum_amount_for_year
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_maximum_amount_for_year: 1000
+
+- name: north_hertfordshire_ctr_derived_amount_before_eligibility
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_amount_before_eligibility: 1000
+
+- name: north_hertfordshire_ctr_derived_award_conditions_met
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_award_conditions_met: holds
+
+- name: north_hertfordshire_ctr_derived_award_conditions_not_met
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.local_authority_is_north_hertfordshire: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_capital: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_eligible_annual_liability: 1000
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_has_partner: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_dependant_children: 0
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_support: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_related_esa: false
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#input.north_hertfordshire_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#north_hertfordshire_council_tax_reduction_award_conditions_met: not_holds
+
+- name: north_hertfordshire_ctr_derived_simulated_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *derived_single_no_children_band_1_inputs
+  output:
+    uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction#simulated_north_hertfordshire_council_tax_reduction_annual_amount: 1000

@@ -1,0 +1,570 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths:
+    #     - uk/statutes/ukpga/1992/14/13A
+    #     - uk/regulations/uksi/2012/2885
+    #     - uk/regulations/uksi/2012/2886
+    #   rationale: Section 13A delegates the working-age scheme to North Hertfordshire, so the authority's adopted scheme document is operative for its locally set award rules.
+  summary: |-
+    North Hertfordshire's operative 2026-27 working-age calculation is a banded discount scheme, not the pension-age excess-income taper printed in the composite document. The local award applies the family-specific 100, 75, 45, 25, or zero percent band to a 100 percent maximum liability amount, caps the family grid at three dependant children, passports specified income-related benefit recipients to Band 1, and imposes a capital cliff above £16,000. The working-age scheme has no tariff-income rule, non-dependant deduction schedule, or minimum-award floor.
+  deferred_outputs:
+    - output: uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction/sections-11-to-34-and-schedules-2-to-3#assessed_weekly_income_and_capital
+      reason: The award surface consumes weekly applicant-and-partner income and assessed capital after the scheme's detailed income, disregard, attribution, valuation, and notional-resource rules, which are outside this module.
+    - output: uk-north-hertfordshire:policies/north-hertfordshire/council-tax-reduction/section-48#eligible_annual_liability
+      reason: The award surface consumes council-tax liability after statutory discounts and joint-liability adjustments; valuation of that liability base is outside this module.
+rules:
+  - name: north_hertfordshire_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: north_hertfordshire_council_tax_reduction_family_category
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and family categories", row_key: "family category", column_key: "category code"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7}
+
+  - name: north_hertfordshire_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: &grid_excerpt "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: &grid_table {header: "Band Discount and weekly income by family category", row_key: "Band", column_key: "family category"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+
+  - name: north_hertfordshire_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].values', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 1.00, 1: 0.75, 2: 0.45, 3: 0.25, 4: 0}
+
+  - name: north_hertfordshire_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: north_hertfordshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "the prescribed amount is £16,000 and no reduction shall be granted when the applicant has an amount greater that this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: north_hertfordshire_council_tax_reduction_maximum_dependant_children
+    kind: parameter
+    dtype: Number
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "limited to a maximum of three dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Single person
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Single person", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 110.01, 2: 193.01, 3: 256.01, 4: 320.01}
+
+  - name: north_hertfordshire_council_tax_reduction_single_1_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Single Person 1 child
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Single Person 1 child", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 180.01, 2: 262.01, 3: 325.01, 4: 390.01}
+
+  - name: north_hertfordshire_council_tax_reduction_single_2_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Single person 2 children
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Single person 2 children", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 250.01, 2: 317.01, 3: 380.01, 4: 444.01}
+
+  - name: north_hertfordshire_council_tax_reduction_single_3_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Single person 3 children
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Single person 3 children", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 357.01, 2: 406.01, 3: 470.01, 4: 533.01}
+
+  - name: north_hertfordshire_council_tax_reduction_couple_0_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Couple No children
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Couple No children", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 154.01, 2: 235.01, 3: 299.01, 4: 363.01}
+
+  - name: north_hertfordshire_council_tax_reduction_couple_1_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Couple 1 child
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Couple 1 child", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 236.01, 2: 302.01, 3: 365.01, 4: 428.01}
+
+  - name: north_hertfordshire_council_tax_reduction_couple_2_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Couple 2 children
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Couple 2 children", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 306.01, 2: 360.01, 3: 423.01, 4: 486.01}
+
+  - name: north_hertfordshire_council_tax_reduction_couple_3_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_hertfordshire_council_tax_reduction_income_band
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 Couple 3 children
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Band Discount Single person Single Person 1 child Single person 2 children Single person 3 children Couple No children Couple 1 child Couple 2 children Couple 3 children 1 100% £0 £0 £0 £0 £0 £0 £0 £0 to to to to to to to to £110.00 £180.00 £250.00 £357.00 £154.00 £236.00 £306.00 £376.00 2 75% £110.01 £180.01 £250.01 £357.01 £154.01 £236.01 £306.01 £376.01 to to to to to to to to £193.00 £262.00 £317.00 £406.00 £235.00 £302.00 £360.00 £418.00 3 45% £193.01 £262.01 £317.01 £406.01 £235.01 £302.01 £360.01 £418.01 to to to to to to to to £256.00 £325.00 £380.00 £470.00 £299.00 £365.00 £423.00 £481.00 4 25% £256.01 £325.01 £380.01 £470.01 £299.01 £365.01 £423.01 £481.01 to to to to to to to to £320.00 £390.00 £444.00 £533.00 £363.00 £428.00 £486.00 £545.00 5 0% Over Over Over Over Over Over Over Over £320.01 £390.01 £444.01 £533.01 £363.01 £428.01 £486.01 £545.01"
+              table: {header: "Band Discount and weekly income by family category", row_key: "Couple 3 children", column_key: "Bands 1 to 5"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 376.01, 2: 418.01, 3: 481.01, 4: 545.01}
+
+  - name: north_hertfordshire_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_has_partner: (if north_hertfordshire_council_tax_reduction_dependant_children >= north_hertfordshire_council_tax_reduction_maximum_dependant_children: north_hertfordshire_council_tax_reduction_family_category_codes[7] else: if north_hertfordshire_council_tax_reduction_dependant_children >= 2: north_hertfordshire_council_tax_reduction_family_category_codes[6] else: if north_hertfordshire_council_tax_reduction_dependant_children >= 1: north_hertfordshire_council_tax_reduction_family_category_codes[5] else: north_hertfordshire_council_tax_reduction_family_category_codes[4]) else: (if north_hertfordshire_council_tax_reduction_dependant_children >= north_hertfordshire_council_tax_reduction_maximum_dependant_children: north_hertfordshire_council_tax_reduction_family_category_codes[3] else: if north_hertfordshire_council_tax_reduction_dependant_children >= 2: north_hertfordshire_council_tax_reduction_family_category_codes[2] else: if north_hertfordshire_council_tax_reduction_dependant_children >= 1: north_hertfordshire_council_tax_reduction_family_category_codes[1] else: north_hertfordshire_council_tax_reduction_family_category_codes[0])
+
+  - name: north_hertfordshire_council_tax_reduction_selected_band_2_lower_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[7]: north_hertfordshire_council_tax_reduction_couple_3_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[6]: north_hertfordshire_council_tax_reduction_couple_2_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[5]: north_hertfordshire_council_tax_reduction_couple_1_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[4]: north_hertfordshire_council_tax_reduction_couple_0_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[3]: north_hertfordshire_council_tax_reduction_single_3_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[2]: north_hertfordshire_council_tax_reduction_single_2_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[1]: north_hertfordshire_council_tax_reduction_single_1_lower_income_by_band[1] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[0]: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[1] else: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[1]
+
+  - name: north_hertfordshire_council_tax_reduction_selected_band_3_lower_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[7]: north_hertfordshire_council_tax_reduction_couple_3_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[6]: north_hertfordshire_council_tax_reduction_couple_2_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[5]: north_hertfordshire_council_tax_reduction_couple_1_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[4]: north_hertfordshire_council_tax_reduction_couple_0_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[3]: north_hertfordshire_council_tax_reduction_single_3_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[2]: north_hertfordshire_council_tax_reduction_single_2_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[1]: north_hertfordshire_council_tax_reduction_single_1_lower_income_by_band[2] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[0]: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[2] else: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[2]
+
+  - name: north_hertfordshire_council_tax_reduction_selected_band_4_lower_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[7]: north_hertfordshire_council_tax_reduction_couple_3_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[6]: north_hertfordshire_council_tax_reduction_couple_2_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[5]: north_hertfordshire_council_tax_reduction_couple_1_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[4]: north_hertfordshire_council_tax_reduction_couple_0_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[3]: north_hertfordshire_council_tax_reduction_single_3_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[2]: north_hertfordshire_council_tax_reduction_single_2_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[1]: north_hertfordshire_council_tax_reduction_single_1_lower_income_by_band[3] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[0]: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[3] else: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[3]
+
+  - name: north_hertfordshire_council_tax_reduction_selected_band_5_lower_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[7]: north_hertfordshire_council_tax_reduction_couple_3_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[6]: north_hertfordshire_council_tax_reduction_couple_2_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[5]: north_hertfordshire_council_tax_reduction_couple_1_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[4]: north_hertfordshire_council_tax_reduction_couple_0_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[3]: north_hertfordshire_council_tax_reduction_single_3_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[2]: north_hertfordshire_council_tax_reduction_single_2_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[1]: north_hertfordshire_council_tax_reduction_single_1_lower_income_by_band[4] else: if north_hertfordshire_council_tax_reduction_family_category == north_hertfordshire_council_tax_reduction_family_category_codes[0]: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[4] else: north_hertfordshire_council_tax_reduction_single_0_lower_income_by_band[4]
+  - name: north_hertfordshire_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_assessed_weekly_income >= north_hertfordshire_council_tax_reduction_selected_band_5_lower_income: north_hertfordshire_council_tax_reduction_income_band_codes[4] else: if north_hertfordshire_council_tax_reduction_assessed_weekly_income >= north_hertfordshire_council_tax_reduction_selected_band_4_lower_income: north_hertfordshire_council_tax_reduction_income_band_codes[3] else: if north_hertfordshire_council_tax_reduction_assessed_weekly_income >= north_hertfordshire_council_tax_reduction_selected_band_3_lower_income: north_hertfordshire_council_tax_reduction_income_band_codes[2] else: if north_hertfordshire_council_tax_reduction_assessed_weekly_income >= north_hertfordshire_council_tax_reduction_selected_band_2_lower_income: north_hertfordshire_council_tax_reduction_income_band_codes[1] else: north_hertfordshire_council_tax_reduction_income_band_codes[0]
+
+  - name: north_hertfordshire_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_hertfordshire_council_tax_reduction_receives_income_support
+          or north_hertfordshire_council_tax_reduction_receives_income_related_esa
+          or north_hertfordshire_council_tax_reduction_receives_income_based_jsa
+
+  - name: north_hertfordshire_council_tax_reduction_selected_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_passported_to_band_1: north_hertfordshire_council_tax_reduction_income_band_codes[0] else: north_hertfordshire_council_tax_reduction_income_band
+
+  - name: north_hertfordshire_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_hertfordshire_council_tax_reduction_support_rate_by_band[north_hertfordshire_council_tax_reduction_selected_income_band]
+
+  - name: north_hertfordshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "no reduction shall be granted when the applicant has an amount greater that this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_hertfordshire_council_tax_reduction_assessed_capital <= north_hertfordshire_council_tax_reduction_capital_limit
+
+  - name: north_hertfordshire_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "the amount of a person’s maximum Council Tax Reduction in respect of a day for which he is liable to pay council tax, shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_hertfordshire_council_tax_reduction_eligible_annual_liability * north_hertfordshire_council_tax_reduction_maximum_support_rate
+
+  - name: north_hertfordshire_council_tax_reduction_amount_before_eligibility
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(north_hertfordshire_council_tax_reduction_maximum_amount_for_year, north_hertfordshire_council_tax_reduction_eligible_annual_liability * north_hertfordshire_council_tax_reduction_selected_support_rate)
+
+  - name: north_hertfordshire_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 Class D and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(g) not have capital savings above £16,000; (h) not have income above the levels specified within the scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_north_hertfordshire
+          and north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+          and north_hertfordshire_council_tax_reduction_capital_eligible
+
+  - name: simulated_north_hertfordshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    rounding: half_up
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 working-age Schedule 1 award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_hertfordshire_council_tax_reduction_award_conditions_met: north_hertfordshire_council_tax_reduction_amount_before_eligibility else: north_hertfordshire_council_tax_reduction_maximum_amount_for_year - north_hertfordshire_council_tax_reduction_maximum_amount_for_year
+
+  - name: north_hertfordshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Hertfordshire Council Tax Reduction Scheme 2026/27 final working-age local award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_north_hertfordshire_council_tax_reduction_annual_amount
+inputs:
+  - {name: local_authority_is_north_hertfordshire, entity: Household, dtype: Boolean, period: Year}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_applicant_is_in_working_age_class, entity: Household, dtype: Boolean, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_assessed_capital, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: north_hertfordshire_council_tax_reduction_eligible_annual_liability, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: north_hertfordshire_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: north_hertfordshire_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_dependant_children, entity: Household, dtype: Number, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_receives_income_support, entity: Household, dtype: Boolean, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_receives_income_related_esa, entity: Household, dtype: Boolean, period: Year}
+  - {name: north_hertfordshire_council_tax_reduction_receives_income_based_jsa, entity: Household, dtype: Boolean, period: Year}

@@ -1,0 +1,796 @@
+- name: forest_of_dean_parameters_and_class_a_award
+  period: &tax_year
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &base_award_input
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_class_a_maximum_support_rate: 0.9
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_class_b_maximum_support_rate: 0.95
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_capital_limit: 16000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_tariff_income_threshold: 6000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_tariff_income_capital_step: 250
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_weeks_per_year: 52
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_non_dependant_low_income_threshold: 279
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_non_dependant_middle_income_threshold: 485
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_non_dependant_high_income_threshold: 605
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_tariff_income_weekly: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.9
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_maximum_amount_for_year: 900
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 900
+
+- name: forest_of_dean_family_0_band_1_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 90.38
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 1
+
+- name: forest_of_dean_family_0_band_1_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 90.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_0_band_2_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 115.38
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_0_band_2_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 115.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_0_band_3_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 140.38
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_0_band_3_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 140.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_0_band_4_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 165.38
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_0_band_4_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 165.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_0_band_5_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 190.38
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_0_band_5_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 190.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 6
+
+- name: forest_of_dean_family_1_band_1_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 141.22
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 1
+
+- name: forest_of_dean_family_1_band_1_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 141.23
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_1_band_2_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 176.22
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_1_band_2_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 176.23
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_1_band_3_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 226.22
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_1_band_3_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 226.23
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_1_band_4_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 276.22
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_1_band_4_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 276.23
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_1_band_5_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 326.22
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_1_band_5_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 1
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 326.23
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 6
+
+- name: forest_of_dean_family_2_band_1_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 180.76
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 1
+
+- name: forest_of_dean_family_2_band_1_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 180.77
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_2_band_2_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 205.76
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_2_band_2_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 205.77
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_2_band_3_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 255.76
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_2_band_3_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 255.77
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_2_band_4_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 305.76
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_2_band_4_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 305.77
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_2_band_5_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 355.76
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_2_band_5_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 355.77
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 6
+
+- name: forest_of_dean_family_3_band_1_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 237.25
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 1
+
+- name: forest_of_dean_family_3_band_1_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 237.26
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_3_band_2_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 287.25
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 2
+
+- name: forest_of_dean_family_3_band_2_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 287.26
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_3_band_3_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 337.25
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 3
+
+- name: forest_of_dean_family_3_band_3_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 337.26
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_3_band_4_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 387.25
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 4
+
+- name: forest_of_dean_family_3_band_4_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 387.26
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_3_band_5_upper_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 437.25
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 5
+
+- name: forest_of_dean_family_3_band_5_lower_edge
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 3
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 437.26
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 6
+
+- name: forest_of_dean_protected_class_b_award
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: true
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.95
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_maximum_amount_for_year: 950
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 950
+
+- name: forest_of_dean_tariff_partial_step_rounds_up
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 6251
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_tariff_income_weekly: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_weekly_net_income: 2
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 900
+
+- name: forest_of_dean_capital_at_limit_eligible
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_capital_eligible: holds
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 900
+
+- name: forest_of_dean_capital_above_limit_zero_award
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 16001
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_capital_eligible: not_holds
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 0
+
+- name: forest_of_dean_non_dependant_table_and_award
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_non_dependant_deduction_band: 4
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_non_dependant_deduction: 829.4
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 153.54
+
+- name: forest_of_dean_non_dependant_exempt_zero_deduction
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_non_dependant_deduction: 0
+
+- name: forest_of_dean_income_band_six_zero_award
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 190.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_income_band: 6
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_amount: 0
+
+- name: forest_of_dean_protected_band_2_rate
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 90.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.75
+
+- name: forest_of_dean_protected_band_3_rate
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 115.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.55
+
+- name: forest_of_dean_protected_band_4_rate
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 140.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.35
+
+- name: forest_of_dean_protected_band_5_rate
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 165.39
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_selected_support_rate: 0.15
+
+- name: forest_of_dean_non_dependant_low_band
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_non_dependant_deduction: 270.4
+
+- name: forest_of_dean_non_dependant_middle_band
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_non_dependant_deduction: 551.2
+
+- name: forest_of_dean_non_dependant_high_band
+  period: *tax_year
+  input:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_capital_for_year: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_assessed_weekly_net_income_excluding_tariff: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_family_category: 0
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_is_protected_class_b: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_is_exempt: false
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#input.forest_of_dean_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-forest-of-dean:policies/forest-of-dean/council-tax-reduction#forest_of_dean_council_tax_reduction_annual_non_dependant_deduction: 691.6

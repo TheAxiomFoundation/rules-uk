@@ -1,0 +1,523 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to South Derbyshire District Council, so the Council's adopted scheme document is the operative source for its local values and award calculation; the attestation is commented after local verification because the singular source-verification contract strips it.
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates working-age scheme design to South Derbyshire District Council, so its adopted scheme is operative; checked paths are uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. The 2026-27 working-age award is a ten-band excess-income scheme, not the pension-age 20% taper: rates are 100%, 90%, 78%, 66%, 54%, 42%, 30%, 18%, 10%, and zero. Thus maximum support is not capped below 100%. The selected rate applies after the £6.25 weekly non-dependant deduction. Capital may not exceed £16,000; capital over £6,000 produces £1 weekly tariff income per £250 or incomplete part. Awards below £1 weekly are nil. No working-age band cap or protected-class award variation is printed.
+  deferred_outputs:
+    - output: uk-south-derbyshire:policies/south-derbyshire/council-tax-reduction/paragraphs-12-to-29-and-appendices-1-3#weekly_applicable_amount
+      reason: Personal allowances, child amounts, premiums, childcare deductions, and income disregards underlying the living-expenses amount are outside this award-surface module.
+    - output: uk-south-derbyshire:policies/south-derbyshire/council-tax-reduction/paragraphs-30-to-35-and-appendices-5-7#assessed_capital
+      reason: Capital attribution, valuation, notional-capital, and disregard rules are outside this award-surface module.
+    - output: uk-south-derbyshire:policies/south-derbyshire/council-tax-reduction/appendix-2#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age second-adult alternative maximum reduction is outside this working-age award surface.
+rules:
+  - name: south_derbyshire_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: south_derbyshire_council_tax_reduction_income_band
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &band_grid_source
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: &band_grid_excerpt "Band Amount of excess income per week Percentage reduction of council tax bill Lower limit Upper limit 1 £0 £5 100% 2 £5.01 £20 90% 3 £20.01 £35 78% 4 £35.01 £50 66% 5 £50.01 £65 54% 6 £65.01 £80 42%"
+              table: &band_grid_table
+                header: Amount of excess income per week and percentage reduction of council tax bill
+                row_key: Band
+                column_key: Lower limit, Upper limit, Percentage reduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "7 £80.01 £95 30% 8 £95.01 £110 18% 9 £110.01 £140 10% 10 £140.01 or higher No reduction"
+              table: *band_grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
+
+  - name: south_derbyshire_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "1 £0 £5 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_derbyshire_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: south_derbyshire_council_tax_reduction_income_band
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: *band_grid_excerpt
+              table: *band_grid_table
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "7 £80.01 £95 30% 8 £95.01 £110 18% 9 £110.01 £140 10% 10 £140.01 or higher No reduction"
+              table: *band_grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 1, 1: 0.90, 2: 0.78, 3: 0.66, 4: 0.54, 5: 0.42, 6: 0.30, 7: 0.18, 8: 0.10, 9: 0}
+
+  - name: south_derbyshire_council_tax_reduction_band_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: south_derbyshire_council_tax_reduction_income_band
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: *band_grid_excerpt
+              table: *band_grid_table
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "7 £80.01 £95 30% 8 £95.01 £110 18% 9 £110.01 £140 10% 10 £140.01 or higher No reduction"
+              table: *band_grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 5.01, 2: 20.01, 3: 35.01, 4: 50.01, 5: 65.01, 6: 80.01, 7: 95.01, 8: 110.01, 9: 140.01}
+
+  - name: south_derbyshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 11
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "have capital not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: south_derbyshire_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "exceeding £6,000 for working-age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: south_derbyshire_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "£250 for working-age"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: south_derbyshire_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "income of £1 is assumed for every complete £500 (£250 for working-age)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_derbyshire_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: south_derbyshire_council_tax_reduction_non_dependant_deduction_band
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 55
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "For working-age applicants, there is a deduction of £6.25 a week for all non- dependants aged 18 or over."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 6.25}
+
+  - name: south_derbyshire_council_tax_reduction_minimum_entitlement_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 40
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "minimum weekly entitlement of £1.00 a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_derbyshire_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 16
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "divided by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: south_derbyshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 11
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "have capital not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_derbyshire_council_tax_reduction_assessed_capital <= south_derbyshire_council_tax_reduction_capital_limit
+
+  - name: south_derbyshire_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "income of £1 is assumed for every complete £500 (£250 for working-age) up to a maximum of £16,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "final part of the excess is not a complete £500 (£250 for working-age), an income of £1 is nevertheless taken into account."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_derbyshire_council_tax_reduction_assessed_capital <= south_derbyshire_council_tax_reduction_tariff_income_threshold: 0 else: ceil((min(south_derbyshire_council_tax_reduction_assessed_capital, south_derbyshire_council_tax_reduction_capital_limit) - south_derbyshire_council_tax_reduction_tariff_income_threshold) / south_derbyshire_council_tax_reduction_tariff_income_capital_step) * south_derbyshire_council_tax_reduction_tariff_income_weekly_amount_per_step
+
+  - name: south_derbyshire_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraphs 10 and 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "Where applicable, an assumed income from capital is added"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "Amount of excess income per week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, south_derbyshire_council_tax_reduction_assessed_income_weekly_excluding_tariff + south_derbyshire_council_tax_reduction_tariff_income_weekly - south_derbyshire_council_tax_reduction_applicable_amount_weekly)
+
+  - name: south_derbyshire_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: *band_grid_excerpt
+              table: *band_grid_table
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "7 £80.01 £95 30% 8 £95.01 £110 18% 9 £110.01 £140 10% 10 £140.01 or higher No reduction"
+              table: *band_grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[9]: south_derbyshire_council_tax_reduction_income_band_codes[9] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[8]: south_derbyshire_council_tax_reduction_income_band_codes[8] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[7]: south_derbyshire_council_tax_reduction_income_band_codes[7] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[6]: south_derbyshire_council_tax_reduction_income_band_codes[6] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[5]: south_derbyshire_council_tax_reduction_income_band_codes[5] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[4]: south_derbyshire_council_tax_reduction_income_band_codes[4] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[3]: south_derbyshire_council_tax_reduction_income_band_codes[3] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[2]: south_derbyshire_council_tax_reduction_income_band_codes[2] else: if south_derbyshire_council_tax_reduction_excess_income_weekly >= south_derbyshire_council_tax_reduction_band_lower_income_weekly[1]: south_derbyshire_council_tax_reduction_income_band_codes[1] else: south_derbyshire_council_tax_reduction_income_band_codes[0]
+
+  - name: south_derbyshire_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraphs 10 and 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: *band_grid_excerpt
+              table: *band_grid_table
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "For working-age applicants, the maximum amount of council tax reduction is determined in accordance with paragraph 10 (above)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_derbyshire_council_tax_reduction_support_rate_by_band[south_derbyshire_council_tax_reduction_income_band]
+
+  - name: south_derbyshire_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraphs 55-57
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "No non-dependant deductions are applied if the applicant or their partner:"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "a deduction of £6.25 a week for all non- dependants aged 18 or over."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_derbyshire_council_tax_reduction_is_non_dependant and not south_derbyshire_council_tax_reduction_non_dependant_exempt: south_derbyshire_council_tax_reduction_income_band_codes[1] else: south_derbyshire_council_tax_reduction_income_band_codes[0]
+
+  - name: south_derbyshire_council_tax_reduction_non_dependant_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 55
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "For working-age applicants, there is a deduction of £6.25 a week for all non- dependants aged 18 or over."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_derbyshire_council_tax_reduction_non_dependant_deduction_weekly_by_band[south_derbyshire_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: south_derbyshire_council_tax_reduction_amount_before_minimum_floor
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraphs 38 and 41
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "The calculation of council tax reductions begins with weekly council tax liability, from which is deducted any non-dependant deductions and any appropriate sanctions. The resulting figure is the maximum council tax reduction award."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "Working-age applicants with income above the amount for living expenses receive a reduction of between 10% and 100% depending on their income (see paragraph 10)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, south_derbyshire_council_tax_reduction_eligible_liability_for_year - south_derbyshire_council_tax_reduction_non_dependant_deduction_weekly * south_derbyshire_council_tax_reduction_weeks_per_year) * south_derbyshire_council_tax_reduction_selected_support_rate
+
+  - name: south_derbyshire_council_tax_reduction_minimum_floor_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 40
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "if the calculation results in an amount less than £1.00 a week, no reduction is awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_derbyshire_council_tax_reduction_amount_before_minimum_floor >= south_derbyshire_council_tax_reduction_minimum_entitlement_weekly * south_derbyshire_council_tax_reduction_weeks_per_year
+
+  - name: south_derbyshire_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 paragraph 11
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "live in the property as their main home; and • are liable to pay council tax; and • meet the residence rules; and • have capital not exceeding £16,000; and • have income at or below a certain amount; and • have made an application for assistance from the scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_south_derbyshire
+          and south_derbyshire_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+          and south_derbyshire_council_tax_reduction_capital_eligible
+          and south_derbyshire_council_tax_reduction_minimum_floor_met
+
+  - name: simulated_south_derbyshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "Working-age applicants with income above the amount for living expenses receive a reduction of between 10% and 100% depending on their income (see paragraph 10) up to an upper income limit beyond which no reduction is payable."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_derbyshire_council_tax_reduction_award_conditions_met: south_derbyshire_council_tax_reduction_amount_before_minimum_floor else: 0
+
+  - name: south_derbyshire_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Derbyshire Council Tax Reduction Scheme 2026-2027 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-south-derbyshire/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "for the period 1st April 2026 until 31st March 2027."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_south_derbyshire_council_tax_reduction_annual_amount

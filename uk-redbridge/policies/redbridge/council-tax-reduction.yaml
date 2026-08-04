@@ -1,0 +1,318 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-47
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Redbridge, so the adopted document is operative. The pinned singular source-verification contract rejects this attestation as a live field.
+  summary: |-
+    Redbridge's operative 2026-27 working-age scheme selects a Schedule 3 maximum of 73%, 60%, 50%, 46%, or 36% of eligible council-tax liability, after the applicable working-age non-dependant deduction. Capital above £16,000 excludes the claimant and an award below £10.00 per reduction week is nil. The document prints no excess-income taper: the qualifying-condition band directly determines the maximum award.
+  deferred_outputs:
+    - output: uk-redbridge:policies/redbridge/council-tax-reduction/part-4-and-schedule-3#working_age_qualifying_conditions
+      reason: This award surface consumes the Class D-to-G and Schedule 3 qualifying-condition classification; detailed benefit, disability, dependency, earnings and Council-discretion determinations are not encoded here.
+    - output: uk-redbridge:policies/redbridge/council-tax-reduction/part-10-and-schedule-10#assessed_capital
+      reason: This module applies the printed £16,000 capital cliff; detailed valuation, attribution and disregard rules are outside its award surface.
+    - output: uk-redbridge:policies/redbridge/council-tax-reduction/paragraph-30A#non_dependant_exemption_and_apportionment
+      reason: The deduction grid is encoded, while Class D protection, carer, absence, armed-forces and joint-liability apportionment classifiers are consumed as inputs.
+rules:
+  - name: redbridge_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 29A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "either 73%, or 60%, or 50%, or 46%, or 36%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.73
+
+  - name: redbridge_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: redbridge_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 32A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "less than £10.00 per (reduction) week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10
+
+  - name: redbridge_council_tax_reduction_days_per_reduction_week
+    kind: parameter
+    dtype: Number
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "“reduction week” means a period of seven consecutive days beginning with a Monday and ending with a Sunday"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: redbridge_council_tax_reduction_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "non-dependant in any remunerative work (as defined by paragraph 10(9)), £21.18 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: redbridge_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: redbridge_council_tax_reduction_non_dependant_deduction_band
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "£21.18 x 1/7; (b) in respect of a non-dependant to whom paragraph (a) does not apply, £10.59 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 21.18
+          2: 10.59
+
+  - name: redbridge_council_tax_reduction_support_rate_band
+    kind: parameter
+    dtype: Number
+    source: Redbridge Council Tax Reduction Scheme 2026/27 Schedule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "attendance allowance.\n\n73%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: redbridge_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: redbridge_council_tax_reduction_support_rate_band
+    source: Redbridge Council Tax Reduction Scheme 2026/27 Schedule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "73%"
+              table:
+                header: Schedule 3 maximum amounts
+                row_key: qualifying condition
+                column_key: maximum amount
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "60%"
+              table:
+                header: Schedule 3 maximum amounts
+                row_key: qualifying condition
+                column_key: maximum amount
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "50%"
+              table:
+                header: Schedule 3 maximum amounts
+                row_key: qualifying condition
+                column_key: maximum amount
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-125
+              excerpt: "46%"
+              table:
+                header: Schedule 3 maximum amounts
+                row_key: qualifying condition
+                column_key: maximum amount
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-126
+              excerpt: "36%"
+              table:
+                header: Schedule 3 maximum amounts
+                row_key: qualifying condition
+                column_key: maximum amount
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0.73
+          2: 0.60
+          3: 0.50
+          4: 0.46
+          5: 0.36
+
+  - name: redbridge_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-39
+              excerpt: "whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redbridge_council_tax_reduction_assessed_capital_for_year <= redbridge_council_tax_reduction_capital_limit
+
+  - name: redbridge_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "£21.18 x 1/7; (b) in respect of a non-dependant to whom paragraph (a) does not apply, £10.59 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redbridge_council_tax_reduction_non_dependant_weekly_deduction_by_band[redbridge_council_tax_reduction_non_dependant_input_band]
+
+  - name: redbridge_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraphs 29A and 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "either 73%, or 60%, or 50%, or 46%, or 36%"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "either 73%, or 60%, or 50%, or 46%, or 36%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redbridge_council_tax_reduction_eligible_liability_for_year * redbridge_council_tax_reduction_support_rate_by_band[redbridge_council_tax_reduction_qualifying_rate_band]
+
+  - name: redbridge_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redbridge Council Tax Reduction Scheme 2026/27 paragraphs 23, 29A, 30A, 32 and 32A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "£21.18 x 1/7; (b) in respect of a non-dependant to whom paragraph (a) does not apply, £10.59 x 1/7."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "less than £10.00 per (reduction) week."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "a person’s maximum council tax reduction amount in respect of a day is either 73%, or 60%, or 50%, or 46%, or 36% depending on the qualifying conditions prescribed in Schedule 3"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "(b) B is the number of days in that financial year, less any deductions in respect of non-dependants which fall to be made under paragraph 30A (non- dependant deductions: persons who are not pensioners)."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redbridge/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "“reduction week” means a period of seven consecutive days beginning with a Monday and ending with a Sunday"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redbridge_council_tax_reduction_capital_eligible and redbridge_council_tax_reduction_working_age_qualifies: if (redbridge_council_tax_reduction_maximum_amount_for_year - redbridge_council_tax_reduction_non_dependant_deductions_for_year) * redbridge_council_tax_reduction_days_per_reduction_week / redbridge_council_tax_reduction_number_of_days_in_financial_year >= redbridge_council_tax_reduction_minimum_award_weekly: redbridge_council_tax_reduction_maximum_amount_for_year - redbridge_council_tax_reduction_non_dependant_deductions_for_year else: 0 else: 0

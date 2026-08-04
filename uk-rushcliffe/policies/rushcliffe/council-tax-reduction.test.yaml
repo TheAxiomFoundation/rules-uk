@@ -1,0 +1,243 @@
+- name: rushcliffe_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_maximum_support_rate: 0.915
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_family_premium_maximum_support_rate: 1
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_capital_limit: 16000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_tariff_income_threshold: 6000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_tariff_income_step: 250
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_weeks_per_year: 52
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_days_per_week: 7
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_non_dependant_band_2_threshold: 279
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_non_dependant_band_3_threshold: 485
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_non_dependant_band_4_threshold: 605
+
+- name: rushcliffe_ctr_working_age_applicant_with_pension_age_non_dependant
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: true
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: rushcliffe_ctr_pensioner_applicant_excluded_from_working_age_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 0
+
+- name: rushcliffe_ctr_pensioner_partner_excluded_from_working_age_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 0
+
+- name: rushcliffe_ctr_working_age_applicant_and_partner_printed_grid_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 1830
+
+- name: rushcliffe_ctr_tariff_at_6000_is_zero
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 6000
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_tariff_income_for_year: 0
+
+- name: rushcliffe_ctr_taper_and_tariff_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 11000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_working_age_scheme_applies: holds
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_capital_eligible: holds
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_maximum_support_rate_for_household: 0.915
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_tariff_income_for_year: 52
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_excess_income_for_year: 1052
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_income_taper_deduction_for_year: 210.4
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_maximum_amount_for_year: 1830
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#simulated_rushcliffe_council_tax_reduction_annual_amount: 1619.6
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 1619.6
+
+- name: rushcliffe_ctr_capital_cliff_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 1414
+
+- name: rushcliffe_ctr_capital_cliff_over_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_capital_eligible: not_holds
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#simulated_rushcliffe_council_tax_reduction_annual_amount: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 0
+
+- name: rushcliffe_ctr_family_premium_protected_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_maximum_support_rate_for_household: 1
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_maximum_amount_for_year: 2000
+
+- name: rushcliffe_ctr_taper_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.local_authority_is_rushcliffe: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_assessed_income_for_year: 20000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_receives_family_premium: false
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_annual_amount: 0
+
+- name: rushcliffe_ctr_nondep_below_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.2
+
+- name: rushcliffe_ctr_nondep_at_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.6
+
+- name: rushcliffe_ctr_nondep_below_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.6
+
+- name: rushcliffe_ctr_nondep_at_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.3
+
+- name: rushcliffe_ctr_nondep_below_605
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.3
+
+- name: rushcliffe_ctr_nondep_at_605
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_non_dependant_deduction_band: 4
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: rushcliffe_ctr_nondep_exempt_zero_deduction_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_is_non_dependant: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_exempt: true
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#input.rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-rushcliffe:policies/rushcliffe/council-tax-reduction#rushcliffe_council_tax_reduction_non_dependant_deduction_band: 0

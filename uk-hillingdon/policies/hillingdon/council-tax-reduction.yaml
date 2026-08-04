@@ -1,0 +1,543 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+  summary: |-
+    Hillingdon's operative working-age scheme from 1 April 2026 is a direct weekly-income banded scheme, not an excess-income-taper scheme. It awards 75, 55, 35, or 15 percent of net council tax after discounts, subject to a £6,000 capital cliff, £12 weekly non-dependant deductions, a £3 weekly minimum entitlement, and a Band D liability cap for bands 3 to 6. The Band 6 upper weekly-income limits are £180 for a single applicant, £250 for a couple, £330 for a family with one child, and £500 for a family with two or more children; income above the applicable limit receives no discount. No tariff-income threshold or step is printed: capital above £6,000 ends entitlement. Band 2 is the 75 percent protected/vulnerable class; band 3 is the ordinary 75 percent class. Pension-age rules are outside this module.
+  deferred_outputs:
+    - output: uk-hillingdon:policies/hillingdon/council-tax-reduction/points-34-to-35#vulnerable_class_and_entitlement_classifier
+      reason: This module consumes the outcome of the printed protected-class and wider entitlement conditions; its detailed benefit, disability, residence, absence, and family classifiers are not encoded here.
+    - output: uk-hillingdon:policies/hillingdon/council-tax-reduction/point-41#non_dependant_exemption_and_apportionment
+      reason: This module encodes the £12 deduction amount and consumes whether a deduction applies; the detailed exemption, residence, joint-liability, and apportionment rules are deferred.
+    - output: uk-hillingdon:policies/hillingdon/council-tax-reduction/points-36-to-39#net_weekly_income_and_capital_assessment
+      reason: This module consumes assessed net weekly income and capital; the detailed income, disregards, valuation, notional-capital, and evidence rules are deferred.
+rules:
+  - name: hillingdon_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 2 £0.00 £180.00 £0.00 £250.00 £0.00 £330.00 £0.00 £500.00 75%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: hillingdon_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "exceeds £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: hillingdon_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 40(5)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "The minimum entitlement is £3.00 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: hillingdon_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_non_dependant_deduction_band
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 41(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "a non-dependant (aged not less than 18) £12.00 x 1/7 per day."
+              table:
+                header: Non-dependant weekly deduction
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 12
+
+  - name: hillingdon_council_tax_reduction_band_2
+    kind: parameter
+    dtype: Number
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 2 £0.00 £180.00 £0.00 £250.00 £0.00 £330.00 £0.00 £500.00 75%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: hillingdon_council_tax_reduction_band_3
+    kind: parameter
+    dtype: Number
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 3 £0.00 £90.00 £0.00 £130.00 £0.00 £150.00 £0.00 £260.00 75%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: hillingdon_council_tax_reduction_band_4
+    kind: parameter
+    dtype: Number
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 4 £90.01 £120.00 £130.01 £170.00 £150.01 £210.00 £260.01 £340.00 55%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: hillingdon_council_tax_reduction_band_5
+    kind: parameter
+    dtype: Number
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 5 £120.01 £150.00 £170.01 £210.00 £210.01 £270.00 £340.01 £420.00 35%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: hillingdon_council_tax_reduction_band_6
+    kind: parameter
+    dtype: Number
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 6 £150.01 £180.00 £210.01 £250.00 £270.01 £330.00 £420.01 £500.00 15%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
+
+  - name: hillingdon_council_tax_reduction_band_2_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_family_category
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33 band 2 row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 2 £0.00 £180.00 £0.00 £250.00 £0.00 £330.00 £0.00 £500.00 75%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 180, 1: 250, 2: 330, 3: 500}
+
+  - name: hillingdon_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_family_category
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33 band 4 row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 4 £90.01 £120.00 £130.01 £170.00 £150.01 £210.00 £260.01 £340.00 55%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 90.01, 1: 130.01, 2: 150.01, 3: 260.01}
+
+  - name: hillingdon_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_family_category
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33 band 5 row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 5 £120.01 £150.00 £170.01 £210.00 £210.01 £270.00 £340.01 £420.00 35%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 120.01, 1: 170.01, 2: 210.01, 3: 340.01}
+
+  - name: hillingdon_council_tax_reduction_band_6_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_family_category
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33 band 6 row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 6 £150.01 £180.00 £210.01 £250.00 £270.01 £330.00 £420.01 £500.00 15%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 150.01, 1: 210.01, 2: 270.01, 3: 420.01}
+
+  - name: hillingdon_council_tax_reduction_band_6_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hillingdon_council_tax_reduction_family_category
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33 band 6 row
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 6 £150.01 £180.00 £210.01 £250.00 £270.01 £330.00 £420.01 £500.00 15%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 180, 1: 250, 2: 330, 3: 500}
+
+  - name: hillingdon_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Week
+    indexed_by: hillingdon_council_tax_reduction_income_band
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 2 £0.00 £180.00 £0.00 £250.00 £0.00 £330.00 £0.00 £500.00 75%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly reduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 3 £0.00 £90.00 £0.00 £130.00 £0.00 £150.00 £0.00 £260.00 75%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly reduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 4 £90.01 £120.00 £130.01 £170.00 £150.01 £210.00 £260.01 £340.00 55%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly reduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 5 £120.01 £150.00 £170.01 £210.00 £210.01 £270.00 £340.01 £420.00 35%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly reduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 6 £150.01 £180.00 £210.01 £250.00 £270.01 £330.00 £420.01 £500.00 15%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly reduction
+    versions:
+      - effective_from: '2026-04-01'
+        values: {2: 0.75, 3: 0.75, 4: 0.55, 5: 0.35, 6: 0.15}
+
+  - name: hillingdon_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 33
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Household type: Single Couples Family 1 child Family 2 or more children"
+              table:
+                header: Household type
+                row_key: household facts
+                column_key: family category
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hillingdon_council_tax_reduction_number_of_children >= 2: 3 else: if hillingdon_council_tax_reduction_number_of_children >= 1: 2 else: if hillingdon_council_tax_reduction_applicant_has_partner: 1 else: 0
+
+  - name: hillingdon_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 point 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "There will be no Council Tax Reduction for that reduction week if the capital of the applicant and/or any partner (calculated in accordance with these scheme rules) exceeds £6000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hillingdon_council_tax_reduction_assessed_capital <= hillingdon_council_tax_reduction_capital_limit
+
+  - name: hillingdon_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 points 33-34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "Band 2 £0.00 £180.00 £0.00 £250.00 £0.00 £330.00 £0.00 £500.00 75% Band 3 £0.00 £90.00 £0.00 £130.00 £0.00 £150.00 £0.00 £260.00 75% Band 4 £90.01 £120.00 £130.01 £170.00 £150.01 £210.00 £260.01 £340.00 55% Band 5 £120.01 £150.00 £170.01 £210.00 £210.01 £270.00 £340.01 £420.00 35% Band 6 £150.01 £180.00 £210.01 £250.00 £270.01 £330.00 £420.01 £500.00 15%"
+              table:
+                header: CTR banding grid
+                row_key: band and household type
+                column_key: weekly income and reduction
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "Applicants who have total net income levels above the appropriate upper limit band 6 levels shown in the grid for their household composition will receive no discount."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hillingdon_council_tax_reduction_household_is_vulnerable and hillingdon_council_tax_reduction_net_weekly_income <= hillingdon_council_tax_reduction_band_2_upper_income_by_family[hillingdon_council_tax_reduction_family_category]: hillingdon_council_tax_reduction_band_2 else: if hillingdon_council_tax_reduction_net_weekly_income < hillingdon_council_tax_reduction_band_4_lower_income_by_family[hillingdon_council_tax_reduction_family_category]: hillingdon_council_tax_reduction_band_3 else: if hillingdon_council_tax_reduction_net_weekly_income < hillingdon_council_tax_reduction_band_5_lower_income_by_family[hillingdon_council_tax_reduction_family_category]: hillingdon_council_tax_reduction_band_4 else: if hillingdon_council_tax_reduction_net_weekly_income < hillingdon_council_tax_reduction_band_6_lower_income_by_family[hillingdon_council_tax_reduction_family_category]: hillingdon_council_tax_reduction_band_5 else: if hillingdon_council_tax_reduction_net_weekly_income <= hillingdon_council_tax_reduction_band_6_upper_income_by_family[hillingdon_council_tax_reduction_family_category]: hillingdon_council_tax_reduction_band_6 else: -1
+
+  - name: hillingdon_council_tax_reduction_working_age_award_conditions_satisfied
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 points 31 and 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "A working age claimant is within class D. Entitlement shall be calculated in accordance with the following banding grid and the other rules contained within this scheme."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "A person will not be entitled for a benefit week if they are treated as a person not being in Great Britain, or for other reasons in accordance with these scheme rules they are not entitled."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_hillingdon and would_claim_council_tax_reduction and hillingdon_council_tax_reduction_applicant_is_working_age and hillingdon_council_tax_reduction_capital_eligible and hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied
+
+  - name: hillingdon_council_tax_reduction_selected_liability_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 points 34 and 40
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "The Council Tax Reduction Scheme (CTRS) reduction is based on the net Council Tax for that week after any discount(s) is applied."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "In respect of claims that fall within bands 3, 4, 5 or 6 there will be a further limitation in that the eligible Council Tax used in the assessment will be limited to a maximum property band of D when calculating entitlement."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hillingdon_council_tax_reduction_income_band == hillingdon_council_tax_reduction_band_2: hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly else: min(hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly, hillingdon_council_tax_reduction_band_d_net_council_tax_weekly)
+
+  - name: simulated_hillingdon_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 points 34, 40, and 41
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "Deducted from the Council Tax Reduction entitlement is any non-dependent deduction which falls to be made in accordance with the scheme rules."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "The minimum entitlement is £3.00 per week."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "Applicants who have total net income levels above the appropriate upper limit band 6 levels shown in the grid for their household composition will receive no discount."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hillingdon_council_tax_reduction_income_band == -1: 0 else: if hillingdon_council_tax_reduction_working_age_award_conditions_satisfied: (if hillingdon_council_tax_reduction_selected_liability_weekly * min(hillingdon_council_tax_reduction_maximum_support_rate, hillingdon_council_tax_reduction_discount_rate_by_band[hillingdon_council_tax_reduction_income_band]) - hillingdon_council_tax_reduction_non_dependant_deductions_weekly < hillingdon_council_tax_reduction_minimum_award_weekly: 0 else: hillingdon_council_tax_reduction_selected_liability_weekly * min(hillingdon_council_tax_reduction_maximum_support_rate, hillingdon_council_tax_reduction_discount_rate_by_band[hillingdon_council_tax_reduction_income_band]) - hillingdon_council_tax_reduction_non_dependant_deductions_weekly) else: 0
+
+  - name: hillingdon_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hillingdon Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hillingdon/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "The entitlement Council Tax Reduction is contained in the banded grid within point 33 subject to other conditions of entitlement."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_hillingdon_council_tax_reduction_weekly_amount

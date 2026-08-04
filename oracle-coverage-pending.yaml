@@ -5101,4 +5101,40 @@ entries:
 - legal_id: uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_working_age_scheme_applies
   source: manual
   since: 2026-08-03
-ceiling: 1700
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_annual_amount
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_capital_eligible
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_days_per_reduction_week
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_individual_non_dependant_deduction_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_maximum_amount_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_minimum_award_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_non_dependant_deduction_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_non_dependant_weekly_deduction_by_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_support_rate_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-redbridge:policies/redbridge/council-tax-reduction#redbridge_council_tax_reduction_support_rate_by_band
+  source: manual
+  since: 2026-08-03
+ceiling: 1712

@@ -1,0 +1,23 @@
+{
+ "documents": [
+  {
+   "source_id": "north-kesteven-council-tax-reduction-scheme-2026-2027",
+   "jurisdiction": "uk-north-kesteven",
+   "document_class": "manual",
+   "citation_path": "uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027",
+   "title": "North Kesteven Council Tax Reduction Scheme 2026-2027",
+   "source_url": "https://www.n-kesteven.gov.uk/sites/default/files/2026-03/Council%20Tax%20Support%20Scheme%202026-27.pdf",
+   "source_format": "pdf",
+   "source_as_of": "2026-08-02",
+   "expression_date": "2026-04-01",
+   "metadata": {
+    "primary_source": true,
+    "source_authority": "North Kesteven",
+    "document_subtype": "council_tax_reduction_scheme",
+    "program": "Council Tax Reduction",
+    "scheme_year": "2026-2027",
+    "discovered_via": "axiom-296-council-expansion"
+   }
+  }
+ ]
+}

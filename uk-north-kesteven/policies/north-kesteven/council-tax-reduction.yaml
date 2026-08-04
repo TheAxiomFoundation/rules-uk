@@ -1,0 +1,760 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-41
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to North Kesteven District Council, so the Council's adopted scheme document is the operative source for its local values and award calculation. The pinned singular source-verification contract strips this attestation after local gates pass.
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to North Kesteven District Council, so its adopted document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. The 2026/27 working-age scheme caps ordinary support at 90 percent of liability and at Band D, while protected applicants avoid that restriction. Care leavers under 26 receive a 100 percent single-occupant or 75 percent shared-occupation maximum. Excess income is withdrawn at 2 6/7 percent daily (20 percent weekly), non-dependant deductions are subtracted, and ordinary awards below £3.50 weekly are suppressed. Capital limits are £8,000 ordinarily and £16,000 for vulnerable applicants, with tariff income above £6,000 in £250 steps. Pension-age and second-adult-rebate provisions are outside this module.
+  deferred_outputs:
+    - output: uk-north-kesteven:policies/north-kesteven/council-tax-reduction/schedule-3#applicable_amount
+      reason: The personal allowances, family premium, premiums, components, and transitional additions used to calculate the applicable amount are outside this award-surface module.
+    - output: uk-north-kesteven:policies/north-kesteven/council-tax-reduction/part-10#assessed_income_and_capital
+      reason: Detailed income disregards, attribution, and capital valuation are outside this award-surface module.
+    - output: uk-north-kesteven:policies/north-kesteven/council-tax-reduction/schedule-4#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult alternative maximum reduction is outside this working-age main-award surface.
+    - output: uk-north-kesteven:policies/north-kesteven/council-tax-reduction/paragraph-29.7#protected_category
+      reason: This module consumes protected-category status; the detailed category classifier is a future self-scoped output.
+rules:
+  - name: north_kesteven_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(7)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "restricted to 90% of their Council Tax liability"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.90
+
+  - name: north_kesteven_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraphs 29(1) and (7)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: north_kesteven_council_tax_reduction_care_leaver_single_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "is 100% if that person occupies the dwelling as a single person"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: north_kesteven_council_tax_reduction_care_leaver_shared_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "75% if occupation of the dwelling is shared with at least one other adult"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: north_kesteven_council_tax_reduction_care_leaver_age_limit
+    kind: parameter
+    dtype: Number
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "available to applicants under 26 who is a care leaver"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          26
+
+  - name: north_kesteven_council_tax_reduction_ordinary_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "£8,000(working age)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          8000
+
+  - name: north_kesteven_council_tax_reduction_vulnerable_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 72(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "vulnerable customers with capital of £16000 or over, do not qualify for CTR"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: north_kesteven_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "capital is disregarded up to £6000.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: north_kesteven_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "£1 for every £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: north_kesteven_council_tax_reduction_tariff_income_weekly_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "a deduction of £1 for every £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: north_kesteven_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: north_kesteven_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "£15.95 (subject to amendment) x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: north_kesteven_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 17(f), derived weekly rate
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_kesteven_council_tax_reduction_daily_taper_rate * north_kesteven_council_tax_reduction_days_per_week
+
+  - name: north_kesteven_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 28(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: north_kesteven_council_tax_reduction_minimum_weekly_award
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(8)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "qualifies for less than £3.50 per week in Council Tax Support"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3.50
+
+  - name: north_kesteven_council_tax_reduction_non_dependant_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: north_kesteven_council_tax_reduction_non_dependant_band_key
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &nondep_source
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: &nondep_excerpt "Pensioners and vulnerable: (1) Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in paragraph 29 are-- (a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 (subject to amendment) x 1/7; (b) in respect of a non-dependant aged 18 or over to whom paragraph (a) does not apply, £5.20 (subject to amendment) x 1/7.\n\n(2) In the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is-- (a) less than £279.00 (subject to amendment), the deduction to be made under this paragraph is that specified in sub- paragraph (1)(b); (b) not less than £279.00 (subject to amendment) but less than £485.00 (subject to amendment), the deduction to be made under this paragraph is £10.60 (subject to amendment); (c) not less than £485.00 (subject to amendment) but less than £605.00 (subject to amendment), the deduction to be made under this paragraph is £13.30 (subject to amendment).\n\nPersons who are not pensions or do not fall within the vulnerable scheme: (2A) (a) in respect of a non-dependant aged 18 or over in remunerative work, £20.00;\n\n(b) in respect of a non-dependant aged 18 or over to whom paragraph (a) does not apply, £5.00.\n\n(2B) In the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is-- (a)less than £189.00 (subject to amendment), the deduction to be made under this paragraph is £5.00 (subject to amendment); (b)not less than £189.00 (subject to amendment) but less than £327.99 (subject to amendment), the deduction to be made under this paragraph is £10.00 (subject to amendment); (c)not less than £328.00 (subject to amendment) but less than £407.99 (subject to amendment), the deduction to be made under this paragraph is £15.00 (subject to amendment). (d)not less than £408.00 (subject to amendment), the deduction to be made under this paragraph is £20.00 (subject to amendment)."
+              table: &nondep_table
+                header: Working-age ordinary and vulnerable non-dependant weekly income bands and deductions
+                row_key: scheme and income band
+                column_key: threshold and weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+
+  - name: north_kesteven_council_tax_reduction_ordinary_non_dependant_band_1_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2B)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "not less than £189.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          189
+
+  - name: north_kesteven_council_tax_reduction_ordinary_non_dependant_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2B)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "not less than £328.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          328
+
+  - name: north_kesteven_council_tax_reduction_ordinary_non_dependant_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2B)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "not less than £408.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          408
+
+  - name: north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_1_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "not less than £279.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "not less than £485.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "less than £605.00 (subject to amendment)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: north_kesteven_council_tax_reduction_ordinary_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_kesteven_council_tax_reduction_non_dependant_band_key
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(2A)-(2B)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *nondep_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5
+          1: 10
+          2: 15
+          3: 20
+
+  - name: north_kesteven_council_tax_reduction_vulnerable_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: north_kesteven_council_tax_reduction_non_dependant_band_key
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *nondep_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: north_kesteven_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Kesteven Council Tax Support Scheme 2026/27 class D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "person who is not a pensioner"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_north_kesteven and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: north_kesteven_council_tax_reduction_selected_capital_limit
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraphs 23 and 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "vulnerable customers with capital of £16000 or over, do not qualify for CTR"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_is_protected: north_kesteven_council_tax_reduction_vulnerable_capital_limit else: north_kesteven_council_tax_reduction_ordinary_capital_limit
+
+  - name: north_kesteven_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "capital exceeds £16,000(pensioner) and £8,000(working age)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_kesteven_council_tax_reduction_assessed_capital_for_year < north_kesteven_council_tax_reduction_selected_capital_limit
+
+  - name: north_kesteven_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "a deduction of £1 for every £250, from £6000.00 to £7999.99"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_assessed_capital_for_year <= north_kesteven_council_tax_reduction_tariff_income_threshold: 0 else: ceil((north_kesteven_council_tax_reduction_assessed_capital_for_year - north_kesteven_council_tax_reduction_tariff_income_threshold) / north_kesteven_council_tax_reduction_tariff_income_step) * north_kesteven_council_tax_reduction_tariff_income_weekly_per_step * north_kesteven_council_tax_reduction_weeks_per_year
+
+  - name: north_kesteven_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, north_kesteven_council_tax_reduction_assessed_income_for_year + north_kesteven_council_tax_reduction_tariff_income_for_year - north_kesteven_council_tax_reduction_applicable_amount_for_year)
+
+  - name: north_kesteven_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_kesteven_council_tax_reduction_excess_income_for_year * north_kesteven_council_tax_reduction_weekly_taper_rate
+
+  - name: north_kesteven_council_tax_reduction_non_dependant_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *nondep_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_non_dependant_uses_vulnerable_grid: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_1_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[0] else: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_2_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[1] else: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_vulnerable_non_dependant_band_3_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[2] else: north_kesteven_council_tax_reduction_non_dependant_band_codes[3] else: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_ordinary_non_dependant_band_1_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[0] else: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_ordinary_non_dependant_band_2_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[1] else: if north_kesteven_council_tax_reduction_non_dependant_normal_gross_weekly_income < north_kesteven_council_tax_reduction_ordinary_non_dependant_band_3_threshold: north_kesteven_council_tax_reduction_non_dependant_band_codes[2] else: north_kesteven_council_tax_reduction_non_dependant_band_codes[3]
+
+  - name: north_kesteven_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              <<: *nondep_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not north_kesteven_council_tax_reduction_is_non_dependant or north_kesteven_council_tax_reduction_non_dependant_exempt: 0 else: if north_kesteven_council_tax_reduction_non_dependant_uses_vulnerable_grid: north_kesteven_council_tax_reduction_vulnerable_non_dependant_deduction_by_band[north_kesteven_council_tax_reduction_non_dependant_band] * north_kesteven_council_tax_reduction_weeks_per_year else: north_kesteven_council_tax_reduction_ordinary_non_dependant_deduction_by_band[north_kesteven_council_tax_reduction_non_dependant_band] * north_kesteven_council_tax_reduction_weeks_per_year
+
+  - name: north_kesteven_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(7)-(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "The maximum amount of Council Tax Support available to applicants under 26 who is a care leaver (Class I) is 100% if that person occupies the dwelling as a single person, or 75% if occupation of the dwelling is shared with at least one other adult."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_care_leaver_protection_applies: if north_kesteven_council_tax_reduction_shares_with_other_adult: north_kesteven_council_tax_reduction_care_leaver_shared_rate else: north_kesteven_council_tax_reduction_care_leaver_single_rate else: if north_kesteven_council_tax_reduction_is_protected: north_kesteven_council_tax_reduction_protected_maximum_support_rate else: north_kesteven_council_tax_reduction_ordinary_maximum_support_rate
+
+  - name: north_kesteven_council_tax_reduction_care_leaver_protection_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "applicants under 26 who is a care leaver"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          north_kesteven_council_tax_reduction_is_care_leaver
+          and north_kesteven_council_tax_reduction_applicant_age < north_kesteven_council_tax_reduction_care_leaver_age_limit
+
+  - name: north_kesteven_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraph 29
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "this is capped at 90% of the charge for a Council Tax Band D property"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "Those applicants who are persons who are not pensioners who fall into a protected category will not be subject to this restriction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_is_protected or north_kesteven_council_tax_reduction_care_leaver_protection_applies: north_kesteven_council_tax_reduction_eligible_liability_for_year * north_kesteven_council_tax_reduction_selected_maximum_support_rate else: min(north_kesteven_council_tax_reduction_eligible_liability_for_year, north_kesteven_council_tax_reduction_band_d_liability_for_year) * north_kesteven_council_tax_reduction_selected_maximum_support_rate
+
+  - name: north_kesteven_council_tax_reduction_amount_before_minimum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 paragraphs 29 and 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "that amount is the amount found by deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, north_kesteven_council_tax_reduction_maximum_for_year - north_kesteven_council_tax_reduction_income_taper_deduction_for_year - north_kesteven_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: simulated_north_kesteven_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "If an applicant who is a person not a pensioner qualifies for less than £3.50 per week in Council Tax Support, then this amount will not be awarded."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "This lower limit will not apply to persons who are not pensioners if they fall into a protected category."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if north_kesteven_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and north_kesteven_council_tax_reduction_capital_eligible: if north_kesteven_council_tax_reduction_is_protected or north_kesteven_council_tax_reduction_amount_before_minimum_for_year >= north_kesteven_council_tax_reduction_minimum_weekly_award * north_kesteven_council_tax_reduction_weeks_per_year: north_kesteven_council_tax_reduction_amount_before_minimum_for_year else: 0 else: 0
+
+  - name: north_kesteven_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: North Kesteven Council Tax Support Scheme 2026/27 operative award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-north-kesteven/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "EFFECTIVE FROM 1ST APRIL 2026"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_north_kesteven_council_tax_reduction_annual_amount

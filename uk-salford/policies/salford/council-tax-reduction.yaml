@@ -1,0 +1,927 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Salford City Council, so the adopted scheme document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates
+    Salford's working-age scheme to the billing authority, so its adopted
+    2026-27 document is operative. Class F is a banded scheme effective from
+    1 April 2026: its six grid rates (88, 75, 50, 25, 10, and zero percent)
+    are direct bill-reduction percentages selected from weekly income and
+    council-tax family and bounded by the 88 percent section-57 maximum. The
+    Class-F flat non-dependant amount is deducted in full after the selected
+    percentage award is determined. Capital over £16,000 gives no award;
+    non-UC cases receive £1 weekly tariff income for every £250 or part over
+    £6,000, while UC cases
+    use the DWP-specified tariff input. No Class-F minimum award, de-minimis
+    rule, or band-cap award ceiling is printed. Section 59's 3 4/7 percent
+    taper applies to the separate legacy Class E, not this active Class-F
+    award surface; its protected transition remains deferred below. Although
+    the Schedule 2 layout also prints monthly columns, it supplies no monthly
+    selector and its clarification states that the table incomes are weekly,
+    so this module encodes the weekly grid only.
+  deferred_outputs:
+    - output: uk-salford:policies/salford/council-tax-reduction/sections-15-to-52-and-schedules-3-to-5#class_f_assessed_weekly_income
+      reason: >-
+        The Class-F award surface consumes assessed weekly income after the
+        Universal Credit calculation, notional-income, self-employment minimum-
+        income-floor, disregard, and attribution provisions; omitted inputs are
+        not treated as zero.
+    - output: uk-salford:policies/salford/council-tax-reduction/sections-33-to-41#class_f_assessed_capital
+      reason: >-
+        The award surface consumes capital after valuation, attribution,
+        notional-capital, and disregard rules, including the DWP assessment for
+        Universal Credit cases.
+    - output: uk-salford:policies/salford/council-tax-reduction/paragraph-42.4#universal_credit_tariff_income_weekly
+      reason: >-
+        For Class-F Universal Credit cases the authority uses the Secretary of
+        State's capital and tariff calculation. This module consumes that
+        specified weekly tariff input rather than inventing a local UC value.
+    - output: uk-salford:policies/salford/council-tax-reduction/schedule-2#council_tax_family_classifier
+      reason: >-
+        This module selects the printed single, couple, one-child, or two-or-
+        more-child column from mutually exclusive household classification
+        facts; the scheme's detailed council-tax-family definition is deferred.
+    - output: uk-salford:policies/salford/council-tax-reduction/paragraph-57.1#a_divided_by_b_daily_eligible_liability
+      reason: >-
+        The award surface consumes the daily liability base after council-tax
+        discounts and joint-liability apportionment under section 57.
+    - output: uk-salford:policies/salford/council-tax-reduction/sections-58.5-to-58A.4#chargeable_non_dependant_classification_and_apportionment
+      reason: >-
+        This module consumes a post-exemption, post-apportionment count of
+        chargeable Class-F resident non-dependants. The imported section-58
+        joint-liability apportionment and claimant, partner, student, absence,
+        armed-forces, benefit, Universal Credit, disability, age, carer, and
+        prisoner exceptions, together with sections 58A.2 to 58A.4, are
+        deferred rather than treated as chargeable.
+    - output: uk-salford:policies/salford/council-tax-reduction/paragraphs-1.9-to-1.11#legacy_class_d_e_transition_award
+      reason: >-
+        ESAIR and more-than-20-percent-loss transitional claimants retain a
+        legacy Class D or E calculation for a time-limited or discretionary
+        period. That separate legacy award is not treated as Class F.
+rules:
+  - name: salford_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-94
+              excerpt: "shall be 88 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.88
+
+  - name: salford_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-145
+              excerpt: "Any applicant who's capital is greater than £16,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: salford_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 sections 42.1-42.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: salford_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 sections 42.1-42.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "£1 for each complete £250 of in excess of £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: salford_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 sections 42.1-42.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: salford_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              excerpt: "fixed rate of £7 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: salford_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme
+                row_key: income band
+                column_key: band code
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0%
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+
+  - name: salford_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme
+                row_key: income band
+                column_key: discount percentage
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0% 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant as defined within this scheme;
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0.88
+          2: 0.75
+          3: 0.50
+          4: 0.25
+          5: 0.10
+
+  - name: salford_council_tax_reduction_single_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme weekly grid
+                row_key: income band
+                column_key: Single lower weekly income
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0% 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant as defined within this scheme; Salford City Council - Council Tax Reduction Scheme 2026/27 144
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 243.03
+          1: 0
+          2: 108.02
+          3: 145.82
+          4: 178.22
+          5: 210.63
+
+  - name: salford_council_tax_reduction_couple_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme weekly grid
+                row_key: income band
+                column_key: Couple lower weekly income
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0% 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant as defined within this scheme; Salford City Council - Council Tax Reduction Scheme 2026/27 144
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 329.43
+          1: 0
+          2: 167.42
+          3: 205.22
+          4: 253.83
+          5: 291.63
+
+  - name: salford_council_tax_reduction_family_one_child_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme weekly grid
+                row_key: income band
+                column_key: Family plus one child lower weekly income
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0% 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant as defined within this scheme; Salford City Council - Council Tax Reduction Scheme 2026/27 144
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 405.04
+          1: 0
+          2: 243.03
+          3: 264.63
+          4: 313.23
+          5: 367.23
+
+  - name: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: salford_council_tax_reduction_income_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              table:
+                header: Class F Banded Discount Scheme weekly grid
+                row_key: income band
+                column_key: Family two or more children lower weekly income
+              excerpt: |-
+                Single Single Couple Couple Family + 1 Child Family + 1 Child Family 2+ Children Family 2+ Children 1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Weekly Monthly Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £108.01 88% 1 £0.00 £468.04 88% 2 £108.02 £145.81 75% 2 £468.05 £631.84 75% 3 £145.82 £178.21 50% 3 £631.85 £772.24 50% 4 £178.22 £210.62 25% 4 £772.25 £912.69 25% 5 £210.63 £243.02 10% 5 £912.70 £1,053.09 10% Ineligible £243.03 0% Ineligible £1,053.10 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £167.41 88% 1 £0.00 £725.44 88% 2 £167.42 £205.21 75% 2 £725.45 £889.24 75% 3 £205.22 £253.82 50% 3 £889.25 £1,099.89 50% 4 £253.83 £291.62 25% 4 £1,099.90 £1,263.69 25% 5 £291.63 £329.42 10% 5 £1,263.70 £1,427.49 10% Ineligible £329.43 0% Ineligible £1,427.50 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £243.02 88% 1 £0.00 £1,053.09 88% 2 £243.03 £264.62 75% 2 £1,053.10 £1,146.69 75% 3 £264.63 £313.22 50% 3 £1,146.70 £1,357.29 50% 4 £313.23 £367.22 25% 4 £1,357.30 £1,591.29 25% 5 £367.23 £405.03 10% 5 £1,591.30 £1,755.13 10% Ineligible £405.04 0% Ineligible £1,755.14 0% Band Lower limit Upper limit % Band Lower limit Upper limit % 1 £0.00 £381.26 88% 1 £0.00 £1,652.13 88% 2 £381.27 £412.58 75% 2 £1,652.14 £1,787.85 75% 3 £412.59 £453.62 50% 3 £1,787.86 £1,965.69 50% 4 £453.63 £491.43 25% 4 £1,965.70 £2,129.53 25% 5 £491.44 £518.43 10% 5 £2,129.54 £2,246.53 10% Ineligible £518.44 0% Ineligible £2,246.54 0% 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant as defined within this scheme; Salford City Council - Council Tax Reduction Scheme 2026/27 144
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 518.44
+          1: 0
+          2: 381.27
+          3: 412.59
+          4: 453.63
+          5: 491.44
+
+  - name: salford_council_tax_reduction_non_dependant_deduction_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: salford_council_tax_reduction_non_dependant_deduction_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              table:
+                header: Class F non-dependant deduction
+                row_key: chargeable resident non-dependant condition
+                column_key: deduction band code
+              excerpt: "(a) amount of the deduction as specified in 58.1 shall be a fixed rate of £7 x 1/7; (b) No reference shall be made to the non-dependants income; and (c) a deduction shall apply for each non dependant who resides with the applicant."
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+
+  - name: salford_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: salford_council_tax_reduction_non_dependant_deduction_band
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              table:
+                header: Class F non-dependant deduction
+                row_key: deduction band
+                column_key: weekly deduction per chargeable resident
+              excerpt: "(a) amount of the deduction as specified in 58.1 shall be a fixed rate of £7 x 1/7; (b) No reference shall be made to the non-dependants income; and (c) a deduction shall apply for each non dependant who resides with the applicant. 58A.2 A non-dependant deduction will not be made when the applicant or their partner is certified as severely sight impaired or blind by a consultant ophthalmologist."
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 7
+
+  - name: salford_council_tax_reduction_working_age_class_f_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Class F and paragraph 1.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "Class F will apply to the following: (a) All existing working age applicants who were entitled to Council Tax Reduction on 31 March 2026; and (b) All new applications for working age Council Tax Reduction made on or after 1 April 2026."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_salford
+          and council_tax_reduction_household_in_england
+          and salford_council_tax_reduction_applicant_is_in_class_f
+
+  - name: salford_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-145
+              excerpt: "Any applicant who's capital is greater than £16,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_capital_for_year <= salford_council_tax_reduction_capital_limit
+
+  - name: salford_council_tax_reduction_capital_at_or_below_tariff_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_capital_for_year <= salford_council_tax_reduction_tariff_income_threshold
+
+  - name: salford_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 sections 42.4-42.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "Where the applicant’s capital calculated in accordance with this scheme exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "Notwithstanding paragraph 42.1 where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "In the case of any applicant that falls to be treated under Class F and who is in receipt of universal credit, the capital and tariff income used by the authority shall be that specified by the Secretary of State for Work and Pensions."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-78
+              excerpt: "In the case of any applicant that falls to be treated under Class F but who is not in receipt of an award of universal credit, any tariff shall be calculated in accordance with 42.1 to 42.3."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_capital_eligible: if salford_council_tax_reduction_has_universal_credit_award: salford_council_tax_reduction_universal_credit_tariff_income_weekly else: if salford_council_tax_reduction_capital_at_or_below_tariff_threshold: salford_council_tax_reduction_tariff_income_weekly_amount_per_step - salford_council_tax_reduction_tariff_income_weekly_amount_per_step else: ceil((salford_council_tax_reduction_assessed_capital_for_year - salford_council_tax_reduction_tariff_income_threshold) / salford_council_tax_reduction_tariff_income_capital_step) * salford_council_tax_reduction_tariff_income_weekly_amount_per_step else: salford_council_tax_reduction_tariff_income_weekly_amount_per_step - salford_council_tax_reduction_tariff_income_weekly_amount_per_step
+
+  - name: salford_council_tax_reduction_assessed_income_including_tariff_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 17.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-48
+              excerpt: "by adding to that amount, the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_weekly_income_excluding_tariff + salford_council_tax_reduction_tariff_income_weekly
+
+  - name: salford_council_tax_reduction_band_1_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[1]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[1]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[1]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[1]]
+
+  - name: salford_council_tax_reduction_band_2_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[2]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[2]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[2]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[2]]
+
+  - name: salford_council_tax_reduction_band_3_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[3]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[3]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[3]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[3]]
+
+  - name: salford_council_tax_reduction_band_4_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[4]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[4]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[4]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[4]]
+
+  - name: salford_council_tax_reduction_band_5_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[5]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[5]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[5]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[5]]
+
+  - name: salford_council_tax_reduction_zero_award_lower_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_is_single_council_tax_family: salford_council_tax_reduction_single_lower_income_by_band[salford_council_tax_reduction_income_band_codes[0]] else: if salford_council_tax_reduction_is_couple_council_tax_family: salford_council_tax_reduction_couple_lower_income_by_band[salford_council_tax_reduction_income_band_codes[0]] else: if salford_council_tax_reduction_is_family_with_one_child: salford_council_tax_reduction_family_one_child_lower_income_by_band[salford_council_tax_reduction_income_band_codes[0]] else: salford_council_tax_reduction_family_two_or_more_children_lower_income_by_band[salford_council_tax_reduction_income_band_codes[0]]
+
+  - name: salford_council_tax_reduction_income_below_band_2_boundary
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_income_including_tariff_weekly < salford_council_tax_reduction_band_2_lower_income_weekly
+
+  - name: salford_council_tax_reduction_income_below_band_3_boundary
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_income_including_tariff_weekly < salford_council_tax_reduction_band_3_lower_income_weekly
+
+  - name: salford_council_tax_reduction_income_below_band_4_boundary
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_income_including_tariff_weekly < salford_council_tax_reduction_band_4_lower_income_weekly
+
+  - name: salford_council_tax_reduction_income_below_band_5_boundary
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_income_including_tariff_weekly < salford_council_tax_reduction_band_5_lower_income_weekly
+
+  - name: salford_council_tax_reduction_income_below_zero_award_boundary
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_assessed_income_including_tariff_weekly < salford_council_tax_reduction_zero_award_lower_income_weekly
+
+  - name: salford_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 Class F grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-145
+              excerpt: "For the sake of clarity all incomes shown within the table above are weekly in accordance with the scheme requirements and definitions."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_income_below_band_2_boundary: salford_council_tax_reduction_income_band_codes[1] else: if salford_council_tax_reduction_income_below_band_3_boundary: salford_council_tax_reduction_income_band_codes[2] else: if salford_council_tax_reduction_income_below_band_4_boundary: salford_council_tax_reduction_income_band_codes[3] else: if salford_council_tax_reduction_income_below_band_5_boundary: salford_council_tax_reduction_income_band_codes[4] else: if salford_council_tax_reduction_income_below_zero_award_boundary: salford_council_tax_reduction_income_band_codes[5] else: salford_council_tax_reduction_income_band_codes[0]
+
+  - name: salford_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_support_rate_by_income_band[salford_council_tax_reduction_income_band]
+
+  - name: salford_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-96
+              excerpt: "58A.1 In the case of an applicant falling within Class F, non dependants deductions shall be calculated in accordance with the provisions of section 58 however the following will apply:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              excerpt: "a deduction shall apply for each non dependant who resides with the applicant."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              excerpt: "A non-dependant deduction will not be made when the applicant or their partner is certified as severely sight impaired or blind by a consultant ophthalmologist."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_has_chargeable_non_dependant: salford_council_tax_reduction_non_dependant_deduction_band_codes[1] else: salford_council_tax_reduction_non_dependant_deduction_band_codes[0]
+
+  - name: salford_council_tax_reduction_non_dependant_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              table:
+                header: Class F non-dependant deduction
+                row_key: chargeable resident non-dependant
+                column_key: weekly deduction
+              excerpt: "(a) amount of the deduction as specified in 58.1 shall be a fixed rate of £7 x 1/7; (b) No reference shall be made to the non-dependants income; and (c) a deduction shall apply for each non dependant who resides with the applicant."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_chargeable_non_dependant_count * salford_council_tax_reduction_non_dependant_weekly_deduction_by_band[salford_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: salford_council_tax_reduction_non_dependant_deduction_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 58A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-97
+              excerpt: "fixed rate of £7 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_non_dependant_deduction_weekly / salford_council_tax_reduction_days_per_week
+
+  - name: salford_council_tax_reduction_maximum_amount_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-94
+              excerpt: "shall be 88 per cent, of the amount A divided by B where;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-94
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58 (non-dependant deductions Classes D and E ) or section 58A (non­ dependant deductions Class F )"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, salford_council_tax_reduction_eligible_liability_for_day * salford_council_tax_reduction_maximum_support_rate - salford_council_tax_reduction_non_dependant_deduction_for_day)
+
+  - name: salford_council_tax_reduction_award_conditions_satisfied
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Class F conditions and Schedule 2 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "h. have made a valid application for reduction;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-145
+              excerpt: "Any applicant who's capital is greater than £16,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          salford_council_tax_reduction_working_age_class_f_scheme_applies
+          and would_claim_council_tax_reduction
+          and salford_council_tax_reduction_capital_eligible
+
+  - name: salford_council_tax_reduction_daily_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Salford City Council Council Tax Reduction Scheme 2026/27 Schedule 2 paragraph 2 and section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-144
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-salford/manual/council-tax-reduction-scheme-2026-2027/page-105
+              excerpt: "65.0 DE-MINIMIS LEVELS (CLASSES D & E ONLY)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if salford_council_tax_reduction_award_conditions_satisfied: min(salford_council_tax_reduction_maximum_amount_for_day, max(0, salford_council_tax_reduction_eligible_liability_for_day * salford_council_tax_reduction_selected_support_rate - salford_council_tax_reduction_non_dependant_deduction_for_day)) else: 0

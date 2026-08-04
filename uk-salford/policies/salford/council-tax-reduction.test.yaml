@@ -1,0 +1,1387 @@
+- name: salford_ctr_printed_parameters_and_single_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_maximum_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_limit: 16000
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_threshold: 6000
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_capital_step: 250
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_days_per_week: 7
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_working_age_class_f_scheme_applies: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_eligible: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_at_or_below_tariff_threshold: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_below_band_2_boundary: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_below_band_3_boundary: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_below_band_4_boundary: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_below_band_5_boundary: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_below_zero_award_boundary: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_for_day: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_maximum_amount_for_day: 88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_award_conditions_satisfied: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+- name: salford_ctr_single_edge_1_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 108.01
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+- name: salford_ctr_single_edge_1_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 108.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_single_edge_2_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 145.81
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_single_edge_2_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 145.82
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_single_edge_3_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 178.21
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_single_edge_3_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 178.22
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_single_edge_4_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 210.62
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_single_edge_4_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 210.63
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_single_edge_5_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 243.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_single_edge_5_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 243.03
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 145.82
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 178.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 210.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+- name: salford_ctr_non_uc_tariff_at_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 107.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_at_or_below_tariff_threshold: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 107.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+
+- name: salford_ctr_non_uc_tariff_first_partial_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 107.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_at_or_below_tariff_threshold: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+
+- name: salford_ctr_non_uc_tariff_complete_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 107.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+
+- name: salford_ctr_non_uc_tariff_second_partial_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 6250.01
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 107.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 109.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+
+- name: salford_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_eligible: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 40
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 40
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_award_conditions_satisfied: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+
+- name: salford_ctr_capital_above_limit_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_capital_eligible: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_award_conditions_satisfied: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+
+- name: salford_ctr_uc_uses_dwp_tariff
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 2
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 106.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_tariff_income_weekly: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_assessed_income_including_tariff_weekly: 108.02
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+
+- name: salford_ctr_one_chargeable_non_dependant_is_subtracted_in_full_after_percentage
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 1
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_weekly: 7
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_for_day: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_maximum_amount_for_day: 87
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 87
+
+- name: salford_ctr_two_chargeable_non_dependants
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 2
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_weekly: 14
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_non_dependant_deduction_for_day: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_maximum_amount_for_day: 86
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 86
+
+- name: salford_ctr_claim_required_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_working_age_class_f_scheme_applies: holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_award_conditions_satisfied: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+
+- name: salford_ctr_class_f_scope_required_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: false
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_working_age_class_f_scheme_applies: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_award_conditions_satisfied: not_holds
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+- name: salford_ctr_couple_edge_1_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 167.41
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+- name: salford_ctr_couple_edge_1_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 167.42
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_couple_edge_2_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 205.21
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_couple_edge_2_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 205.22
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_couple_edge_3_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 253.82
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_couple_edge_3_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 253.83
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_couple_edge_4_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 291.62
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_couple_edge_4_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 291.63
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_couple_edge_5_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 329.42
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_couple_edge_5_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 329.43
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 167.42
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 205.22
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 253.83
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 291.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 329.43
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+- name: salford_ctr_family_one_child_edge_1_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 243.02
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+- name: salford_ctr_family_one_child_edge_1_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 243.03
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_family_one_child_edge_2_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 264.62
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_family_one_child_edge_2_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 264.63
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_family_one_child_edge_3_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 313.22
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_family_one_child_edge_3_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 313.23
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_family_one_child_edge_4_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 367.22
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_family_one_child_edge_4_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 367.23
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_family_one_child_edge_5_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 405.03
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_family_one_child_edge_5_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 405.04
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 243.03
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 264.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 313.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 367.23
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 405.04
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0
+- name: salford_ctr_family_two_or_more_children_edge_1_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 381.26
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.88
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 88
+- name: salford_ctr_family_two_or_more_children_edge_1_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 381.27
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_family_two_or_more_children_edge_2_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 412.58
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 2
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.75
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 75
+- name: salford_ctr_family_two_or_more_children_edge_2_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 412.59
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_family_two_or_more_children_edge_3_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 453.62
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 3
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 50
+- name: salford_ctr_family_two_or_more_children_edge_3_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 453.63
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_family_two_or_more_children_edge_4_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 491.43
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 4
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.25
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 25
+- name: salford_ctr_family_two_or_more_children_edge_4_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 491.44
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_family_two_or_more_children_edge_5_upper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 518.43
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 5
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0.1
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 10
+- name: salford_ctr_family_two_or_more_children_edge_5_lower
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-salford:policies/salford/council-tax-reduction#input.local_authority_is_salford: true
+    uk-salford:policies/salford/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_applicant_is_in_class_f: true
+    uk-salford:policies/salford/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_universal_credit_award: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_universal_credit_tariff_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_assessed_weekly_income_excluding_tariff: 518.44
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_single_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_couple_council_tax_family: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_is_family_with_one_child: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_chargeable_non_dependant_count: 0
+    uk-salford:policies/salford/council-tax-reduction#input.salford_council_tax_reduction_eligible_liability_for_day: 100
+  output:
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_1_lower_income_weekly: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_2_lower_income_weekly: 381.27
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_3_lower_income_weekly: 412.59
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_4_lower_income_weekly: 453.63
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_band_5_lower_income_weekly: 491.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_zero_award_lower_income_weekly: 518.44
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_income_band: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_selected_support_rate: 0
+    uk-salford:policies/salford/council-tax-reduction#salford_council_tax_reduction_daily_amount: 0

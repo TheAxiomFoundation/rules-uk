@@ -1,0 +1,402 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to this authority, so South Norfolk's adopted document is operative. The pinned singular source-verification contract strips this attestation after local gates pass.
+  summary: |-
+    South Norfolk's adopted 2026-27 working-age scheme caps ordinary maximum support at 87 percent of eligible liability and protects working-age war-pension recipients at 100 percent. A 20 percent excess-income taper and working-age £7 weekly non-dependant deduction are subtracted from that maximum. Capital above £16,000 ends entitlement; capital above £6,000 produces £1 weekly tariff income for each £250 or part. No minimum-award floor or council-tax valuation-band cap is printed. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-south-norfolk:policies/south-norfolk/council-tax-reduction/appendix-1#applicable_amount_for_year
+      reason: The award surface consumes living expenses after the scheme's household-category and premium schedules; those schedules are outside this module.
+    - output: uk-south-norfolk:policies/south-norfolk/council-tax-reduction/paragraphs-13-to-26-and-annexes-3-to-6#applicable_income_for_year
+      reason: Detailed income assessment, earnings, childcare, and disregard rules are outside this module.
+    - output: uk-south-norfolk:policies/south-norfolk/council-tax-reduction/paragraphs-41-and-49-to-50#non_dependant_exemption_classifier
+      reason: This module encodes the flat working-age deduction and consumes the printed protection and exemption result.
+    - output: uk-south-norfolk:policies/south-norfolk/council-tax-reduction/appendix-2#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult reduction is outside this working-age main-award surface.
+rules:
+  - name: south_norfolk_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "other working-age applicants it is 87%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.87
+
+  - name: south_norfolk_council_tax_reduction_war_pension_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "working-age applicant is receiving a war pension, the maximum amount of council tax reduction is also 100%;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_norfolk_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraphs 37-38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a sum equal to 20% of the difference between their income (£120) and the amount for living expenses (£100) is deducted"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: south_norfolk_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 27
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "meet the residence rules; and • have capital not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: south_norfolk_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "capital exceeding £10,000 (or exceeding £6,000 for working- age applicants)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: south_norfolk_council_tax_reduction_tariff_income_capital_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "every complete £500 (£250 for working- age)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: south_norfolk_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "income of £1 is assumed for every complete £500 (£250 for working- age) up to a maximum of £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: south_norfolk_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 14
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "a monthly payment is multiplied by 12 and divided by 52;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: south_norfolk_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: south_norfolk_council_tax_reduction_non_dependant_band
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 48
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "For working-age applicants, there is one deduction of £7 a week"
+              table:
+                header: working-age non-dependant deduction
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 7
+
+  - name: south_norfolk_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "For working-age applicants, where a working-age applicant is receiving a war pension, the maximum amount of council tax reduction is also 100%; for other working-age applicants it is 87%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_norfolk_council_tax_reduction_applicant_receives_war_pension: south_norfolk_council_tax_reduction_war_pension_maximum_support_rate else: south_norfolk_council_tax_reduction_ordinary_maximum_support_rate
+
+  - name: south_norfolk_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 27
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "meet the residence rules; and • have capital not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_norfolk_council_tax_reduction_assessed_capital_for_year <= south_norfolk_council_tax_reduction_capital_limit
+
+  - name: south_norfolk_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "if the final part of the excess is not a complete £500 (£250 for working age), an income of £1 is nevertheless taken into account."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_norfolk_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, south_norfolk_council_tax_reduction_assessed_capital_for_year - south_norfolk_council_tax_reduction_tariff_income_threshold) / south_norfolk_council_tax_reduction_tariff_income_capital_step) * south_norfolk_council_tax_reduction_weeks_per_year
+
+  - name: south_norfolk_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraphs 34 and 37
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "Council tax reduction is withdrawn at the rate of 20% of the difference between an applicant’s income and the amount allowed for living expenses."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, south_norfolk_council_tax_reduction_applicable_income_for_year + south_norfolk_council_tax_reduction_tariff_income_for_year - south_norfolk_council_tax_reduction_applicable_amount_for_year)
+
+  - name: south_norfolk_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a sum equal to 20% of the difference between their income (£120) and the amount for living expenses (£100) is deducted (20% of £20 = £4)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_norfolk_council_tax_reduction_excess_income_for_year * south_norfolk_council_tax_reduction_withdrawal_rate
+
+  - name: south_norfolk_council_tax_reduction_non_dependant_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraphs 48-50
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "aged 18 or over.\n\n49. No non-dependant deductions are applied if the applicant or their partner: • is severely sight-impaired or blind;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "For working-age applicants, there is one deduction of £7 a week for all non- dependants aged 18 or over."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_norfolk_council_tax_reduction_has_chargeable_non_dependant and not south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt: 1 else: 0
+
+  - name: south_norfolk_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraph 48
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "For working-age applicants, there is one deduction of £7 a week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          south_norfolk_council_tax_reduction_non_dependant_weekly_deduction_by_band[south_norfolk_council_tax_reduction_non_dependant_band] * south_norfolk_council_tax_reduction_weeks_per_year
+
+  - name: south_norfolk_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "For working-age applicants, where a working-age applicant is receiving a war pension, the maximum amount of council tax reduction is also 100%;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_south_norfolk and council_tax_reduction_household_in_england and south_norfolk_council_tax_reduction_applicant_is_working_age
+
+  - name: simulated_south_norfolk_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    rounding: half_up
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 paragraphs 36-38 and 48
+    metadata:
+      proof:
+        atoms:
+          - path: rounding
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "In calculating the amount of council tax reduction, fractions of less than half a penny are rounded down and fractions of half a penny or more are rounded up."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "for other working-age applicants it is 87%. These maximum amounts may be subject to deductions if there are adult non-dependant members of the household"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "is deducted (20% of £20 = £4) from their maximum council tax reduction, so they receive £15 less £4 = £11 a week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if south_norfolk_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and south_norfolk_council_tax_reduction_capital_eligible: max(0, south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year * south_norfolk_council_tax_reduction_selected_maximum_support_rate - south_norfolk_council_tax_reduction_income_taper_deduction_for_year - south_norfolk_council_tax_reduction_annual_non_dependant_deduction) else: 0
+
+  - name: south_norfolk_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Norfolk Council Tax Reduction Scheme 2026-2027 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-south-norfolk/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "for the period 1st April 2026 until 31st March 2027."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_south_norfolk_council_tax_reduction_annual_amount

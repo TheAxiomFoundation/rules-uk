@@ -1,0 +1,2287 @@
+format: rulespec/v1
+rules:
+  - name: harrow_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C zero-income amount
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "50% £0-£75"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: harrow_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 8 and Section 3 paragraph 21
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "Where capital exceeds £16,000, there will be no entitlement to Council Tax Support."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: harrow_council_tax_reduction_minimum_weekly_award
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 and Section 3 minimum entitlement
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "shall not be entitled to an award of Council Tax Support if, once calculated, their award would have been less than £2 per week."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall not be entitled to an award of Council Tax Support if, once calculated, their award would have been less than £2 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: harrow_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Harrow Council Tax Support Scheme 2026 weekly instalment period
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-108
+              excerpt: "a weekly instalment, the period is 7 days"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: harrow_council_tax_reduction_legacy_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 3 summary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "All people of working age will have their Council Tax Support tapered at 30%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.30
+
+  - name: harrow_council_tax_reduction_legacy_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class E and G daily taper
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "amount B is 4 2/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_weekly_taper_rate / harrow_council_tax_reduction_days_per_week
+
+  - name: harrow_council_tax_reduction_legacy_tariff_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 53
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "The capital of an applicant who is not a pensioner, calculated in accordance with this Part(a), is not to be treated as if it were a weekly income. Removed"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_zero_weekly_amount
+
+  - name: harrow_council_tax_reduction_section_2_class_a_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 1.4(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "For Class A (Working Age disabled) claimants, the percentage award of weekly eligible council tax is 86 percent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.86
+
+  - name: harrow_council_tax_reduction_section_2_class_b_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 1.4(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "For Class B, Claimants entitled to maximum Universal Credit (as defined in Section 2, rule 6 of this scheme), who are not Working Age Disabled, the percentage award of weekly eligible council tax is 50 percent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.50
+
+  - name: harrow_council_tax_reduction_legacy_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 25A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-86
+              excerpt: "support in respect of a day is 50 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.50
+
+  - name: harrow_council_tax_reduction_legacy_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 25B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "support in respect of a day is 86 percent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.86
+
+  - name: harrow_council_tax_reduction_section_2_non_dependant_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "normal gross weekly income is not less than £144 per week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          144
+
+  - name: harrow_council_tax_reduction_section_2_adult_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_non_dependant_deduction_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "(1) Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in Section 2, rule 2 of this scheme are— (a) except where paragraph (b) applies, where it is shown to the appropriate authority he is in remunerative work and that his normal gross weekly income is not less than £144 per week, a non dependant deduction will be £18.75 per week (b) in respect of a non-dependant aged 18 or over who the authority has verified is in remunerative work and that his normal gross weekly income is less than £144 per week, is not in remunerative work (and the applicant has provided such evidence as the authority reasonably requires to establish that the non dependant has no earnings), is on income support, state pension credit, income-based jobseeker’s allowance or employment and support allowance, maximum award of universal credit, a non- dependant deduction will be £4.75 per week."
+              table:
+                header: Section 2 non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: exception
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 4.75
+          2: 18.75
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_middle_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "not less than £279.00 but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "not less than £485.00 but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_top_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "not less than £485.00 but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_legacy_non_dependant_deduction_band
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: |-
+                Non-dependant deductions: persons who are not pensioners 26A.— .—(1) Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in paragraph 25A and 26B are— (a) in respect of a non-dependant aged 18 or over in remunerative work, £27.75 per week; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraphs (a) and (c) do not apply, £9.50 per week. (c) in respect of a non-dependant aged 18 or over who is on income support, state pension credit, an income-based jobseeker’s allowance or employment and support allowance, maximum award of universal credit £4.75 per week
+
+                (2) In the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is— (a) less than £279.00, the deduction to be made under this paragraph is that specified in subparagraph (1)(b); (b) not less than £279.00 but less than £485.00, the deduction to be made under this paragraph is £18.75; (c) not less than £485.00 but less than £605.00, the deduction to be made under this paragraph is £23.50.
+              table:
+                header: Section 3 non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: exception
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 4.75
+          2: 9.50
+          3: 18.75
+          4: 23.50
+          5: 27.75
+
+  - name: harrow_council_tax_reduction_section_2_class_c_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_c_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+              table:
+                header: Table C
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 75.01
+          2: 125.01
+          3: 175
+
+  - name: harrow_council_tax_reduction_section_2_class_c_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_c_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+              table:
+                header: Table C
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.20
+          3: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_d_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+              table:
+                header: Table D
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 75.01
+          2: 125.01
+          3: 175.01
+          4: 225
+
+  - name: harrow_council_tax_reduction_section_2_class_d_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_d_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+              table:
+                header: Table D
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.35
+          3: 0.20
+          4: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_e1_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+              table:
+                header: Table E1
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 100.01
+          2: 140.01
+          3: 175.01
+          4: 225.01
+          5: 275
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_e1_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+              table:
+                header: Table E1
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.35
+          3: 0.20
+          4: 0.10
+          5: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_e2_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+              table:
+                header: Table E2
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 100.01
+          2: 150.01
+          3: 200.01
+          4: 275.01
+          5: 325
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_e2_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+              table:
+                header: Table E2
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.35
+          3: 0.25
+          4: 0.10
+          5: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_f1_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+              table:
+                header: Table F1
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 125.01
+          2: 165.01
+          3: 200.01
+          4: 250.01
+          5: 300
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_f1_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+              table:
+                header: Table F1
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.40
+          2: 0.35
+          3: 0.20
+          4: 0.10
+          5: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: harrow_council_tax_reduction_section_2_class_f2_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+              table:
+                header: Table F2
+                row_key: weekly net income band
+                column_key: lower weekly income bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 125.01
+          2: 150.01
+          3: 200.01
+          4: 275.01
+          5: 375
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: harrow_council_tax_reduction_section_2_class_f2_income_band
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+              table:
+                header: Table F2
+                row_key: weekly net income band
+                column_key: percentage award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0.50
+          1: 0.45
+          2: 0.40
+          3: 0.30
+          4: 0.15
+          5: 0
+
+  - name: harrow_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 working-age scheme scope
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "all working age applicants will pay something towards their council tax liability"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_harrow and council_tax_reduction_household_in_england and harrow_council_tax_reduction_applicant_is_working_age
+
+  - name: harrow_council_tax_reduction_section_2_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 scope
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "Section 2 of this scheme applies solely to applicants in receipt of Universal Credit"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_working_age_scheme_applies and harrow_council_tax_reduction_is_section_2_claimant
+
+  - name: harrow_council_tax_reduction_section_3_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 scope
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-50
+              excerpt: "Applies solely to working age applicants not in receipt of Universal Credit"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_working_age_scheme_applies and not harrow_council_tax_reduction_is_section_2_claimant
+
+  - name: harrow_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 capital exclusion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "Where capital exceeds £16,000, there will be no entitlement to Council Tax Support."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_assessed_capital_for_year <= harrow_council_tax_reduction_capital_limit
+
+  - name: harrow_council_tax_reduction_section_2_class_a_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 class A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "For Class A (Working Age disabled) claimants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_a
+
+  - name: harrow_council_tax_reduction_section_2_class_b_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 class B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "For Class B, Claimants entitled to maximum Universal Credit"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_b
+
+  - name: harrow_council_tax_reduction_section_2_class_c_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_c
+
+  - name: harrow_council_tax_reduction_section_2_class_d_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_d
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_e1
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_e2
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_f1
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 claimant category
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and harrow_council_tax_reduction_section_2_claimant_is_class_f2
+
+  - name: harrow_council_tax_reduction_section_2_banded_class_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 1.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "1.5 Banded Income Scheme – percentage award of weekly eligible Council Tax by Claimant Category and net income band"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_class_c_applies or harrow_council_tax_reduction_section_2_class_d_applies or harrow_council_tax_reduction_section_2_class_e1_applies or harrow_council_tax_reduction_section_2_class_e2_applies or harrow_council_tax_reduction_section_2_class_f1_applies or harrow_council_tax_reduction_section_2_class_f2_applies
+  - name: harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_c_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_c_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_c_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_c_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category C Percentage award of weekly eligible Council Tax Single people without children - weekly net income 50% £0-£75 40% £75.01-£125 20% £125.01-£175 0% >£175"
+              table:
+                header: Table C
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_c_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_d_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_d_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_d_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_d_income_lower_bound_by_band[4]
+
+  - name: harrow_council_tax_reduction_section_2_class_d_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table D weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "Claimant Category D Percentage award of weekly eligible Council Tax Childless couples- weekly net income 50% £0-£75 40% £75.01-£125 35% £125.01-£175 20% £175.01-£225 0% >£225"
+              table:
+                header: Table D
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_4: 4 else: if harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_d_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band[4]
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_5
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_e1_income_lower_bound_by_band[5]
+
+  - name: harrow_council_tax_reduction_section_2_class_e1_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E1 weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E1 Percentage award of weekly eligible Council Tax Lone parents up to 2 children- weekly net income 50% £0-£100 40% £100.01-£140 35% £140.01-£175 20% £175.01-£225 10% £225.01-£275 0% >£275"
+              table:
+                header: Table E1
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_5: 5 else: if harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_4: 4 else: if harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_e1_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band[4]
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_5
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_e2_income_lower_bound_by_band[5]
+
+  - name: harrow_council_tax_reduction_section_2_class_e2_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table E2 weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "Claimant Category E2 Percentage award of weekly eligible Council Tax Lone parents 3 or more children- weekly net income 50% £0-£100 40% £100.01-£150 35% £150.01-£200 25% £200.01-£275 10% £275.01-£325 0% >£325"
+              table:
+                header: Table E2
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_5: 5 else: if harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_4: 4 else: if harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_e2_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band[4]
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_5
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_f1_income_lower_bound_by_band[5]
+
+  - name: harrow_council_tax_reduction_section_2_class_f1_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F1 weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F1 Percentage award of weekly eligible Council Tax Couples with up to 2 children- weekly net income 50% £0-£125 40% £125.01-£165 35% £165.01-£200 20% £200.01-£250 10% £250.01-£300 0% >£300"
+              table:
+                header: Table F1
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_5: 5 else: if harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_4: 4 else: if harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_f1_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band[1]
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band[2]
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band[3]
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income >= harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band[4]
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_5
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 lower income boundary
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_weekly_net_earned_income > harrow_council_tax_reduction_section_2_class_f2_income_lower_bound_by_band[5]
+
+  - name: harrow_council_tax_reduction_section_2_class_f2_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table F2 weekly income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Claimant Category F2 Percentage award of weekly eligible Council Tax Couples with 3 or more children- weekly net income 50% £0-£125 45% £125.01-£150 40% £150.01-£200 30% £200.01-£275 15% £275.01-£375 0% >£375"
+              table:
+                header: Table F2
+                row_key: weekly net income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+         if harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_5: 5 else: if harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_4: 4 else: if harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_3: 3 else: if harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_2: 2 else: if harrow_council_tax_reduction_section_2_class_f2_income_at_or_above_band_1: 1 else: 0
+
+  - name: harrow_council_tax_reduction_zero_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Harrow Council Tax Support Scheme 2026 Section 2 table C zero award rate
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "0% >£175"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: harrow_council_tax_reduction_section_2_banded_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 1.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "Persons in receipt of Universal Credit will receive a fixed level of support depending on what claimant category and income band they fall into"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_c_applies: harrow_council_tax_reduction_section_2_class_c_support_rate_by_band[harrow_council_tax_reduction_section_2_class_c_income_band] else: if harrow_council_tax_reduction_section_2_class_d_applies: harrow_council_tax_reduction_section_2_class_d_support_rate_by_band[harrow_council_tax_reduction_section_2_class_d_income_band] else: if harrow_council_tax_reduction_section_2_class_e1_applies: harrow_council_tax_reduction_section_2_class_e1_support_rate_by_band[harrow_council_tax_reduction_section_2_class_e1_income_band] else: if harrow_council_tax_reduction_section_2_class_e2_applies: harrow_council_tax_reduction_section_2_class_e2_support_rate_by_band[harrow_council_tax_reduction_section_2_class_e2_income_band] else: if harrow_council_tax_reduction_section_2_class_f1_applies: harrow_council_tax_reduction_section_2_class_f1_support_rate_by_band[harrow_council_tax_reduction_section_2_class_f1_income_band] else: if harrow_council_tax_reduction_section_2_class_f2_applies: harrow_council_tax_reduction_section_2_class_f2_support_rate_by_band[harrow_council_tax_reduction_section_2_class_f2_income_band] else: harrow_council_tax_reduction_zero_support_rate
+
+  - name: harrow_council_tax_reduction_section_2_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rules 1.4 and 1.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "For Class A (Working Age disabled) claimants, the percentage award of weekly eligible council tax is 86 percent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_a_applies: harrow_council_tax_reduction_section_2_class_a_support_rate else: if harrow_council_tax_reduction_section_2_class_b_applies: harrow_council_tax_reduction_section_2_class_b_support_rate else: harrow_council_tax_reduction_section_2_banded_support_rate
+
+  - name: harrow_council_tax_reduction_section_2_maximum_eligible_liability_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rules 1.4 and 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "the council tax shall not exceed the amount set by the authority for a dwelling in council tax band D"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_class_a_applies: harrow_council_tax_reduction_actual_weekly_liability else: min(harrow_council_tax_reduction_actual_weekly_liability, harrow_council_tax_reduction_band_d_weekly_liability)
+
+  - name: harrow_council_tax_reduction_section_2_maximum_amount_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Maximum weekly eligible CT is multiplied by relevant percentage award of weekly eligible Council Tax as specified in Section 2, rule 1.4 and Section 2, rule 1.5 of this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_maximum_eligible_liability_weekly * harrow_council_tax_reduction_section_2_selected_support_rate
+
+  - name: harrow_council_tax_reduction_section_2_amount_before_minimum_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "less any non-dependant deductions that may apply as specified in Section 2, rule 3 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(harrow_council_tax_reduction_zero_weekly_amount, harrow_council_tax_reduction_section_2_maximum_amount_weekly - harrow_council_tax_reduction_section_2_non_dependant_deductions_weekly)
+
+  - name: harrow_council_tax_reduction_section_2_minimum_award_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "shall not be entitled to an award of Council Tax Support if, once calculated, their award would have been less than £2 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_amount_before_minimum_weekly >= harrow_council_tax_reduction_minimum_weekly_award
+
+  - name: harrow_council_tax_reduction_section_2_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 award conditions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Maximum weekly eligible CT is multiplied by relevant percentage award of weekly eligible Council Tax as specified in Section 2, rule 1.4 and Section 2, rule 1.5 of this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_applies and would_claim_council_tax_reduction and harrow_council_tax_reduction_capital_eligible and harrow_council_tax_reduction_section_2_minimum_award_met
+
+  - name: harrow_council_tax_reduction_section_2_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rules 1.4 to 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "less any non-dependant deductions that may apply as specified in Section 2, rule 3 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_award_conditions_met: harrow_council_tax_reduction_section_2_amount_before_minimum_weekly else: harrow_council_tax_reduction_zero_weekly_amount
+
+  - name: harrow_council_tax_reduction_section_2_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3 exceptions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_is_non_dependant and not harrow_council_tax_reduction_non_dependant_exempt
+
+  - name: harrow_council_tax_reduction_section_2_non_dependant_high_income
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "normal gross weekly income is not less than £144 per week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_non_dependant_in_remunerative_work and harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income >= harrow_council_tax_reduction_section_2_non_dependant_high_income_threshold_weekly
+
+  - name: harrow_council_tax_reduction_section_2_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "a non dependant deduction will be £18.75 per week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_non_dependant_deduction_applies: if harrow_council_tax_reduction_section_2_non_dependant_high_income: 2 else: 1 else: 0
+
+  - name: harrow_council_tax_reduction_section_2_individual_adult_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 2 rule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "a non- dependant deduction will be £4.75 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_2_adult_deduction_weekly_by_band[harrow_council_tax_reduction_section_2_non_dependant_deduction_band]
+
+  - name: harrow_council_tax_reduction_legacy_protected_group_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class F and G
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: "regarded as a ‘protected’ group under this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_3_applies and harrow_council_tax_reduction_legacy_claimant_is_in_protected_group
+
+  - name: harrow_council_tax_reduction_legacy_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraphs 25A and 25B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "support in respect of a day is 86 percent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_legacy_protected_group_applies: harrow_council_tax_reduction_legacy_protected_maximum_support_rate else: harrow_council_tax_reduction_legacy_ordinary_maximum_support_rate
+
+  - name: harrow_council_tax_reduction_legacy_eligible_liability_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraphs 25A and 25B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "amount set by the authority for a dwelling in council tax band D"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_legacy_protected_group_applies: harrow_council_tax_reduction_actual_weekly_liability else: min(harrow_council_tax_reduction_actual_weekly_liability, harrow_council_tax_reduction_band_d_weekly_liability)
+
+  - name: harrow_council_tax_reduction_legacy_maximum_before_non_dependant_deductions_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraphs 25A and 25B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-86
+              excerpt: "support in respect of a day is 50 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_eligible_liability_weekly * harrow_council_tax_reduction_legacy_selected_maximum_support_rate
+
+  - name: harrow_council_tax_reduction_legacy_maximum_amount_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A and maximum support
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "less any deductions in respect of non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(harrow_council_tax_reduction_zero_weekly_amount, harrow_council_tax_reduction_legacy_maximum_before_non_dependant_deductions_weekly - harrow_council_tax_reduction_legacy_non_dependant_deductions_weekly)
+
+  - name: harrow_council_tax_reduction_legacy_income_with_tariff_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 tariff-income treatment
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "Tariff income has been abolished except where we are using the calculation of income made by the Secretary of State for the purpose of determining the award of universal credit and this includes an amount derived from capital."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_assessed_income_before_tariff_weekly + harrow_council_tax_reduction_legacy_tariff_income_weekly
+
+  - name: harrow_council_tax_reduction_legacy_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class E and G
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(harrow_council_tax_reduction_zero_weekly_amount, harrow_council_tax_reduction_legacy_income_with_tariff_weekly - harrow_council_tax_reduction_legacy_applicable_amount_weekly)
+
+  - name: harrow_council_tax_reduction_legacy_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "whose income for the relevant week is greater than his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_income_with_tariff_weekly > harrow_council_tax_reduction_legacy_applicable_amount_weekly
+
+  - name: harrow_council_tax_reduction_legacy_taper_class_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class E and G
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-92
+              excerpt: "Where the person is within class E or G,, that amount is the amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_3_applies and harrow_council_tax_reduction_legacy_income_exceeds_applicable_amount
+
+  - name: harrow_council_tax_reduction_legacy_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class E and G
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "amount B is 4 2/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_legacy_taper_class_applies: harrow_council_tax_reduction_legacy_excess_income_weekly * harrow_council_tax_reduction_legacy_weekly_taper_rate else: harrow_council_tax_reduction_zero_weekly_amount
+
+  - name: harrow_council_tax_reduction_legacy_amount_before_minimum_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 amount of support
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-92
+              excerpt: "Where the person is within class D or F(110), that amount is the amount which is the maximum Council Tax Support in respect of the day in the applicant’s case."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(harrow_council_tax_reduction_zero_weekly_amount, harrow_council_tax_reduction_legacy_maximum_amount_weekly - harrow_council_tax_reduction_legacy_taper_deduction_weekly)
+
+  - name: harrow_council_tax_reduction_legacy_minimum_award_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 class D to G minimum award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "shall not be entitled to an award of Council Tax Support if, once calculated, their award would have been less than £2 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_amount_before_minimum_weekly >= harrow_council_tax_reduction_minimum_weekly_award
+
+  - name: harrow_council_tax_reduction_legacy_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 award conditions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-92
+              excerpt: "Where a person is entitled to support under this scheme in respect of a day, the amount of the support to which he is entitled is as follows."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_section_3_applies and would_claim_council_tax_reduction and harrow_council_tax_reduction_capital_eligible and harrow_council_tax_reduction_legacy_minimum_award_met
+
+  - name: harrow_council_tax_reduction_legacy_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 Part 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-92
+              excerpt: "Where the person is within class E or G,, that amount is the amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_legacy_award_conditions_met: harrow_council_tax_reduction_legacy_amount_before_minimum_weekly else: harrow_council_tax_reduction_zero_weekly_amount
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A exceptions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_is_non_dependant and not harrow_council_tax_reduction_non_dependant_exempt
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_deduction_does_not_apply
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A exceptions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not harrow_council_tax_reduction_legacy_non_dependant_deduction_applies
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_middle_income
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A middle income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "not less than £279.00 but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income >= harrow_council_tax_reduction_legacy_non_dependant_middle_income_threshold_weekly and harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income < harrow_council_tax_reduction_legacy_non_dependant_high_income_threshold_weekly
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_high_income
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A high income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "not less than £485.00 but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income >= harrow_council_tax_reduction_legacy_non_dependant_high_income_threshold_weekly and harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income < harrow_council_tax_reduction_legacy_non_dependant_top_income_threshold_weekly
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_top_income
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A top income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_non_dependant_normal_gross_weekly_income >= harrow_council_tax_reduction_legacy_non_dependant_top_income_threshold_weekly
+
+  - name: harrow_council_tax_reduction_legacy_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £27.75 per week;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_legacy_non_dependant_deduction_does_not_apply: 0 else: if harrow_council_tax_reduction_non_dependant_receives_listed_benefit_or_maximum_universal_credit: 1 else: if harrow_council_tax_reduction_non_dependant_in_remunerative_work: if harrow_council_tax_reduction_legacy_non_dependant_top_income: 5 else: if harrow_council_tax_reduction_legacy_non_dependant_high_income: 4 else: if harrow_council_tax_reduction_legacy_non_dependant_middle_income: 3 else: 2 else: 2
+
+  - name: harrow_council_tax_reduction_legacy_individual_adult_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 Section 3 paragraph 26A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "maximum award of universal credit £4.75 per week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          harrow_council_tax_reduction_legacy_non_dependant_weekly_deduction_by_band[harrow_council_tax_reduction_legacy_non_dependant_deduction_band]
+
+  - name: harrow_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Harrow Council Tax Support Scheme 2026 working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-92
+              excerpt: "Where a person is entitled to support under this scheme in respect of a day, the amount of the support to which he is entitled is as follows."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if harrow_council_tax_reduction_section_2_applies: harrow_council_tax_reduction_section_2_weekly_amount else: if harrow_council_tax_reduction_section_3_applies: harrow_council_tax_reduction_legacy_weekly_amount else: harrow_council_tax_reduction_zero_weekly_amount
+
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-harrow/manual/council-tax-reduction-scheme-2026-2027/page-30
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to the London Borough of Harrow, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Harrow's operative 2026-27 working-age award has two locally set branches. Section 2 fixes Universal Credit claimant awards at the printed class and income-band percentages, composed on the maximum weekly eligible liability; the highest printed rate is 86%. Section 3 applies a 50% ordinary or 86% protected-group maximum, subtracts the printed non-dependant deduction within that maximum, and, only where income exceeds the applicable amount, subtracts the 30% weekly taper. The formal daily rate is derived as 30% divided by the printed seven-day week. Capital above £16,000 prevents entitlement, tariff income is abolished for the Section 3 calculation, and awards below £2 weekly are nil. Pension-age provisions are outside this working-age module.
+  deferred_outputs:
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-2-rule-1.3-and-appendix-a#section_2_claimant_category
+      reason: This module consumes the factual Section 2 claimant category; the detailed disability, child, earned-income, and maximum-Universal-Credit classifiers are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-2-rule-2-and-2.1#eligible_weekly_liability_and_joint_liability
+      reason: This module consumes actual and Band D weekly liability; charge lookup, discounts, and joint-liability apportionment are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-2-rule-2.2#uc_assessed_income_and_capital
+      reason: This module consumes the scheme's weekly net earned-income and assessed-capital results; Universal Credit assessment details, including any capital-derived amount, are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-3-part-6-and-schedule-3#legacy_applicable_amount_and_assessed_income
+      reason: This module consumes Section 3 applicable amount and assessed income; premiums, earnings, disregards, self-employment, and detailed income assessment are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-3-part-9-and-schedule-5#assessed_capital
+      reason: This module applies the printed capital cliff; detailed valuation, attribution, notional-capital, and disregard rules are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-2-rule-3-and-section-3-paragraph-26A#non_dependant_exemption_and_aggregation
+      reason: This module encodes both printed deduction grids and consumes exemption, couple, and household aggregation results; their detailed classifiers and apportionment are outside this award surface.
+    - output: uk-harrow:policies/harrow/council-tax-reduction/section-3-part-8#pension_age_alternative_maximum
+      reason: The pension-age alternative maximum is outside this working-age award surface.

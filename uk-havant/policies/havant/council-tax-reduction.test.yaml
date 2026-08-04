@@ -1,0 +1,320 @@
+- name: havant_ctr_full_liability_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_working_age_scheme_applies: holds
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_has_universal_credit_award: not_holds
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_capital_eligible: holds
+    uk-havant:policies/havant/council-tax-reduction#simulated_havant_council_tax_reduction_annual_amount: 1647
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 1647
+
+- name: havant_ctr_capital_over_limit_is_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_capital_eligible: not_holds
+    uk-havant:policies/havant/council-tax-reduction#simulated_havant_council_tax_reduction_annual_amount: 0
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 0
+
+- name: havant_ctr_tariff_income_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_for_year: 624
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_applicable_income_with_tariff_for_year: 624
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_excess_income_for_year: 624
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_income_taper_deduction_for_year: 124.8
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 1522.2
+
+- name: havant_ctr_universal_credit_uses_uc_maximum_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 12000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 12000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 12000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_has_universal_credit_award: holds
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_applicable_amount_for_year: 12000
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_excess_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 1647
+
+- name: havant_ctr_non_dependant_top_band_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 829.4
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 817.6
+
+- name: havant_ctr_non_dependant_top_band_individual_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.4
+
+- name: havant_ctr_exempt_non_dependant_has_no_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 0
+
+- name: havant_ctr_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_ordinary_maximum_support_rate: 0.915
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_protected_maximum_support_rate: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_capital_limit: 16000
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_threshold: 6000
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_step: 250
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_days_per_week: 7
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_withdrawal_rate: '0.2000000000000000000000000002'
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_remunerative_work_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_weeks_per_year: 52
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_no_non_dependant_deduction_band: 0
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_low_non_dependant_deduction_band: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_mid_non_dependant_deduction_band: 2
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_high_non_dependant_deduction_band: 3
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_top_non_dependant_deduction_band: 4
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_mid_income_threshold_weekly: 279
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_high_income_threshold_weekly: 485
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_top_income_threshold_weekly: 605
+
+- name: havant_ctr_protected_class_gets_full_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_maximum_support_rate: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 1800
+
+- name: havant_ctr_capital_at_limit_remains_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_capital_eligible: holds
+
+- name: havant_ctr_tariff_threshold_has_no_tariff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_for_year: 0
+
+- name: havant_ctr_first_partial_tariff_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_tariff_income_for_year: 52
+
+- name: havant_ctr_taper_exhausts_award_to_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.local_authority_is_havant: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-havant:policies/havant/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-havant:policies/havant/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicant_is_protected: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_assessed_capital_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_universal_credit_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_applicable_income_for_year: 10000
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_relevant_income_based_benefit: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_income_taper_deduction_for_year: 2000
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_annual_amount: 0
+
+- name: havant_ctr_non_dependant_below_remunerative_hours_uses_low_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 15.99
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: havant_ctr_non_dependant_below_279_uses_low_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: havant_ctr_non_dependant_at_279_uses_mid_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: havant_ctr_non_dependant_below_485_uses_mid_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: havant_ctr_non_dependant_at_485_uses_high_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: havant_ctr_non_dependant_below_605_uses_high_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_is_non_dependant: true
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_exempt: false
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-havant:policies/havant/council-tax-reduction#input.havant_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-havant:policies/havant/council-tax-reduction#havant_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6

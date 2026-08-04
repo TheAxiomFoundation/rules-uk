@@ -1,0 +1,610 @@
+- name: hillingdon_ctr_scalar_parameters_and_table_key_0
+  period: &period
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_family_category: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_income_band: 2
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_maximum_support_rate: 0.75
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_capital_limit: 6000
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_minimum_award_weekly: 3
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_non_dependant_weekly_deduction_by_band: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_2: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_2_upper_income_by_family: 180
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_4_lower_income_by_family: 90.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_5_lower_income_by_family: 120.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_lower_income_by_family: 150.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_upper_income_by_family: 180
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_discount_rate_by_band: 0.75
+
+- name: hillingdon_ctr_table_key_1
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_family_category: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_income_band: 3
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_non_dependant_weekly_deduction_by_band: 12
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_3: 3
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_2_upper_income_by_family: 250
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_4_lower_income_by_family: 130.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_5_lower_income_by_family: 170.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_lower_income_by_family: 210.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_upper_income_by_family: 250
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_discount_rate_by_band: 0.75
+
+- name: hillingdon_ctr_table_key_2
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_family_category: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_income_band: 4
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_4: 4
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_2_upper_income_by_family: 330
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_4_lower_income_by_family: 150.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_5_lower_income_by_family: 210.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_lower_income_by_family: 270.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_upper_income_by_family: 330
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_discount_rate_by_band: 0.55
+
+- name: hillingdon_ctr_table_key_3
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_family_category: 3
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_income_band: 5
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_5: 5
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_2_upper_income_by_family: 500
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_4_lower_income_by_family: 260.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_5_lower_income_by_family: 340.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_lower_income_by_family: 420.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6_upper_income_by_family: 500
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_discount_rate_by_band: 0.35
+
+- name: hillingdon_ctr_table_rate_key_6
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_income_band: 6
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_band_6: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_discount_rate_by_band: 0.15
+
+- name: hillingdon_vulnerable_band_2_uses_full_liability
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 6000
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 180
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 30
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_capital_eligible: holds
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_selected_liability_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 30
+
+- name: hillingdon_family_category_single
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_family_category: 0
+
+- name: hillingdon_working_age_conditions_hold
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_working_age_award_conditions_satisfied: holds
+
+- name: hillingdon_ordinary_band_edges_and_band_d_cap
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 90.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 30
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_selected_liability_weekly: 30
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 16.5
+
+- name: hillingdon_non_dependant_deduction_and_minimum_floor
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 20
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 20
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 12
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 3
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 3
+
+- name: hillingdon_capital_cliff_zero_award
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 6000.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_capital_eligible: not_holds
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0
+
+- name: hillingdon_single_above_band_6_upper_limit_receives_zero
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 180.01
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: -1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0
+
+- name: hillingdon_single_band_3_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 90
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 3
+
+- name: hillingdon_single_band_4_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 90.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_single_band_4_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 120
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_single_band_5_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 120.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_single_band_5_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 150
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_single_band_6_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 150.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+
+- name: hillingdon_couple_band_3_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 130
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 3
+
+- name: hillingdon_couple_band_4_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 130.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_couple_band_4_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 170
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_couple_band_5_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 170.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_couple_band_5_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 210
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_couple_band_6_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 210.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+
+- name: hillingdon_one_child_band_3_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 150
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 3
+
+- name: hillingdon_one_child_band_4_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 150.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_one_child_band_4_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 210
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_one_child_band_5_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 210.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_one_child_band_5_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 270
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_one_child_band_6_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 270.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+
+- name: hillingdon_two_or_more_children_band_3_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 260
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 3
+
+- name: hillingdon_two_or_more_children_band_4_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 260.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_two_or_more_children_band_4_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 340
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 4
+
+- name: hillingdon_two_or_more_children_band_5_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 340.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_two_or_more_children_band_5_upper_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 420
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 5
+
+- name: hillingdon_two_or_more_children_band_6_lower_edge
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 420.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+
+- name: hillingdon_single_at_band_6_upper_limit_receives_15_percent
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 180
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 6
+
+- name: hillingdon_couple_at_band_6_upper_limit_receives_15_percent
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 250
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 6
+
+- name: hillingdon_couple_above_band_6_upper_limit_receives_zero
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 250.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: -1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0
+
+- name: hillingdon_one_child_at_band_6_upper_limit_receives_15_percent
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 330
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 6
+
+- name: hillingdon_one_child_above_band_6_upper_limit_receives_zero
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 330.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: -1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0
+
+- name: hillingdon_two_or_more_children_at_band_6_upper_limit_receives_15_percent
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 500
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 6
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 6
+
+- name: hillingdon_two_or_more_children_above_band_6_upper_limit_receives_zero
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 40
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 2
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 500.01
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_income_band: -1
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#simulated_hillingdon_council_tax_reduction_weekly_amount: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0
+
+- name: hillingdon_calculated_award_just_below_minimum_is_zero
+  period: *period
+  input:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.local_authority_is_hillingdon: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_is_working_age: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_other_entitlement_conditions_satisfied: true
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_applicant_has_partner: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_number_of_children: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_household_is_vulnerable: false
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_assessed_capital: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_weekly_income: 0
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_net_council_tax_after_discounts_weekly: 19.99
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_band_d_net_council_tax_weekly: 19.99
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#input.hillingdon_council_tax_reduction_non_dependant_deductions_weekly: 12
+  output:
+    uk-hillingdon:policies/hillingdon/council-tax-reduction#hillingdon_council_tax_reduction_weekly_amount: 0

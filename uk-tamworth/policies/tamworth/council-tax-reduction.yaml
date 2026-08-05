@@ -1,0 +1,489 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+    # Apply-stage attestation, stripped to this singular source-verification contract after local gates:
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Tamworth Borough Council, so the adopted document is operative.
+  summary: |-
+    Upstream-source status: delegated_scheme. LGFA 1992 section 13A delegates the working-age scheme to Tamworth Borough Council, so its adopted document is operative. Checked paths: uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, and uk/regulations/uksi/2012/2886. Tamworth's 2026/27 working-age award is a direct weekly-income banded discount, not the 2 6/7 per cent pension-age Class B taper. The defined maximum is 100% of eligible liability and the selected band applies 100%, 75%, 50%, 25%, or 0% to that maximum. Assessed capital over £6,000 ends entitlement. Schedule 3's detailed capital-disregard calculation is deferred, so this award surface consumes capital after those calculations. Schedule 1 contains no working-age tariff-income rule, award-side non-dependant deduction, or minimum-award floor; it limits the grid to two dependant children or young persons.
+  deferred_outputs:
+    - output: uk-tamworth:policies/tamworth/council-tax-reduction/sections-11-to-25-and-schedule-2#assessed_weekly_income
+      reason: The award surface consumes assessed weekly income; the detailed family-income, Universal Credit, earnings, self-employment, and income-disregard calculations are outside this module.
+    - output: uk-tamworth:policies/tamworth/council-tax-reduction/sections-26-to-34-and-schedule-3#assessed_capital_for_year
+      reason: Detailed capital valuation, attribution, notional-capital, and Schedule 3 capital-disregard rules remain outside this award surface; the award consumes their resulting assessed capital.
+    - output: uk-tamworth:policies/tamworth/council-tax-reduction/paragraphs-48.1-to-48.4#maximum_eligible_liability
+      reason: The award surface consumes annual eligible liability after statutory discounts and joint-liability apportionment.
+    - output: uk-tamworth:policies/tamworth/council-tax-reduction/section-1-and-class-d#applicant_is_in_working_age_class
+      reason: The working-age age, pension-credit-age, immigration, residence, absence, liability, and application classifiers are consumed as source-grounded inputs.
+    - output: uk-tamworth:policies/tamworth/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age alternative maximum Council Tax Reduction is outside this working-age award surface.
+rules:
+  - name: tamworth_council_tax_reduction_maximum_liability_rate
+    kind: parameter
+    dtype: Rate
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 100 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: tamworth_council_tax_reduction_ordinary_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &ordinary_capital_source
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reduction whatsoever (subject to Schedule 3 Capital Disregards)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: tamworth_council_tax_reduction_one_dependant_child_count
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &grid_source
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: |-
+                BAND DISCOUNT SINGLE PERSON SINGLE PERSON + 1 CHILD SINGLE PERSON 2+ CHILDREN COUPLE COUPLE + 1 CHILD COUPLE 2+ CHILDREN 1 100% £0 - £167.00 £0 - £227.00 £0 - £286.00 £0 - £167.00 £0 - £227.00 £0 - £286.00 2 75% £167.01 ­ £227.00 £227.01 ­ £286.00 £286.01 ­ £345.00 £167.01 ­ £227.00 £227.01 ­ £286.00 £286.01 ­ £345.00 3 50% £227.01 ­ £286.00 £286.01 ­ £345.00 £345.01 ­ £404.00 £227.01 ­ £286.00 £286.01 ­ £345.00 £345.01 ­ £404.00 4 25% £286.01 ­ £345.00 £345.01 ­ £404.00 £404.01 ­ £463.00 £286.01 ­ £345.00 £345.01 ­ £404.00 £404.01 ­ £463.00 5 0% £345.01 + £404.01 + £463.01 + £345.01 + £404.01 + £463.01 +
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: tamworth_council_tax_reduction_maximum_dependant_children_in_grid
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: tamworth_council_tax_reduction_band_1_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: tamworth_council_tax_reduction_band_2_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '2'}]
+
+  - name: tamworth_council_tax_reduction_band_3_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '3'}]
+
+  - name: tamworth_council_tax_reduction_band_4_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '4'}]
+
+  - name: tamworth_council_tax_reduction_band_5_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '5'}]
+
+  - name: tamworth_council_tax_reduction_single_no_child_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0'}]
+
+  - name: tamworth_council_tax_reduction_single_one_child_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '1'}]
+
+  - name: tamworth_council_tax_reduction_single_two_plus_children_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '2'}]
+
+  - name: tamworth_council_tax_reduction_couple_no_child_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '3'}]
+
+  - name: tamworth_council_tax_reduction_couple_one_child_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '4'}]
+
+  - name: tamworth_council_tax_reduction_couple_two_plus_children_family_index
+    kind: parameter
+    dtype: Integer
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: '5'}]
+
+  - name: tamworth_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: tamworth_council_tax_reduction_selected_band_index
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: band, column_key: discount percentage}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {1: 1.00, 2: 0.75, 3: 0.50, 4: 0.25, 5: 0}
+
+  - name: tamworth_council_tax_reduction_band_2_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tamworth_council_tax_reduction_family_category_index
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: &grid_table_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: family column, column_key: Band 2 lower weekly income}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 167.01, 1: 227.01, 2: 286.01, 3: 167.01, 4: 227.01, 5: 286.01}
+
+  - name: tamworth_council_tax_reduction_band_3_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tamworth_council_tax_reduction_family_category_index
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 227.01, 1: 286.01, 2: 345.01, 3: 227.01, 4: 286.01, 5: 345.01}
+
+  - name: tamworth_council_tax_reduction_band_4_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tamworth_council_tax_reduction_family_category_index
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 286.01, 1: 345.01, 2: 404.01, 3: 286.01, 4: 345.01, 5: 404.01}
+
+  - name: tamworth_council_tax_reduction_band_5_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tamworth_council_tax_reduction_family_category_index
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 345.01, 1: 404.01, 2: 463.01, 3: 345.01, 4: 404.01, 5: 463.01}
+
+  - name: tamworth_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 sections 1.6 and 1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "has made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_tamworth
+          and council_tax_reduction_household_in_england
+          and tamworth_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+
+  - name: tamworth_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: &passport_source
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "*Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tamworth_council_tax_reduction_applicant_or_partner_receives_income_support
+          or tamworth_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or tamworth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: tamworth_council_tax_reduction_family_category_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1 and 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: family column, column_key: weekly income range}
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tamworth_council_tax_reduction_has_partner: if tamworth_council_tax_reduction_dependant_child_count >= tamworth_council_tax_reduction_maximum_dependant_children_in_grid: tamworth_council_tax_reduction_couple_two_plus_children_family_index else: if tamworth_council_tax_reduction_dependant_child_count >= tamworth_council_tax_reduction_one_dependant_child_count: tamworth_council_tax_reduction_couple_one_child_family_index else: tamworth_council_tax_reduction_couple_no_child_family_index else: if tamworth_council_tax_reduction_dependant_child_count >= tamworth_council_tax_reduction_maximum_dependant_children_in_grid: tamworth_council_tax_reduction_single_two_plus_children_family_index else: if tamworth_council_tax_reduction_dependant_child_count >= tamworth_council_tax_reduction_one_dependant_child_count: tamworth_council_tax_reduction_single_one_child_family_index else: tamworth_council_tax_reduction_single_no_child_family_index
+
+  - name: tamworth_council_tax_reduction_selected_band_index
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: family column, column_key: weekly income range}
+          - path: versions[0].formula
+            kind: condition
+            source: *passport_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tamworth_council_tax_reduction_passported_to_band_1: tamworth_council_tax_reduction_band_1_index else: if tamworth_council_tax_reduction_assessed_weekly_income < tamworth_council_tax_reduction_band_2_lower_weekly_income_by_family[tamworth_council_tax_reduction_family_category_index]: tamworth_council_tax_reduction_band_1_index else: if tamworth_council_tax_reduction_assessed_weekly_income < tamworth_council_tax_reduction_band_3_lower_weekly_income_by_family[tamworth_council_tax_reduction_family_category_index]: tamworth_council_tax_reduction_band_2_index else: if tamworth_council_tax_reduction_assessed_weekly_income < tamworth_council_tax_reduction_band_4_lower_weekly_income_by_family[tamworth_council_tax_reduction_family_category_index]: tamworth_council_tax_reduction_band_3_index else: if tamworth_council_tax_reduction_assessed_weekly_income < tamworth_council_tax_reduction_band_5_lower_weekly_income_by_family[tamworth_council_tax_reduction_family_category_index]: tamworth_council_tax_reduction_band_4_index else: tamworth_council_tax_reduction_band_5_index
+
+  - name: tamworth_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: band, column_key: discount percentage}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tamworth_council_tax_reduction_support_rate_by_band[tamworth_council_tax_reduction_selected_band_index]
+
+  - name: tamworth_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: *ordinary_capital_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tamworth_council_tax_reduction_assessed_capital_for_year <= tamworth_council_tax_reduction_ordinary_capital_limit
+
+  - name: tamworth_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Class D and Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "Class D To obtain reduction the individual (or partner) must:"
+          - path: versions[0].formula
+            kind: condition
+            source: *ordinary_capital_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tamworth_council_tax_reduction_working_age_scheme_applies
+          and tamworth_council_tax_reduction_capital_eligible
+
+  - name: tamworth_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "shall be 100 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tamworth_council_tax_reduction_maximum_eligible_liability_for_year * tamworth_council_tax_reduction_maximum_liability_rate
+
+  - name: simulated_tamworth_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1 to 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table: {header: Banded Discount Scheme, row_key: band, column_key: discount percentage}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tamworth_council_tax_reduction_award_conditions_met: tamworth_council_tax_reduction_maximum_for_year * tamworth_council_tax_reduction_selected_support_rate else: tamworth_council_tax_reduction_maximum_for_year * tamworth_council_tax_reduction_support_rate_by_band[tamworth_council_tax_reduction_band_5_index]
+
+  - name: tamworth_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tamworth Borough Council Council Tax Reduction Scheme 2026/27 working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-tamworth/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_tamworth_council_tax_reduction_annual_amount
+
+inputs:
+  local_authority_is_tamworth: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Year}
+  tamworth_council_tax_reduction_applicant_is_in_working_age_class: {dtype: Boolean, entity: Household, period: Year}
+  tamworth_council_tax_reduction_assessed_capital_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  tamworth_council_tax_reduction_maximum_eligible_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  tamworth_council_tax_reduction_assessed_weekly_income: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  tamworth_council_tax_reduction_has_partner: {dtype: Boolean, entity: Household, period: Week}
+  tamworth_council_tax_reduction_dependant_child_count: {dtype: Integer, entity: Household, period: Week}
+  tamworth_council_tax_reduction_applicant_or_partner_receives_income_support: {dtype: Boolean, entity: Household, period: Week}
+  tamworth_council_tax_reduction_applicant_or_partner_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Week}
+  tamworth_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Week}

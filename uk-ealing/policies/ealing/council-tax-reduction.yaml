@@ -1,0 +1,920 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to Ealing Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Ealing's operative 2026-27 working-age award is a banded scheme, not an excess-income taper. The table gives direct awards of 100%, 75%, 60%, 50%, 40%, 30%, 20%, 10%, and 0% for protected Class E and 80%, 60%, 50%, 40%, 30%, 20%, 10%, and 0% for non-protected Class D. The selected direct rate applies to maximum council-tax liability before non-dependant, extended-reduction, and capping adjustments; the 80% Class D Band 1 rate is not compounded with later table rates. Unless passported, Class D income must be below £308.40 and Class E income below £334.09. The detailed Class D/E eligibility clauses make capital of £6,000 or more ineligible, notwithstanding the broader page-13 wording that says capital exceeds £6,000. Awards below £2 per week are nil. Ealing prints no local tariff-income threshold, step, or amount, and its local capital cliff makes any incorporated default-regulations tariff methodology inoperative within an eligible award.
+  deferred_outputs:
+    - output: uk-ealing:policies/ealing/council-tax-reduction/sections-5-and-6#working_age_class_and_assessed_weekly_income
+      reason: The award surface consumes the working-age eligibility result and assessed weekly income; liability, residency, pension-credit, income, earnings-disregard, self-employment, and Universal Credit calculation mechanics are outside this module.
+    - output: uk-ealing:policies/ealing/council-tax-reduction/section-6#assessed_capital_and_default_regulations_tariff_income
+      reason: This module applies Ealing's local capital cliff. Capital valuation, attribution, disregards, and the incorporated Default Regulations tariff-income methodology are not locally quantified in the adopted document and are outside this award surface.
+    - output: uk-ealing:policies/ealing/council-tax-reduction/section-7#non_dependant_deduction_classifier_and_235_16_tie_breaker
+      reason: The deduction amounts are encoded, but prescribed-scheme exemptions and the source's unresolved equality at exactly £235.16 of gross weekly earnings are consumed as a classified deduction band rather than invented here.
+    - output: uk-ealing:policies/ealing/council-tax-reduction/section-9#extended_reduction_offset
+      reason: The award formula consumes the amount of an extended reduction from another billing authority; its determination is outside this local working-age award surface.
+    - output: uk-ealing:policies/ealing/council-tax-reduction/section-10#maximum_liability_class_d_capping_reduction_and_class_e_transitional_capping_adjustment
+      reason: The award surface consumes discounted maximum liability. The document says to subtract capping for Class D and subtract or add transitional capping for Class E, but supplies no calculation or amount.
+    - output: uk-ealing:policies/ealing/council-tax-reduction/sections-8-and-12#student_and_temporary_absence_eligibility
+      reason: Student treatment and the working-age temporary-absence classifier are outside this award calculation module.
+rules:
+  - name: ealing_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: ealing_council_tax_reduction_income_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 Council Tax Reduction Calculation Table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: &ealing_ctr_calculation_page uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: &ealing_ctr_calculation_excerpt "Council Tax Reduction Calculation Table Band Protected Income Bands £ Protected Customer’s contribution to council tax Protected CTR Award Non- protected Income Bands Non- protected Customer’s contribution to council tax Non- protected CTR Award 1 0.00 -154.18 0% 100% 0.00 -154.18 20% 80% 2 154.19 - 25% 75% 154.19 - 40% 60% 179.89 179.89 3 179.90 - 40% 60% 179.90 - 50% 50% 205.58 205.58 4 205.59 - 50% 50% 205.59 - 60% 40% 231.29 231.29 5 231.30 - 60% 40% 231.30 - 70% 30% 256.99 256.99 6 257.00- 70% 30% 257.00- 80% 20% 282.67 282.67 7 282.68 - 80% 20% 282.68- 90% 10% 308.39 308.39 8 308.40 – 90% 10% 308.40+ 100% 0.00 334.08 % 9 334.09+ 100% 0.00% - - -"
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: printed income band
+                column_key: band code
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+          6: 6
+          7: 7
+          8: 8
+          9: 9
+
+  - name: ealing_council_tax_reduction_protected_income_band_lower_bound_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ealing_council_tax_reduction_income_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected income band
+                column_key: lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0
+          2: 154.19
+          3: 179.90
+          4: 205.59
+          5: 231.30
+          6: 257.00
+          7: 282.68
+          8: 308.40
+          9: 334.09
+
+  - name: ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ealing_council_tax_reduction_income_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 non-protected income bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: non-protected income band
+                column_key: lower weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0
+          2: 154.19
+          3: 179.90
+          4: 205.59
+          5: 231.30
+          6: 257.00
+          7: 282.68
+          8: 308.40
+
+  - name: ealing_council_tax_reduction_protected_ctr_award_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: ealing_council_tax_reduction_income_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected CTR Award column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected income band
+                column_key: Protected CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1.00
+          2: 0.75
+          3: 0.60
+          4: 0.50
+          5: 0.40
+          6: 0.30
+          7: 0.20
+          8: 0.10
+          9: 0
+
+  - name: ealing_council_tax_reduction_non_protected_ctr_award_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: ealing_council_tax_reduction_income_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 non-protected CTR Award column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: non-protected income band
+                column_key: Non-protected CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0.80
+          2: 0.60
+          3: 0.50
+          4: 0.40
+          5: 0.30
+          6: 0.20
+          7: 0.10
+          8: 0
+
+  - name: ealing_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected Band 1 maximum award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected Band 1
+                column_key: Protected CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: ealing_council_tax_reduction_non_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Ealing Council Tax Reduction Scheme 2026/27 non-protected Band 1 maximum award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: non-protected Band 1
+                column_key: Non-protected CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: ealing_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D and Class E eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital equal to or in excess of £6000"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "not have capital equal to or in excess £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: ealing_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 section 11
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "No reduction will be awarded to an applicant if their entitlement is less than £2 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: ealing_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ealing_council_tax_reduction_non_dependant_deduction_band
+    source: Ealing Council Tax Reduction Scheme 2026/27 section 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: &ealing_non_dependant_deduction_page uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: &ealing_non_dependant_deduction_excerpt "Non-dependant deductions Category Amount Full time student £00.00 Not in employment £8.35 Working with gross earnings less £235.16 per week £15.42 Working with gross earnings more £235.16 per week £23.13"
+              table:
+                header: Non-dependant deductions
+                row_key: category resolved by the source classifier
+                column_key: amount
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 8.35
+          2: 15.42
+          3: 23.13
+
+  - name: ealing_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 full-time-student non-dependant deduction
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: *ealing_non_dependant_deduction_page
+              excerpt: *ealing_non_dependant_deduction_excerpt
+              table:
+                header: Non-dependant deductions
+                row_key: Full time student
+                column_key: Amount
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: ealing_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 working-age scheme
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Working age persons only Class D: Working age, non-protected persons"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "Class E Working Age, protected persons"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_ealing
+          and council_tax_reduction_household_in_england
+          and ealing_council_tax_reduction_applicant_is_working_age
+          and ealing_council_tax_reduction_other_working_age_scheme_conditions_met
+
+  - name: ealing_council_tax_reduction_is_protected_class_e
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class E protected persons
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "Class E Working Age, protected persons"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_working_age_scheme_applies
+          and (
+            ealing_ctr_protection_lone_parent_under_five
+            or ealing_ctr_protection_disability_or_carer_benefit
+            or ealing_ctr_protection_universal_credit_element
+            or ealing_ctr_protection_care_leaver_under_25
+            or ealing_ctr_protection_armed_forces_independence_payment
+            or ealing_ctr_protection_carer_underlying_entitlement
+          )
+
+  - name: ealing_ctr_protection_lone_parent_under_five
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a lone parent with a child under 5 years of age"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_lone_parent_has_child_under_five
+
+  - name: ealing_ctr_protection_disability_or_carer_benefit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "in receipt of a disability benefit, carers allowance, employment and support allowance, personal independence payment, attendance allowance or disability living allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_receives_protected_disability_or_carer_benefit
+
+  - name: ealing_ctr_protection_universal_credit_element
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "In receipt of Universal Credit which includes one of the following elements: limited capability for work, limited capability for work related activity, disabled child or carer"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_universal_credit_includes_protected_element
+
+  - name: ealing_ctr_protection_care_leaver_under_25
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a care leaver under the age of 25"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_is_care_leaver_under_25
+
+  - name: ealing_ctr_protection_armed_forces_independence_payment
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "In receipt of an armed forces independence payment"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_receives_armed_forces_independence_payment
+
+  - name: ealing_ctr_protection_carer_underlying_entitlement
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected-person criterion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a carer in receipt of carers allowance or have an underlying entitlement to it"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_is_carer_with_allowance_or_underlying_entitlement
+
+  - name: ealing_council_tax_reduction_is_non_protected_class_d
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D non-protected persons
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Working age persons only Class D: Working age, non-protected persons"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_working_age_scheme_applies
+          and not ealing_council_tax_reduction_is_protected_class_e
+
+  - name: ealing_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D and Class E capital eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital equal to or in excess of £6000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "not have capital equal to or in excess £6000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_assessed_capital_for_year < ealing_council_tax_reduction_capital_limit
+
+  - name: ealing_council_tax_reduction_protected_income_below_band_9_limit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class E weekly income eligibility limit
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "be a person in receipt of a passported benefit or income (taken into account) of less than the weekly limit shown in band 9"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected band 9
+                column_key: income lower bound
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_assessed_weekly_income < ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[9]]
+
+  - name: ealing_council_tax_reduction_non_protected_income_below_band_8_limit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D weekly income eligibility limit
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "be a person in receipt of a passported benefit or have income (taken into account) of less than the weekly limit shown in band 8"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: non-protected band 8
+                column_key: income lower bound
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_assessed_weekly_income < ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[8]]
+
+  - name: ealing_council_tax_reduction_income_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D and Class E weekly income eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "be a person in receipt of a passported benefit or have income (taken into account) of less than the weekly limit shown in band 8"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "be a person in receipt of a passported benefit or income (taken into account) of less than the weekly limit shown in band 9"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected band 9 and non-protected band 8
+                column_key: income lower bound
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_has_passported_benefit
+          or (ealing_council_tax_reduction_is_protected_class_e and ealing_council_tax_reduction_protected_income_below_band_9_limit)
+          or (ealing_council_tax_reduction_is_non_protected_class_d and ealing_council_tax_reduction_non_protected_income_below_band_8_limit)
+
+  - name: ealing_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 working-age award eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "not have capital equal to or in excess of £6000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "not have capital equal to or in excess £6000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "be a person in receipt of a passported benefit or have income (taken into account) of less than the weekly limit shown in band 8"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "be a person in receipt of a passported benefit or income (taken into account) of less than the weekly limit shown in band 9"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_working_age_scheme_applies
+          and ealing_council_tax_reduction_capital_eligible
+          and ealing_council_tax_reduction_income_eligible
+          and would_claim_council_tax_reduction
+
+  - name: ealing_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 Council Tax Reduction Calculation Table
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "move away from the old system based on needs, allowances and tapers"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "The new scheme is based on income bands,"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: income bands
+                column_key: band code
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "(1) Less the class D contribution level for band 1 where the person is in receipt of a passported benefit or (2) Less the class D contribution level applicable to the band in which the persons income falls Less any non-dependant deduction Less capping"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "For Class E, the reduction will be: The maximum council tax liability (1) less the class E contribution level for band 1 where the person is in receipt of a passported benefit or (2) less the class E contribution level applicable to the band in which the persons income falls. Less any non-dependant deductions Less or plus any transitional capping"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ealing_council_tax_reduction_has_passported_benefit: ealing_council_tax_reduction_income_band_codes[1] else: if ealing_council_tax_reduction_is_protected_class_e: (if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[9]]: ealing_council_tax_reduction_income_band_codes[9] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[8]]: ealing_council_tax_reduction_income_band_codes[8] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[7]]: ealing_council_tax_reduction_income_band_codes[7] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[6]]: ealing_council_tax_reduction_income_band_codes[6] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[5]]: ealing_council_tax_reduction_income_band_codes[5] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[4]]: ealing_council_tax_reduction_income_band_codes[4] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[3]]: ealing_council_tax_reduction_income_band_codes[3] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[2]]: ealing_council_tax_reduction_income_band_codes[2] else: ealing_council_tax_reduction_income_band_codes[1]) else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[8]]: ealing_council_tax_reduction_income_band_codes[8] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[7]]: ealing_council_tax_reduction_income_band_codes[7] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[6]]: ealing_council_tax_reduction_income_band_codes[6] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[5]]: ealing_council_tax_reduction_income_band_codes[5] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[4]]: ealing_council_tax_reduction_income_band_codes[4] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[3]]: ealing_council_tax_reduction_income_band_codes[3] else: if ealing_council_tax_reduction_assessed_weekly_income >= ealing_council_tax_reduction_non_protected_income_band_lower_bound_weekly[ealing_council_tax_reduction_income_band_codes[2]]: ealing_council_tax_reduction_income_band_codes[2] else: ealing_council_tax_reduction_income_band_codes[1]
+
+  - name: ealing_council_tax_reduction_selected_ctr_award_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Ealing Council Tax Reduction Scheme 2026/27 protected and non-protected CTR Award columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected and non-protected income bands
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ealing_council_tax_reduction_income_band == ealing_council_tax_reduction_income_band_codes[1]: (if ealing_council_tax_reduction_is_protected_class_e: ealing_council_tax_reduction_protected_maximum_support_rate else: ealing_council_tax_reduction_non_protected_maximum_support_rate) else: if ealing_council_tax_reduction_is_protected_class_e: ealing_council_tax_reduction_protected_ctr_award_rate_by_income_band[ealing_council_tax_reduction_income_band] else: ealing_council_tax_reduction_non_protected_ctr_award_rate_by_income_band[ealing_council_tax_reduction_income_band]
+
+  - name: ealing_council_tax_reduction_selected_non_dependant_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 section 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_non_dependant_deduction_page
+              excerpt: *ealing_non_dependant_deduction_excerpt
+              table:
+                header: Non-dependant deductions
+                row_key: category resolved by the source classifier
+                column_key: amount
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_non_dependant_deduction_weekly_by_band[ealing_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: ealing_council_tax_reduction_maximum_amount_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 working-age maximum liability and CTR Award grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "Working age awards are as follows: For Class D the CTR will be: The maximum council tax liability"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "For Class E, the reduction will be: The maximum council tax liability"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: *ealing_ctr_calculation_page
+              excerpt: *ealing_ctr_calculation_excerpt
+              table:
+                header: Council Tax Reduction Calculation Table
+                row_key: protected and non-protected income bands
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ealing_council_tax_reduction_maximum_council_tax_liability_weekly * ealing_council_tax_reduction_selected_ctr_award_rate
+
+  - name: ealing_council_tax_reduction_amount_before_minimum_award_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 Class D and Class E award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "(1) Less the class D contribution level for band 1 where the person is in receipt of a passported benefit or (2) Less the class D contribution level applicable to the band in which the persons income falls Less any non-dependant deduction Less capping"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "For Class E, the reduction will be: The maximum council tax liability (1) less the class E contribution level for band 1 where the person is in receipt of a passported benefit or (2) less the class E contribution level applicable to the band in which the persons income falls. Less any non-dependant deductions Less or plus any transitional capping"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "The council will reduce any reduction to which the applicant is entitled under this scheme by the amount of that extended reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ealing_council_tax_reduction_award_conditions_met: (if ealing_council_tax_reduction_is_protected_class_e: ealing_council_tax_reduction_maximum_amount_weekly - ealing_council_tax_reduction_selected_non_dependant_deduction_weekly - ealing_council_tax_reduction_extended_reduction_weekly - ealing_council_tax_reduction_class_e_transitional_capping_adjustment_weekly else: ealing_council_tax_reduction_maximum_amount_weekly - ealing_council_tax_reduction_selected_non_dependant_deduction_weekly - ealing_council_tax_reduction_extended_reduction_weekly - ealing_council_tax_reduction_class_d_capping_reduction_weekly) else: ealing_council_tax_reduction_zero_weekly_amount
+
+  - name: ealing_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ealing Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "Effective April 2026"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ealing/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "No reduction will be awarded to an applicant if their entitlement is less than £2 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ealing_council_tax_reduction_amount_before_minimum_award_weekly < ealing_council_tax_reduction_minimum_award_weekly: ealing_council_tax_reduction_zero_weekly_amount else: ealing_council_tax_reduction_amount_before_minimum_award_weekly
+
+inputs:
+  - name: local_authority_is_ealing
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: council_tax_reduction_household_in_england
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_applicant_is_working_age
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_other_working_age_scheme_conditions_met
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_lone_parent_has_child_under_five
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_receives_protected_disability_or_carer_benefit
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_universal_credit_includes_protected_element
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_is_care_leaver_under_25
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_receives_armed_forces_independence_payment
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_is_carer_with_allowance_or_underlying_entitlement
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: ealing_council_tax_reduction_has_passported_benefit
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: ealing_council_tax_reduction_assessed_capital_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: ealing_council_tax_reduction_assessed_weekly_income
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: ealing_council_tax_reduction_maximum_council_tax_liability_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: ealing_council_tax_reduction_non_dependant_deduction_band
+    entity: Household
+    dtype: Number
+    period: Week
+  - name: ealing_council_tax_reduction_extended_reduction_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: ealing_council_tax_reduction_class_d_capping_reduction_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: ealing_council_tax_reduction_class_e_transitional_capping_adjustment_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP

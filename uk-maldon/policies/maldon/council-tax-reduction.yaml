@@ -4,10 +4,10 @@ module:
     required: true
   source_verification:
     corpus_citation_path: uk-maldon/manual/council-tax-reduction-scheme-2026-2027/page-79
-    upstream_source_check:
-      status: delegated_scheme
-      checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
-      rationale: LGFA 1992 section 13A delegates the working-age scheme to Maldon District Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Maldon District Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
   summary: |-
     Maldon's operative 2026-27 working-age scheme caps maximum support at 80% of the lower of actual liability or Band D liability. The Class E taper is linked expressly to that section 57 maximum and withdraws 2 6/7% daily, exactly 20% weekly. Capital above £6,000 ends support. The scheme incorporates the Housing Benefit tariff-income calculation, but tariff income is necessarily zero throughout Maldon's locally eligible capital range. Non-dependants attract £10 weekly in every printed work/income band unless a protection or exemption applies. No minimum-award floor is printed.
   deferred_outputs:

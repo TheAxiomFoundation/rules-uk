@@ -1,0 +1,229 @@
+- name: st_helens_ctr_printed_maximum_support_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_maximum_support_rate: 0.8
+
+- name: st_helens_ctr_printed_capital_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_capital_limit: 16000
+
+- name: st_helens_ctr_printed_taper_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_taper_rate: 0.2
+
+- name: st_helens_ctr_printed_minimum_entitlement
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_minimum_weekly_entitlement: 1
+
+- name: st_helens_ctr_printed_zero_weekly_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_zero_weekly_amount: 0
+
+- name: st_helens_ctr_printed_zero_non_dependant_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_zero_non_dependant_deduction_band: 0
+
+- name: st_helens_ctr_working_age_non_dependant_zero_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: st_helens_ctr_working_age_scheme_applies
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: st_helens_ctr_pension_age_scheme_does_not_apply
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: true
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_working_age_scheme_applies: not_holds
+
+- name: st_helens_ctr_capital_eligible_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 16000
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_capital_eligible: holds
+
+- name: st_helens_ctr_capital_ineligible_above_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 16000.01
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_capital_eligible: not_holds
+
+- name: st_helens_ctr_excess_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 120
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_excess_income_weekly: 20
+
+- name: st_helens_ctr_no_excess_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 100
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 120
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_excess_income_weekly: 0
+
+- name: st_helens_ctr_taper_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 120
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_income_taper_deduction_weekly: 4
+
+- name: st_helens_ctr_zero_non_dependant_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_non_dependant_deduction_band: 0
+
+- name: st_helens_ctr_band_d_ceiling_maximum
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 50
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 40
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_maximum_weekly_amount: 32
+
+- name: st_helens_ctr_actual_liability_maximum
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 30
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 40
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_maximum_weekly_amount: 24
+
+- name: st_helens_ctr_award_before_floor
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 130
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_award_before_minimum_floor_weekly: 10
+
+- name: st_helens_ctr_award_before_floor_clamped_to_zero
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 200
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_award_before_minimum_floor_weekly: 0
+
+- name: st_helens_ctr_simulated_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 0
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 130
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#simulated_st_helens_council_tax_reduction_weekly_amount: 10
+
+- name: st_helens_ctr_full_award_at_capital_limit_and_band_d_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 16000
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 50
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 40
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 100
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_amount: 32
+
+- name: st_helens_ctr_capital_cliff_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 16000.01
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 40
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 40
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 100
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_amount: 0
+
+- name: st_helens_ctr_taper_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 0
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 20
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 130
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_amount: 10
+
+- name: st_helens_ctr_minimum_floor_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 0
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 2
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 2
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 104
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_amount: 0
+
+- name: st_helens_ctr_minimum_floor_awards_exactly_one_pound
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.local_authority_is_st_helens: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_capital: 0
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_actual_liability_weekly: 2
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_band_d_liability_weekly: 2
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_assessed_income_weekly: 103
+    uk-st-helens:policies/st-helens/council-tax-reduction#input.st_helens_council_tax_reduction_applicable_amount_weekly: 100
+  output:
+    uk-st-helens:policies/st-helens/council-tax-reduction#st_helens_council_tax_reduction_weekly_amount: 1

@@ -1,0 +1,652 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+  summary: |-
+    Solihull's operative 2026-27 working-age scheme is a four-band weekly-net-income discount scheme, not an excess-income taper. Paragraph 48.1 first limits the maximum Council Tax Reduction to 85 percent of eligible liability. Schedule 1 then selects a 85, 75, 50, or 25 percent band rate by family category and composes that rate onto the defined maximum. Capital of £16,000 or more gives no award. A £10 weekly deduction applies for each resident non-dependant, except where the applicant would but for this scheme receive a disability premium. The adopted working-age award surface prints no tariff-income rule and no minimum-award floor. Pension-age prescribed provisions are outside this local working-age module.
+  deferred_outputs:
+    - output: uk-solihull:policies/solihull/council-tax-reduction/sections-11-to-24-and-schedules-2-and-4#assessed_weekly_net_income
+      reason: This award-surface module consumes the applicant-and-partner weekly net income after the scheme's income calculation, disregards, earnings, and Universal Credit assessment rules.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/sections-26-to-34-and-schedule-3#assessed_capital
+      reason: This module applies the local £16,000 capital cliff but does not encode capital valuation, attribution, notional capital, or capital-disregard schedules.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/paragraphs-1.6-to-1.7#applicant_is_in_working_age_class
+      reason: The claimant-and-partner pension-credit-age and qualifying-benefit classifier is consumed as an input to this working-age award surface.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/paragraphs-48.1-to-48.4#maximum_eligible_liability_for_year
+      reason: This module consumes eligible liability after the scheme's daily calculation, statutory discounts, and joint-liability apportionment rules.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/schedule-1-paragraphs-2-to-4#family_category
+      reason: The Schedule 1 household-family classifier is consumed as an input; this module applies every resulting table column.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/paragraphs-48.5-to-48.6#chargeable_non_dependant_count_and_disability_premium_protection
+      reason: This module applies the printed flat deduction but consumes the resident non-dependant count and disability-premium protection classifier.
+    - output: uk-solihull:policies/solihull/council-tax-reduction/pension-age-class-c#alternative_maximum_council_tax_reduction
+      reason: The separate prescribed pension-age alternative maximum reduction is outside this working-age local-scheme module.
+rules:
+  - name: solihull_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 85 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.85
+
+  - name: solihull_council_tax_reduction_no_award_band_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 Class D and Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have income above the levels specified within the scheme at Schedule 1;"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: solihull_council_tax_reduction_band_1_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: solihull_council_tax_reduction_band_2_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: solihull_council_tax_reduction_band_3_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: solihull_council_tax_reduction_band_4_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: solihull_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: solihull_council_tax_reduction_income_band
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+              table:
+                header: Table 1
+                row_key: income band
+                column_key: discount level
+          - path: versions[0].values
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have income above the levels specified within the scheme at Schedule 1;"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0.85
+          2: 0.75
+          3: 0.50
+          4: 0.25
+
+  - name: solihull_council_tax_reduction_band_1_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_family_category
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: &table_1_grid_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+              table:
+                header: Table 1 weekly income levels
+                row_key: family category
+                column_key: weekly net income range
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0
+          2: 0
+          3: 0
+          4: 0
+          5: 0
+
+  - name: solihull_council_tax_reduction_band_1_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_family_category
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *table_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 120
+          1: 220
+          2: 310
+          3: 170
+          4: 240
+          5: 320
+
+  - name: solihull_council_tax_reduction_band_2_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_family_category
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *table_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 170
+          1: 270
+          2: 360
+          3: 220
+          4: 290
+          5: 370
+
+  - name: solihull_council_tax_reduction_band_3_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_family_category
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *table_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 220
+          1: 320
+          2: 410
+          3: 270
+          4: 340
+          5: 420
+
+  - name: solihull_council_tax_reduction_band_4_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_family_category
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *table_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 270
+          1: 370
+          2: 460
+          3: 320
+          4: 390
+          5: 470
+
+  - name: solihull_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "For the purposes of this scheme, the prescribed amount is £16,000 and no reduction shall be granted when the applicant has an amount of £16,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: solihull_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 weekly-income conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "by multiplying the amount of the award by 12 and dividing the product by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: solihull_council_tax_reduction_no_non_dependant_deduction_band_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "No non-dependant deductions shall be made where the applicant would, but for this scheme, have received a disability premium."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: solihull_council_tax_reduction_resident_non_dependant_deduction_band_index
+    kind: parameter
+    dtype: Number
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: solihull_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: solihull_council_tax_reduction_non_dependant_deduction_band
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraphs 48.5-48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "Non Dependant Deductions 48.5 There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household. 48.6 No non-dependant deductions shall be made where the applicant would, but for this scheme, have received a disability premium."
+              table:
+                header: Non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 10
+
+  - name: solihull_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraphs 1.6-1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(j) have made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_solihull and council_tax_reduction_household_in_england and solihull_council_tax_reduction_applicant_is_in_working_age_class and would_claim_council_tax_reduction
+
+  - name: solihull_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "no reduction shall be granted when the applicant has an amount of £16,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_assessed_capital_for_year < solihull_council_tax_reduction_capital_limit
+
+  - name: solihull_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Solihull Council Tax Reduction Scheme 2026/27 Class D and paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have capital savings of £16,000 or above;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(j) have made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_working_age_scheme_applies and solihull_council_tax_reduction_capital_eligible
+
+  - name: solihull_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "*Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_applicant_or_partner_receives_income_support or solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa or solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: solihull_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+              table:
+                header: Table 1 weekly income levels
+                row_key: weekly net income and family category
+                column_key: income band
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "not have income above the levels specified within the scheme at Schedule 1;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if solihull_council_tax_reduction_passported_to_band_1: solihull_council_tax_reduction_band_1_index else: if solihull_council_tax_reduction_assessed_weekly_net_income < solihull_council_tax_reduction_band_1_lower_weekly_income_by_family[solihull_council_tax_reduction_family_category]: solihull_council_tax_reduction_no_award_band_index else: if solihull_council_tax_reduction_assessed_weekly_net_income <= solihull_council_tax_reduction_band_1_upper_weekly_income_by_family[solihull_council_tax_reduction_family_category]: solihull_council_tax_reduction_band_1_index else: if solihull_council_tax_reduction_assessed_weekly_net_income <= solihull_council_tax_reduction_band_2_upper_weekly_income_by_family[solihull_council_tax_reduction_family_category]: solihull_council_tax_reduction_band_2_index else: if solihull_council_tax_reduction_assessed_weekly_net_income <= solihull_council_tax_reduction_band_3_upper_weekly_income_by_family[solihull_council_tax_reduction_family_category]: solihull_council_tax_reduction_band_3_index else: if solihull_council_tax_reduction_assessed_weekly_net_income <= solihull_council_tax_reduction_band_4_upper_weekly_income_by_family[solihull_council_tax_reduction_family_category]: solihull_council_tax_reduction_band_4_index else: solihull_council_tax_reduction_no_award_band_index
+
+  - name: solihull_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Table 1 Discount level Passported Single Single with 1 Child Single with 2+ Children Couples Couple with 1 Child Couple with 2+ Children Weekly Income Levels (Net) Band 1 85% Relevant Benefit £0.00 to £120.00 £0.00 to £220.00 £0.00 to £310.00 £0.00 to £170.00 £0.00 to £240.00 £0.00 to £320.00 Band 2 75% N/A £120.01 to £170.00 £220.01 to £270.00 £310.01 to £360.00 £170.01 to £220.00 £240.01 to £290.00 £320.01 to £370.00 Band 3 50% N/A £170.01 to £220.00 £270.01 to £320.00 £360.01 to £410.00 £220.01 to £270.00 £290.01 to £340.00 £370.01 to £420.00 Band 4 25% N/A £220.01 to £270.00 £320.01 to £370.00 £410.01 to £460.00 £270.01 to £320.00 £340.01 to £390.00 £420.01 to £470.00"
+              table:
+                header: Table 1
+                row_key: income band
+                column_key: discount level
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_support_rate_by_band[solihull_council_tax_reduction_income_band]
+
+  - name: solihull_council_tax_reduction_non_dependant_deduction_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraphs 48.5-48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "No non-dependant deductions shall be made where the applicant would, but for this scheme, have received a disability premium."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_has_chargeable_non_dependant and not solihull_council_tax_reduction_applicant_would_receive_disability_premium
+
+  - name: solihull_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraphs 48.5-48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "Non Dependant Deductions 48.5 There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household. 48.6 No non-dependant deductions shall be made where the applicant would, but for this scheme, have received a disability premium."
+              table:
+                header: Non-dependant deductions
+                row_key: application condition
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if solihull_council_tax_reduction_non_dependant_deduction_applies: solihull_council_tax_reduction_resident_non_dependant_deduction_band_index else: solihull_council_tax_reduction_no_non_dependant_deduction_band_index
+
+  - name: solihull_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_non_dependant_weekly_deduction_by_band[solihull_council_tax_reduction_non_dependant_deduction_band] * solihull_council_tax_reduction_chargeable_non_dependant_count * solihull_council_tax_reduction_weeks_per_year
+
+  - name: solihull_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Solihull Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 85 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          solihull_council_tax_reduction_maximum_eligible_liability_for_year * solihull_council_tax_reduction_maximum_support_rate
+
+  - name: simulated_solihull_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Solihull Council Tax Reduction Scheme 2026/27 Schedule 1 and paragraphs 48.1, 48.5-48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction Scheme from 2026/27 shall be calculated on the basis of the following banded support scheme:"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "In all cases (Table 1), the amount of reduction to be granted is to be based on the following factors: (a) The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "There shall be a deduction of £10 per week made in respect of any non-dependant who resides in the household."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if solihull_council_tax_reduction_award_conditions_met: max(solihull_council_tax_reduction_maximum_amount_for_year * solihull_council_tax_reduction_selected_support_rate - solihull_council_tax_reduction_annual_non_dependant_deduction, solihull_council_tax_reduction_maximum_amount_for_year * solihull_council_tax_reduction_support_rate_by_band[solihull_council_tax_reduction_no_award_band_index]) else: solihull_council_tax_reduction_maximum_amount_for_year * solihull_council_tax_reduction_support_rate_by_band[solihull_council_tax_reduction_no_award_band_index]
+
+  - name: solihull_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Solihull Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "This document details how the scheme will operate for both pension credit age and working age applicants and in accordance with Section 13A of the Local Government Finance Act 1992 specifies the classes of person who are to be entitled to a reduction under the scheme and is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-solihull/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The authority’s Council Tax Reduction Scheme from 2026/27 shall be calculated on the basis of the following banded support scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_solihull_council_tax_reduction_annual_amount
+
+inputs:
+  local_authority_is_solihull: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Year}
+  solihull_council_tax_reduction_applicant_is_in_working_age_class: {dtype: Boolean, entity: Household, period: Year}
+  solihull_council_tax_reduction_assessed_capital_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  solihull_council_tax_reduction_maximum_eligible_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  solihull_council_tax_reduction_assessed_weekly_net_income: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  solihull_council_tax_reduction_family_category: {dtype: Number, entity: Household, period: Week}
+  solihull_council_tax_reduction_applicant_or_partner_receives_income_support: {dtype: Boolean, entity: Household, period: Week}
+  solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Week}
+  solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Week}
+  solihull_council_tax_reduction_has_chargeable_non_dependant: {dtype: Boolean, entity: Household, period: Week}
+  solihull_council_tax_reduction_applicant_would_receive_disability_premium: {dtype: Boolean, entity: Household, period: Week}
+  solihull_council_tax_reduction_chargeable_non_dependant_count: {dtype: Number, entity: Household, period: Week}

@@ -1,0 +1,854 @@
+---
+- name: south_norfolk_ctr_parameters_and_ordinary_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_ordinary_maximum_support_rate: 0.87
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_war_pension_maximum_support_rate
+    : 1
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_withdrawal_rate: 0.2
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_capital_limit: 16000
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_threshold: 6000
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_capital_step: 250
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_weekly_amount_per_step
+    : 1
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_weeks_per_year: 52
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_selected_maximum_support_rate: 0.87
+- name: south_norfolk_ctr_parameters_and_ordinary_maximum_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 870
+- name: south_norfolk_ctr_war_pension_protected_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_selected_maximum_support_rate: 1
+- name: south_norfolk_ctr_war_pension_protected_maximum_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 1000
+- name: south_norfolk_ctr_working_age_scheme_applies
+  period: &1
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_working_age_scheme_applies: holds
+- name: south_norfolk_ctr_simulated_ordinary_maximum
+  period: *1
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#simulated_south_norfolk_council_tax_reduction_annual_amount: 870
+- name: south_norfolk_ctr_taper_positive
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 6200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_excess_income_for_year: 1000
+- name: south_norfolk_ctr_taper_positive_south_norfolk_council_tax_reduction_income_taper_deduction_for_year
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 6200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_income_taper_deduction_for_year
+    : 200
+- name: south_norfolk_ctr_taper_positive_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 6200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 670
+- name: south_norfolk_ctr_tariff_threshold_below
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_for_year: 0
+- name: south_norfolk_ctr_tariff_threshold_below_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 870
+- name: south_norfolk_ctr_tariff_threshold_above_and_partial_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6000.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_for_year: 52
+- name: south_norfolk_ctr_tariff_threshold_above_and_partial_step_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6000.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 859.6
+- name: south_norfolk_ctr_tariff_complete_step_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6250
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_for_year: 52
+- name: south_norfolk_ctr_tariff_complete_step_edge_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6250
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 859.6
+- name: south_norfolk_ctr_tariff_next_step_edge
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6250.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_for_year: 104
+- name: south_norfolk_ctr_tariff_next_step_edge_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 6250.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 849.2
+- name: south_norfolk_ctr_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_capital_eligible: holds
+- name: south_norfolk_ctr_capital_at_limit_south_norfolk_council_tax_reduction_tariff_income_for_year
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_tariff_income_for_year: 2080
+- name: south_norfolk_ctr_capital_at_limit_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 454
+- name: south_norfolk_ctr_capital_over_limit_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_capital_eligible: not_holds
+- name: south_norfolk_ctr_capital_over_limit_zero_award_simulated_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#simulated_south_norfolk_council_tax_reduction_annual_amount: 0
+- name: south_norfolk_ctr_capital_over_limit_zero_award_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 16000.01
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 0
+- name: south_norfolk_ctr_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_non_dependant_band: 1
+- name: south_norfolk_ctr_non_dependant_deduction_south_norfolk_council_tax_reduction_annual_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_non_dependant_deduction: 364
+- name: south_norfolk_ctr_non_dependant_deduction_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 506
+- name: south_norfolk_ctr_non_dependant_protection
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : true
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_non_dependant_band: 0
+- name: south_norfolk_ctr_non_dependant_protection_south_norfolk_council_tax_reduction_annual_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : true
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_non_dependant_deduction: 0
+- name: south_norfolk_ctr_non_dependant_protection_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : true
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 870
+- name: south_norfolk_ctr_taper_extinguishes_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 10200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_income_taper_deduction_for_year
+    : 1000
+- name: south_norfolk_ctr_taper_extinguishes_award_south_norfolk_council_tax_reduction_annual_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 10200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#south_norfolk_council_tax_reduction_annual_amount: 0
+- name: south_norfolk_ctr_rounds_fraction_below_half_penny_down
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000.20
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#simulated_south_norfolk_council_tax_reduction_annual_amount: 870.17
+- name: south_norfolk_ctr_rounds_fraction_of_half_penny_up
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.local_authority_is_south_norfolk: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_is_working_age: true
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicant_receives_war_pension
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_assessed_capital_for_year
+    : 0
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_income_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_applicable_amount_for_year
+    : 5200
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_maximum_eligible_liability_for_year
+    : 1000.50
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_has_chargeable_non_dependant
+    : false
+    ? uk-south-norfolk:policies/south-norfolk/council-tax-reduction#input.south_norfolk_council_tax_reduction_non_dependant_deduction_protected_or_exempt
+    : false
+  output:
+    uk-south-norfolk:policies/south-norfolk/council-tax-reduction#simulated_south_norfolk_council_tax_reduction_annual_amount: 870.44

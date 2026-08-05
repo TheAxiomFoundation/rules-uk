@@ -1,0 +1,729 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Wigan Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: >-
+    Wigan's 2026/27 working-age award starts from the section 57 100-percent maximum,
+    reduces excess income by the printed daily taper, and then applies the local 20-percent
+    reduction except for an applicant or partner responsible for a child under five. Pension-age
+    provisions and the incorporated applicable-amount, income, and capital valuation schedules
+    are outside this working-age award surface.
+  deferred_outputs:
+    - output: uk-wigan:policies/wigan/council-tax-reduction/sections-12-to-32-and-schedules-1-to-4#applicable_amount_and_assessed_income
+      reason: This award surface consumes applicable amount and assessed income; the detailed personal allowances, premiums, earnings, disregards, and Universal Credit assessment rules are not encoded here.
+    - output: uk-wigan:policies/wigan/council-tax-reduction/sections-33-to-41-and-schedule-5#assessed_capital
+      reason: This module applies the local capital limits and tariff calculation but does not encode capital valuation, attribution, notional-capital, or disregard classifiers.
+    - output: uk-wigan:policies/wigan/council-tax-reduction/sections-57-to-58#eligible_liability_and_non_dependant_protection
+      reason: This module consumes eligible liability and a non-dependant-exemption result; liability apportionment, discount calculation, and protected-class classifiers are not encoded here.
+    - output: uk-wigan:policies/wigan/council-tax-reduction/schedule-2#alternative_maximum_council_tax_reduction
+      reason: The separate second-adult reduction is outside this working-age award calculation.
+rules:
+  - name: wigan_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-108
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wigan_council_tax_reduction_standard_reduction_rate
+    kind: parameter
+    dtype: Rate
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "shall be reduced by an amount of 20%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: wigan_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "£12,000 and no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          12000
+
+  - name: wigan_council_tax_reduction_child_under_five_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "the capital limit shall be £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: wigan_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 42.1 and 42A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "exceeds £6,000 it shall be treated as equivalent"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "exceeds £6,000 it shall be treated as equivalent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: wigan_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 42.1 and 42A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "£1 for each complete £250"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "£1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: wigan_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 42.1 and 42A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "weekly income of £1 for each complete £250"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wigan_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: wigan_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: wigan_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59.1, converted by the printed seven-day divisor
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_daily_taper_rate * wigan_council_tax_reduction_days_per_week
+
+  - name: wigan_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 15A.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: wigan_council_tax_reduction_non_dependant_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: wigan_council_tax_reduction_non_dependant_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: wigan_council_tax_reduction_non_dependant_band_4_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: wigan_council_tax_reduction_non_dependant_no_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.6 to 58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-110
+              excerpt: "58.7 No deduction shall be made in respect of a non-dependant"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: no deduction
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: wigan_council_tax_reduction_non_dependant_lower_band
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.1 and 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£5.20 x 1/7"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: income below £279.00 or not in remunerative work
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wigan_council_tax_reduction_non_dependant_band_2
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "58.2 In the case of a non-dependant aged 18 or over"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £279.00 to less than £485.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: wigan_council_tax_reduction_non_dependant_band_3
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 58.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "58.3 Only one deduction shall be made under this section"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £485.00 to less than £605.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: wigan_council_tax_reduction_non_dependant_band_4
+    kind: parameter
+    dtype: Number
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.1 and 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£15.95 x 1/7"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £605.00 or more
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_non_dependant_band_2 + wigan_council_tax_reduction_non_dependant_band_2
+
+  - name: wigan_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wigan_council_tax_reduction_non_dependant_deduction_band
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.1 and 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£15.95 x 1/7"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£5.20 x 1/7"
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£10.60 x1/7"
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "£13.30 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.60
+          3: 13.30
+          4: 15.95
+
+  - name: wigan_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "The adopted scheme for working age applicants is a means test"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_wigan and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: wigan_council_tax_reduction_selected_capital_limit
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Where the applicant or partner is responsible for, and resides with a child under 5 years, the capital limit shall be £16,000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "the prescribed amount is £12,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wigan_council_tax_reduction_applicant_or_partner_responsible_for_child_under_five: wigan_council_tax_reduction_child_under_five_capital_limit else: wigan_council_tax_reduction_capital_limit
+
+  - name: wigan_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "the prescribed amount is £12,000 and no support shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_assessed_capital_for_year <= wigan_council_tax_reduction_selected_capital_limit
+
+  - name: wigan_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 42.1 to 42.2 and 42A.1 to 42A.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "weekly income of £1 for each complete £250 of in excess of £6,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-88
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "weekly income of £1 for each complete £250 of in excess of £6,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-89
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ceil(max(0, wigan_council_tax_reduction_assessed_capital_for_year - wigan_council_tax_reduction_tariff_income_threshold) / wigan_council_tax_reduction_tariff_income_step) * wigan_council_tax_reduction_tariff_income_weekly_amount_per_step * wigan_council_tax_reduction_weeks_per_year
+
+  - name: wigan_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, wigan_council_tax_reduction_assessed_income_for_year + wigan_council_tax_reduction_tariff_income_for_year - wigan_council_tax_reduction_applicable_amount_for_year)
+
+  - name: wigan_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "shall be 2 6/7 per cent. Where an applicant’s income exceeds their applicable amount, their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_excess_income_for_year * wigan_council_tax_reduction_weekly_taper_rate
+
+  - name: wigan_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Year
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.1, 58.2, and 58.6 to 58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "normal gross weekly income is– (a) less than £279.00"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "No deduction shall be made in respect of any non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not wigan_council_tax_reduction_is_non_dependant or wigan_council_tax_reduction_non_dependant_exempt: wigan_council_tax_reduction_non_dependant_no_deduction_band else: if not wigan_council_tax_reduction_non_dependant_in_remunerative_work or wigan_council_tax_reduction_non_dependant_normal_gross_weekly_income < wigan_council_tax_reduction_non_dependant_band_2_threshold: wigan_council_tax_reduction_non_dependant_lower_band else: if wigan_council_tax_reduction_non_dependant_normal_gross_weekly_income < wigan_council_tax_reduction_non_dependant_band_3_threshold: wigan_council_tax_reduction_non_dependant_band_2 else: if wigan_council_tax_reduction_non_dependant_normal_gross_weekly_income < wigan_council_tax_reduction_non_dependant_band_4_threshold: wigan_council_tax_reduction_non_dependant_band_3 else: wigan_council_tax_reduction_non_dependant_band_4
+
+  - name: wigan_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 58.1 and 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-109
+              excerpt: "the deduction to be made under this section shall be £13.30 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_non_dependant_weekly_deduction_by_band[wigan_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: wigan_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-108
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wigan_council_tax_reduction_maximum_eligible_liability_for_year * wigan_council_tax_reduction_maximum_support_rate
+
+  - name: wigan_council_tax_reduction_post_standard_reduction_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 section 59A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "An entitlement calculated in accordance with this scheme shall be reduced by an amount of 20%. The standard deduction shall apply to the council tax support calculated for all working age applicants except where the applicant or partner resides with and is responsible for a child under 5 years old."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wigan_council_tax_reduction_applicant_or_partner_responsible_for_child_under_five: wigan_council_tax_reduction_amount_before_standard_reduction_for_year else: wigan_council_tax_reduction_amount_before_standard_reduction_for_year * (1 - wigan_council_tax_reduction_standard_reduction_rate)
+
+  - name: wigan_council_tax_reduction_amount_before_standard_reduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 sections 57.1 and 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "shall be 2 6/7 per cent. Where an applicant’s income exceeds their applicable amount, their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-108
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, wigan_council_tax_reduction_maximum_amount_for_year - wigan_council_tax_reduction_income_taper_deduction_for_year - wigan_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: simulated_wigan_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 working-age award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "An entitlement calculated in accordance with this scheme shall be reduced by an amount of 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wigan_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and wigan_council_tax_reduction_capital_eligible: wigan_council_tax_reduction_post_standard_reduction_amount_for_year else: 0
+
+  - name: wigan_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wigan Council Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wigan/manual/council-tax-reduction-scheme-2026-2027/page-111
+              excerpt: "An entitlement calculated in accordance with this scheme shall be reduced by an amount of 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_wigan_council_tax_reduction_annual_amount

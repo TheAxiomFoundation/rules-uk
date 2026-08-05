@@ -1,0 +1,401 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to Rugby Borough Council, so the adopted document is operative.
+  summary: |-
+    Rugby Borough Council's operative 2026-27 working-age Council Tax Reduction scheme applies a 100 percent maximum eligible liability and then the Schedule 1 income-band discount of 100, 75, 50, 25, or 0 percent. The Schedule expressly bases the selected discount on the defined maximum, so the band rate is composed onto that maximum. Capital of £6,000 or above ends entitlement. There is no working-age excess-income taper, tariff-income rule, minimum-award floor, or band cap in the printed award surface. Income Support, income-related ESA, and income-based JSA are protected at Band 1; Universal Credit is not listed in that override. The scheme expressly makes no non-dependant deductions. Pension-age provisions in the composite document are outside this working-age module.
+  deferred_outputs:
+    - output: uk-rugby:policies/rugby/council-tax-reduction/sections-8-to-10#council_tax_family_category
+      reason: The Schedule 1 award grid consumes the applicable family category, while the detailed family, child, and household classification rules remain outside this award-surface module.
+    - output: uk-rugby:policies/rugby/council-tax-reduction/sections-11-to-24-and-schedules-2-and-4#assessed_weekly_net_income
+      reason: The award surface consumes the scheme's weekly net income, while its detailed earnings, Universal Credit, self-employment minimum-income-floor, and income-disregard calculations remain outside this module.
+    - output: uk-rugby:policies/rugby/council-tax-reduction/sections-26-to-34-and-schedule-3#assessed_capital
+      reason: This module applies the printed £6,000 capital cliff; capital valuation, attribution, and disregard rules remain outside the award surface.
+    - output: uk-rugby:policies/rugby/council-tax-reduction/paragraphs-48.1-to-48.4#maximum_eligible_liability_for_year
+      reason: This module composes the local maximum-support rate onto eligible liability; daily charge, statutory discounts, and joint-liability apportionment remain outside the award surface.
+    - output: uk-rugby:policies/rugby/council-tax-reduction/section-1.4#alternative_maximum_council_tax_reduction
+      reason: The prescribed pension-age alternative maximum is outside this working-age local-scheme module.
+rules:
+  - name: rugby_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &maximum_support_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: rugby_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &capital_limit_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "the prescribed amount is £6,000 and no reduction shall be granted when the applicant has an amount of £6,000 or greater"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: rugby_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Integer
+    indexed_by: rugby_council_tax_reduction_income_band
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: &schedule_1_grid_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: &schedule_1_grid_source
+                corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+                excerpt: &schedule_1_grid_excerpt "Table 1 Discount Weekly Net Income Single income Couple Income Single with 1 Child Couple with 1 Child Single with 2 Children Couple with 2 Children (weekly) (weekly) Income (weekly) Income (weekly) Income (weekly) Income (weekly) Band 1 100% £0.00 to £125.00 £0.00 to £175.00 £0.00 to £225.00 £0.00 to £225.00 £0.00 to £325.00 £0.00 to £325.00 Band 2 75% £125.01 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £225.01 to £275.00 £325.01 to £375.00 £325.01 to £375.00 Band 3 50% £175.01 to £225.00 £225.01 to £275.00 £275.01 to £325.00 £275.01 to £325.00 £375.01 to £425.00 £375.01 to £425.00 Band 4 25% £225.01 to £275.00 £275.01 to £325.00 £325.01 to £375.00 £325.01 to £375.00 £425.01 to £475.00 £425.01 to £475.00 Band 5 £275.01or £325.01 £375.01 £375.01 £475.01 £475.01 0% more or more or more or more or more or more"
+              table:
+                header: Schedule 1 Table 1 banded support scheme
+                row_key: income band
+                column_key: band code
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+
+  - name: rugby_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: rugby_council_tax_reduction_income_band
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 and paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *schedule_1_grid_source
+              table:
+                header: Schedule 1 Table 1 banded support scheme
+                row_key: income band
+                column_key: discount percentage
+          - path: versions[0].values
+            kind: condition
+            source: &passported_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "*Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 1, 1: 1, 2: 0.75, 3: 0.50, 4: 0.25, 5: 0}
+
+  - name: rugby_council_tax_reduction_band_1_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: rugby_council_tax_reduction_family_category
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *schedule_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 125, 1: 175, 2: 225, 3: 225, 4: 325, 5: 325}
+
+  - name: rugby_council_tax_reduction_band_2_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: rugby_council_tax_reduction_family_category
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *schedule_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 175, 1: 225, 2: 275, 3: 275, 4: 375, 5: 375}
+
+  - name: rugby_council_tax_reduction_band_3_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: rugby_council_tax_reduction_family_category
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *schedule_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 225, 1: 275, 2: 325, 3: 325, 4: 425, 5: 425}
+
+  - name: rugby_council_tax_reduction_band_4_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: rugby_council_tax_reduction_family_category
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata: *schedule_1_grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 275, 1: 325, 2: 375, 3: 375, 4: 475, 5: 475}
+
+  - name: rugby_council_tax_reduction_no_non_dependant_deduction_band
+    kind: parameter
+    dtype: Integer
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &no_non_dependant_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "There shall be no non-dependant deductions."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: rugby_council_tax_reduction_non_dependant_deduction_for_year_by_band
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    indexed_by: rugby_council_tax_reduction_no_non_dependant_deduction_band
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *no_non_dependant_source
+              table:
+                header: No non-dependant deductions
+                row_key: deduction band
+                column_key: annual deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0}
+
+  - name: rugby_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 section 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: &working_age_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The adopted scheme for working age applicants is an income band scheme, which applies one of four discount percentages determined by the applicant’s income band."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_rugby
+          and council_tax_reduction_household_in_england
+          and rugby_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+
+  - name: rugby_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: *passported_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_applicant_or_partner_receives_income_support
+          or rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: rugby_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *schedule_1_grid_source
+              table:
+                header: Schedule 1 Table 1 banded support scheme
+                row_key: weekly net income and family category
+                column_key: income band
+          - path: versions[0].formula
+            kind: condition
+            source: *passported_source
+          - path: versions[0].formula
+            kind: condition
+            source: &weekly_income_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "For the sake of clarity all incomes shown within the table above are weekly in accordance with the scheme requirements and definitions."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if rugby_council_tax_reduction_passported_to_band_1: rugby_council_tax_reduction_income_band_codes[0] else: if rugby_council_tax_reduction_assessed_weekly_net_income <= rugby_council_tax_reduction_band_1_upper_income_weekly_by_family[rugby_council_tax_reduction_family_category]: rugby_council_tax_reduction_income_band_codes[1] else: if rugby_council_tax_reduction_assessed_weekly_net_income <= rugby_council_tax_reduction_band_2_upper_income_weekly_by_family[rugby_council_tax_reduction_family_category]: rugby_council_tax_reduction_income_band_codes[2] else: if rugby_council_tax_reduction_assessed_weekly_net_income <= rugby_council_tax_reduction_band_3_upper_income_weekly_by_family[rugby_council_tax_reduction_family_category]: rugby_council_tax_reduction_income_band_codes[3] else: if rugby_council_tax_reduction_assessed_weekly_net_income <= rugby_council_tax_reduction_band_4_upper_income_weekly_by_family[rugby_council_tax_reduction_family_category]: rugby_council_tax_reduction_income_band_codes[4] else: rugby_council_tax_reduction_income_band_codes[5]
+
+  - name: rugby_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *schedule_1_grid_source
+              table:
+                header: Schedule 1 Table 1 banded support scheme
+                row_key: income band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_support_rate_by_band[rugby_council_tax_reduction_income_band]
+
+  - name: rugby_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 26.1 and Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: *capital_limit_source
+          - path: versions[0].formula
+            kind: condition
+            source: &capital_cliff_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reduction whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_assessed_capital_for_year < rugby_council_tax_reduction_capital_limit
+
+  - name: rugby_council_tax_reduction_award_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 section 1.7 and Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source: *working_age_source
+          - path: versions[0].formula
+            kind: condition
+            source: *capital_cliff_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_working_age_scheme_applies
+          and rugby_council_tax_reduction_capital_eligible
+
+  - name: rugby_council_tax_reduction_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source: *no_non_dependant_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_non_dependant_deduction_for_year_by_band[rugby_council_tax_reduction_no_non_dependant_deduction_band]
+
+  - name: rugby_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source: *maximum_support_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rugby_council_tax_reduction_maximum_eligible_liability_for_year * rugby_council_tax_reduction_maximum_support_rate
+
+  - name: rugby_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rugby Borough Council Council Tax Reduction Scheme 2026/27 working-age award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: effective_period
+            source: &operative_period_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "The authority’s Council Tax Reduction Scheme from 2026/27 shall be calculated on the basis of the following banded support scheme:"
+          - path: versions[0].formula
+            kind: ordering
+            source: &maximum_linkage_source
+              corpus_citation_path: uk-rugby/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "In all cases (Table 1), the amount of reduction to be granted is to be based on the following factors: (a) The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: condition
+            source: *capital_cliff_source
+          - path: versions[0].formula
+            kind: exception
+            source: *no_non_dependant_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if rugby_council_tax_reduction_award_eligible: rugby_council_tax_reduction_maximum_amount_for_year * rugby_council_tax_reduction_selected_support_rate - rugby_council_tax_reduction_non_dependant_deduction_for_year else: rugby_council_tax_reduction_maximum_amount_for_year - rugby_council_tax_reduction_maximum_amount_for_year

@@ -1,0 +1,151 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-77
+  summary: Mansfield's 2026-27 local working-age scheme pays 90 percent of the maximum daily liability less the Class B excess-income taper and non-dependant deductions. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-mansfield:policies/mansfield/council-tax-reduction/sections-12-to-32-and-schedule-1#applicable_amount_and_assessed_income
+      reason: The detailed applicable-amount, income, disregard, and Universal Credit assessment schedules are consumed by this award surface but are not encoded here.
+    - output: uk-mansfield:policies/mansfield/council-tax-reduction/sections-34-to-41-and-schedule-5#assessed_capital
+      reason: This module applies the capital limit and tariff rule; capital valuation, attribution, and disregard schedules are deferred.
+    - output: uk-mansfield:policies/mansfield/council-tax-reduction/sections-58.3-to-58.9#non_dependant_exemption_and_apportionment
+      reason: This module encodes the printed deduction grid and consumes the exemption and apportionment result.
+rules:
+  - name: mansfield_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 57.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-76, excerpt: "shall be 90 per cent, of the amount A divided by B where;"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0.90'}]
+  - name: mansfield_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 33.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "33.1 For the purpose of this scheme, the prescribed amount is £16,000 and no support shall be granted when the applicant has an amount greater than this level."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '16000'}]
+  - name: mansfield_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 42.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-64, excerpt: "exceeds £6,000 it shall be treated as equivalent to a weekly income of £1"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '6000'}]
+  - name: mansfield_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 42.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-64, excerpt: "weekly income of £1 for each complete £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '250'}]
+  - name: mansfield_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 42.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-64, excerpt: "weekly income of £1 for each complete £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '1'}]
+  - name: mansfield_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 23.1 monthly-to-weekly conversion
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-48, excerpt: "dividing the product by 52"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '52'}]
+  - name: mansfield_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 58.1 daily conversion
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-76, excerpt: "in remunerative work £15.95 x 1/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '7'}]
+  - name: mansfield_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 59.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-78, excerpt: "shall be 2 6/7 per cent."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0.0285714285714285714285714286'}]
+  - name: mansfield_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 59.1, converted from the printed daily rate
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-78, excerpt: "shall be 2 6/7 per cent."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'mansfield_council_tax_reduction_daily_taper_rate * mansfield_council_tax_reduction_days_per_week'}]
+  - name: mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: mansfield_council_tax_reduction_non_dependant_deduction_band
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraphs 58.1-58.2
+    metadata:
+      proof:
+        atoms:
+          - path: "versions[0].values"
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-76
+              excerpt: |-
+                £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7.
+
+                58.2 In the case of a non-dependant aged 18 or over to whom paragraph 58.1(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is-
+
+                (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60. (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30.
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 5.20, 2: 10.60, 3: 13.30, 4: 15.95}}]
+  - name: mansfield_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 1.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-7, excerpt: "1.4 The adopted scheme for working age applicants is a means test, which compares income against an assessment of living allowances or applicable amounts (unless otherwise stated)."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'local_authority_is_mansfield and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner'}]
+  - name: mansfield_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 33.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "33.1 For the purpose of this scheme, the prescribed amount is £16,000 and no support shall be granted when the applicant has an amount greater than this level."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'mansfield_council_tax_reduction_assessed_capital_for_year <= mansfield_council_tax_reduction_capital_limit'}]
+  - name: mansfield_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraphs 42.1-42.2
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-64, excerpt: "42.2 Notwithstanding paragraph 40.1 where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'mansfield_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, mansfield_council_tax_reduction_assessed_capital_for_year - mansfield_council_tax_reduction_tariff_income_threshold) / mansfield_council_tax_reduction_tariff_income_step) * mansfield_council_tax_reduction_weeks_per_year'}]
+  - name: mansfield_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 59.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-78, excerpt: "59.1 The prescribed percentage for the purpose of calculating support as a percentage of excess of income over the applicable amount which is deducted from maximum council tax support, shall be 2 6/7 per cent."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'max(0, mansfield_council_tax_reduction_assessed_income_for_year + mansfield_council_tax_reduction_tariff_income_for_year - mansfield_council_tax_reduction_applicable_amount_for_year)'}]
+  - name: mansfield_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraph 59.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-78, excerpt: "shall be 2 6/7 per cent. Where an applicant’s income exceeds their applicable amount, their council tax support shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax support was defined within section 57 of this policy."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'mansfield_council_tax_reduction_excess_income_for_year * mansfield_council_tax_reduction_weekly_taper_rate'}]
+  - name: mansfield_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Mansfield Council Tax Reduction Scheme 2026-2027 paragraphs 57.1 and 59.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-mansfield/manual/council-tax-reduction-scheme-2026-2027/page-78, excerpt: "shall be 2 6/7 per cent. Where an applicant’s income exceeds their applicable amount, their council tax support shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax support was defined within section 57 of this policy."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if mansfield_council_tax_reduction_working_age_scheme_applies and mansfield_council_tax_reduction_capital_eligible and would_claim_council_tax_reduction: max(0, mansfield_council_tax_reduction_maximum_eligible_liability_for_year * mansfield_council_tax_reduction_maximum_support_rate - mansfield_council_tax_reduction_income_taper_deduction_for_year - mansfield_council_tax_reduction_non_dependant_deductions_for_year) else: 0'}]

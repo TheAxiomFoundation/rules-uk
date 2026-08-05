@@ -1,0 +1,1102 @@
+format: rulespec/v1
+imports:
+  - "uk:regulations/uksi/2006/213/52#ordinary_capital_tariff_income_lower_threshold"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_upper_limit"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_band_size"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_weekly_amount_per_band"
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority, so Wolverhampton's adopted scheme document is the operative legal source.
+  summary: |-
+    Wolverhampton's operative 2026-27 working-age scheme is a means-tested Class D/Class E award. The section 57 maximum is 78% of the lower of actual liability and Band C liability, rising to 88% for the listed enhanced groups, with non-dependant deductions taken from that maximum. Section 59 expressly deducts the 3 2/7% daily excess-income taper from the defined section 57 maximum; the weekly rate is derived as 23%. Capital above £6,000 ends entitlement. Section 17 incorporates the Housing Benefit tariff-income rule, but that tariff cannot coexist with a locally eligible award because both start above £6,000. Income exactly equal to the applicable amount is neither the printed “less than” Class D condition nor the printed “more than” Class E condition unless the separate Class D income-based-benefit condition applies. No minimum new-award floor is printed: section 65 is a change-of-circumstance tolerance and is deferred.
+  deferred_outputs:
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/sections-1.6-to-1.7-and-classes-d-to-e#working_age_class_and_general_conditions_classifier
+      reason: This module consumes the working-age class and shared residence, absence, exclusion, and claim conditions. It does not reproduce the detailed pension-credit-age exception or every general eligibility classifier.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/sections-12-to-42-and-schedules-1-to-5#applicable_amount_assessed_income_and_capital
+      reason: The award surface consumes assessed weekly income, applicable amount, and assessed capital. Detailed allowances, premiums, earnings, disregards, valuation, attribution, notional-capital, and capital-disregard rules are outside this module.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/paragraphs-57.2-to-57.4#eligible_weekly_liability
+      reason: This module takes the lower of actual and Band C weekly liability. It does not calculate statutory reductions, dwelling charges, daily conversion, or joint-liability apportionment.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/paragraph-57.1#enhanced_group_classifier
+      reason: This module selects the printed 88 percent rate from the paragraph 57.1 enhanced-group result; the detailed disability-benefit, child-premium, and age/family classifier is deferred.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/paragraphs-58.3-to-58.9#non_dependant_deductions_for_week
+      reason: This module encodes the individual deduction grid but consumes the section 58 aggregate after couple, polygamous-marriage, protection, exemption, joint-income, and apportionment rules.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age Class C alternative maximum is outside this working-age award surface.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/sections-60-to-61d#extended_reduction
+      reason: Extended-reduction entitlement is a distinct post-employment-change component and is outside the ordinary working-age award calculation encoded here.
+    - output: uk-wolverhampton:policies/wolverhampton/council-tax-reduction/section-65.1#change_in_entitlement_tolerance
+      reason: Section 65.1 is a £3 weekly change-of-circumstance tolerance, not a minimum new-award entitlement floor.
+rules:
+  - name: wolverhampton_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 78 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.78
+
+  - name: wolverhampton_council_tax_reduction_enhanced_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "then the maximum percentage as given in paragraph 57.1 shall be 88 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.88
+
+  - name: wolverhampton_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "the prescribed amount is £6,000 and no reduction shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#ordinary_capital_tariff_income_lower_threshold
+              output: ordinary_capital_tariff_income_lower_threshold
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ordinary_capital_tariff_income_lower_threshold
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_upper_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_upper_limit
+              output: capital_tariff_income_upper_limit
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_upper_limit
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_band_size
+              output: capital_tariff_income_band_size
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_band_size
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_weekly_amount_per_band
+              output: capital_tariff_income_weekly_amount_per_band
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_weekly_amount_per_band
+
+  - name: wolverhampton_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 nil award and nil deduction outcome
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no reduction shall be granted"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: wolverhampton_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 interpretation of week
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "‘week’ means a period of seven days beginning with a Monday;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: wolverhampton_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "shall be 3 2/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.03285714285714285714285714286
+
+  - name: wolverhampton_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 59.1, derived from the printed daily rate and seven-day week
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "The prescribed daily percentage for the purpose of calculating reduction as a percentage of excess of income over the applicable amount"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "‘week’ means a period of seven days beginning with a Monday;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_daily_taper_rate * wolverhampton_council_tax_reduction_days_per_week
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_band_2_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_band_3_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_band_4_lower_income_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: wolverhampton_council_tax_reduction_no_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraphs 58.6 to 58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: wolverhampton_council_tax_reduction_low_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.1(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.46 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: non-remunerative-work row
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wolverhampton_council_tax_reduction_middle_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £11.13 x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £279 to less than £485 row
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: wolverhampton_council_tax_reduction_high_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.97 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £485 to less than £605 row
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: wolverhampton_council_tax_reduction_top_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £16.75 x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative-work row
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_high_non_dependant_deduction_band + wolverhampton_council_tax_reduction_low_non_dependant_deduction_band
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wolverhampton_council_tax_reduction_non_dependant_deduction_band
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraphs 58.1 to 58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: table_cell
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is:"
+              table:
+                header: Non-dependant weekly deductions
+                row: protected household row
+                column: weekly deduction
+          - path: versions[0].values
+            kind: table_cell
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.46 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row: paragraph 58.1(b) non-remunerative-work row
+                column: weekly deduction
+          - path: versions[0].values
+            kind: table_cell
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £11.13 x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row: paragraph 58.2(b) £279 to less than £485 row
+                column: weekly deduction
+          - path: versions[0].values
+            kind: table_cell
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.97 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row: paragraph 58.2(c) £485 to less than £605 row
+                column: weekly deduction
+          - path: versions[0].values
+            kind: table_cell
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £16.75 x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row: paragraph 58.1(a) remunerative-work row
+                column: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.46
+          2: 11.13
+          3: 13.97
+          4: 16.75
+
+  - name: wolverhampton_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "The adopted scheme for working age applicants is a means test, which compares income against an assessment of applicable amounts (unless otherwise stated)."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "has attained the qualifying age for state pension credit if he, and his partner, is a person on income support, on an income-based jobseeker’s allowance, on an income-related employment and support allowance or on universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_wolverhampton and wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class
+
+  - name: wolverhampton_council_tax_reduction_general_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "Class D To obtain reduction the individual (or partner) must:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Class E To obtain reduction the individual (or partner) must:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_working_age_scheme_applies and wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions and would_claim_council_tax_reduction
+
+  - name: wolverhampton_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no reduction shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_assessed_capital_for_year <= wolverhampton_council_tax_reduction_capital_limit
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_assessed_capital_for_year > wolverhampton_council_tax_reduction_tariff_income_threshold
+          and wolverhampton_council_tax_reduction_assessed_capital_for_year <= wolverhampton_council_tax_reduction_tariff_income_upper_limit
+
+  - name: wolverhampton_council_tax_reduction_tariff_income_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "by adding to that amount, the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_tariff_income_applies: wolverhampton_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil((wolverhampton_council_tax_reduction_assessed_capital_for_year - wolverhampton_council_tax_reduction_tariff_income_threshold) / wolverhampton_council_tax_reduction_tariff_income_step) else: wolverhampton_council_tax_reduction_zero_weekly_amount
+
+  - name: wolverhampton_council_tax_reduction_assessed_income_with_tariff_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 section 17.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "by adding to that amount, the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week + wolverhampton_council_tax_reduction_tariff_income_for_week
+
+  - name: wolverhampton_council_tax_reduction_income_below_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "person’s income4 is less than their applicable amount5"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_assessed_income_with_tariff_for_week < wolverhampton_council_tax_reduction_applicable_amount_for_week
+
+  - name: wolverhampton_council_tax_reduction_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "person’s income10 is more than their applicable amount11;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_assessed_income_with_tariff_for_week > wolverhampton_council_tax_reduction_applicable_amount_for_week
+
+  - name: wolverhampton_council_tax_reduction_class_d_income_condition_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "person’s income4 is less than their applicable amount5 or the applicant or partner is in receipt of income support, jobseekers’ allowance (income"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "based) or employment and support allowance (income related);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_income_below_applicable_amount or wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit
+
+  - name: wolverhampton_council_tax_reduction_excess_income_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "excess of income over the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_income_exceeds_applicable_amount: wolverhampton_council_tax_reduction_assessed_income_with_tariff_for_week - wolverhampton_council_tax_reduction_applicable_amount_for_week else: wolverhampton_council_tax_reduction_zero_weekly_amount
+
+  - name: wolverhampton_council_tax_reduction_income_taper_deduction_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "The prescribed daily percentage for the purpose of calculating reduction as a percentage of excess of income over the applicable amount, which is deducted from maximum council tax reduction, shall be 3 2/7 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_excess_income_for_week * wolverhampton_council_tax_reduction_daily_taper_rate
+
+  - name: wolverhampton_council_tax_reduction_income_taper_deduction_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "their excess income multiplied by the taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_excess_income_for_week * wolverhampton_council_tax_reduction_weekly_taper_rate
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_income_below_band_2
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income < wolverhampton_council_tax_reduction_non_dependant_band_2_lower_income_weekly
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_income_below_band_3
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income < wolverhampton_council_tax_reduction_non_dependant_band_3_lower_income_weekly
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_income_below_band_4
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 58.2(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income < wolverhampton_council_tax_reduction_non_dependant_band_4_lower_income_weekly
+
+  - name: wolverhampton_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraphs 58.1 to 58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £16.75 x 1/7;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £11.13 x 1/7;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.97 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_non_dependant_deduction_applies: if wolverhampton_council_tax_reduction_non_dependant_income_below_band_2: wolverhampton_council_tax_reduction_low_non_dependant_deduction_band else: if wolverhampton_council_tax_reduction_non_dependant_income_below_band_3: wolverhampton_council_tax_reduction_middle_non_dependant_deduction_band else: if wolverhampton_council_tax_reduction_non_dependant_income_below_band_4: wolverhampton_council_tax_reduction_high_non_dependant_deduction_band else: if wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: wolverhampton_council_tax_reduction_top_non_dependant_deduction_band else: wolverhampton_council_tax_reduction_low_non_dependant_deduction_band else: wolverhampton_council_tax_reduction_no_non_dependant_deduction_band
+
+  - name: wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £16.75 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.46 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: paragraph 58.1 work row
+                column_key: weekly deduction
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £11.13 x 1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.97 x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: paragraph 58.2 income row
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_non_dependant_weekly_deduction_by_band[wolverhampton_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: wolverhampton_council_tax_reduction_maximum_eligible_liability_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "A is the lower of either:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "the amount set by the authority as the council tax for the relevant financial year in respect of a dwelling with a council tax band of C subject to any discount which may be appropriate to that dwelling under the 1992 Act;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(wolverhampton_council_tax_reduction_actual_liability_for_week, wolverhampton_council_tax_reduction_band_c_liability_for_week)
+
+  - name: wolverhampton_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "then the maximum percentage as given in paragraph 57.1 shall be 88 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: wolverhampton_council_tax_reduction_enhanced_maximum_support_rate else: wolverhampton_council_tax_reduction_maximum_support_rate
+
+  - name: wolverhampton_council_tax_reduction_maximum_amount_before_non_dependant_deductions_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "shall be 78 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "then the maximum percentage as given in paragraph 57.1 shall be 88 per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_maximum_eligible_liability_for_week * wolverhampton_council_tax_reduction_selected_maximum_support_rate
+
+  - name: wolverhampton_council_tax_reduction_maximum_amount_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(wolverhampton_council_tax_reduction_zero_weekly_amount, wolverhampton_council_tax_reduction_maximum_amount_before_non_dependant_deductions_for_week - wolverhampton_council_tax_reduction_non_dependant_deductions_for_week)
+
+  - name: wolverhampton_council_tax_reduction_maximum_exceeds_taper_deduction
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "amount A exceeds amount B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_maximum_amount_for_week > wolverhampton_council_tax_reduction_income_taper_deduction_for_week
+
+  - name: wolverhampton_council_tax_reduction_class_d_qualifies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "Class D To obtain reduction the individual (or partner) must:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_general_conditions_met and wolverhampton_council_tax_reduction_class_d_income_condition_met
+
+  - name: wolverhampton_council_tax_reduction_class_e_qualifies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Class E To obtain reduction the individual (or partner) must:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "amount A exceeds amount B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_general_conditions_met and wolverhampton_council_tax_reduction_income_exceeds_applicable_amount and wolverhampton_council_tax_reduction_maximum_exceeds_taper_deduction
+
+  - name: wolverhampton_council_tax_reduction_award_route_available
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "Class D To obtain reduction"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Class E To obtain reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wolverhampton_council_tax_reduction_class_d_qualifies or wolverhampton_council_tax_reduction_class_e_qualifies
+
+  - name: wolverhampton_council_tax_reduction_award_before_capital_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 paragraphs 57.1 and 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "Where an applicant’s income exceeds their applicable amount, their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_class_e_qualifies: wolverhampton_council_tax_reduction_maximum_amount_for_week - wolverhampton_council_tax_reduction_income_taper_deduction_for_week else: if wolverhampton_council_tax_reduction_class_d_qualifies: wolverhampton_council_tax_reduction_maximum_amount_for_week else: wolverhampton_council_tax_reduction_zero_weekly_amount
+
+  - name: simulated_wolverhampton_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 working-age Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "no reduction shall be granted when the applicant has an amount greater than this level."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wolverhampton_council_tax_reduction_capital_eligible: if wolverhampton_council_tax_reduction_award_route_available: wolverhampton_council_tax_reduction_award_before_capital_for_week else: wolverhampton_council_tax_reduction_zero_weekly_amount else: wolverhampton_council_tax_reduction_zero_weekly_amount
+
+  - name: wolverhampton_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wolverhampton Council Tax Reduction Scheme 2026/27 working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wolverhampton/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "the Council Tax Reduction scheme for the period 1st April 2026 until 31st March 2027."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_wolverhampton_council_tax_reduction_weekly_amount

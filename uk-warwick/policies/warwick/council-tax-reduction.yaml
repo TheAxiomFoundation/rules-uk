@@ -1,0 +1,484 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-154
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Warwick District Council, so the adopted document is the operative legal source for the locally set working-age award. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Warwick's operative 2026-27 working-age scheme has a 100 percent maximum. Classes D and E receive that maximum less the statutory 20 percent excess-income taper and the applicable non-dependant deduction. Universal Credit Class F uses the printed Schedule 10 discount grid, whose percentages are expressly based on that same maximum. The legacy working-age capital limit is £16,000; Class F is subject to its local £6,000 cliff. No minimum award or council-tax-band cap is printed.
+  deferred_outputs:
+    - output: uk-warwick:policies/warwick/council-tax-reduction/schedule-2#applicable_amount
+      reason: The category-specific applicable-amount and premium schedule used by Classes D and E is outside this award-surface module.
+    - output: uk-warwick:policies/warwick/council-tax-reduction/paragraph-30A#non_dependant_exemption
+      reason: This module consumes the non-dependant exemption classifier; its disability, benefit, student, absence, and joint-liability conditions are not encoded here.
+    - output: uk-warwick:policies/warwick/council-tax-reduction/schedule-10#universal_credit_income_disregards
+      reason: The Class F award consumes weekly income after the Schedule 10 disregards and family classification; calculation of those inputs is outside this award-surface module.
+rules:
+  - name: warwick_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "the maximum council tax reduction payable to a person within Classes D and E who is not a pensioner in respect of a day is 100 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: warwick_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: warwick_council_tax_reduction_universal_credit_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Class F the capital limit shall be £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: warwick_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: warwick_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "£1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: warwick_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "£1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: warwick_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "£11.90 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: warwick_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 37(4)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "multiplying the amount of the award of universal credit by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: warwick_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Warwick District Council Tax Reduction Scheme 2026/27 Class E paragraph 17(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: warwick_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Warwick District Council Tax Reduction Scheme 2026/27 Class E paragraph 17(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          warwick_council_tax_reduction_daily_taper_rate * warwick_council_tax_reduction_days_per_week
+
+  - name: warwick_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: warwick_council_tax_reduction_non_dependant_deduction_band
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "£11.90 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £3.90 x 1/7. 30A(2) In the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is— (a) less than £202.85, the deduction to be made under this paragraph is that specified in subparagraph (1)(b); (b) not less than £202.85 but less than £351.65, the deduction to be made under this paragraph is £7.90 x 1/7 (c) not less than £351.65 but less than £436.90, the deduction to be made under this paragraph is £9.95 x 1/7."
+              table:
+                header: Classes D and E non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 3.90, 2: 7.90, 3: 9.95, 4: 11.90}
+
+  - name: warwick_council_tax_reduction_non_dependant_mid_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "not less than £202.85 but less than £351.65"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          202.85
+
+  - name: warwick_council_tax_reduction_non_dependant_high_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "not less than £351.65 but less than £436.90"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          351.65
+
+  - name: warwick_council_tax_reduction_non_dependant_top_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "less than £436.90"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          436.90
+
+  - name: warwick_council_tax_reduction_uc_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: warwick_council_tax_reduction_uc_discount_band
+    source: Warwick District Council Tax Reduction Scheme 2026/27 Schedule 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-154
+              excerpt: "% Discount Single person £ Lone parent one child £ Lone parent with two or more children £ 100 0.00 – 99.00 0.00 – 180.00 0.00 – 261.00 75 99.01 – 149.00 180.01 – 230.00 261.01 – 311.00 50 149.01 – 199.00 230.01 – 280.00 311.01 – 361.00 25 199.01 – 249.00 280.01 – 330.00 361.01 – 411.00 10 249.01 – 299.00 330.01 – 380.00 411.01 – 461.00"
+              table:
+                header: Class F discount grid
+                row_key: discount band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 0.75, 3: 0.50, 4: 0.25, 5: 0.10}
+
+  - name: warwick_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Warwick District Council Tax Reduction Scheme 2026/27 Part 1 paragraph 1(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "This Council Tax Reduction Scheme for working age applicants has been determined by the Council"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_warwick and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: warwick_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 23 and Schedule 10 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "any person whose capital exceeds £16,000. In the case of persons within Class F the capital limit shall be £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (warwick_council_tax_reduction_has_universal_credit_award
+            and warwick_council_tax_reduction_assessed_capital_for_year <= warwick_council_tax_reduction_universal_credit_capital_limit)
+          or (not warwick_council_tax_reduction_has_universal_credit_award
+            and warwick_council_tax_reduction_assessed_capital_for_year <= warwick_council_tax_reduction_capital_limit)
+
+  - name: warwick_council_tax_reduction_has_universal_credit_award
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 37
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "who have an award of universal credit (Class F only)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          warwick_council_tax_reduction_universal_credit_for_year > 0
+
+  - name: warwick_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-68
+              excerpt: "£1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if warwick_council_tax_reduction_has_universal_credit_award: 0 else: warwick_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, warwick_council_tax_reduction_assessed_capital_for_year - warwick_council_tax_reduction_tariff_income_threshold) / warwick_council_tax_reduction_tariff_income_step) * warwick_council_tax_reduction_weeks_per_year
+
+  - name: warwick_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 Class E paragraph 17(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, warwick_council_tax_reduction_assessed_income_for_year + warwick_council_tax_reduction_tariff_income_for_year - warwick_council_tax_reduction_applicable_amount_for_year)
+
+  - name: warwick_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 32(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          warwick_council_tax_reduction_excess_income_for_year * warwick_council_tax_reduction_weekly_taper_rate
+
+  - name: warwick_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "where it is shown to the appropriate authority that his normal gross weekly income is—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not warwick_council_tax_reduction_is_non_dependant or warwick_council_tax_reduction_non_dependant_exempt: 0 else: if not warwick_council_tax_reduction_non_dependant_in_remunerative_work: 1 else: if warwick_council_tax_reduction_non_dependant_normal_gross_weekly_income < warwick_council_tax_reduction_non_dependant_mid_threshold: 1 else: if warwick_council_tax_reduction_non_dependant_normal_gross_weekly_income < warwick_council_tax_reduction_non_dependant_high_threshold: 2 else: if warwick_council_tax_reduction_non_dependant_normal_gross_weekly_income < warwick_council_tax_reduction_non_dependant_top_threshold: 3 else: 4
+
+  - name: warwick_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-33
+              excerpt: "£11.90 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          warwick_council_tax_reduction_non_dependant_weekly_deduction_by_band[warwick_council_tax_reduction_non_dependant_deduction_band] * warwick_council_tax_reduction_weeks_per_year
+
+  - name: warwick_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Warwick District Council Tax Reduction Scheme 2026/27 paragraphs 29, 32 and Schedule 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-154
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-warwick/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if warwick_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and warwick_council_tax_reduction_capital_eligible: if warwick_council_tax_reduction_has_universal_credit_award: warwick_council_tax_reduction_maximum_eligible_liability_for_year * warwick_council_tax_reduction_maximum_support_rate * warwick_council_tax_reduction_uc_discount_rate_by_band[warwick_council_tax_reduction_uc_discount_band] else: max(0, warwick_council_tax_reduction_maximum_eligible_liability_for_year * warwick_council_tax_reduction_maximum_support_rate - warwick_council_tax_reduction_income_taper_deduction_for_year - warwick_council_tax_reduction_non_dependant_deductions_for_year) else: 0

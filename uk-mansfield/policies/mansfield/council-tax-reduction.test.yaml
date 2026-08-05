@@ -1,0 +1,123 @@
+- name: mansfield_ctr_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_maximum_support_rate: 0.9
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_capital_limit: 16000
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_threshold: 6000
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_step: 250
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_weeks_per_year: 52
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_days_per_week: 7
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_weekly_taper_rate: '0.2000000000000000000000000002'
+
+- name: mansfield_ctr_taper_and_tariff
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.local_authority_is_mansfield: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_income_for_year: 1000
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_applicable_amount_for_year: 0
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_working_age_scheme_applies: holds
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_for_year: 52
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_excess_income_for_year: 1052
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_income_taper_deduction_for_year: 210.4
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_annual_amount: 1409.6
+
+- name: mansfield_ctr_tariff_at_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 6000
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_for_year: 0
+
+- name: mansfield_ctr_tariff_first_penny_above_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 6000.01
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_for_year: 52
+
+- name: mansfield_ctr_tariff_at_complete_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 6250
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_for_year: 52
+
+- name: mansfield_ctr_tariff_first_penny_above_complete_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 6250.01
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_tariff_income_for_year: 104
+
+- name: mansfield_ctr_non_dependant_no_deduction_grid_row
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deduction_band: 0
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band: 0
+
+- name: mansfield_ctr_non_dependant_below_279_grid_row
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deduction_band: 1
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band: 5.20
+
+- name: mansfield_ctr_non_dependant_279_to_below_485_grid_row
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deduction_band: 2
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band: 10.60
+
+- name: mansfield_ctr_non_dependant_485_to_below_605_grid_row
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deduction_band: 3
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band: 13.30
+
+- name: mansfield_ctr_non_dependant_605_or_more_grid_row
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deduction_band: 4
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_non_dependant_weekly_deduction_by_band: 15.95
+
+- name: mansfield_ctr_capital_cliff
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 16001
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_capital_eligible: not_holds
+
+- name: mansfield_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_capital_eligible: holds
+
+- name: mansfield_ctr_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.local_authority_is_mansfield: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_capital_for_year: 0
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_assessed_income_for_year: 10000
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_applicable_amount_for_year: 0
+    uk-mansfield:policies/mansfield/council-tax-reduction#input.mansfield_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-mansfield:policies/mansfield/council-tax-reduction#mansfield_council_tax_reduction_annual_amount: 0

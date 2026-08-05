@@ -1,0 +1,374 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-87
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Ipswich Borough Council, so the adopted document is operative. The singular source-verification contract strips this apply-stage attestation after local gates pass.
+  summary: |-
+    Ipswich's adopted 2026-27 working-age scheme provides a 100% maximum award, withdraws Class E awards at 20% of excess weekly income, and applies a £16,000 capital cliff with £1 weekly tariff income for each £250 (or part) above £6,000.  Awards under £1 per benefit week are not payable.  Class F (Universal Credit) cases use the printed income-band contribution schedule instead of the Class E taper.  Pension-age provisions are outside this working-age module.
+  deferred_outputs:
+    - output: uk-ipswich:policies/ipswich/council-tax-reduction/paragraphs-12-to-33-and-schedules-1-to-3#assessed_weekly_income_and_applicable_amount
+      reason: The award surface consumes assessed income and applicable amount; the detailed earnings, disregards, premiums, and Universal Credit calculation rules are outside this module.
+    - output: uk-ipswich:policies/ipswich/council-tax-reduction/paragraphs-35-to-41-and-schedule-4#assessed_capital
+      reason: This module applies the local capital limit and tariff rule; detailed valuation, attribution, notional-capital, and capital-disregard rules are outside this module.
+    - output: uk-ipswich:policies/ipswich/council-tax-reduction/paragraphs-57.1-to-57.6#maximum_eligible_liability
+      reason: This module consumes eligible liability after the scheme's charge, discount, and joint-liability rules.
+    - output: uk-ipswich:policies/ipswich/council-tax-reduction/paragraphs-58.2-to-58.9#non_dependant_exemption_and_apportionment
+      reason: This module encodes the incorporated deduction bands and consumes the exemption, couple, and apportionment classifier.
+rules:
+  - name: ipswich_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ipswich_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 34.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "the prescribed amount is £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: ipswich_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: ipswich_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£1 for each £250, or part thereof"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: ipswich_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "weekly income of £1 for each £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ipswich_council_tax_reduction_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "shall be 20 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: ipswich_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 57.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "less than one pound per benefit week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: ipswich_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Ipswich Council Tax Reduction Scheme 2026-27 annual award conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "by multiplying the amount by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: ipswich_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ipswich_council_tax_reduction_non_dependant_band
+    source: Council Tax Reduction Schemes (Prescribed Requirements) (England) Regulations 2012 Schedule 1 paragraph 8, incorporated by Ipswich scheme paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-84
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk/regulation/uksi/2012/2885/schedule/1/paragraph/8
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 5.20
+          3: 10.60
+          4: 13.30
+          5: 15.95
+
+  - name: ipswich_council_tax_reduction_uc_weekly_contribution_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: ipswich_council_tax_reduction_uc_income_band
+    source: Ipswich Council Tax Reduction Scheme 2026-27 Schedule 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-152
+              excerpt: "Not in work or less than £309 £0 Not in work or less than £71.30 £0 £309 - £649.99 £47 £150.00 £10.85 £650 - £1236.99 £95 £285.46 £21.92 £1237 to £1967.99 £137 £454.15 £31.62 £1968 - £2527.99 £206 £583.38 £47.54 £2528 - £2999.99 £265 £692.30 £61.15 Over £3000 No entitlement to LCTR over £692.31 No entitlement to LCTR"
+              table:
+                header: Schedule 5 weekly income bands and contribution rates
+                row_key: UC income band
+                column_key: weekly contribution
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 10.85
+          2: 21.92
+          3: 31.62
+          4: 47.54
+          5: 61.15
+          6: 0
+
+  - name: ipswich_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 34.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "no support shall be granted where the applicant’s capital, exceeds this amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ipswich_council_tax_reduction_assessed_capital_for_year <= ipswich_council_tax_reduction_capital_limit
+
+  - name: ipswich_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-71
+              excerpt: "£1 for each £250, or part thereof, in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ipswich_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, ipswich_council_tax_reduction_assessed_capital_for_year - ipswich_council_tax_reduction_tariff_income_threshold) / ipswich_council_tax_reduction_tariff_income_step) * ipswich_council_tax_reduction_weeks_per_year
+
+  - name: ipswich_council_tax_reduction_class_e_award_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, ipswich_council_tax_reduction_maximum_eligible_liability_for_year * ipswich_council_tax_reduction_maximum_support_rate - max(0, ipswich_council_tax_reduction_assessed_income_for_year + ipswich_council_tax_reduction_tariff_income_for_year - ipswich_council_tax_reduction_applicable_amount_for_year) * ipswich_council_tax_reduction_taper_rate - ipswich_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: ipswich_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "the non-dependant deductions in respect of a day referred to in paragraph 57 are as prescribed"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-85
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant's dwelling if the applicant or his partner is-"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not ipswich_council_tax_reduction_is_non_dependant or ipswich_council_tax_reduction_non_dependant_exempt: 0 else: ipswich_council_tax_reduction_non_dependant_deduction_weekly_by_band[ipswich_council_tax_reduction_non_dependant_band] * ipswich_council_tax_reduction_weeks_per_year
+
+  - name: ipswich_council_tax_reduction_class_f_award_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraphs 1.11.10 and Schedule 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Amount B is the calculated contribution requirement based on the declared earnings"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-152
+              excerpt: "Weekly contribution"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, ipswich_council_tax_reduction_maximum_eligible_liability_for_year * ipswich_council_tax_reduction_maximum_support_rate - ipswich_council_tax_reduction_uc_weekly_contribution_by_band[ipswich_council_tax_reduction_uc_income_band] * ipswich_council_tax_reduction_weeks_per_year - ipswich_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: ipswich_council_tax_reduction_award_before_minimum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 working-age Class E and Class F award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "Class F persons who are entitled to an award of Universal Credit"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ipswich_council_tax_reduction_has_universal_credit_award: ipswich_council_tax_reduction_class_f_award_for_year else: ipswich_council_tax_reduction_class_e_award_for_year
+
+  - name: ipswich_council_tax_reduction_working_age_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Ipswich Council Tax Reduction Scheme 2026-27 paragraphs 57.7 and 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-ipswich/manual/council-tax-reduction-scheme-2026-2027/page-84
+              excerpt: "it shall not be payable where the amount to which a person would otherwise be entitled is less than one pound per benefit week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if ipswich_council_tax_reduction_capital_eligible and ipswich_council_tax_reduction_award_before_minimum_for_year >= ipswich_council_tax_reduction_minimum_award_weekly * ipswich_council_tax_reduction_weeks_per_year: ipswich_council_tax_reduction_award_before_minimum_for_year else: 0

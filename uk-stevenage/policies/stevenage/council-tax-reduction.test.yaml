@@ -1,0 +1,361 @@
+- name: stevenage_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_maximum_support_rate: 0.915
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_limit: 16000
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_threshold: 6000
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_step: 250
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_days_per_week: 7
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_weeks_per_year: 52
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_weekly_taper_rate: '0.2000000000000000000000000002'
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_no_non_dependant_deduction_band: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_low_non_dependant_deduction_band: 1
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_mid_non_dependant_deduction_band: 2
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_high_non_dependant_deduction_band: 3
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_top_non_dependant_deduction_band: 4
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_mid_income_threshold_weekly: 279
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_high_income_threshold_weekly: 485
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_top_income_threshold_weekly: 605
+
+- name: stevenage_ctr_full_award_at_91_5_percent
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_working_age_scheme_applies: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_schedule_5_legacy_benefit_full_disregard: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_eligible: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_above_tariff_income_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_applicable_income_with_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_exceeds_applicable_amount: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_excess_income_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_maximum_amount_for_year: 1830
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_award_conditions_satisfied: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#simulated_stevenage_council_tax_reduction_annual_amount: 1830
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: 1830
+
+- name: stevenage_ctr_capital_at_limit_is_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 16000
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_eligible: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_above_tariff_income_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_applies: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 2080
+
+- name: stevenage_ctr_capital_above_limit_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 16000.01
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_eligible: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_award_conditions_satisfied: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#simulated_stevenage_council_tax_reduction_annual_amount: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: 0
+
+- name: stevenage_ctr_legacy_income_benefit_disregards_all_capital
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 16000.01
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 10000
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_schedule_5_legacy_benefit_full_disregard: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_eligible: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_exceeds_applicable_amount: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_excess_income_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: 1830
+
+- name: stevenage_ctr_tariff_threshold_no_tariff
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 6000
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_above_tariff_income_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 0
+
+- name: stevenage_ctr_first_partial_tariff_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 6000.01
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_capital_above_tariff_income_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_applies: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 52
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_applicable_income_with_tariff_for_year: 52
+
+- name: stevenage_ctr_complete_tariff_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 6250
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 52
+
+- name: stevenage_ctr_second_tariff_step_after_complete_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 6250.01
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_tariff_income_for_year: 104
+
+- name: stevenage_ctr_taper_reduces_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 1000
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_exceeds_applicable_amount: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_applies: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_excess_income_for_year: 1000
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_deduction_for_year: '200.0000000000000000000000002'
+    uk-stevenage:policies/stevenage/council-tax-reduction#simulated_stevenage_council_tax_reduction_annual_amount: '1629.9999999999999999999999998'
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: '1629.9999999999999999999999998'
+
+- name: stevenage_ctr_taper_exhausts_award_to_zero
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 10000
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_income_taper_deduction_for_year: '2000.000000000000000000000002'
+    uk-stevenage:policies/stevenage/council-tax-reduction#simulated_stevenage_council_tax_reduction_annual_amount: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: 0
+
+- name: stevenage_ctr_rate_then_non_dependant_order
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.local_authority_is_stevenage: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicant_qualifies_for_working_age_scheme: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_capital_after_other_disregards_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_maximum_eligible_liability_for_year: 2000
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_deductions_for_year: 829.40
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_maximum_amount_for_year: 1000.60
+    uk-stevenage:policies/stevenage/council-tax-reduction#simulated_stevenage_council_tax_reduction_annual_amount: 1000.60
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_annual_amount: 1000.60
+
+- name: stevenage_ctr_nondependant_below_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_applies: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_mid_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_high_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: stevenage_ctr_nondependant_at_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_mid_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_high_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: stevenage_ctr_nondependant_below_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_high_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: stevenage_ctr_nondependant_at_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_high_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: stevenage_ctr_nondependant_below_605
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: stevenage_ctr_nondependant_at_605_in_remunerative_work
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 4
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: stevenage_ctr_nondependant_high_income_below_remunerative_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 500
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_in_remunerative_work: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_high_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: stevenage_ctr_nondependant_at_605_not_in_remunerative_work
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: false
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_income_below_top_threshold: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_in_remunerative_work: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: stevenage_ctr_nondependant_exemption_is_zero_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_is_non_dependant: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_exempt: true
+    uk-stevenage:policies/stevenage/council-tax-reduction#input.stevenage_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-stevenage:policies/stevenage/council-tax-reduction#stevenage_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

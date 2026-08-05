@@ -1,0 +1,175 @@
+- name: nuneaton_and_bedworth_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_maximum_support_rate: 0.85
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_capital_limit: 16000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_tariff_income_threshold: 6000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_tariff_income_step: 250
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_days_per_week: 7
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_non_dependant_band_2_threshold: 279
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_non_dependant_band_3_threshold: 485
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_non_dependant_band_4_threshold: 605
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_top_non_dependant_deduction_weekly: 15.95
+
+- name: nuneaton_and_bedworth_ctr_capital_limit_full_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.local_authority_is_nuneaton_and_bedworth: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_weeks_in_year: 52
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_income_for_year: 10000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_applicable_amount_for_year: 12080
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_working_age_scheme_applies: holds
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_capital_eligible: holds
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_maximum_amount_for_year: 1530
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#simulated_nuneaton_and_bedworth_council_tax_reduction_annual_amount: 1530
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_annual_amount: 1530
+
+- name: nuneaton_and_bedworth_ctr_tariff_first_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_income_for_year: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_weeks_in_year: 52
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_tariff_income_for_year: 52
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_income_with_tariff_for_year: 52
+
+- name: nuneaton_and_bedworth_ctr_capital_cliff_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.local_authority_is_nuneaton_and_bedworth: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_weeks_in_year: 52
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_income_for_year: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_applicable_amount_for_year: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_capital_eligible: not_holds
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#simulated_nuneaton_and_bedworth_council_tax_reduction_annual_amount: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_annual_amount: 0
+
+- name: nuneaton_and_bedworth_ctr_taper_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.local_authority_is_nuneaton_and_bedworth: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_weeks_in_year: 52
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_income_for_year: 11000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_excess_income_for_year: 1000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_income_taper_deduction_for_year: 200
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_annual_amount: 1330
+
+- name: nuneaton_and_bedworth_ctr_taper_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.local_authority_is_nuneaton_and_bedworth: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_capital_for_year: 0
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.council_tax_reduction_weeks_in_year: 52
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_assessed_income_for_year: 17650
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_annual_amount: 0
+
+- name: nuneaton_and_bedworth_ctr_nondep_below_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: nuneaton_and_bedworth_ctr_nondep_at_279
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: nuneaton_and_bedworth_ctr_nondep_below_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: nuneaton_and_bedworth_ctr_nondep_at_485
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: nuneaton_and_bedworth_ctr_nondep_below_605
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: nuneaton_and_bedworth_ctr_nondep_at_605
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: false
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: nuneaton_and_bedworth_ctr_exempt_nondep
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_is_non_dependant: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_exempt: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#input.nuneaton_and_bedworth_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-nuneaton-and-bedworth:policies/nuneaton-and-bedworth/council-tax-reduction#nuneaton_and_bedworth_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

@@ -1,0 +1,963 @@
+---
+- name: rugby_ctr_working_age_scheme_applies
+  period: &1
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: &2
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_working_age_scheme_applies: holds
+- name: rugby_ctr_capital_below_limit_is_eligible
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 5999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_capital_eligible: holds
+- name: rugby_ctr_capital_below_limit_full_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 5999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_capital_at_limit_is_ineligible
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_capital_eligible: not_holds
+- name: rugby_ctr_capital_at_limit_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_award_eligible
+  period: *1
+  input: *2
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_award_eligible: holds
+- name: rugby_ctr_no_non_dependant_deduction
+  period: *1
+  input: *2
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_non_dependant_deduction_for_year: 0
+- name: rugby_ctr_maximum_amount_is_full_eligible_liability
+  period: *1
+  input: *2
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_maximum_amount_for_year: 1000
+- name: rugby_ctr_income_support_is_passported
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_passported_to_band_1: holds
+- name: rugby_ctr_income_support_high_income_band_1
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_income_band: 0
+- name: rugby_ctr_income_support_high_income_full_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_income_related_esa_high_income_full_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_income_based_jsa_high_income_full_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 999.99
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: true
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_selected_support_rate_band_2
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 125.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_selected_support_rate: 0.75
+- name: rugby_ctr_single_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 125.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_single_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 125.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 175.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 175.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_couple_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 175.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_couple_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 175.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 1
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_single_one_child_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_single_one_child_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_one_child_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_one_child_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_one_child_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_one_child_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_one_child_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_one_child_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 2
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_couple_one_child_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_couple_one_child_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 225.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_one_child_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_one_child_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 275.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_one_child_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_one_child_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_one_child_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_one_child_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 3
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_single_two_children_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_single_two_children_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_two_children_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_single_two_children_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_two_children_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 425.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_single_two_children_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 425.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_two_children_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 475.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_single_two_children_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 475.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 4
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0
+- name: rugby_ctr_couple_two_children_band_1_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 1000
+- name: rugby_ctr_couple_two_children_band_2_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 325.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_two_children_band_2_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 750
+- name: rugby_ctr_couple_two_children_band_3_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 375.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_two_children_band_3_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 425.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 500
+- name: rugby_ctr_couple_two_children_band_4_lower
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 425.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_two_children_band_4_upper
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 475.0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 250
+- name: rugby_ctr_couple_two_children_band_5_lower_zero_award
+  period: *1
+  input:
+    uk-rugby:policies/rugby/council-tax-reduction#input.local_authority_is_rugby: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_assessed_weekly_net_income: 475.01
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_family_category: 5
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-rugby:policies/rugby/council-tax-reduction#input.rugby_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+  output:
+    uk-rugby:policies/rugby/council-tax-reduction#rugby_council_tax_reduction_annual_amount: 0

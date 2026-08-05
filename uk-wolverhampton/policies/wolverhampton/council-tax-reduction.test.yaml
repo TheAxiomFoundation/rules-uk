@@ -1,0 +1,975 @@
+- name: wolverhampton_ctr_working_age_scheme_applies
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: wolverhampton_ctr_general_conditions
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_general_conditions_met: holds
+
+- name: wolverhampton_ctr_capital_at_limit
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_capital_eligible: holds
+
+- name: wolverhampton_ctr_capital_cliff
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_capital_eligible: not_holds
+
+- name: wolverhampton_ctr_tariff_not_at_threshold
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_applies: not_holds
+
+- name: wolverhampton_ctr_tariff_first_incomplete_step
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_applies: holds
+
+- name: wolverhampton_ctr_tariff_first_step_amount
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_for_week: 1
+
+- name: wolverhampton_ctr_tariff_at_imported_upper_limit
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_for_week: 40
+
+- name: wolverhampton_ctr_tariff_above_imported_upper_limit
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_for_week: 0
+
+- name: wolverhampton_ctr_income_includes_tariff
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_assessed_income_with_tariff_for_week: 100
+
+- name: wolverhampton_ctr_income_below_applicable_amount
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_below_applicable_amount: holds
+
+- name: wolverhampton_ctr_income_exceeds_applicable_amount
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 101
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_exceeds_applicable_amount: holds
+
+- name: wolverhampton_ctr_equality_is_not_below
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_below_applicable_amount: not_holds
+
+- name: wolverhampton_ctr_equality_is_not_excess
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_exceeds_applicable_amount: not_holds
+
+- name: wolverhampton_ctr_class_d_income_condition
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_class_d_income_condition_met: holds
+
+- name: wolverhampton_ctr_excess_income
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 101
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_excess_income_for_week: 1
+
+- name: wolverhampton_ctr_daily_taper_exact_repeating_decimal
+  period:
+    period_kind: custom
+    name: reduction_day
+    start: '2026-04-06'
+    end: '2026-04-06'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 101
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_taper_deduction_for_day: "0.0328571428571428571428571429"
+
+- name: wolverhampton_ctr_weekly_taper
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 110
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_income_taper_deduction_for_week: 2.3
+
+- name: wolverhampton_ctr_band_c_liability_cap
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_eligible_liability_for_week: 90
+
+- name: wolverhampton_ctr_actual_liability_when_lower
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 80
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_eligible_liability_for_week: 80
+
+- name: wolverhampton_ctr_enhanced_support_rate
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_selected_maximum_support_rate: 0.88
+
+- name: wolverhampton_ctr_enhanced_rate_multiplies_maximum
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_amount_before_non_dependant_deductions_for_week: 79.2
+
+- name: wolverhampton_ctr_non_dependant_deduction_reduces_maximum
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 16.75
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_amount_for_week: 53.45
+
+- name: wolverhampton_ctr_maximum_exceeds_taper
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 110
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_exceeds_taper_deduction: holds
+
+- name: wolverhampton_ctr_taper_exceeds_maximum
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 500
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_exceeds_taper_deduction: not_holds
+
+- name: wolverhampton_ctr_class_d_qualifies
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_class_d_qualifies: holds
+
+- name: wolverhampton_ctr_class_e_qualifies
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 110
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_class_e_qualifies: holds
+
+- name: wolverhampton_ctr_award_route_available
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_award_route_available: holds
+
+- name: wolverhampton_ctr_taper_deducted_from_section_57_maximum
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 110
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_award_before_capital_for_week: 67.9
+
+- name: wolverhampton_ctr_full_award_at_capital_limit
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#simulated_wolverhampton_council_tax_reduction_weekly_amount: 70.2
+
+- name: wolverhampton_ctr_standard_final_award
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_amount: 70.2
+
+- name: wolverhampton_ctr_capital_cliff_overrides_class_d_benefit
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 99
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: true
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_amount: 0
+
+- name: wolverhampton_ctr_income_equality_zero_award
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_amount: 0
+
+- name: wolverhampton_ctr_taper_zero_award
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 500
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: false
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_amount: 0
+
+- name: wolverhampton_ctr_nondependant_below_279_judgment
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_income_below_band_2: holds
+
+- name: wolverhampton_ctr_nondependant_below_485_judgment
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_income_below_band_3: holds
+
+- name: wolverhampton_ctr_nondependant_below_605_judgment
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_income_below_band_4: holds
+
+- name: wolverhampton_ctr_nondependant_band_at_279
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_deduction_band: 2
+
+- name: wolverhampton_ctr_nondependant_below_279
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 5.46
+
+- name: wolverhampton_ctr_nondependant_at_279
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 11.13
+
+- name: wolverhampton_ctr_nondependant_below_485
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 11.13
+
+- name: wolverhampton_ctr_nondependant_at_485
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 13.97
+
+- name: wolverhampton_ctr_nondependant_below_605
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 13.97
+
+- name: wolverhampton_ctr_nondependant_at_605_remunerative
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 16.75
+
+- name: wolverhampton_ctr_nondependant_at_605_not_remunerative
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 5.46
+
+- name: wolverhampton_ctr_nondependant_protected_zero
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_normal_gross_weekly_income: 500
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_individual_non_dependant_deduction_for_week: 0
+
+- name: wolverhampton_ctr_printed_scalar_parameters
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input: {}
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_maximum_support_rate: 0.78
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_enhanced_maximum_support_rate: 0.88
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_capital_limit: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_threshold: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_upper_limit: 16000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_step: 250
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_zero_weekly_amount: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_days_per_week: 7
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_daily_taper_rate: "0.0328571428571428571428571429"
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_taper_rate: 0.23
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_band_2_lower_income_weekly: 279
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_band_3_lower_income_weekly: 485
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_non_dependant_band_4_lower_income_weekly: 605
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_no_non_dependant_deduction_band: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_low_non_dependant_deduction_band: 1
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_middle_non_dependant_deduction_band: 2
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_high_non_dependant_deduction_band: 3
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_top_non_dependant_deduction_band: 4
+
+- name: wolverhampton_ctr_class_d_income_based_benefit_route
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: true
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_class_d_income_condition_met: holds
+
+- name: wolverhampton_ctr_class_d_income_based_benefit_award
+  period:
+    period_kind: custom
+    name: reduction_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.local_authority_is_wolverhampton: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_is_in_local_working_age_class: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_satisfies_shared_class_d_and_e_conditions: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_actual_liability_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_band_c_liability_for_week: 90
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicant_or_partner_is_listed_enhanced_group: false
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_non_dependant_deductions_for_week: 0
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_assessed_income_before_tariff_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_applicable_amount_for_week: 100
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#input.wolverhampton_council_tax_reduction_claimant_or_partner_has_class_d_income_based_benefit: true
+  output:
+    uk-wolverhampton:policies/wolverhampton/council-tax-reduction#wolverhampton_council_tax_reduction_weekly_amount: 70.2

@@ -1,0 +1,393 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-59
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Rushcliffe Borough Council, so the adopted document is operative.
+  summary: |-
+    Rushcliffe's 2026/27 working-age scheme applies a 91.5% maximum-liability rate, except that persons receiving the Family Premium within their applicable amount are protected at 100%. Class E awards deduct the 2 6/7% daily excess-income amount from that maximum. Capital over £16,000 excludes an applicant; capital above £6,000 generates £1 weekly tariff income for each £250 or part. No minimum-award floor is printed.
+  deferred_outputs:
+    - output: uk-rushcliffe:policies/rushcliffe/council-tax-reduction/paragraphs-25-to-28-and-schedule-3#applicable_amount_and_assessed_income
+      reason: The award surface consumes applicable amount, assessed income, Universal Credit treatment, and Family Premium status; the detailed premium, income, disregard, and UC-calculation provisions are outside this module.
+    - output: uk-rushcliffe:policies/rushcliffe/council-tax-reduction/paragraph-30#non_dependant_exemption_and_apportionment
+      reason: This module encodes the printed deduction grid and consumes the exemption result; the claimant disability protections, student and benefit exemptions, couple rules, and apportionment classifiers are outside this module.
+    - output: uk-rushcliffe:policies/rushcliffe/council-tax-reduction/paragraph-18-and-schedule-4#alternative_maximum_council_tax_reduction
+      reason: The separate working-age alternative maximum (second-adult) reduction is outside this means-tested Classes D and E award surface.
+rules:
+  - name: rushcliffe_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 29(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-50
+              excerpt: "amount in respect of a day will be 91.5 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.915
+
+  - name: rushcliffe_council_tax_reduction_family_premium_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 29A(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-51
+              excerpt: "amount in respect of a day is 100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: rushcliffe_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 23(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: rushcliffe_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-122
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: rushcliffe_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-122
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: rushcliffe_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-122
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: rushcliffe_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 weekly-income conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-82
+              excerpt: "by multiplying the amount of the payment by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: rushcliffe_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 daily deduction conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: rushcliffe_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 17(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: rushcliffe_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 17(f)(ii), converted from the printed daily rate
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          rushcliffe_council_tax_reduction_daily_taper_rate * rushcliffe_council_tax_reduction_days_per_week
+
+  - name: rushcliffe_council_tax_reduction_non_dependant_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30(2)(b)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "not less than £279.00 but less than £485.00"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "279"}]
+
+  - name: rushcliffe_council_tax_reduction_non_dependant_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30(2)(c)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "not less than £485.00 but less than £605.00"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "485"}]
+
+  - name: rushcliffe_council_tax_reduction_non_dependant_band_4_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30(2)(c)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "not less than £485.00 but less than £605.00"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "605"}]
+
+  - name: rushcliffe_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: rushcliffe_council_tax_reduction_non_dependant_deduction_band
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7;"
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "(b) in respect of a non-dependant aged 18 or over to whom paragraph (a) does not apply, £5.20 x 1/7."
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "(b) not less than £279.00 but less than £485.00, the deduction to be made under this paragraph is £10.60 x 1/7;"
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52
+              excerpt: "(c) not less than £485.00 but less than £605.00, the deduction to be made under this paragraph is £13.30 x 1/7."
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-53
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant's dwelling"
+              table: {header: Non-dependant weekly deductions, row_key: deduction band, column_key: weekly deduction}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 5.20, 2: 10.60, 3: 13.30, 4: 15.95}
+
+  - name: rushcliffe_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-22, excerpt: "a person is a “person who is not a pensioner” if"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_rushcliffe and council_tax_reduction_household_in_england and rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner and (rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant or not rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant)
+
+  - name: rushcliffe_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 23(1)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-47, excerpt: "capital exceeds £16,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "rushcliffe_council_tax_reduction_assessed_capital_for_year <= rushcliffe_council_tax_reduction_capital_limit"}]
+
+  - name: rushcliffe_council_tax_reduction_maximum_support_rate_for_household
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraphs 29(7) and 29A(7)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "persons who are in receipt of the Family Premium within their applicable amount."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if rushcliffe_council_tax_reduction_receives_family_premium: rushcliffe_council_tax_reduction_family_premium_maximum_support_rate else: rushcliffe_council_tax_reduction_maximum_support_rate"}]
+
+  - name: rushcliffe_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-122, excerpt: "£1 for any excess which is not a complete £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "rushcliffe_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, rushcliffe_council_tax_reduction_assessed_capital_for_year - rushcliffe_council_tax_reduction_tariff_income_threshold) / rushcliffe_council_tax_reduction_tariff_income_step) * rushcliffe_council_tax_reduction_weeks_per_year"}]
+
+  - name: rushcliffe_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 17(f)(ii)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-32, excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "max(0, rushcliffe_council_tax_reduction_assessed_income_for_year + rushcliffe_council_tax_reduction_tariff_income_for_year - rushcliffe_council_tax_reduction_applicable_amount_for_year)"}]
+
+  - name: rushcliffe_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 17(f)(ii)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-32, excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "rushcliffe_council_tax_reduction_excess_income_for_year * rushcliffe_council_tax_reduction_weekly_taper_rate"}]
+
+  - name: rushcliffe_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Year
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "normal gross weekly income is:"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if not rushcliffe_council_tax_reduction_is_non_dependant or rushcliffe_council_tax_reduction_non_dependant_exempt: 0 else: if not rushcliffe_council_tax_reduction_non_dependant_in_remunerative_work or rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income < rushcliffe_council_tax_reduction_non_dependant_band_2_threshold: 1 else: if rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income < rushcliffe_council_tax_reduction_non_dependant_band_3_threshold: 2 else: if rushcliffe_council_tax_reduction_non_dependant_normal_gross_weekly_income < rushcliffe_council_tax_reduction_non_dependant_band_4_threshold: 3 else: 4"}]
+
+  - name: rushcliffe_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-52, excerpt: "the deduction to be made under this paragraph is £10.60 x 1/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "rushcliffe_council_tax_reduction_non_dependant_weekly_deduction_by_band[rushcliffe_council_tax_reduction_non_dependant_deduction_band]"}]
+
+  - name: rushcliffe_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 paragraph 29
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-50, excerpt: "91.5 per cent of the amount A/B"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "rushcliffe_council_tax_reduction_eligible_liability_for_year * rushcliffe_council_tax_reduction_maximum_support_rate_for_household"}]
+
+  - name: simulated_rushcliffe_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 Classes D and E and paragraphs 29 to 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "amount found by deducting amount B from amount A"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-50
+              excerpt: "less any deductions in respect of non-dependants"
+    versions: [{effective_from: '2026-04-01', formula: "if rushcliffe_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and rushcliffe_council_tax_reduction_capital_eligible: max(0, rushcliffe_council_tax_reduction_maximum_amount_for_year - rushcliffe_council_tax_reduction_income_taper_deduction_for_year - rushcliffe_council_tax_reduction_non_dependant_deductions_for_year) else: 0"}]
+
+  - name: rushcliffe_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Rushcliffe Borough Council Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-rushcliffe/manual/council-tax-reduction-scheme-2026-2027/page-59, excerpt: "the amount of the reduction to which he is entitled"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "simulated_rushcliffe_council_tax_reduction_annual_amount"}]
+
+inputs:
+  - {name: rushcliffe_council_tax_reduction_applicant_is_person_who_is_not_pensioner, entity: Household, dtype: Boolean, period: Year}
+  - {name: rushcliffe_council_tax_reduction_household_has_pension_age_non_dependant, entity: Household, dtype: Boolean, period: Year}

@@ -1,0 +1,355 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-10
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to St Helens Borough Council, so the adopted document is operative for the locally set working-age parameters and award calculation.
+  summary: |-
+    St Helens Borough Council's operative 2026-27 working-age scheme awards 80 percent of the lower of the applicant's liability and Band D liability, so the printed Band D ceiling supplies the F-to-H effective percentages. It withdraws 20 percent of weekly excess income, denies support above £16,000 capital, applies a £1 weekly minimum-entitlement floor, and makes no working-age non-dependant deductions. The document prints a pensioner-only tariff-income rule; none applies to the working-age award surface. Pension-age provisions and the applicable-amount and income-assessment schedules are outside this module.
+  deferred_outputs:
+    - output: uk-st-helens:policies/st-helens/council-tax-reduction/paragraphs-11-to-35-and-61-to-65#applicable_amount_and_assessed_income_weekly
+      reason: The award surface consumes the scheme's assessed weekly income and amount allowed for living expenses; the category-specific allowances, premiums, earnings, disregards, and Universal Credit assessment details are outside this module.
+    - output: uk-st-helens:policies/st-helens/council-tax-reduction/paragraphs-29-to-35-and-appendix-5#assessed_capital
+      reason: This module applies the locally printed £16,000 capital cliff, while capital valuation, attribution, notional-capital, and disregard provisions remain outside the award surface.
+    - output: uk-st-helens:policies/st-helens/council-tax-reduction/paragraph-41#applicant_weekly_liability_share
+      reason: This module consumes the applicant's weekly liability already apportioned for joint liability; discount and liability-share calculation are outside the award surface.
+    - output: uk-st-helens:policies/st-helens/council-tax-reduction/paragraphs-5-to-7-and-42-to-48#pension_age_and_second_adult_reductions
+      reason: Pension-age prescribed-scheme provisions, including pensioner tariff income and non-dependant deductions, and the separate second-adult reduction are outside this working-age module.
+rules:
+  - name: st_helens_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "these working-age applicants qualify for 80% reduction on their council tax bill"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: st_helens_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 10 and 28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "have capital not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: st_helens_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 9 and 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a sum equal to 20% of the difference between their income (£120) and the amount for living expenses (£100) is deducted"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: st_helens_council_tax_reduction_minimum_weekly_entitlement
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 40
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "For working-age applicants, there is a minimum weekly entitlement of £1.00 a week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: st_helens_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 28, 40, and 49
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "if the calculation results in an amount less than £1.00 a week, no reduction is awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: st_helens_council_tax_reduction_zero_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 49
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "49. No non-dependant deductions are applied where the applicant is of working age."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: st_helens_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: st_helens_council_tax_reduction_non_dependant_deduction_band
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 49
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "49. No non-dependant deductions are applied where the applicant is of working age."
+              table:
+                header: Working-age non-dependant weekly deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+
+  - name: st_helens_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "The Council has devised its own scheme for working-age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_st_helens and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: st_helens_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 10 and 28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "have capital not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          st_helens_council_tax_reduction_assessed_capital <= st_helens_council_tax_reduction_capital_limit
+
+  - name: st_helens_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 9 and 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "the difference between their income and the amount for living expenses"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(st_helens_council_tax_reduction_zero_weekly_amount, st_helens_council_tax_reduction_assessed_income_weekly - st_helens_council_tax_reduction_applicable_amount_weekly)
+
+  - name: st_helens_council_tax_reduction_income_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 9 and 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "20% of the difference between their income (£120) and the amount for living expenses (£100) is deducted"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          st_helens_council_tax_reduction_excess_income_weekly * st_helens_council_tax_reduction_weekly_taper_rate
+
+  - name: st_helens_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 49
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "49. No non-dependant deductions are applied where the applicant is of working age."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          st_helens_council_tax_reduction_zero_non_dependant_deduction_band
+
+  - name: st_helens_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 49
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-12
+              excerpt: "49. No non-dependant deductions are applied where the applicant is of working age."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          st_helens_council_tax_reduction_non_dependant_weekly_deduction_by_band[st_helens_council_tax_reduction_non_dependant_deduction_band]
+
+  - name: st_helens_council_tax_reduction_maximum_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "households living in a property in a higher council tax band than band D are restricted to the amount of council tax liability for a band D property."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "these working-age applicants qualify for 80% reduction on their council tax bill"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(st_helens_council_tax_reduction_actual_liability_weekly, st_helens_council_tax_reduction_band_d_liability_weekly) * st_helens_council_tax_reduction_maximum_support_rate
+
+  - name: st_helens_council_tax_reduction_award_before_minimum_floor_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 paragraphs 9 and 38
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "will have 20% of the difference between their income and the amount for living expenses deducted from the maximum amount of council tax reduction that would otherwise be payable."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(st_helens_council_tax_reduction_zero_weekly_amount, st_helens_council_tax_reduction_maximum_weekly_amount - st_helens_council_tax_reduction_income_taper_deduction_weekly)
+
+  - name: simulated_st_helens_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 working-age award calculation, paragraphs 9, 28, and 40
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "if the calculation results in an amount less than £1.00 a week, no reduction is awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if st_helens_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and st_helens_council_tax_reduction_capital_eligible and st_helens_council_tax_reduction_award_before_minimum_floor_weekly >= st_helens_council_tax_reduction_minimum_weekly_entitlement: st_helens_council_tax_reduction_award_before_minimum_floor_weekly else: st_helens_council_tax_reduction_zero_weekly_amount
+
+  - name: st_helens_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: St Helens Council Tax Reduction Scheme 2026-2027 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-st-helens/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "The Council has devised its own scheme for working-age applicants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_st_helens_council_tax_reduction_weekly_amount

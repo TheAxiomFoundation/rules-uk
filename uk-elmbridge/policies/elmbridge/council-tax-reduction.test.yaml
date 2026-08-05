@@ -1,0 +1,355 @@
+- name: elmbridge_ctr_full_liability_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_working_age_scheme_applies: holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_has_universal_credit_award: not_holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_capital_eligible: holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_excess_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#simulated_elmbridge_council_tax_reduction_annual_amount: 1620
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 1620
+
+- name: elmbridge_ctr_capital_over_limit_is_nil
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_capital_eligible: not_holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#simulated_elmbridge_council_tax_reduction_annual_amount: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 0
+
+- name: elmbridge_ctr_tariff_income_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_for_year: 624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_applicable_income_with_tariff_for_year: 624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_excess_income_for_year: 624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_income_taper_deduction_for_year: 124.8
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 1495.2
+
+- name: elmbridge_ctr_universal_credit_uses_uc_maximum_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 9000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 12000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 12000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 12000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_has_universal_credit_award: holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_applicable_amount_for_year: 12000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_for_year: 624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_applicable_income_with_tariff_for_year: 12624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_excess_income_for_year: 624
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_income_taper_deduction_for_year: 124.8
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 1495.2
+
+- name: elmbridge_ctr_non_dependant_top_band_reduces_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 829.4
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 790.6
+
+- name: elmbridge_ctr_non_dependant_top_band_individual_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_in_remunerative_work: holds
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 829.4
+
+- name: elmbridge_ctr_exempt_non_dependant_has_no_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 0
+
+- name: elmbridge_ctr_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_ordinary_maximum_support_rate: 0.90
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_partially_protected_maximum_support_rate: 0.95
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_protected_maximum_support_rate: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_capital_limit: 16000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_threshold: 6000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_step: 250
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_days_per_week: 7
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_withdrawal_rate: '0.2000000000000000000000000002'
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_remunerative_work_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_weeks_per_year: 52
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_no_non_dependant_deduction_band: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_low_non_dependant_deduction_band: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_mid_non_dependant_deduction_band: 2
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_high_non_dependant_deduction_band: 3
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_top_non_dependant_deduction_band: 4
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_mid_income_threshold_weekly: 279
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_high_income_threshold_weekly: 485
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_top_income_threshold_weekly: 605
+
+- name: elmbridge_ctr_protected_class_gets_full_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_maximum_support_rate: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 1800
+
+- name: elmbridge_ctr_partially_protected_class_gets_95_percent_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_maximum_support_rate: 0.95
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 1710
+
+- name: elmbridge_ctr_capital_at_limit_remains_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_capital_eligible: holds
+
+- name: elmbridge_ctr_tariff_threshold_has_no_tariff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_for_year: 0
+
+- name: elmbridge_ctr_first_partial_tariff_step
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 6001
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_tariff_income_for_year: 52
+
+- name: elmbridge_ctr_taper_exhausts_award_to_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.local_authority_is_elmbridge: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicant_is_partially_protected: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_assessed_capital_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_universal_credit_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_uc_maximum_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_legacy_applicable_amount_for_year: 0
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_applicable_income_for_year: 10000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_relevant_income_based_benefit: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_income_taper_deduction_for_year: 2000
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_annual_amount: 0
+
+- name: elmbridge_ctr_non_dependant_below_remunerative_hours_uses_low_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 15.99
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: elmbridge_ctr_non_dependant_below_279_uses_low_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 270.4
+
+- name: elmbridge_ctr_non_dependant_at_279_uses_mid_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: elmbridge_ctr_non_dependant_below_485_uses_mid_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 2
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 551.2
+
+- name: elmbridge_ctr_non_dependant_at_485_uses_high_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6
+
+- name: elmbridge_ctr_non_dependant_below_605_uses_high_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_is_non_dependant: true
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_exempt: false
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_weekly_hours: 16
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#input.elmbridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_non_dependant_deduction_band: 3
+    uk-elmbridge:policies/elmbridge/council-tax-reduction#elmbridge_council_tax_reduction_individual_non_dependant_deduction_for_year: 691.6

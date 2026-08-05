@@ -1,0 +1,231 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-87
+  summary: |-
+    Babergh's 2026-27 working-age scheme provides a 100 percent daily maximum of eligible liability, reduced by daily non-dependant deductions. For Class E the document literally prints a 20 percent daily taper against excess weekly income, equivalent to 140 percent across the printed seven-day week. Class F (Universal Credit) receives the daily maximum less one seventh of its Schedule 5 weekly contribution. The annual output multiplies the resulting daily award by the actual number of days in the financial year, not by a fixed 52 weeks. Paragraph 58 incorporates annually uprated non-dependant amounts by reference but does not print them, so this module consumes the assessed daily deduction without encoding an ungrounded table. Capital above £16,000 excludes entitlement, while capital over £6,000 creates £1 weekly tariff income per £250 or part. Awards below £1 a benefit week are not payable. The pension-age prescribed scheme is outside this module.
+  deferred_outputs:
+    - output: uk-babergh:policies/babergh/council-tax-reduction/paragraphs-12-to-33-and-schedules-1-to-3#applicable_amount_and_assessed_income
+      reason: The award surface consumes assessed income and applicable amount; detailed premiums, earnings, disregards, and Universal Credit assessment are outside this module.
+    - output: uk-babergh:policies/babergh/council-tax-reduction/paragraphs-35-to-41-and-schedule-4#assessed_capital
+      reason: This module applies the printed capital cliff and tariff rule; detailed capital valuation, attribution, and disregards are outside it.
+    - output: uk-babergh:policies/babergh/council-tax-reduction/paragraphs-58-1-to-58-9#non_dependant_deductions_for_day
+      reason: Paragraph 58 incorporates the annually uprated prescribed-requirements amounts by reference, but the adopted PDF and its corpus provisions print no deduction values. This module therefore consumes the assessed daily deduction; the incorporated amounts and the coupled-household, disability, student, benefit, absence, and gross-income classifiers are future outputs.
+    - output: uk-babergh:policies/babergh/council-tax-reduction/schedule-5#class_f_income_band_and_no_entitlement
+      reason: This module encodes the printed weekly contribution table and consumes the selected band and no-entitlement result; classification from DWP-notified earnings against the monthly or weekly thresholds is a future output.
+rules:
+  - name: babergh_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "100 per cent of the amount A/B"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+
+  - name: babergh_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 34.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-65, excerpt: "the prescribed amount is £16,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "16000"}]
+
+  - name: babergh_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-71, excerpt: "exceeds £6,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "6000"}]
+
+  - name: babergh_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-71, excerpt: "each £250, or part thereof"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "250"}]
+
+  - name: babergh_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-71, excerpt: "weekly income of £1 for each £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+
+  - name: babergh_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 2 definition of week
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-21, excerpt: "“week” means a period of 7 consecutive days starting on a Monday and ending on a Sunday;"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "7"}]
+
+  - name: babergh_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-87, excerpt: "The prescribed daily percentage for the purposes of calculating support as a percentage of income over the applicable amount, which is deducted from maximum council tax reduction, shall be 20 per cent."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "0.2"}]
+
+  - name: babergh_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 59.1, daily rate aggregated over the defined seven-day week
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-87, excerpt: "The prescribed daily percentage for the purposes of calculating support as a percentage of income over the applicable amount, which is deducted from maximum council tax reduction, shall be 20 per cent."}
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-21, excerpt: "“week” means a period of 7 consecutive days starting on a Monday and ending on a Sunday;"}
+    versions: [{effective_from: '2026-04-01', formula: "babergh_council_tax_reduction_daily_taper_rate * babergh_council_tax_reduction_days_per_week"}]
+
+  - name: babergh_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 57.7
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "less than one pound per benefit week"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+
+  - name: babergh_council_tax_reduction_class_f_weekly_contribution_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: babergh_council_tax_reduction_class_f_income_band
+    source: Babergh Council Tax Reduction Scheme 2026/27 Schedule 5
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].values'
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-152
+              excerpt: "Not in work or less than £75.23 £0 £326 - £685.99 £54 £158.31 £12.46 £686 - £1305.99 £102 £301.38 £23.54 £1306 to £2076.99 £145 £479.31 £33.46 £2077 - £2668.99 £216 £615.92 £49.85 £2669 - £2999.99 £283 £692.31 £65.31 Over £3000 No entitlement to LCTR over £692.31 No entitlement to LCTR"
+              table: {header: Class F income bands and weekly contributions, row_key: income band, column_key: weekly contribution}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 12.46, 2: 23.54, 3: 33.46, 4: 49.85, 5: 65.31, 6: 0}
+
+  - name: babergh_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 34.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-65, excerpt: "For the purposes of this scheme, the prescribed amount is £16,000 and no support shall be granted where the applicant’s capital, exceeds this amount."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "babergh_council_tax_reduction_assessed_capital_for_year <= babergh_council_tax_reduction_capital_limit"}]
+
+  - name: babergh_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-71, excerpt: "£1 for each £250, or part thereof, in excess of £6,000 but not exceeding £16,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if babergh_council_tax_reduction_assessed_capital_for_year <= babergh_council_tax_reduction_tariff_income_threshold: 0 else: ceil((babergh_council_tax_reduction_assessed_capital_for_year - babergh_council_tax_reduction_tariff_income_threshold) / babergh_council_tax_reduction_tariff_income_step) * babergh_council_tax_reduction_tariff_income_weekly_amount_per_step"}]
+
+  - name: babergh_council_tax_reduction_maximum_amount_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "a person's maximum council tax reduction amount in respect of a day is 100 per cent of the amount A/B"}}, {path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "B is the number of days in that financial year, less any deductions in respect of non- dependants"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "max(0, babergh_council_tax_reduction_eligible_liability_for_year * babergh_council_tax_reduction_maximum_support_rate / babergh_council_tax_reduction_number_of_days_in_financial_year - babergh_council_tax_reduction_non_dependant_deductions_for_day)"}]
+
+  - name: babergh_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraphs 1.10.10 and 18.1
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "the difference between his income for the relevant week and his applicable amount"}
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-42, excerpt: "the income of an applicant is to be calculated on a weekly basis"}
+    versions: [{effective_from: '2026-04-01', formula: "max(0, babergh_council_tax_reduction_assessed_income_weekly - babergh_council_tax_reduction_applicable_amount_weekly)"}]
+
+  - name: babergh_council_tax_reduction_class_e_taper_deduction_daily
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-87, excerpt: "The prescribed daily percentage for the purposes of calculating support as a percentage of income over the applicable amount, which is deducted from maximum council tax reduction, shall be 20 per cent."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "babergh_council_tax_reduction_excess_income_weekly * babergh_council_tax_reduction_daily_taper_rate"}]
+
+  - name: babergh_council_tax_reduction_class_e_amount_before_floor_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraphs 1.10.10 and 59.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "Amount A is the maximum council tax reduction in respect of the day in the person’s case; and 1.10.10.2. Amount B is 20 percent of the difference between his income for the relevant week and his applicable amount."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "max(0, babergh_council_tax_reduction_maximum_amount_for_day - babergh_council_tax_reduction_class_e_taper_deduction_daily)"}]
+
+  - name: babergh_council_tax_reduction_class_f_contribution_daily
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraph 2 and Schedule 5
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-152, excerpt: "Income Bands (Monthly) Monthly contribution Income Bands (Weekly up to) Weekly contribution"}
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-21, excerpt: "“week” means a period of 7 consecutive days starting on a Monday and ending on a Sunday;"}
+    versions: [{effective_from: '2026-04-01', formula: "babergh_council_tax_reduction_class_f_weekly_contribution_by_band[babergh_council_tax_reduction_class_f_income_band] / babergh_council_tax_reduction_days_per_week"}]
+
+  - name: babergh_council_tax_reduction_class_f_amount_before_floor_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 paragraphs 1.11.10 and Schedule 5
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "Amount A is the maximum council tax reduction in respect of the day in the person’s case; and 1.11.10.2. Amount B is the calculated contribution requirement based on the declared earnings."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if babergh_council_tax_reduction_class_f_no_entitlement: 0 else: max(0, babergh_council_tax_reduction_maximum_amount_for_day - babergh_council_tax_reduction_class_f_contribution_daily)"}]
+
+  - name: babergh_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Babergh Council Tax Reduction Scheme 2026/27 working-age classes D, E, and F
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "it shall not be payable where the amount to which a person would otherwise be entitled is less than one pound per benefit week"}
+          - path: 'versions[0].formula'
+            kind: formula
+            source: {corpus_citation_path: uk-babergh/manual/council-tax-reduction-scheme-2026-2027/page-84, excerpt: "B is the number of days in that financial year"}
+    versions: [{effective_from: '2026-04-01', formula: "if babergh_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and babergh_council_tax_reduction_capital_eligible: if (if babergh_council_tax_reduction_class_f_applies: babergh_council_tax_reduction_class_f_amount_before_floor_for_day else: babergh_council_tax_reduction_class_e_amount_before_floor_for_day) * babergh_council_tax_reduction_days_per_week < babergh_council_tax_reduction_minimum_award_weekly: 0 else: (if babergh_council_tax_reduction_class_f_applies: babergh_council_tax_reduction_class_f_amount_before_floor_for_day else: babergh_council_tax_reduction_class_e_amount_before_floor_for_day) * babergh_council_tax_reduction_number_of_days_in_financial_year else: 0"}]

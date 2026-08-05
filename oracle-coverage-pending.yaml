@@ -4903,4 +4903,55 @@ entries:
 - legal_id: uk-elmbridge:policies/elmbridge/council-tax-reduction#simulated_elmbridge_council_tax_reduction_annual_amount
   source: manual
   since: 2026-08-03
-ceiling: 1634
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_award_before_minimum_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_capital_eligible
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_class_e_award_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_class_f_award_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_individual_non_dependant_deduction_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_minimum_award_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_non_dependant_deduction_weekly_by_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_taper_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_tariff_income_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_tariff_income_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_tariff_income_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_tariff_income_weekly_amount_per_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_uc_weekly_contribution_by_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_weeks_per_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-ipswich:policies/ipswich/council-tax-reduction#ipswich_council_tax_reduction_working_age_annual_amount
+  source: manual
+  since: 2026-08-03
+ceiling: 1651

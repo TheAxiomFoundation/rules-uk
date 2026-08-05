@@ -1,0 +1,662 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-199
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Royal Borough of Kensington and Chelsea, so the council's adopted scheme document is the operative legal source for these locally set values. The pinned singular source-verification contract strips this attestation as a live field.
+  summary: |-
+    The Royal Borough of Kensington and Chelsea's operative 2026-27 working-age scheme caps the maximum award at 90% of annual liability. For non-UC cases, it applies the printed 2 6/7% daily taper (20% weekly), £16,000 capital cliff, and £1 weekly tariff income for each £250 or part over £6,000. Schedule 11 expressly applies UC percentage bands to the same 90% maximum; the band schedule and transitional no-less-favourable comparison are deferred below. No minimum award or council-tax-band cap is printed. Pension-age and alternative maximum reduction are outside this working-age award module.
+  deferred_outputs:
+    - output: uk-kensington-and-chelsea:policies/kensington-and-chelsea/council-tax-reduction/schedule-3#applicable_amount
+      reason: The working-age personal allowances, family premiums, disability premiums, components, and transitional additions underlying the applicable amount are outside this award-surface module.
+    - output: uk-kensington-and-chelsea:policies/kensington-and-chelsea/council-tax-reduction/paragraphs-18-and-31-and-schedule-4#alternative_maximum_reduction
+      reason: The separate second-adult alternative maximum reduction calculation is outside this working-age Classes D and E award surface.
+rules:
+  - name: kensington_and_chelsea_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 29
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "is 90 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.9
+
+  - name: kensington_and_chelsea_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 tariff-income upper capital bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: kensington_and_chelsea_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: kensington_and_chelsea_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: kensington_and_chelsea_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: kensington_and_chelsea_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 daily deduction conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the prescribed requirements regulations; x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: kensington_and_chelsea_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 class E amount B percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: kensington_and_chelsea_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 class E excess-income percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_daily_taper_rate * kensington_and_chelsea_council_tax_reduction_days_per_week
+
+  - name: kensington_and_chelsea_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "for not less than 16 hours a week, in work for which payment is made"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: kensington_and_chelsea_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 weekly-to-annual conversion denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-40
+              excerpt: "multiply the maximum amount by 12 and divide the product by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: kensington_and_chelsea_council_tax_reduction_non_dependant_deduction_band
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30, applying UKSI 2012/2885 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk/regulation/uksi/2012/2885/schedule/1/paragraph/8
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.60
+          3: 13.30
+          4: 15.95
+
+  - name: kensington_and_chelsea_council_tax_reduction_no_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30 exemption band code
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "(6) No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: kensington_and_chelsea_council_tax_reduction_low_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30 low deduction band code
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the amount stated in sub-paragraph 8(1)(b) of the prescribed requirements regulations x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: kensington_and_chelsea_council_tax_reduction_mid_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30 middle deduction band code
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the non- dependant deduction shall determined by reference to sub-paragraph 8(2) of the prescribed requirements regulations."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: kensington_and_chelsea_council_tax_reduction_high_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30 high deduction band code
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the non- dependant deduction shall determined by reference to sub-paragraph 8(2) of the prescribed requirements regulations."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: kensington_and_chelsea_council_tax_reduction_top_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30 top deduction band code
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the non- dependant deduction shall determined by reference to sub-paragraph 8(2) of the prescribed requirements regulations."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_high_non_dependant_deduction_band + kensington_and_chelsea_council_tax_reduction_low_non_dependant_deduction_band
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_mid_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30, applying UKSI 2012/2885 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk/regulation/uksi/2012/2885/schedule/1/paragraph/8
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30, applying UKSI 2012/2885 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk/regulation/uksi/2012/2885/schedule/1/paragraph/8
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_top_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30, applying UKSI 2012/2885 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk/regulation/uksi/2012/2885/schedule/1/paragraph/8
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: kensington_and_chelsea_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 working-age class D and E eligibility surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "Class D: persons who are not pensioners whose income is less than the applicable amount 16."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_kensington_and_chelsea and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: kensington_and_chelsea_council_tax_reduction_has_universal_credit_award
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 UC applicable-amount condition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-40
+              excerpt: "who (jointly with his partner) has, an award of universal credit,"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_universal_credit_for_year > 0
+
+
+  - name: kensington_and_chelsea_council_tax_reduction_applicable_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 applicable amount for working-age UC cases
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-40
+              excerpt: "the authority must use the calculation or estimate of the maximum amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if kensington_and_chelsea_council_tax_reduction_has_universal_credit_award: kensington_and_chelsea_council_tax_reduction_uc_maximum_amount_for_year else: kensington_and_chelsea_council_tax_reduction_legacy_applicable_amount_for_year
+
+  - name: kensington_and_chelsea_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 working-age capital upper bound
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_assessed_capital_for_year <= kensington_and_chelsea_council_tax_reduction_capital_limit
+
+  - name: kensington_and_chelsea_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 72 working-age tariff income
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "£1 for any excess which is not a complete £250."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if kensington_and_chelsea_council_tax_reduction_has_universal_credit_award: 0 else: kensington_and_chelsea_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, kensington_and_chelsea_council_tax_reduction_assessed_capital_for_year - kensington_and_chelsea_council_tax_reduction_tariff_income_threshold) / kensington_and_chelsea_council_tax_reduction_tariff_income_step) * kensington_and_chelsea_council_tax_reduction_weeks_per_year
+
+  - name: kensington_and_chelsea_council_tax_reduction_applicable_income_with_tariff_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 income calculation including capital tariff
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "is to be treated as if it were a weekly income(168) of— (a)£1 for each £250 in excess of £6,000 but not exceeding £16,000;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_applicable_income_for_year + kensington_and_chelsea_council_tax_reduction_tariff_income_for_year
+
+  - name: kensington_and_chelsea_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 class E excess-income amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if kensington_and_chelsea_council_tax_reduction_relevant_income_based_benefit: 0 else: max(0, kensington_and_chelsea_council_tax_reduction_applicable_income_with_tariff_for_year - kensington_and_chelsea_council_tax_reduction_applicable_amount_for_year)
+
+  - name: kensington_and_chelsea_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_excess_income_for_year * kensington_and_chelsea_council_tax_reduction_withdrawal_rate
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_in_remunerative_work
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 remunerative-work definition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "for not less than 16 hours a week, in work for which payment is made"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_non_dependant_weekly_hours >= kensington_and_chelsea_council_tax_reduction_remunerative_work_hours
+
+  - name: kensington_and_chelsea_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the non- dependant deduction shall determined by reference to sub-paragraph 8(2) of the prescribed requirements regulations."
+              table:
+                header: Normal gross weekly income and deduction band
+                row_key: gross weekly income
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "(6) No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not kensington_and_chelsea_council_tax_reduction_is_non_dependant or kensington_and_chelsea_council_tax_reduction_non_dependant_exempt: kensington_and_chelsea_council_tax_reduction_no_non_dependant_deduction_band else: if not kensington_and_chelsea_council_tax_reduction_non_dependant_in_remunerative_work: kensington_and_chelsea_council_tax_reduction_low_non_dependant_deduction_band else: if kensington_and_chelsea_council_tax_reduction_non_dependant_normal_gross_weekly_income >= kensington_and_chelsea_council_tax_reduction_non_dependant_top_income_threshold_weekly: kensington_and_chelsea_council_tax_reduction_top_non_dependant_deduction_band else: if kensington_and_chelsea_council_tax_reduction_non_dependant_normal_gross_weekly_income >= kensington_and_chelsea_council_tax_reduction_non_dependant_high_income_threshold_weekly: kensington_and_chelsea_council_tax_reduction_high_non_dependant_deduction_band else: if kensington_and_chelsea_council_tax_reduction_non_dependant_normal_gross_weekly_income >= kensington_and_chelsea_council_tax_reduction_non_dependant_mid_income_threshold_weekly: kensington_and_chelsea_council_tax_reduction_mid_non_dependant_deduction_band else: kensington_and_chelsea_council_tax_reduction_low_non_dependant_deduction_band
+
+  - name: kensington_and_chelsea_council_tax_reduction_individual_non_dependant_deduction_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30A working-age non-dependant deductions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "(6) No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is—"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the non- dependant deduction shall determined by reference to sub-paragraph 8(2) of the prescribed requirements regulations."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "(6) No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_individual_non_dependant_deduction_for_day * kensington_and_chelsea_council_tax_reduction_days_per_week * kensington_and_chelsea_council_tax_reduction_weeks_per_year
+
+  - name: kensington_and_chelsea_council_tax_reduction_individual_non_dependant_deduction_for_day
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 paragraph 30, applying UKSI 2012/2885 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "the prescribed requirements regulations; x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          kensington_and_chelsea_council_tax_reduction_non_dependant_weekly_deduction_by_band[kensington_and_chelsea_council_tax_reduction_non_dependant_deduction_band] / kensington_and_chelsea_council_tax_reduction_days_per_week
+
+  - name: simulated_kensington_and_chelsea_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 working-age classes D and E amount calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "is 90 per cent of the amount A/B where—"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-201
+              excerpt: "(74.7%, 59.4%, 44.1%, 28.8%, and 13.5%)"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "(g) who has made an application."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if kensington_and_chelsea_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and kensington_and_chelsea_council_tax_reduction_capital_eligible: max(0, kensington_and_chelsea_council_tax_reduction_maximum_eligible_liability_for_year * kensington_and_chelsea_council_tax_reduction_maximum_support_rate - kensington_and_chelsea_council_tax_reduction_income_taper_deduction_for_year - kensington_and_chelsea_council_tax_reduction_non_dependant_deductions_for_year) else: 0
+
+  - name: kensington_and_chelsea_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Royal Borough of Kensington and Chelsea Council Tax Reduction Scheme 2026 final working-age local award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-kensington-and-chelsea/manual/council-tax-reduction-scheme-2026-2027/page-1
+              excerpt: "From 01 April 2026 the Royal Borough of Kensington and Chelsea have revised their existing Council Tax Reduction Scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_kensington_and_chelsea_council_tax_reduction_annual_amount

@@ -1,0 +1,238 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-18
+  summary: >-
+    Runnymede's 2026-27 working-age scheme has a mixed award surface. Ordinary maximum support is 80% of liability and the defined vulnerable class receives 90%. UC awards use the printed weekly contribution grid; non-UC Class D/E awards use the inherited 20% weekly taper. The £5 weekly minimum-entitlement rule applies. Capital limits are £10,000 ordinarily and £16,000 for the vulnerable class, with £1 tariff income per £250 over £6,000 in the ordinary range. The adopted scheme incorporates the prescribed non-dependant grid.
+  deferred_outputs:
+    - output: uk-runnymede:policies/runnymede/council-tax-reduction/paragraphs-51-to-59#assessed_earnings_and_minimum_income_floor
+      reason: The detailed earnings calculation and minimum-income-floor classifier are inputs to this award surface.
+    - output: uk-runnymede:policies/runnymede/council-tax-reduction/paragraphs-66-to-67#valuation_band_eligibility
+      reason: The valuation-band F/G/H exclusion and the statutory Band-F-to-E reduction classifier are outside the calculation inputs encoded here.
+    - output: uk-runnymede:policies/runnymede/council-tax-reduction/paragraph-49#second_adult_rebate
+      reason: The separate alternative maximum council tax reduction is excluded for working-age applicants and is outside this module.
+rules:
+  - name: runnymede_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 65
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "is 80 per cent of the amount A/B"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0.80'}]
+  - name: runnymede_council_tax_reduction_vulnerable_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 65(2)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "is 90 per cent of the amount A/B"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0.90'}]
+  - name: runnymede_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 70
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "capital exceeds £10,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '10000'}]
+  - name: runnymede_council_tax_reduction_vulnerable_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 70
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "capital exceeds £16,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '16000'}]
+  - name: runnymede_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 71
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "in excess of £6,000 but not exceeding £10,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '6000'}]
+  - name: runnymede_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 71
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "£1 for each £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '250'}]
+  - name: runnymede_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 71
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "£1 for each £250"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '1'}]
+  - name: runnymede_council_tax_reduction_taper_whole_percentage_points
+    kind: parameter
+    dtype: Number
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "2 and 6/7 per cent"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '2'}]
+  - name: runnymede_council_tax_reduction_taper_fraction_numerator
+    kind: parameter
+    dtype: Number
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "6/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '6'}]
+  - name: runnymede_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 63, percentage notation unit
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-13, excerpt: "100% local scheme disregard"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '0.01'}]
+  - name: runnymede_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E, denominator used for the printed daily-to-weekly taper conversion
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "6/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '7'}]
+  - name: runnymede_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "2 and 6/7 per cent"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '(runnymede_council_tax_reduction_taper_whole_percentage_points + runnymede_council_tax_reduction_taper_fraction_numerator / runnymede_council_tax_reduction_days_per_week) * runnymede_council_tax_reduction_per_cent_unit'}]
+  - name: runnymede_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E, converted from the printed daily rate
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "2 and 6/7 per cent"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'runnymede_council_tax_reduction_daily_taper_rate * runnymede_council_tax_reduction_days_per_week'}]
+  - name: runnymede_council_tax_reduction_minimum_entitlement_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 68
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "£5.00 or less per week"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '5'}]
+  - name: runnymede_council_tax_reduction_uc_income_band_upper_bound
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: runnymede_council_tax_reduction_uc_income_band
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 94
+    metadata:
+      proof:
+        atoms:
+          - path: "versions[0].values"
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "Weekly Earnings Income Contribution Income £0 - £20.99 per week £0.00 Income £21.00 - £66.99 per week £9.00 Income £67.00 - £139.99 per week £17.00 Income £140.00 - £219.09 per week £23.00 Income £220.00 - £319.99 per week £28.00 Income £320.00 - £432.99 per week £33.00 Income over £433 per week No Council Tax Support"
+              table: {header: UC weekly earnings income contribution, row_key: income band, column_key: inclusive upper bound}
+    versions: [{effective_from: '2026-04-01', values: {0: 20.99, 1: 66.99, 2: 139.99, 3: 219.09, 4: 319.99, 5: 433}}]
+  - name: runnymede_council_tax_reduction_uc_contribution_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: runnymede_council_tax_reduction_uc_income_band
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 94
+    metadata:
+      proof:
+        atoms:
+          - path: "versions[0].values"
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "Weekly Earnings Income Contribution Income £0 - £20.99 per week £0.00 Income £21.00 - £66.99 per week £9.00 Income £67.00 - £139.99 per week £17.00 Income £140.00 - £219.09 per week £23.00 Income £220.00 - £319.99 per week £28.00 Income £320.00 - £432.99 per week £33.00 Income over £433 per week No Council Tax Support"
+              table: {header: UC weekly earnings income contribution, row_key: income band, column_key: weekly contribution}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 9, 2: 17, 3: 23, 4: 28, 5: 33, 6: 0}}]
+  - name: runnymede_council_tax_reduction_non_dependant_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: runnymede_council_tax_reduction_non_dependant_band
+    source: Runnymede Council Tax Support Scheme 2026/27 Appendix 1 (Non-dependant deductions)
+    metadata:
+      proof:
+        atoms:
+          - path: "versions[0].values"
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "Less than 279 5.20 £279-£484.99 10.60 £485-£604.99 13.30 More than £605 15.95"
+              table: {header: Non-dependant deductions, row_key: income band, column_key: weekly deduction}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 5.20, 2: 10.60, 3: 13.30, 4: 15.95}}]
+  - name: runnymede_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 70
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "capital exceeds £16,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: '(runnymede_council_tax_reduction_vulnerable and runnymede_council_tax_reduction_assessed_capital <= runnymede_council_tax_reduction_vulnerable_capital_limit) or (not runnymede_council_tax_reduction_vulnerable and runnymede_council_tax_reduction_assessed_capital <= runnymede_council_tax_reduction_capital_limit)'}]
+  - name: runnymede_council_tax_reduction_maximum_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 65
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "maximum council tax reduction in respect of a day is 80 per cent of the amount A/B"}}, {path: "versions[0].formula", kind: ordering, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "less any deductions in respect of non-dependants"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if runnymede_council_tax_reduction_vulnerable: max(0, runnymede_council_tax_reduction_eligible_liability_weekly * runnymede_council_tax_reduction_vulnerable_maximum_support_rate - runnymede_council_tax_reduction_non_dependant_deductions_weekly) else: max(0, runnymede_council_tax_reduction_eligible_liability_weekly * runnymede_council_tax_reduction_ordinary_maximum_support_rate - runnymede_council_tax_reduction_non_dependant_deductions_weekly)'}]
+  - name: runnymede_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 71
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-15, excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £10,000"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if runnymede_council_tax_reduction_vulnerable: 0 else: floor(max(0, runnymede_council_tax_reduction_assessed_capital - runnymede_council_tax_reduction_tariff_income_threshold) / runnymede_council_tax_reduction_tariff_income_step) * runnymede_council_tax_reduction_tariff_income_weekly_amount_per_step'}]
+  - name: runnymede_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 Class E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "difference between his income for the relevant week and his applicable amount"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'max(0, runnymede_council_tax_reduction_assessed_income_weekly + runnymede_council_tax_reduction_tariff_income_weekly - runnymede_council_tax_reduction_applicable_amount_weekly)'}]
+  - name: runnymede_council_tax_reduction_uc_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraph 94
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-18, excerpt: "Income £0 - £20.99 per week £0.00 Income £21.00 - £66.99 per week £9.00 Income £67.00 - £139.99 per week £17.00 Income £140.00 - £219.09 per week £23.00 Income £220.00 - £319.99 per week £28.00 Income £320.00 - £432.99 per week £33.00 Income over £433 per week No Council Tax Support"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[0]: 0 else: if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[1]: 1 else: if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[2]: 2 else: if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[3]: 3 else: if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[4]: 4 else: if runnymede_council_tax_reduction_uc_earnings_weekly <= runnymede_council_tax_reduction_uc_income_band_upper_bound[5]: 5 else: 6'}]
+  - name: runnymede_council_tax_reduction_pre_floor_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraphs 94 and Class E
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-18, excerpt: "that contribution shall be the contribution specified in the following table according to the band in which their excess income falls"}}, {path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-11, excerpt: "amount A exceeds amount B"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if runnymede_council_tax_reduction_has_universal_credit: if runnymede_council_tax_reduction_uc_earnings_weekly > runnymede_council_tax_reduction_uc_income_band_upper_bound[5]: 0 else: max(0, runnymede_council_tax_reduction_maximum_weekly_amount - runnymede_council_tax_reduction_uc_contribution_by_band[runnymede_council_tax_reduction_uc_income_band]) else: max(0, runnymede_council_tax_reduction_maximum_weekly_amount - runnymede_council_tax_reduction_excess_income_weekly * runnymede_council_tax_reduction_weekly_taper_rate)'}]
+  - name: runnymede_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Runnymede Council Tax Support Scheme 2026/27 paragraphs 65, 68, 94 and 96
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-14, excerpt: "where the support is £5.00 or less per week, then there is no entitlement to Council Tax Support under this scheme"}}, {path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-runnymede/manual/council-tax-reduction-scheme-2026-2027/page-19, excerpt: "accordance with Class D or Class E, as appropriate, of The Council Tax Reduction Schemes (Default Scheme) (England) Regulations 2012 as amended, and subject to locally determined changes set out in this scheme."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'if local_authority_is_runnymede and runnymede_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and runnymede_council_tax_reduction_capital_eligible and runnymede_council_tax_reduction_pre_floor_weekly_amount > runnymede_council_tax_reduction_minimum_entitlement_weekly: runnymede_council_tax_reduction_pre_floor_weekly_amount else: 0'}]
+inputs:
+  - {name: local_authority_is_runnymede, entity: Household, dtype: Boolean, period: Week}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Week}
+  - {name: runnymede_council_tax_reduction_working_age_scheme_applies, entity: Household, dtype: Boolean, period: Week}
+  - {name: runnymede_council_tax_reduction_vulnerable, entity: Household, dtype: Boolean, period: Week}
+  - {name: runnymede_council_tax_reduction_has_universal_credit, entity: Household, dtype: Boolean, period: Week}
+  - {name: runnymede_council_tax_reduction_assessed_capital, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: runnymede_council_tax_reduction_eligible_liability_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: runnymede_council_tax_reduction_non_dependant_deductions_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: runnymede_council_tax_reduction_assessed_income_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: runnymede_council_tax_reduction_applicable_amount_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: runnymede_council_tax_reduction_uc_earnings_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}

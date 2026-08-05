@@ -1,0 +1,1870 @@
+- name: solihull_ctr_printed_scalar_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_maximum_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_no_award_band_index: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_index: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_index: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_index: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_index: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_capital_limit: 16000
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_weeks_per_year: 52
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_no_non_dependant_deduction_band_index: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_resident_non_dependant_deduction_band_index: 1
+
+- name: solihull_ctr_single_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 120
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 170
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 220
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 270
+
+- name: solihull_ctr_single_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_single_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 120
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 120.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 170
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 170.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_single_with_1_child_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 220
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 270
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 320
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 370
+
+- name: solihull_ctr_single_with_1_child_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_single_with_1_child_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_with_1_child_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_with_1_child_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_with_1_child_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_with_1_child_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_with_1_child_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_with_1_child_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_with_1_child_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 370
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_with_1_child_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 370.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 1
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_single_with_2_plus_children_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 310
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 360
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 410
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 460
+
+- name: solihull_ctr_single_with_2_plus_children_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_single_with_2_plus_children_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_with_2_plus_children_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 310
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_single_with_2_plus_children_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 310.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_with_2_plus_children_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 360
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_single_with_2_plus_children_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 360.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_with_2_plus_children_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 410
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_single_with_2_plus_children_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 410.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_with_2_plus_children_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 460
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_single_with_2_plus_children_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 460.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 2
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 170
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 220
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 270
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 320
+
+- name: solihull_ctr_couple_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 170
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 170.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 220.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 270.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 3
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_with_1_child_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 240
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 290
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 340
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 390
+
+- name: solihull_ctr_couple_with_1_child_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_with_1_child_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_with_1_child_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 240
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_with_1_child_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 240.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_with_1_child_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 290
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_with_1_child_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 290.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_with_1_child_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 340
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_with_1_child_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 340.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_with_1_child_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 390
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_with_1_child_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 390.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 4
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_with_2_plus_children_printed_income_table_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_lower_weekly_income_by_family: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_1_upper_weekly_income_by_family: 320
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_2_upper_weekly_income_by_family: 370
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_3_upper_weekly_income_by_family: 420
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_band_4_upper_weekly_income_by_family: 470
+
+- name: solihull_ctr_couple_with_2_plus_children_below_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: -0.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_couple_with_2_plus_children_band_1_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_with_2_plus_children_band_1_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_couple_with_2_plus_children_band_2_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 320.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_with_2_plus_children_band_2_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 370
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 2
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.75
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 637.5
+
+- name: solihull_ctr_couple_with_2_plus_children_band_3_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 370.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_with_2_plus_children_band_3_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 420
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 3
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 425
+
+- name: solihull_ctr_couple_with_2_plus_children_band_4_lower
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 420.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_with_2_plus_children_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 470
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 4
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.25
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 212.5
+
+- name: solihull_ctr_couple_with_2_plus_children_above_band_4_upper
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 470.01
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 5
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_derived_rule_coverage
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 120
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_working_age_scheme_applies: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_capital_eligible: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_award_conditions_met: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_passported_to_band_1: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_non_dependant_deduction: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_maximum_amount_for_year: 850
+    uk-solihull:policies/solihull/council-tax-reduction#simulated_solihull_council_tax_reduction_annual_amount: 722.5
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_capital_just_below_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 15999.99
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_capital_eligible: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_award_conditions_met: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_capital_at_cliff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_capital_eligible: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_award_conditions_met: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#simulated_solihull_council_tax_reduction_annual_amount: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_passported_applicant_at_capital_cliff_has_no_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 999
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_passported_to_band_1: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_capital_eligible: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_award_conditions_met: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#simulated_solihull_council_tax_reduction_annual_amount: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 0
+
+- name: solihull_ctr_income_support_passports_to_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 999
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_passported_to_band_1: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_income_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_selected_support_rate: 0.85
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5
+
+- name: solihull_ctr_one_chargeable_non_dependant_annual_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 1
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_applies: holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_non_dependant_deduction: 520
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 202.5
+
+- name: solihull_ctr_disability_premium_protects_from_non_dependant_deduction
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-solihull:policies/solihull/council-tax-reduction#input.local_authority_is_solihull: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_capital_for_year: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_assessed_weekly_net_income: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_family_category: 0
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_support: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_related_esa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_or_partner_receives_income_based_jsa: false
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_applicant_would_receive_disability_premium: true
+    uk-solihull:policies/solihull/council-tax-reduction#input.solihull_council_tax_reduction_chargeable_non_dependant_count: 1
+  output:
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_applies: not_holds
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_non_dependant_deduction: 0
+    uk-solihull:policies/solihull/council-tax-reduction#solihull_council_tax_reduction_annual_amount: 722.5

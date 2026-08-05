@@ -1,0 +1,254 @@
+- name: runnymede_ctr_printed_ordinary_rate
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {}
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_ordinary_maximum_support_rate: 0.8
+- name: runnymede_ctr_printed_vulnerable_rate
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {}
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_vulnerable_maximum_support_rate: 0.9
+- name: runnymede_ctr_printed_taper
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {}
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_taper_rate: 0.2
+- name: runnymede_ctr_printed_daily_taper
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {}
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+- name: runnymede_ctr_non_uc_taper
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: &common
+      uk-runnymede:policies/runnymede/council-tax-reduction#input.local_authority_is_runnymede: true
+      uk-runnymede:policies/runnymede/council-tax-reduction#input.would_claim_council_tax_reduction: true
+      uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_working_age_scheme_applies: true
+      uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_vulnerable: false
+      uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_non_dependant_deductions_weekly: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: false
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 0
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_capital_eligible: holds
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_maximum_weekly_amount: 80
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_tariff_income_weekly: 1
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_excess_income_weekly: 11
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 77.8
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 77.8
+- name: runnymede_ctr_capital_cliff
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: false
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 10000.01
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 0
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_capital_eligible: not_holds
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 0
+- name: runnymede_ctr_uc_band_one
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 21
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 71
+- name: runnymede_ctr_uc_first_band_selector
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 0
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 0
+- name: runnymede_ctr_uc_20_99_at_bound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 20.99
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 80
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 80
+- name: runnymede_ctr_uc_21_00_first_penny_above
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 21.00
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 1
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 71
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 71
+- name: runnymede_ctr_uc_66_99_at_bound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 66.99
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 1
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 71
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 71
+- name: runnymede_ctr_uc_67_00_first_penny_above
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 67.00
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 2
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 63
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 63
+- name: runnymede_ctr_uc_139_99_at_bound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 139.99
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 2
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 63
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 63
+- name: runnymede_ctr_uc_140_00_first_penny_above
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 140.00
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 3
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 57
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 57
+- name: runnymede_ctr_uc_219_09_at_bound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 219.09
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 3
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 57
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 57
+- name: runnymede_ctr_uc_219_10_first_penny_above
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 219.10
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 4
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 52
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 52
+- name: runnymede_ctr_uc_319_99_at_bound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 319.99
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 4
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 52
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 52
+- name: runnymede_ctr_uc_320_00_first_penny_above
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 320.00
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 5
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 47
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 47
+- name: runnymede_ctr_uc_last_supported_edge
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 433.00
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 5
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 47
+- name: runnymede_ctr_uc_zero_award_band
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: true
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 6250
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 90
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 433.01
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_uc_income_band: 6
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_pre_floor_weekly_amount: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 0
+- name: runnymede_ctr_minimum_entitlement_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    <<: *common
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_has_universal_credit: false
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_capital: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_eligible_liability_weekly: 6
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_assessed_income_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_applicable_amount_weekly: 100
+    uk-runnymede:policies/runnymede/council-tax-reduction#input.runnymede_council_tax_reduction_uc_earnings_weekly: 0
+  output:
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_tariff_income_weekly: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_excess_income_weekly: 0
+    uk-runnymede:policies/runnymede/council-tax-reduction#runnymede_council_tax_reduction_weekly_amount: 0

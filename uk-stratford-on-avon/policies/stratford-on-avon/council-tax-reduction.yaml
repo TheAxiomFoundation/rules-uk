@@ -1,0 +1,722 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to Stratford-on-Avon District Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Stratford-on-Avon's adopted 2026-27 working-age scheme is a means test. Its
+    maximum is 80 percent of eligible liability, less non-dependant deductions;
+    excess income is then deducted at 2 6/7 percent daily, or exactly 20 percent
+    weekly, from that defined maximum. Capital above £16,000 ends entitlement;
+    capital above £6,000 produces £1 weekly tariff income for each £250 or part
+    thereof. The scheme prints no minimum-award floor, council-tax band cap, or
+    protected higher maximum rate. Class D income-based-benefit cases receive
+    the untapered maximum. Pension-age provisions, second-adult reduction,
+    applicable-amount schedules, and the detailed classification and aggregation
+    of non-dependants are outside this working-age award-surface module.
+  deferred_outputs:
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/sections-12-to-14-and-schedule-1#applicable_amount
+      reason: Personal allowances, family premium protection, premiums, components, transitional additions, and Universal Credit maximum-amount assessment determine the applicable amount consumed by this award surface.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/section-1#working_age_applicant_classification
+      reason: Section 1's age, partner, and qualifying-income-based-benefit classification determines whether an applicant is in the locally administered working-age classes consumed by this award surface.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/sections-15-to-41-and-schedules-3-to-5#assessed_income_and_capital
+      reason: Income calculation, disregards, capital valuation, attribution, and Schedule 5 disregards produce the assessed income and capital consumed by this module.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/section-6#non_dependant_is_in_remunerative_work
+      reason: The section 6 average-hours, holiday, income-related-benefit, family-leave, illness, and unpaid-sports-award rules determine the day-specific remunerative-work status consumed by the non-dependant deduction bands.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/paragraphs-57.2-to-57.4#maximum_eligible_liability
+      reason: Discounts, joint-liability apportionment, and the liable-person calculation determine the eligible council-tax liability consumed by the local maximum formula.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/paragraphs-58.3-to-58.9#non_dependant_exemption_and_aggregate_deduction
+      reason: Couple and polygamous-marriage treatment, apportionment, claimant protections, exemptions, and aggregation determine whether and how person-level deductions combine into the household deduction consumed by the maximum formula.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/sections-60-to-61E#extended_reduction
+      reason: Extended-reduction eligibility and duration are a distinct award route outside the ordinary Class D and E award surface encoded here.
+    - output: uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction/section-62-and-schedule-2#second_adult_reduction
+      reason: The separate Class F alternative maximum Council Tax Reduction is outside this working-age main-award surface.
+rules:
+  - name: stratford_on_avon_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "shall be 80 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: stratford_on_avon_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-54
+              excerpt: "the prescribed amount is £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: stratford_on_avon_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "exceeds £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: stratford_on_avon_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 42.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: stratford_on_avon_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: stratford_on_avon_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 14.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: stratford_on_avon_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: stratford_on_avon_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: stratford_on_avon_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 59.1, derived from the printed daily percentage and seven-day divisor
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "shall be 2 6/7 per cent"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_daily_taper_rate * stratford_on_avon_council_tax_reduction_days_per_week
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_first_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "less than £279.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_second_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £279.00, but less than £485.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_third_income_cutoff
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 58.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "not less than £485.00, but less than £605.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: stratford_on_avon_council_tax_reduction_non_dependant_deduction_band
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2 and 58.6-58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+              table:
+                header: Working-age non-dependant normal gross weekly income and deduction
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values[0]
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7"
+          - path: versions[0].values[3]
+            kind: amount
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.20
+          1: 10.60
+          2: 13.30
+          3: 15.95
+
+  - name: stratford_on_avon_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "the applicant or partner is in receipt of income support, jobseekers’ allowance (income based) or employment and support allowance (income related)"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "therefore this scheme only applies to a person who;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_stratford_on_avon and council_tax_reduction_household_in_england and stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class
+
+  - name: stratford_on_avon_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-54
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_assessed_capital_for_year <= stratford_on_avon_council_tax_reduction_capital_limit
+
+  - name: stratford_on_avon_council_tax_reduction_income_below_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "is less than their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_assessed_income_for_year + stratford_on_avon_council_tax_reduction_tariff_income_for_year < stratford_on_avon_council_tax_reduction_applicable_amount_for_year
+
+  - name: stratford_on_avon_council_tax_reduction_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "is more than their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_assessed_income_for_year + stratford_on_avon_council_tax_reduction_tariff_income_for_year > stratford_on_avon_council_tax_reduction_applicable_amount_for_year
+
+  - name: stratford_on_avon_council_tax_reduction_income_taper_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Class D and Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "the applicant or partner is in receipt of income support, jobseekers’ allowance (income based) or employment and support allowance (income related)"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "is more than their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_income_exceeds_applicable_amount and not stratford_on_avon_council_tax_reduction_relevant_income_based_benefit
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 58.6-58.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "No deduction shall be made in respect of a non-dependant if:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "non-dependant aged 18 or over"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_is_non_dependant and stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over and not stratford_on_avon_council_tax_reduction_non_dependant_exempt
+
+  - name: stratford_on_avon_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.2, using section 6 remunerative-work status
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. 58.2 In the case of a non-dependant aged 18 or over, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £485.00, the deduction to be made under this section shall be £10.60 x1/7; (c) not less than £485.00, but less than £605.00, the deduction to be made under this section shall be £13.30 x 1/7;"
+              table:
+                header: Working-age non-dependant normal gross weekly income and deduction
+                row_key: normal gross weekly income
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: 0 else: if stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income < stratford_on_avon_council_tax_reduction_non_dependant_first_income_cutoff: 0 else: if stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income < stratford_on_avon_council_tax_reduction_non_dependant_second_income_cutoff: 1 else: if stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income < stratford_on_avon_council_tax_reduction_non_dependant_third_income_cutoff: 2 else: 3
+
+  - name: stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 58.1-58.9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "the non-dependant deductions in respect of a day"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-73
+              excerpt: "No deduction shall be made in respect of any non-dependants"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if stratford_on_avon_council_tax_reduction_non_dependant_deduction_applies: stratford_on_avon_council_tax_reduction_non_dependant_weekly_deduction_by_band[stratford_on_avon_council_tax_reduction_non_dependant_deduction_band] else: 0
+
+  - name: stratford_on_avon_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraphs 42.1-42.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, min(stratford_on_avon_council_tax_reduction_assessed_capital_for_year, stratford_on_avon_council_tax_reduction_capital_limit) - stratford_on_avon_council_tax_reduction_tariff_income_threshold) / stratford_on_avon_council_tax_reduction_tariff_income_step) * stratford_on_avon_council_tax_reduction_weeks_per_year
+
+  - name: stratford_on_avon_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "shall be 80 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-72
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under section 58"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year * stratford_on_avon_council_tax_reduction_maximum_support_rate - stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: stratford_on_avon_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Class E and paragraph 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "excess of income over the applicable amount"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-59
+              excerpt: "it shall be treated as equivalent to a weekly income of £1 for each complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if stratford_on_avon_council_tax_reduction_income_taper_applies: max(0, stratford_on_avon_council_tax_reduction_assessed_income_for_year + stratford_on_avon_council_tax_reduction_tariff_income_for_year - stratford_on_avon_council_tax_reduction_applicable_amount_for_year) else: 0
+
+  - name: stratford_on_avon_council_tax_reduction_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "their excess income multiplied by the taper"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_excess_income_for_year * stratford_on_avon_council_tax_reduction_weekly_taper_rate
+
+  - name: stratford_on_avon_council_tax_reduction_amount_before_conditions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 paragraph 59.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, stratford_on_avon_council_tax_reduction_maximum_for_year - stratford_on_avon_council_tax_reduction_taper_deduction_for_year)
+
+  - name: stratford_on_avon_council_tax_reduction_maximum_exceeds_taper_deduction
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "amount A exceeds amount B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_maximum_for_year > stratford_on_avon_council_tax_reduction_taper_deduction_for_year
+
+  - name: stratford_on_avon_council_tax_reduction_income_class_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "the applicant or partner is in receipt of income support, jobseekers’ allowance (income based) or employment and support allowance (income related)"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "is less than their applicable amount"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "is more than their applicable amount"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "amount A exceeds amount B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_relevant_income_based_benefit or stratford_on_avon_council_tax_reduction_income_below_applicable_amount or stratford_on_avon_council_tax_reduction_income_exceeds_applicable_amount and stratford_on_avon_council_tax_reduction_maximum_exceeds_taper_deduction
+
+  - name: stratford_on_avon_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "has made a valid application for reduction"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "not have capital savings above £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          stratford_on_avon_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and stratford_on_avon_council_tax_reduction_capital_eligible and stratford_on_avon_council_tax_reduction_income_class_eligible
+
+  - name: simulated_stratford_on_avon_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 operative Class D and E working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "the period 1st April 2026 until 31st March 2027"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-74
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within section 57 of this scheme"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "amount A exceeds amount B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if stratford_on_avon_council_tax_reduction_award_conditions_met: stratford_on_avon_council_tax_reduction_amount_before_conditions_for_year else: 0
+
+  - name: stratford_on_avon_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Stratford-on-Avon Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-stratford-on-avon/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "Details of support to be given for working age applicants for the financial year 2026/27"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_stratford_on_avon_council_tax_reduction_annual_amount

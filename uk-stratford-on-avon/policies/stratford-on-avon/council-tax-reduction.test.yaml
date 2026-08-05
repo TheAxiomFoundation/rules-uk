@@ -1,0 +1,529 @@
+- name: stratford_on_avon_ctr_printed_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_maximum_support_rate: 0.80
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_capital_limit: 16000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_threshold: 6000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_step: 250
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_weeks_per_year: 52
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_days_per_week: 7
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_weekly_taper_rate: 0.20
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_first_income_cutoff: 279
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_second_income_cutoff: 485
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_third_income_cutoff: 605
+
+- name: stratford_on_avon_ctr_full_80_percent_award_below_applicable_amount
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 800
+
+- name: stratford_on_avon_ctr_income_based_benefit_receives_untapered_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 5000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 800
+
+- name: stratford_on_avon_ctr_non_dependant_deduction_is_inside_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 100
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_maximum_for_year: 700
+
+- name: stratford_on_avon_ctr_taper_reduces_the_80_percent_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 780
+
+- name: stratford_on_avon_ctr_no_minimum_award_floor
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 399.95
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 0.01
+
+- name: stratford_on_avon_ctr_tariff_starts_above_6000
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 6000
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_for_year: 0
+
+- name: stratford_on_avon_ctr_first_penny_over_tariff_threshold
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 6000.01
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_for_year: 52
+
+- name: stratford_on_avon_ctr_capital_at_limit_includes_tariff
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 384
+
+- name: stratford_on_avon_ctr_capital_first_penny_over_limit_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 0
+
+- name: stratford_on_avon_ctr_taper_reaching_maximum_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 4000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 0
+
+- name: stratford_on_avon_ctr_income_equal_to_applicable_amount_is_zero
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_annual_amount: 0
+
+- name: stratford_on_avon_ctr_non_dependant_below_279
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: stratford_on_avon_ctr_non_dependant_at_279
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: stratford_on_avon_ctr_non_dependant_below_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: stratford_on_avon_ctr_non_dependant_at_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: stratford_on_avon_ctr_non_dependant_below_605
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: stratford_on_avon_ctr_non_dependant_at_605_remunerative_default
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: stratford_on_avon_ctr_non_dependant_not_in_remunerative_work_uses_low_deduction
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: stratford_on_avon_ctr_exempt_non_dependant_has_zero_deduction
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: stratford_on_avon_ctr_under_18_non_dependant_has_zero_deduction
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 1000
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: stratford_on_avon_ctr_working_age_scheme_gate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: stratford_on_avon_ctr_capital_at_limit_is_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 16000
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_capital_eligible: holds
+
+- name: stratford_on_avon_ctr_income_below_applicable_amount_gate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_income_below_applicable_amount: holds
+
+- name: stratford_on_avon_ctr_income_exceeds_applicable_amount_gate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_income_exceeds_applicable_amount: holds
+
+- name: stratford_on_avon_ctr_income_taper_gate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_income_taper_applies: holds
+
+- name: stratford_on_avon_ctr_non_dependant_deduction_applicability
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_is_non_dependant: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_aged_18_or_over: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_exempt: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_deduction_applies: holds
+
+- name: stratford_on_avon_ctr_non_dependant_band_at_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_deduction_band: 2
+
+- name: stratford_on_avon_ctr_non_remunerative_non_dependant_has_zero_band
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_is_in_remunerative_work: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_non_dependant_deduction_band: 0
+
+- name: stratford_on_avon_ctr_tariff_income_capped_at_capital_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 16000.01
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_tariff_income_for_year: 2080
+
+- name: stratford_on_avon_ctr_excess_income_calculation
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_excess_income_for_year: 100
+
+- name: stratford_on_avon_ctr_taper_deduction_calculation
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_taper_deduction_for_year: 20
+
+- name: stratford_on_avon_ctr_excess_income_is_zero_without_taper
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_excess_income_for_year: 0
+
+- name: stratford_on_avon_ctr_amount_before_conditions
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_amount_before_conditions_for_year: 780
+
+- name: stratford_on_avon_ctr_maximum_exceeds_taper_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 4000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_maximum_exceeds_taper_deduction: not_holds
+
+- name: stratford_on_avon_ctr_maximum_exceeds_taper_deduction_holds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_maximum_exceeds_taper_deduction: holds
+
+- name: stratford_on_avon_ctr_maximum_equal_to_taper_deduction_does_not_hold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 4000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_maximum_exceeds_taper_deduction: not_holds
+
+- name: stratford_on_avon_ctr_income_class_at_equality_is_not_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 100
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_income_class_eligible: not_holds
+
+- name: stratford_on_avon_ctr_income_below_applicable_amount_is_income_class_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_income_class_eligible: holds
+
+- name: stratford_on_avon_ctr_award_conditions
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#stratford_on_avon_council_tax_reduction_award_conditions_met: holds
+
+- name: stratford_on_avon_ctr_simulated_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#simulated_stratford_on_avon_council_tax_reduction_annual_amount: 800
+
+- name: stratford_on_avon_ctr_simulated_award_is_zero_above_capital_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.local_authority_is_stratford_on_avon: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_assessed_income_for_year: 0
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_applicable_amount_for_year: 1
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_relevant_income_based_benefit: false
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#input.stratford_on_avon_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-stratford-on-avon:policies/stratford-on-avon/council-tax-reduction#simulated_stratford_on_avon_council_tax_reduction_annual_amount: 0

@@ -1,0 +1,610 @@
+- name: barnsley_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_maximum_support_rate: 0.9
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_capital_limit: 6000
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_weeks_per_year: 52
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_non_dependant_earnings_threshold_weekly: 200
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_band_4_code: 4
+
+- name: barnsley_ctr_single_band_1_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.05
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+
+- name: barnsley_ctr_single_band_1_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.06
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_single_band_2_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 145.56
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_single_band_2_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 145.57
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_single_band_3_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 193.07
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_single_band_3_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 193.08
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_single_band_4_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 240.58
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_single_band_4_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 240.59
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 0
+
+- name: barnsley_ctr_couple_band_1_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 153.92
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+
+- name: barnsley_ctr_couple_band_1_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 153.93
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_couple_band_2_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 201.43
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_couple_band_2_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 201.44
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_couple_band_3_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 248.94
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_couple_band_3_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 248.95
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_couple_band_4_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 296.45
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_couple_band_4_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 296.46
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 0
+
+- name: barnsley_ctr_family_one_child_band_1_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 241.80
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+
+- name: barnsley_ctr_family_one_child_band_1_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 241.81
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_family_one_child_band_2_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 289.31
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_family_one_child_band_2_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 289.32
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_family_one_child_band_3_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 336.82
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_family_one_child_band_3_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 336.83
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_family_one_child_band_4_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 384.33
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_family_one_child_band_4_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 384.34
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 0
+
+- name: barnsley_ctr_family_two_plus_children_band_1_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 329.68
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+
+- name: barnsley_ctr_family_two_plus_children_band_1_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 329.69
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_family_two_plus_children_band_2_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 377.19
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+
+- name: barnsley_ctr_family_two_plus_children_band_2_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 377.20
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_family_two_plus_children_band_3_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 424.70
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 3
+
+- name: barnsley_ctr_family_two_plus_children_band_3_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 424.71
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_family_two_plus_children_band_4_upper_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 472.21
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 4
+
+- name: barnsley_ctr_family_two_plus_children_band_4_above_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 472.22
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 0
+
+- name: barnsley_ctr_protected_single_below_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.04
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_single_at_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.05
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_single_above_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.06
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.7
+
+- name: barnsley_ctr_protected_couple_below_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 153.91
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_couple_at_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 153.92
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_couple_above_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 153.93
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.7
+
+- name: barnsley_ctr_protected_family_one_child_below_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 241.79
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_family_one_child_at_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 241.80
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_family_one_child_above_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 241.81
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.7
+
+- name: barnsley_ctr_protected_family_two_plus_children_below_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 329.67
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_family_two_plus_children_at_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 329.68
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+
+- name: barnsley_ctr_protected_family_two_plus_children_above_ceiling
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 3
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 329.69
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 2
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.7
+
+- name: barnsley_ctr_protected_couple_120_regression
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.local_authority_is_barnsley: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 120
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_annual_liability: 1000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_applicable_non_dependant_count: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 0
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.9
+    uk-barnsley:policies/barnsley/council-tax-reduction#simulated_barnsley_council_tax_reduction_annual_amount: 900
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_annual_amount: 900
+
+- name: barnsley_ctr_couple_120_without_qualifying_disability_income
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.local_authority_is_barnsley: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 120
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_annual_liability: 1000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_applicable_non_dependant_count: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 0
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.85
+    uk-barnsley:policies/barnsley/council-tax-reduction#simulated_barnsley_council_tax_reduction_annual_amount: 850
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_annual_amount: 850
+
+- name: barnsley_ctr_couple_120_with_earnings
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.local_authority_is_barnsley: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 120
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_annual_liability: 1000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_applicable_non_dependant_count: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 0
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_protected_group: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_income_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_selected_support_rate: 0.85
+    uk-barnsley:policies/barnsley/council-tax-reduction#simulated_barnsley_council_tax_reduction_annual_amount: 850
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_annual_amount: 850
+
+- name: barnsley_ctr_non_dependant_threshold_edges
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 200
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: barnsley_ctr_non_dependant_above_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 200.01
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_individual_non_dependant_deduction_weekly: 7.5
+
+- name: barnsley_ctr_full_band_two_award_with_non_dependant
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.local_authority_is_barnsley: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 98.06
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_annual_liability: 1000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_applicable_non_dependant_count: 1
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 200.01
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_working_age_scheme_applies: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_capital_eligible: holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#simulated_barnsley_council_tax_reduction_annual_amount: 310
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_annual_amount: 310
+
+- name: barnsley_ctr_capital_cliff_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.local_authority_is_barnsley: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_household_income_category: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_receives_qualifying_disability_income: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_has_no_earnings: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_weekly_assessed_income: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_annual_liability: 1000
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_applicable_non_dependant_count: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_is_non_dependant: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_exempt: false
+    uk-barnsley:policies/barnsley/council-tax-reduction#input.barnsley_council_tax_reduction_non_dependant_weekly_earnings: 0
+  output:
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_capital_eligible: not_holds
+    uk-barnsley:policies/barnsley/council-tax-reduction#simulated_barnsley_council_tax_reduction_annual_amount: 0
+    uk-barnsley:policies/barnsley/council-tax-reduction#barnsley_council_tax_reduction_annual_amount: 0

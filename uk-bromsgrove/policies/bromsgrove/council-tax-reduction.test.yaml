@@ -1,0 +1,1310 @@
+- name: bromsgrove_ctr_single_no_children_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 130
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_working_age_scheme_applies: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_relevant_benefit: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_capital_eligible: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_maximum_amount_for_year: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 1000
+- name: bromsgrove_ctr_single_no_children_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 130.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.8
+- name: bromsgrove_ctr_single_no_children_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 159
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.8
+- name: bromsgrove_ctr_single_no_children_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 159.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 3
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.55
+- name: bromsgrove_ctr_single_no_children_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 186
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 3
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.55
+- name: bromsgrove_ctr_single_no_children_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 186.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 4
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.3
+- name: bromsgrove_ctr_single_no_children_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 214
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 4
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.3
+- name: bromsgrove_ctr_single_no_children_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 214.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0
+- name: bromsgrove_ctr_single_one_child_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 203
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 1
+- name: bromsgrove_ctr_single_one_child_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 203.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_single_one_child_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 243
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_single_one_child_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 243.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_single_one_child_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 283
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_single_one_child_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 283.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_single_one_child_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 321
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_single_one_child_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 321.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_single_two_or_more_children_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 277
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 2
+- name: bromsgrove_ctr_single_two_or_more_children_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 277.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_single_two_or_more_children_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 316
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_single_two_or_more_children_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 316.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_single_two_or_more_children_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 355
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_single_two_or_more_children_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 355.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_single_two_or_more_children_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 395
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_single_two_or_more_children_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 395.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_couple_no_children_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 186
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 3
+- name: bromsgrove_ctr_couple_no_children_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 186.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_no_children_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 214
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_no_children_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 214.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_no_children_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 243
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_no_children_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 243.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_no_children_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 270
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_no_children_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 270.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_couple_one_child_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 260
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 4
+- name: bromsgrove_ctr_couple_one_child_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 260.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_one_child_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 299
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_one_child_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 299.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_one_child_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 338
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_one_child_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 338.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_one_child_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 378
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_one_child_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 378.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_couple_two_or_more_children_band_1_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 333
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 5
+- name: bromsgrove_ctr_couple_two_or_more_children_band_1_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 333.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_two_or_more_children_band_2_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 372
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 800
+- name: bromsgrove_ctr_couple_two_or_more_children_band_2_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 372.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_two_or_more_children_band_3_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 413
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 550
+- name: bromsgrove_ctr_couple_two_or_more_children_band_3_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 413.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_two_or_more_children_band_4_at
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 451
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 300
+- name: bromsgrove_ctr_couple_two_or_more_children_band_4_over
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 451.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_maximum_support_rate_is_100_percent
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 987
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_maximum_amount_for_year: 987
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 987
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 987
+- name: bromsgrove_ctr_capital_at_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 6000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_capital_eligible: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+- name: bromsgrove_ctr_capital_over_limit
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 6000.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_capital_eligible: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_income_support_receives_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_relevant_benefit: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 0
+- name: bromsgrove_ctr_income_related_esa_receives_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+- name: bromsgrove_ctr_income_based_jsa_receives_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: true
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+- name: bromsgrove_ctr_high_income_without_passported_benefit_has_nil_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_relevant_benefit: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_three_children_use_two_or_more_column
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 277
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 3
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_family_category: 2
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_income_band: 1
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 1000
+- name: bromsgrove_ctr_outside_bromsgrove_has_no_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_outside_england_has_no_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_not_in_working_age_class_has_no_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_does_not_claim_has_no_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 100
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0
+- name: bromsgrove_ctr_band_rate_multiplies_defined_maximum
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 987
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 130.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_maximum_amount_for_year: 987
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 0.80
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_amount_before_eligibility: 789.60
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 789.60
+- name: bromsgrove_ctr_capital_over_limit_blocks_passported_band_1
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.local_authority_is_bromsgrove: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_capital: 6000.01
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_eligible_annual_liability: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_assessed_weekly_income: 1000
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_has_partner: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_dependant_children: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_support: true
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_related_esa: false
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#input.bromsgrove_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_relevant_benefit: holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_selected_discount_rate: 1.00
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_capital_eligible: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_award_conditions_met: not_holds
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#simulated_bromsgrove_council_tax_reduction_annual_amount: 0
+    uk-bromsgrove:policies/bromsgrove/council-tax-reduction#bromsgrove_council_tax_reduction_annual_amount: 0

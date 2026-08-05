@@ -1,0 +1,365 @@
+- name: knowsley_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_maximum_support_rate: 0.84
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_band_2_support_rate: 0.64
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_band_3_support_rate: 0.44
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_band_4_support_rate: 0.2
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_zero_support_rate: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_child_band_uplift: 20
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_capital_limit: 16000
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_minimum_award_weekly: 3
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_remunerative_work_hours: 16
+
+- name: knowsley_ctr_band_edges_and_child_uplift
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 139.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.64
+
+- name: knowsley_ctr_band_3_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 140
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_couple_band_4_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 220
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_zero_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 300
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 40
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_weekly_award: 0
+
+- name: knowsley_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 40
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_capital_eligible: holds
+
+- name: knowsley_ctr_capital_above_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_assessed_capital_for_year: 16001
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 40
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_capital_eligible: not_holds
+
+- name: knowsley_ctr_non_dependant_bands
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_exempt: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_weekly_hours: 16
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_individual_non_dependant_deduction_weekly: 10
+
+- name: knowsley_ctr_non_dependant_not_working
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_exempt: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_weekly_hours: 15.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_individual_non_dependant_deduction_weekly: 4
+
+- name: knowsley_ctr_non_dependant_exempt
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_exempt: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_weekly_hours: 16
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+
+- name: knowsley_ctr_minimum_award_floor
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 3.57
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_weekly_award: 0
+
+- name: knowsley_ctr_single_base_120_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 119.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.64
+
+- name: knowsley_ctr_single_base_120_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 120
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_single_base_200_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 199.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_single_base_200_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 200
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_single_base_300_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 299.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_single_base_300_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 300
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0
+
+- name: knowsley_ctr_couple_base_140_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 139.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.64
+
+- name: knowsley_ctr_couple_base_140_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 140
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_couple_base_220_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 219.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_couple_base_220_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 220
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_couple_base_320_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 319.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_couple_base_320_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 320
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0
+
+- name: knowsley_ctr_single_one_child_220_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 219.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_single_one_child_220_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 220
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_single_one_child_320_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 319.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_single_one_child_320_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 320
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0
+
+- name: knowsley_ctr_couple_one_child_160_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 159.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.64
+
+- name: knowsley_ctr_couple_one_child_160_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 160
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_couple_one_child_240_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 239.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.44
+
+- name: knowsley_ctr_couple_one_child_240_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 240
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_couple_one_child_340_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 339.99
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0.20
+
+- name: knowsley_ctr_couple_one_child_340_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 1
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 340
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_selected_support_rate: 0
+
+- name: knowsley_ctr_minimum_award_at_floor
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 200
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 15
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_weekly_award: 3
+
+- name: knowsley_ctr_working_age_scope
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.local_authority_is_knowsley: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.council_tax_reduction_household_has_pensioner: false
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_working_age_scheme_applies: holds
+
+- name: knowsley_ctr_pre_floor_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_is_couple: false
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_number_of_children: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_weekly_net_earnings: 0
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_band_c_capped_weekly_liability: 40
+    uk-knowsley:policies/knowsley/council-tax-reduction#input.knowsley_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-knowsley:policies/knowsley/council-tax-reduction#knowsley_council_tax_reduction_pre_floor_weekly_award: 33.6

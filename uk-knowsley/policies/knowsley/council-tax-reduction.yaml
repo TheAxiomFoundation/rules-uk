@@ -1,0 +1,472 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-10
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Knowsley Metropolitan Borough Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Knowsley's 2026-27 local working-age scheme selects a 84%, 64%, 44%, 20%, or 0% award band from weekly net earnings, household type, and the £20-per-child uplift. The selected rate is applied to actual council-tax liability capped at the Band C charge, then non-dependant deductions are applied. Capital above £16,000 excludes the applicant and an award below £3 a week is not payable. The working-age calculation has no capital tariff because the award is based entirely on earnings. The pension-age prescribed calculation and the working-age income-assessment and protected-class classifiers are outside this award surface.
+  deferred_outputs:
+    - output: uk-knowsley:policies/knowsley/council-tax-reduction/paragraphs-10-to-33#assessed_weekly_net_earnings
+      reason: The award surface consumes the scheme's assessed weekly net earnings. Earnings, Universal Credit, self-employment, other-income, and minimum-income-floor calculations are not encoded here.
+    - output: uk-knowsley:policies/knowsley/council-tax-reduction/paragraph-35#a_band_c_capped_weekly_liability
+      reason: This module consumes the liability already capped at the Band C property charge; council-tax charge lookup, discounts, and daily apportionment are outside this module.
+    - output: uk-knowsley:policies/knowsley/council-tax-reduction/paragraph-47#non_dependant_exemption
+      reason: This module encodes the printed £4 and £10 deduction amounts and consumes the exemption result. Disability, student, training, Pension Credit, and residence classifiers remain future outputs.
+    - output: uk-knowsley:policies/knowsley/council-tax-reduction/paragraph-10#minimum_income_floor_applies
+      reason: The scheme permits a self-employment minimum income floor; its eligibility and earnings calculation are outside this award-surface module.
+rules:
+  - name: knowsley_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 34
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "the maximum amount of council tax reduction is 84%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.84
+
+  - name: knowsley_council_tax_reduction_band_2_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "2 64% Net earnings of less than £120+child additions* Net earnings of less than £140+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.64
+
+  - name: knowsley_council_tax_reduction_band_3_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "3 44% Net earnings of less than £200+child additions* Net earnings of less than £220+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.44
+
+  - name: knowsley_council_tax_reduction_band_4_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "4 20% Net earnings of less than £300+child additions* Net earnings of less than £320+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: knowsley_council_tax_reduction_zero_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "Band % support Single adult households Couples 1 84% Households with £0 earnings (Includes households in receipt of benefits with no earnings from paid employment) 2 64% Net earnings of less than £120+child additions* Net earnings of less than £140+child additions* 3 44% Net earnings of less than £200+child additions* Net earnings of less than £220+child additions* 4 20% Net earnings of less than £300+child additions* Net earnings of less than £320+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: knowsley_council_tax_reduction_child_band_uplift
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "* Child additions of £20 per child (no cap on numbers)"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          20
+
+  - name: knowsley_council_tax_reduction_single_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "2 64% Net earnings of less than £120+child additions* Net earnings of less than £140+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          120
+
+  - name: knowsley_council_tax_reduction_single_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "3 44% Net earnings of less than £200+child additions* Net earnings of less than £220+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          200
+
+  - name: knowsley_council_tax_reduction_single_band_4_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "4 20% Net earnings of less than £300+child additions* Net earnings of less than £320+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          300
+
+  - name: knowsley_council_tax_reduction_couple_band_2_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "2 64% Net earnings of less than £120+child additions* Net earnings of less than £140+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          140
+
+  - name: knowsley_council_tax_reduction_couple_band_3_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "3 44% Net earnings of less than £200+child additions* Net earnings of less than £220+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          220
+
+  - name: knowsley_council_tax_reduction_couple_band_4_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "4 20% Net earnings of less than £300+child additions* Net earnings of less than £320+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          320
+
+  - name: knowsley_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 working-age eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "have capital not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: knowsley_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "In cases were any award calculated is less than £3.00 per week, no award shall be made."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: knowsley_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 Annex 1 (remunerative work)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "Remunerative work Where a person is working for at least 16 hours a week (which may be an average) for which payment is made or which is done in expectation of payment."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: knowsley_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: knowsley_council_tax_reduction_non_dependant_deduction_band
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 47
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "For working-age applicants, a standard deduction is applied for non-dependants aged 18 or over. The deduction is £4.00 per week for those who are not working and £10.00 per week for those who are working."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "No non-dependant deductions are applied where the non-dependant:"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 4
+          2: 10
+
+  - name: knowsley_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "This document describes the scheme set up by Knowsley Metropolitan Borough Council for the period 1st April 2026 until 31st March 2027."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_knowsley and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner
+
+  - name: knowsley_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 working-age eligibility
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-9
+              excerpt: "If an applicant has more than £16,000 in capital, no council tax reduction is applied under this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          knowsley_council_tax_reduction_assessed_capital_for_year <= knowsley_council_tax_reduction_capital_limit
+
+  - name: knowsley_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "1 84% Households with £0 earnings (Includes households in receipt of benefits with no earnings from paid employment)"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "2 64% Net earnings of less than £120+child additions* Net earnings of less than £140+child additions*"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "3 44% Net earnings of less than £200+child additions* Net earnings of less than £220+child additions*"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "4 20% Net earnings of less than £300+child additions* Net earnings of less than £320+child additions*"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if knowsley_council_tax_reduction_weekly_net_earnings == 0: knowsley_council_tax_reduction_maximum_support_rate else: if knowsley_council_tax_reduction_is_couple: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_couple_band_2_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_2_support_rate else: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_couple_band_3_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_3_support_rate else: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_couple_band_4_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_4_support_rate else: knowsley_council_tax_reduction_zero_support_rate else: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_single_band_2_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_2_support_rate else: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_single_band_3_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_3_support_rate else: if knowsley_council_tax_reduction_weekly_net_earnings < knowsley_council_tax_reduction_single_band_4_threshold + knowsley_council_tax_reduction_child_band_uplift * knowsley_council_tax_reduction_number_of_children: knowsley_council_tax_reduction_band_4_support_rate else: knowsley_council_tax_reduction_zero_support_rate
+
+  - name: knowsley_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 47
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-13
+              excerpt: "For working-age applicants, a standard deduction is applied for non-dependants aged 18 or over. The deduction is £4.00 per week for those who are not working and £10.00 per week for those who are working."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-35
+              excerpt: "Remunerative work Where a person is working for at least 16 hours a week (which may be an average) for which payment is made or which is done in expectation of payment."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if knowsley_council_tax_reduction_non_dependant_exempt: knowsley_council_tax_reduction_non_dependant_deduction_weekly_by_band[0] else: if knowsley_council_tax_reduction_non_dependant_weekly_hours >= knowsley_council_tax_reduction_remunerative_work_hours: knowsley_council_tax_reduction_non_dependant_deduction_weekly_by_band[2] else: knowsley_council_tax_reduction_non_dependant_deduction_weekly_by_band[1]
+
+  - name: knowsley_council_tax_reduction_pre_floor_weekly_award
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 35
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "the actual liability for council tax, capped at a band C property charge"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "b. apply the maximum council tax reduction in accordance with the table at paragraph 9;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-11
+              excerpt: "c. apply any non-dependant deductions set out in paragraph 47."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, knowsley_council_tax_reduction_band_c_capped_weekly_liability * knowsley_council_tax_reduction_selected_support_rate - knowsley_council_tax_reduction_non_dependant_deductions_weekly)
+
+  - name: knowsley_council_tax_reduction_weekly_award
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Knowsley Council Tax Reduction Scheme 2026-2027 paragraph 9
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-knowsley/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "In cases were any award calculated is less than £3.00 per week, no award shall be made."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if knowsley_council_tax_reduction_working_age_scheme_applies and knowsley_council_tax_reduction_capital_eligible and would_claim_council_tax_reduction and knowsley_council_tax_reduction_pre_floor_weekly_award >= knowsley_council_tax_reduction_minimum_award_weekly: knowsley_council_tax_reduction_pre_floor_weekly_award else: 0

@@ -1,0 +1,908 @@
+format: rulespec/v1
+rules:
+  - name: newcastle_upon_tyne_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 29A.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "a person's maximum council tax reduction amount in respect of a day is 100 per cent of the amount A/B where:"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within Section 29A of this scheme; b. The Council Tax family as defined within Section 6 of this scheme; and c. The income and capital of the applicant as defined within Sections 33 - 72 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: newcastle_upon_tyne_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_income_band
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Support Level Passported Single Couple Family with One Child Family with Two+ Children Band 1 - 100% Relevant Benefit £0.00 £110.00 £0.00 £160.00 £0.00 £255.00 £0.00 £350.00 Band 2 - 90%
+
+                £110.01 £160.00 £160.01 £220.00 £255.01 £305.00 £350.01 £370.00 Band 3 - 85%
+
+                £160.01 £215.00 £220.01 £275.00 £305.01 £380.00 £370.01 £425.00 Band 4 - 50%
+
+                £215.01 £330.00 £275.01 £380.00 £380.01 £465.00 £425.01 £515.00 Band 5 - 25%
+
+                £330.01 £425.00 £380.01 £485.00 £465.01 £570.00 £515.01 £630.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: Support Level
+                column_key: percentage discount
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 0.90, 3: 0.85, 4: 0.50, 5: 0.25}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_band_1_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_family_category
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1 Band 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Support Level Passported Single Couple Family with One Child Family with Two+ Children Band 1 - 100% Relevant Benefit £0.00 £110.00 £0.00 £160.00 £0.00 £255.00 £0.00 £350.00"
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 1 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 110, 1: 160, 2: 255, 3: 350}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_band_2_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_family_category
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Band 2 - 90%
+
+                £110.01 £160.00 £160.01 £220.00 £255.01 £305.00 £350.01 £370.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 2 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 160, 1: 220, 2: 305, 3: 370}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_band_3_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_family_category
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Band 3 - 85%
+
+                £160.01 £215.00 £220.01 £275.00 £305.01 £380.00 £370.01 £425.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 3 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 215, 1: 275, 2: 380, 3: 425}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_band_4_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_family_category
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Band 4 - 50%
+
+                £215.01 £330.00 £275.01 £380.00 £380.01 £465.00 £425.01 £515.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 4 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 330, 1: 380, 2: 465, 3: 515}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_band_5_upper_income_weekly_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_family_category
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Band 5 - 25%
+
+                £330.01 £425.00 £380.01 £485.00 £465.01 £570.00 £515.01 £630.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 5 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 425, 1: 485, 2: 570, 3: 630}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: newcastle_upon_tyne_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 29B.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "Where any reduction under this scheme is calculated at an amount of less than £1.00 per week, no reduction shall be paid to the applicant whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: newcastle_upon_tyne_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 50.0(1)(b)(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-56
+              excerpt: "by multiplying the amount of the payment by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: newcastle_upon_tyne_council_tax_reduction_no_non_dependant_deduction_band
+    kind: parameter
+    dtype: Integer
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 30A.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "There shall be no non-dependant deductions for persons who are not pensioners."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: newcastle_upon_tyne_council_tax_reduction_non_dependant_deduction_weekly_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: newcastle_upon_tyne_council_tax_reduction_no_non_dependant_deduction_band
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 30A.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "There shall be no non-dependant deductions for persons who are not pensioners."
+              table:
+                header: Non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0}
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_age_limit
+    kind: parameter
+    dtype: Number
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "is a person who is under 25 years old;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          25
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_minimum_care_weeks
+    kind: parameter
+    dtype: Number
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(1)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "who has been in the care of a Local Authority for a period of 13 weeks or more spanning their 16th birthday;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          13
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_full_award_rate
+    kind: parameter
+    dtype: Rate
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Where the applicant is a care leaver and meets the criteria in (1) above, a reduction of 100% shall be awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: newcastle_upon_tyne_council_tax_reduction_terminal_sr1_full_award_rate
+    kind: parameter
+    dtype: Rate
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class F paragraph 18.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Council Tax Reduction will be awarded at 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: newcastle_upon_tyne_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 26.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The following has been adopted by the City Council and details the Council Tax Reduction scheme adopted by the authority for the financial year 2026/27."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on a Banded Discount Scheme as defined within Schedule 3."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_newcastle_upon_tyne and council_tax_reduction_household_in_england and would_claim_council_tax_reduction and newcastle_upon_tyne_council_tax_reduction_applicant_is_working_age
+
+  - name: newcastle_upon_tyne_council_tax_reduction_passported
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "A ‘passported’ case is defined under this scheme is any applicant who is in receipt of any of the following: a. Income Support; b. Income Based Job Seekers Allowance; or c. Income Related Employment and Support Allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_receives_income_support or newcastle_upon_tyne_council_tax_reduction_receives_income_based_jsa or newcastle_upon_tyne_council_tax_reduction_receives_income_related_esa
+
+  - name: newcastle_upon_tyne_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraphs 1 and 6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Support Level Passported Single Couple Family with One Child Family with Two+ Children"
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: household family
+                column_key: family category
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if newcastle_upon_tyne_council_tax_reduction_has_two_or_more_children: 3 else: if newcastle_upon_tyne_council_tax_reduction_has_one_or_more_children: 2 else: if newcastle_upon_tyne_council_tax_reduction_applicant_has_partner: 1 else: 0
+
+  - name: newcastle_upon_tyne_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_assessed_capital_for_year <= newcastle_upon_tyne_council_tax_reduction_capital_limit
+
+  - name: newcastle_upon_tyne_council_tax_reduction_income_within_banded_grid
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class D paragraph 16.0(1)(e) and Schedule 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "whose income (if any) for the relevant week 2 is within any income band3 prescribed by the Council within this scheme"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: |-
+                Band 5 - 25%
+
+                £330.01 £425.00 £380.01 £485.00 £465.01 £570.00 £515.01 £630.00
+              table:
+                header: Council Tax Reduction Banded Discount Scheme
+                row_key: family category
+                column_key: Band 5 upper weekly income
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_passported or newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_5_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]
+
+  - name: newcastle_upon_tyne_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Week
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Discount bands vary depending on both weekly income and the household"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if newcastle_upon_tyne_council_tax_reduction_passported: 1 else: if newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_1_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]: 1 else: if newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_2_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]: 2 else: if newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_3_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]: 3 else: if newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_4_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]: 4 else: if newcastle_upon_tyne_council_tax_reduction_assessed_weekly_income <= newcastle_upon_tyne_council_tax_reduction_band_5_upper_income_weekly_by_family[newcastle_upon_tyne_council_tax_reduction_family_category]: 5 else: 0
+
+  - name: newcastle_upon_tyne_council_tax_reduction_ordinary_award_entitlement
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class D paragraph 16.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "On any day class D consists of any person who is not a pensioner:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_working_age_scheme_applies and newcastle_upon_tyne_council_tax_reduction_capital_eligible and newcastle_upon_tyne_council_tax_reduction_income_within_banded_grid
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_age_condition
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "is a person who is under 25 years old;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_applicant_age < newcastle_upon_tyne_council_tax_reduction_care_leaver_age_limit
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_care_duration_condition
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(1)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "who has been in the care of a Local Authority for a period of 13 weeks or more spanning their 16th birthday;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_care_leaver_weeks_in_local_authority_care >= newcastle_upon_tyne_council_tax_reduction_care_leaver_minimum_care_weeks
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_criteria_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "For the purposes of this class, a care Leaver: (a) is a person who is under 25 years old; and (b) who has been in the care of a Local Authority for a period of 13 weeks or more spanning their 16th birthday; and (c) is resident within the City of Newcastle area."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_care_leaver_age_condition and newcastle_upon_tyne_council_tax_reduction_care_leaver_care_duration_condition and newcastle_upon_tyne_council_tax_reduction_care_leaver_care_spans_sixteenth_birthday and newcastle_upon_tyne_council_tax_reduction_care_leaver_is_newcastle_resident
+
+  - name: newcastle_upon_tyne_council_tax_reduction_care_leaver_full_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class E paragraph 17.0(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Where the applicant is a care leaver and meets the criteria in (1) above, a reduction of 100% shall be awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_working_age_scheme_applies and newcastle_upon_tyne_council_tax_reduction_capital_eligible and newcastle_upon_tyne_council_tax_reduction_care_leaver_criteria_met
+
+  - name: newcastle_upon_tyne_council_tax_reduction_terminal_sr1_criteria_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class F paragraph 18.0(1)(b)-(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "a member of the applicant's household is diagnosed as terminally ill; and (c) a SR1 form (Special Rules 1 form) has been completed by a recognised clinician"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_household_member_is_terminally_ill and newcastle_upon_tyne_council_tax_reduction_sr1_completed_by_recognised_clinician
+
+  - name: newcastle_upon_tyne_council_tax_reduction_terminal_sr1_full_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Class F paragraph 18.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Where: (a) the applicant is entitled to an amount of Council Tax Reduction under the Council's scheme; and (b) a member of the applicant's household is diagnosed as terminally ill; and (c) a SR1 form (Special Rules 1 form) has been completed by a recognised clinician, Council Tax Reduction will be awarded at 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_ordinary_award_entitlement and newcastle_upon_tyne_council_tax_reduction_terminal_sr1_criteria_met
+
+  - name: newcastle_upon_tyne_council_tax_reduction_award_basis_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "On any day class D consists of any person who is not a pensioner:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Where the applicant is a care leaver and meets the criteria in (1) above, a reduction of 100% shall be awarded."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_ordinary_award_entitlement or newcastle_upon_tyne_council_tax_reduction_care_leaver_full_award_applies
+
+  - name: newcastle_upon_tyne_council_tax_reduction_selected_ordinary_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Discount bands vary depending on both weekly income and the household"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_support_rate_by_income_band[newcastle_upon_tyne_council_tax_reduction_income_band]
+
+  - name: newcastle_upon_tyne_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 and Classes E-F
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Discount bands vary depending on both weekly income and the household"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "Where: (a) the applicant is entitled to an amount of Council Tax Reduction under the Council's scheme; and (b) a member of the applicant's household is diagnosed as terminally ill; and (c) a SR1 form (Special Rules 1 form) has been completed by a recognised clinician, Council Tax Reduction will be awarded at 100%"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if newcastle_upon_tyne_council_tax_reduction_care_leaver_full_award_applies: newcastle_upon_tyne_council_tax_reduction_care_leaver_full_award_rate else: if newcastle_upon_tyne_council_tax_reduction_terminal_sr1_full_award_applies: newcastle_upon_tyne_council_tax_reduction_terminal_sr1_full_award_rate else: newcastle_upon_tyne_council_tax_reduction_selected_ordinary_support_rate
+
+  - name: newcastle_upon_tyne_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 29A.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "a person's maximum council tax reduction amount in respect of a day is 100 per cent of the amount A/B where: (a) A is the amount set by the authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; and (b) B is the number of days in that financial year,"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_maximum_eligible_liability_for_year * newcastle_upon_tyne_council_tax_reduction_maximum_support_rate
+
+  - name: newcastle_upon_tyne_council_tax_reduction_non_dependant_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 30A.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "There shall be no non-dependant deductions for persons who are not pensioners."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_non_dependant_deduction_weekly_by_band[newcastle_upon_tyne_council_tax_reduction_no_non_dependant_deduction_band]
+
+  - name: newcastle_upon_tyne_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraphs 30A.0(1) and 50.0(1)(b)(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "There shall be no non-dependant deductions for persons who are not pensioners."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-56
+              excerpt: "by multiplying the amount of the payment by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_non_dependant_deduction_weekly * newcastle_upon_tyne_council_tax_reduction_weeks_per_year
+
+  - name: newcastle_upon_tyne_council_tax_reduction_amount_before_minimum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within Section 29A of this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_maximum_amount_for_year * newcastle_upon_tyne_council_tax_reduction_selected_support_rate - newcastle_upon_tyne_council_tax_reduction_annual_non_dependant_deduction
+
+  - name: newcastle_upon_tyne_council_tax_reduction_minimum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraphs 29B.0(1) and 50.0(1)(b)(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "Where any reduction under this scheme is calculated at an amount of less than £1.00 per week, no reduction shall be paid to the applicant whatsoever."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-56
+              excerpt: "by multiplying the amount of the payment by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_minimum_award_weekly * newcastle_upon_tyne_council_tax_reduction_weeks_per_year
+
+  - name: newcastle_upon_tyne_council_tax_reduction_minimum_award_is_payable
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 29B.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "Where any reduction under this scheme is calculated at an amount of less than £1.00 per week, no reduction shall be paid to the applicant whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_amount_before_minimum_for_year >= newcastle_upon_tyne_council_tax_reduction_minimum_amount_for_year
+
+  - name: newcastle_upon_tyne_council_tax_reduction_award_payable
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 Classes D-F and paragraph 29B.0(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "Where any reduction under this scheme is calculated at an amount of less than £1.00 per week, no reduction shall be paid to the applicant whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_award_basis_eligible and newcastle_upon_tyne_council_tax_reduction_minimum_award_is_payable
+
+  - name: newcastle_upon_tyne_council_tax_reduction_no_award_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 paragraph 29B.0(1) and Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "no reduction shall be paid to the applicant whatsoever."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          newcastle_upon_tyne_council_tax_reduction_maximum_amount_for_year - newcastle_upon_tyne_council_tax_reduction_maximum_amount_for_year
+
+  - name: newcastle_upon_tyne_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Newcastle City Council Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].effective_from
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The following has been adopted by the City Council and details the Council Tax Reduction scheme adopted by the authority for the financial year 2026/27."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within Section 29A of this scheme;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "Where any reduction under this scheme is calculated at an amount of less than £1.00 per week, no reduction shall be paid to the applicant whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if newcastle_upon_tyne_council_tax_reduction_award_payable: newcastle_upon_tyne_council_tax_reduction_amount_before_minimum_for_year else: newcastle_upon_tyne_council_tax_reduction_no_award_amount_for_year
+
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-newcastle-upon-tyne/manual/council-tax-reduction-scheme-2026-2027/page-118
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to Newcastle City Council, so the authority's adopted scheme is the operative source for its local values and award calculation.
+  summary: |-
+    Newcastle's operative 2026/27 working-age scheme is a five-band weekly-income discount grid. The statutory maximum is 100 percent of eligible liability, with the selected grid rate composed onto that maximum because Schedule 3 makes the discount depend on the section 29A maximum. Capital above £6,000 is a cliff. The award is nil below £1 per week, and there are no working-age non-dependant deductions. The source prints no working-age excess-income taper or tariff-income step; the pensioner-only taper is outside this module. Care leavers meeting Class E receive 100 percent, while Class F terminal/SR1 cases receive 100 percent only after ordinary entitlement. Pension-age provisions are out of scope.
+  deferred_outputs:
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/sections-33-to-72#assessed_weekly_income
+      reason: The detailed earnings, self-employment, disregards, and other income-assessment rules supplying weekly income are outside this award-surface module.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/sections-33-to-72#assessed_capital
+      reason: Capital valuation, attribution, instalment treatment, and disregard rules are outside this award-surface module; this module applies the printed £6,000 cliff to assessed capital.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/paragraph-29A#annual_eligible_liability_after_statutory_discounts_and_apportionment
+      reason: Charge determination, statutory discounts, joint-liability apportionment, and the annualisation of paragraph 29A's daily maximum are outside this award-surface module.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/section-6#family_category_classifier
+      reason: This module consumes tested family-category facts for the Schedule 3 columns; the full section 6 family definition is deferred.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/class-e#care_leaver_evidence_classifier
+      reason: This module applies Class E's printed age, care-duration, birthday-span, and residence conditions to supplied facts; evidencing those facts is deferred.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/class-f#terminal_illness_and_sr1_evidence_classifier
+      reason: This module applies Class F to supplied terminal-diagnosis and recognised-clinician SR1 facts; clinical evidence classification is deferred.
+    - output: uk-newcastle-upon-tyne:policies/newcastle-upon-tyne/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age alternative maximum reduction is outside this working-age award module.

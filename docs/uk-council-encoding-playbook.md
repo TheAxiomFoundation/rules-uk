@@ -1,10 +1,12 @@
 # Statutory and scheme rule encoding playbook
 
 This playbook records the method used in the UK council-tax-reduction campaign
-for encoding statutory and scheme rules. Apply the same method in any
-jurisdiction lane, including DK, US, and SOUTHMOD. Replace council-specific
-labels with the authority, instrument, program, and period relevant to the
-lane.
+for encoding statutory and scheme rules. It is offered as a transferable
+pattern for other jurisdiction lanes, including DK, US, and SOUTHMOD; each
+lane's authority model, corpus contracts, and gate battery require separate
+validation before the method is treated as established there. Replace
+council-specific labels with the authority, instrument, program, and period
+relevant to the lane.
 
 ## The two-layer harness
 
@@ -73,10 +75,13 @@ Across the campaign, this adjudication caught at least five formula errors.
 
 Check: if the deciding sentence says the discount is based on the scheme's
 defined maximum, compose the band rate onto that maximum. Use a ceiling or
-`min` form only when the top band equals the cap or the text prints a direct
-award sentence. For a taper, implement the printed structure, such as maximum
-less excess income multiplied by the taper. If no linkage sentence exists,
-encode the printed award basis and record the verified absence; do not guess.
+`min` form only when the text prints affirmative operative wording for direct
+award. Numerical coincidence, such as the top band equalling the cap, may
+corroborate a reading but never decides it: tables alone are insufficient, and
+equality without operative wording is still a table. For a taper, implement the
+printed structure, such as maximum less excess income multiplied by the taper.
+If no linkage sentence exists, encode the printed award basis and record the
+verified absence; do not guess.
 
 ### Operative-year traps
 
@@ -113,6 +118,22 @@ Check: run a role audit over rule names, cited pages, and surrounding provision
 headings. In composite instruments, map working-age, pension-age, UC, non-UC,
 discretionary, and other scheme limbs separately. Semantic review must read the
 context around every locally controlled value.
+
+### Controlling-source and authority attestation
+
+Grounding every value verbatim does not establish that the module as a whole
+attests the right controlling source. A module can pass every atom-level and
+money-value check while its source-verification contract names the wrong
+instrument, page, or authority for the calculation it implements.
+
+Real example: a module's atoms and money checks all passed while validation
+correctly failed the module-level source-authority contract, which required
+repair independently of any individual excerpt.
+
+Check: validate the module-level source-verification contract as its own gate,
+distinct from atom grounding: the cited instrument is the operative authority
+for the encoded calculation, and the citation path points at the provision
+that carries it.
 
 ### Band-edge over and at-least semantics
 

@@ -1,0 +1,697 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-30
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority so the adopted document is operative.
+  summary: |-
+    Dudley MBC's adopted 2026/27 working-age scheme caps the ordinary maximum at 40 percent of the lower of discounted actual liability and discounted Band C liability. The remaining 60 percent is the claimant contribution implied by that cap, not a separately printed award parameter. The calculation then subtracts the flat £5 weekly working-age non-dependant deduction and the 20 percent weekly excess-income taper. Capital above £16,000 excludes entitlement; capital above £6,000 produces £1 weekly tariff income for each £250 or partial £250. No minimum initial award, minimum-entitlement floor, or protected higher working-age rate is printed. Paragraph 17 literally places income equal to the applicable amount in neither class D nor class E, so this module exposes that boundary as ineligible rather than silently assigning it to a class. Paragraph 29's placement of non-dependant deductions after the day divisor is dimensionally ambiguous; this module follows the scheme's stated deduction and Part 9's maximum-then-taper structure by subtracting the flat deduction after the 40 percent maximum. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-dudley:policies/dudley/council-tax-reduction/paragraphs-16-and-17#class_d_or_e_non_income_conditions
+      reason: Residence, liability, absence, application, and other class-D-or-E conditions are represented by a boundary fact while their detailed classifiers remain outside this award-surface module.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/paragraphs-26-to-62-and-schedule-3#assessed_income_and_applicable_amount
+      reason: The applicable-amount schedule, earnings and income rules, Universal Credit adjustments, disregards, and the self-employment minimum-income floor feed the award surface but are outside this module.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/paragraphs-63-to-70-and-schedule-10#assessed_capital
+      reason: Capital valuation, attribution, notional capital, and disregard rules remain outside this module; the award surface consumes the assessed capital amount.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/paragraph-29.2(a)#discounted_actual_and_band_c_liability
+      reason: Council-tax liability, discounts, joint-liability shares, and the annual Band C comparison amount are boundary inputs to the printed maximum calculation.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/paragraph-9#non_dependant_members_and_count
+      reason: The detailed non-dependant classifier and household membership count are outside this flat-deduction table and are supplied as boundary facts.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/part-8-and-schedule-4#alternative_maximum_council_tax_reduction
+      reason: The separate alternative maximum calculation, including second-adult reduction, is outside this working-age main-award surface.
+    - output: uk-dudley:policies/dudley/council-tax-reduction/part-13#working_age_minimum_change_tolerance
+      reason: The £3 weekly minimum-change tolerance applies to reassessments during the year, not the initial award calculation, and is deferred as a change-of-circumstances output.
+rules:
+  - name: dudley_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "the maximum council tax reduction payable to a person who is not a pensioner in respect of a day is 40 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.40
+
+  - name: dudley_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: dudley_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: dudley_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: dudley_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: dudley_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "shall be £5.00 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: dudley_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 28(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "The adjustment referred to in sub-paragraph (1) is to multiply the maximum amount by 12 and divide the product by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: dudley_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 17 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "(d) who does not fall within a class of person not entitled to a reduction under this scheme; (e) whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3; (f) in respect of whom amount A exceeds amount B where— (i) amount A is the maximum council tax reduction in his case; and (ii) amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.02857142857142857142857142857
+
+  - name: dudley_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 17 class E amount B, converted from the printed daily rate using the printed seven-day divisor
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "(d) who does not fall within a class of person not entitled to a reduction under this scheme; (e) whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3; (f) in respect of whom amount A exceeds amount B where— (i) amount A is the maximum council tax reduction in his case; and (ii) amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount, and"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "shall be £5.00 x 1/7."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_daily_taper_rate * dudley_council_tax_reduction_days_per_week
+
+  - name: dudley_council_tax_reduction_zero_annual_amount
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 20 zero-award consequence
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-21
+              excerpt: "The classes of person described in paragraphs 21 to 24 are not entitled to a reduction under this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: dudley_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: dudley_council_tax_reduction_flat_non_dependant_deduction_band
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "Non-dependent deductions: persons who are not pensioners 30A.—( 1) The non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be £5.00 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 5.00
+
+  - name: dudley_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "This scheme may be cited as the Dudley MBC Council Tax Reduction Scheme 2026/27 and comes into effect on 1 April 2026."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "This scheme applies in relation to the billing authority in England known as Dudley MBC."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-3
+              excerpt: "This Council Tax Reduction Scheme for working age applicants has been determined by the Council"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_dudley
+          and council_tax_reduction_household_in_england
+          and dudley_council_tax_reduction_applicant_is_working_age
+
+  - name: dudley_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraphs 20 and 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_assessed_capital_for_year <= dudley_council_tax_reduction_capital_limit
+
+  - name: dudley_council_tax_reduction_capital_above_tariff_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_assessed_capital_for_year > dudley_council_tax_reduction_tariff_income_threshold
+
+  - name: dudley_council_tax_reduction_tariff_income_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72 within the working-age capital limit
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_capital_eligible
+          and dudley_council_tax_reduction_capital_above_tariff_income_threshold
+
+  - name: dudley_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for any excess which is not a complete £250."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dudley_council_tax_reduction_tariff_income_applies: dudley_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil((dudley_council_tax_reduction_assessed_capital_for_year - dudley_council_tax_reduction_tariff_income_threshold) / dudley_council_tax_reduction_tariff_income_step) * dudley_council_tax_reduction_weeks_per_year else: dudley_council_tax_reduction_zero_annual_amount
+
+  - name: dudley_council_tax_reduction_applicable_income_with_tariff_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "is to be treated as if it were a weekly income(169) of—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year + dudley_council_tax_reduction_tariff_income_for_year
+
+  - name: dudley_council_tax_reduction_income_below_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 class D
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "whose income (if any) for the relevant week is less than his applicable amount calculated in accordance with paragraph 25 and Schedule 3,"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_applicable_income_with_tariff_for_year < dudley_council_tax_reduction_applicable_amount_for_year
+
+  - name: dudley_council_tax_reduction_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_applicable_income_with_tariff_for_year > dudley_council_tax_reduction_applicable_amount_for_year
+
+  - name: dudley_council_tax_reduction_award_income_class_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "whose income (if any) for the relevant week is less than his applicable amount calculated in accordance with paragraph 25 and Schedule 3,"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "in respect of whom amount A exceeds amount B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_income_below_applicable_amount
+          or (
+            dudley_council_tax_reduction_income_exceeds_applicable_amount
+            and dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction
+          )
+
+  - name: dudley_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 17 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "(d) who does not fall within a class of person not entitled to a reduction under this scheme; (e) whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3; (f) in respect of whom amount A exceeds amount B where— (i) amount A is the maximum council tax reduction in his case; and (ii) amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dudley_council_tax_reduction_income_exceeds_applicable_amount: dudley_council_tax_reduction_applicable_income_with_tariff_for_year - dudley_council_tax_reduction_applicable_amount_for_year else: dudley_council_tax_reduction_zero_annual_amount
+
+  - name: dudley_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 17 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "(d) who does not fall within a class of person not entitled to a reduction under this scheme; (e) whose income for the relevant week is greater than his applicable amount calculated in accordance with paragraph 25 and Schedule 3; (f) in respect of whom amount A exceeds amount B where— (i) amount A is the maximum council tax reduction in his case; and (ii) amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_excess_income_for_year * dudley_council_tax_reduction_weekly_taper_rate
+
+  - name: dudley_council_tax_reduction_maximum_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 29(2)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "A is the lower of:"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "amount set by the authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "the amount set by the authority for the relevant financial year in respect of a dwelling within band C subject to any discount which may be appropriate to that dwelling under the 1992 Act;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(dudley_council_tax_reduction_actual_annual_liability_after_discounts, dudley_council_tax_reduction_band_c_annual_liability_after_discounts)
+
+  - name: dudley_council_tax_reduction_non_dependant_deductions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "Non-dependent deductions: persons who are not pensioners 30A.—( 1) The non-dependant deductions in respect of a day referred to in section 29 (maximum council tax reduction) shall be £5.00 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: non-dependant count
+                column_key: weekly deduction
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "The adjustment referred to in sub-paragraph (1) is to multiply the maximum amount by 12 and divide the product by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_non_dependant_count * dudley_council_tax_reduction_non_dependant_weekly_deduction_by_band[dudley_council_tax_reduction_flat_non_dependant_deduction_band] * dudley_council_tax_reduction_weeks_per_year
+
+  - name: dudley_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "the maximum council tax reduction payable to a person who is not a pensioner in respect of a day is 40 per cent of the amount A/B where—"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "B is the number of days in that financial year less any deductions in respect of non-dependants which fall to be made under paragraph 30A (persons who are not pensioners)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(dudley_council_tax_reduction_zero_annual_amount, dudley_council_tax_reduction_maximum_eligible_liability_for_year * dudley_council_tax_reduction_maximum_support_rate - dudley_council_tax_reduction_non_dependant_deductions_for_year)
+
+  - name: dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 17(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "in respect of whom amount A exceeds amount B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_maximum_amount_for_year > dudley_council_tax_reduction_income_taper_deduction_for_year
+
+  - name: dudley_council_tax_reduction_calculated_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 paragraph 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Where the person is within class A or D, that amount is the amount which is the maximum council tax reduction in respect of the day in the applicant’s case."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Where the person is within class B or E, that amount is the amount found by deducting amount B from amount A, where “amount A” and “amount B” have the meanings given in paragraph 14(f) or 17(f), as the case may be."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "in respect of whom amount A exceeds amount B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction: dudley_council_tax_reduction_maximum_amount_for_year - dudley_council_tax_reduction_income_taper_deduction_for_year else: dudley_council_tax_reduction_zero_annual_amount
+
+  - name: dudley_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 classes D and E and capital exclusion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "who has made an application for a reduction under this scheme."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-15
+              excerpt: "The classes of person described in paragraphs 13 to 18 are entitled to a reduction under this scheme."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-24
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          dudley_council_tax_reduction_working_age_scheme_applies
+          and would_claim_council_tax_reduction
+          and dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold
+          and dudley_council_tax_reduction_award_income_class_applies
+          and dudley_council_tax_reduction_capital_eligible
+
+  - name: simulated_dudley_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 Part 9 working-age award calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Where a person is entitled to a reduction under this scheme in respect of a day, the amount of the reduction to which he is entitled is as follows."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "who has made an application for a reduction under this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if dudley_council_tax_reduction_award_conditions_met: dudley_council_tax_reduction_calculated_amount_for_year else: dudley_council_tax_reduction_zero_annual_amount
+
+  - name: dudley_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Dudley MBC Council Tax Reduction Scheme 2026/27 final working-age award surface
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-dudley/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "Where a person is entitled to a reduction under this scheme in respect of a day, the amount of the reduction to which he is entitled is as follows."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_dudley_council_tax_reduction_annual_amount

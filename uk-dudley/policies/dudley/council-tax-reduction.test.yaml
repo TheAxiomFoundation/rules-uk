@@ -1,0 +1,311 @@
+- name: dudley_ctr_printed_parameters
+  period: &tax_year
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input: {}
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_support_rate: 0.40
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_limit: 16000
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_threshold: 6000
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_step: 250
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_days_per_week: 7
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_weeks_per_year: 52
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_weekly_taper_rate: "0.2000000000000000000000000002"
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_zero_annual_amount: 0
+
+- name: dudley_ctr_flat_non_dependant_grid_row
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_non_dependant_weekly_deduction_by_band: 5
+
+- name: dudley_ctr_band_c_ceiling_full_award
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_working_age_scheme_applies: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_eligible: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_above_tariff_income_threshold: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_applicable_income_with_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_below_applicable_amount: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_exceeds_applicable_amount: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_income_class_applies: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_excess_income_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_eligible_liability_for_year: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_for_year: 720
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_calculated_amount_for_year: 720
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_conditions_met: holds
+    uk-dudley:policies/dudley/council-tax-reduction#simulated_dudley_council_tax_reduction_annual_amount: 720
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 720
+
+- name: dudley_ctr_actual_liability_below_band_c
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 1600
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_eligible_liability_for_year: 1600
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_for_year: 640
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 640
+
+- name: dudley_ctr_non_working_age_is_outside_working_age_scheme
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: false
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_working_age_scheme_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_conditions_met: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#simulated_dudley_council_tax_reduction_annual_amount: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 0
+
+- name: dudley_ctr_tariff_threshold_has_no_tariff_income
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_above_tariff_income_threshold: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 0
+
+- name: dudley_ctr_first_partial_tariff_step
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_above_tariff_income_threshold: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_applies: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 52
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_applicable_income_with_tariff_for_year: 52
+
+- name: dudley_ctr_complete_tariff_step
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 52
+
+- name: dudley_ctr_second_tariff_step_after_complete_step
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 6250.01
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 104
+
+- name: dudley_ctr_capital_limit_has_forty_weekly_tariff_steps
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_eligible: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_for_year: 2080
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 720
+
+- name: dudley_ctr_first_penny_above_capital_cliff
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_capital_eligible: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_tariff_income_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_conditions_met: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#simulated_dudley_council_tax_reduction_annual_amount: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 0
+
+- name: dudley_ctr_taper_reduces_award
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 11000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_exceeds_applicable_amount: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_excess_income_for_year: 1000
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_taper_deduction_for_year: "200.0000000000000000000000002"
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_calculated_amount_for_year: "519.9999999999999999999999998"
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: "519.9999999999999999999999998"
+
+- name: dudley_ctr_income_equal_to_applicable_amount_has_no_class
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_below_applicable_amount: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_exceeds_applicable_amount: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_income_class_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_conditions_met: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#simulated_dudley_council_tax_reduction_annual_amount: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 0
+
+- name: dudley_ctr_taper_exhausts_award_to_zero
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 14000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_exceeds_applicable_amount: holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_income_taper_deduction_for_year: "800.0000000000000000000000008"
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_exceeds_taper_deduction: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_income_class_applies: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_calculated_amount_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_award_conditions_met: not_holds
+    uk-dudley:policies/dudley/council-tax-reduction#simulated_dudley_council_tax_reduction_annual_amount: 0
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 0
+
+- name: dudley_ctr_flat_non_dependant_deduction_reduces_maximum
+  period: *tax_year
+  input:
+    uk-dudley:policies/dudley/council-tax-reduction#input.local_authority_is_dudley: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicant_is_working_age: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_class_d_or_e_non_income_conditions_hold: true
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_capital_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_band_c_annual_liability_after_discounts: 1800
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_assessed_income_excluding_tariff_for_year: 0
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_non_dependant_count: 1
+    uk-dudley:policies/dudley/council-tax-reduction#input.dudley_council_tax_reduction_flat_non_dependant_deduction_band: 0
+  output:
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_non_dependant_deductions_for_year: 260
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_maximum_amount_for_year: 460
+    uk-dudley:policies/dudley/council-tax-reduction#dudley_council_tax_reduction_annual_amount: 460

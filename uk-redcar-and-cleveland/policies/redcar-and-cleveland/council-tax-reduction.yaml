@@ -1,0 +1,944 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+  summary: |-
+    Redcar and Cleveland's operative 2026-27 working-age award covers 82.5 percent of eligible Council Tax liability. Non-dependant deductions reduce that maximum before a 20 percent weekly excess-income taper. Countable capital must be below £16,000; capital above £6,000 otherwise creates £1 weekly tariff income for every £250 or part. The deferred assessed-capital boundary applies the scheme's disregard classifiers before this award surface. The printed non-dependant rows overlap at exactly £485.00, so this alignment uses the necessary non-overlapping convention: £279.00 inclusive to £485.00 exclusive, then £485.00 inclusive to £605.00 exclusive. No minimum-award floor or valuation-band cap is printed. Pension-age provisions are outside this local working-age module.
+  deferred_outputs:
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraphs-6-1-and-8-1-to-8-51#applicable_amount_and_assessed_income_weekly
+      reason: The award surface consumes the scheme's applicable amount and assessed weekly income; the personal allowances, premiums, Universal Credit treatment, earnings, disregards, childcare, and other income-assessment rules are outside this module.
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraphs-8-52-to-8-62#assessed_capital
+      reason: This module applies the local capital cliff and tariff formula, while capital valuation, attribution, notional-capital, and the detailed capital-disregard classifiers remain outside the award surface.
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraphs-9-3-to-9-4#eligible_liability_weekly
+      reason: The award surface consumes weekly eligible liability already derived from the daily A/B calculation, discounts, and joint-liability apportionment; the source does not print a weekly-to-daily conversion constant for this module to invent.
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraphs-9-10-to-9-13#household_non_dependant_deductions_weekly
+      reason: This module encodes each printed deduction band but consumes the household total after the one-deduction-per-couple, joint-liability apportionment, exemption, and unknown-income classifiers.
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraph-9-12#non_dependant_deduction_applies
+      reason: The source's blindness, disability-benefit, residence, training, student, inpatient, benefit, Universal Credit, and age exemptions are represented by a source-classified input rather than inferred from unrelated facts.
+    - output: uk-redcar-and-cleveland:policies/redcar-and-cleveland/council-tax-reduction/paragraphs-1-3-and-5-14#applicant_is_in_working_age_local_scheme
+      reason: The working-age classifier includes the source's mixed-age-couple treatment and is consumed as an input so a pensioner non-dependant cannot incorrectly remove a working-age household from the local scheme.
+rules:
+  - name: redcar_and_cleveland_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 2.2 and 9.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.3 The amount of Council Tax Support will be calculated as (A) divided by (B) and multiplied by 82.5% where:"
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "This means that Council Tax Support will be worked out on 82.5% of a working aged resident’s Council Tax liability for the 2026/27 financial year."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.825
+
+  - name: redcar_and_cleveland_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.6 The percentage of excess income over the applicable amount which will be deducted from the weekly maximum Council Tax Support will be 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: redcar_and_cleveland_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 5.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.3 Redcar and Cleveland Borough Council residents over the age of 18 with a council tax liability for a property that they live in, and with capital of less than £16,000, can make a claim."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: redcar_and_cleveland_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: redcar_and_cleveland_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: redcar_and_cleveland_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.12 nil non-dependant deduction
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "9.12 Non-dependant deductions will not be made in the following circumstances:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_middle_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "ii) Between £279.00 and £485.00, the deduction will be £10.60 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279.00
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_high_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "iii) Between £485.00 and £605.00, the deduction will be £13.30 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485.00
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_top_income_threshold_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "iv) £605.00 or over, the deduction will be £15.95 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605.00
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_no_deduction_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.12
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "9.12 Non-dependant deductions will not be made in the following circumstances:"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: no-deduction band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_working_low_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "i) Less than £279.00, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: low-income remunerative-work band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_working_middle_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "ii) Between £279.00 and £485.00, the deduction will be £10.60 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: middle-income band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_working_high_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(iii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "iii) Between £485.00 and £605.00, the deduction will be £13.30 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: high-income band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_working_top_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(iv)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "iv) £605.00 or over, the deduction will be £15.95 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: top-income band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_ndd_working_high_band + redcar_and_cleveland_council_tax_reduction_ndd_working_low_band
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_not_in_remunerative_work_band
+    kind: parameter
+    dtype: Integer
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "b) A non-dependant aged 18 or over not in remunerative work, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: not-in-remunerative-work band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: redcar_and_cleveland_council_tax_reduction_ndd_band
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 9.8 and 9.12
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values[0]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "9.12 Non-dependant deductions will not be made in the following circumstances:"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: no-deduction band
+                column_key: weekly deduction
+          - path: versions[0].values[1]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "i) Less than £279.00, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: low-income remunerative-work band
+                column_key: weekly deduction
+          - path: versions[0].values[1]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "b) A non-dependant aged 18 or over not in remunerative work, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: not-in-remunerative-work band
+                column_key: weekly deduction
+          - path: versions[0].values[2]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "ii) Between £279.00 and £485.00, the deduction will be £10.60 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: middle-income band
+                column_key: weekly deduction
+          - path: versions[0].values[3]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "iii) Between £485.00 and £605.00, the deduction will be £13.30 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: high-income band
+                column_key: weekly deduction
+          - path: versions[0].values[4]
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "iv) £605.00 or over, the deduction will be £15.95 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: top-income band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "iv) £605.00 or over, the deduction will be £15.95 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: top-income band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.60
+          3: 13.30
+          4: 15.95
+
+  - name: redcar_and_cleveland_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 1.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "1.4 The Council’s Scheme for working age claimants is a local discretionary scheme which incorporates the provisions of The Council Tax Reduction Schemes (Default Scheme) (England) Regulations 2012 (as amended) with exceptions."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_redcar_and_cleveland and council_tax_reduction_household_in_england and redcar_and_cleveland_council_tax_reduction_applicant_is_in_working_age_local_scheme
+
+  - name: redcar_and_cleveland_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 5.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.3 Redcar and Cleveland Borough Council residents over the age of 18 with a council tax liability for a property that they live in, and with capital of less than £16,000, can make a claim."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_capital_is_below_limit
+
+  - name: redcar_and_cleveland_council_tax_reduction_capital_is_below_limit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 5.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.3 Redcar and Cleveland Borough Council residents over the age of 18 with a council tax liability for a property that they live in, and with capital of less than £16,000, can make a claim."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_assessed_capital < redcar_and_cleveland_council_tax_reduction_capital_limit
+
+  - name: redcar_and_cleveland_council_tax_reduction_capital_exceeds_tariff_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_assessed_capital > redcar_and_cleveland_council_tax_reduction_tariff_income_threshold
+
+  - name: redcar_and_cleveland_council_tax_reduction_tariff_income_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_capital_exceeds_tariff_income_threshold and redcar_and_cleveland_council_tax_reduction_capital_is_below_limit
+
+  - name: redcar_and_cleveland_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 8.45
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-14
+              excerpt: "8.45 Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income (standard rate) of £1 per week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_tariff_income_applies: redcar_and_cleveland_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil((redcar_and_cleveland_council_tax_reduction_assessed_capital - redcar_and_cleveland_council_tax_reduction_tariff_income_threshold) / redcar_and_cleveland_council_tax_reduction_tariff_income_step) else: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_middle_threshold_weekly
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "i) Less than £279.00, the deduction will be £5.20 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_non_dependant_normal_gross_weekly_income < redcar_and_cleveland_council_tax_reduction_ndd_middle_income_threshold_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_high_threshold_weekly
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "ii) Between £279.00 and £485.00, the deduction will be £10.60 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_non_dependant_normal_gross_weekly_income < redcar_and_cleveland_council_tax_reduction_ndd_high_income_threshold_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_top_threshold_weekly
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8(iii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "iii) Between £485.00 and £605.00, the deduction will be £13.30 per week."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_non_dependant_normal_gross_weekly_income < redcar_and_cleveland_council_tax_reduction_ndd_top_income_threshold_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_ndd_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.8 A deduction from a person’s maximum Council Tax Support will be made for non-dependants, as follows:\n\na) A non-dependant aged 18 or over in remunerative work where their normal weekly gross income is:\n\ni) Less than £279.00, the deduction will be £5.20 per week.\n\nii) Between £279.00 and £485.00, the deduction will be £10.60 per week.\n\niii) Between £485.00 and £605.00, the deduction will be £13.30 per week."
+              table:
+                header: Non-dependant deductions
+                row_key: normal gross weekly income
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "iv) £605.00 or over, the deduction will be £15.95 per week.\n\nb) A non-dependant aged 18 or over not in remunerative work, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant deductions
+                row_key: normal gross weekly income or work status
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_non_dependant_deduction_applies: if redcar_and_cleveland_council_tax_reduction_non_dependant_in_remunerative_work: if redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_middle_threshold_weekly: redcar_and_cleveland_council_tax_reduction_ndd_working_low_band else: if redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_high_threshold_weekly: redcar_and_cleveland_council_tax_reduction_ndd_working_middle_band else: if redcar_and_cleveland_council_tax_reduction_ndd_income_is_below_top_threshold_weekly: redcar_and_cleveland_council_tax_reduction_ndd_working_high_band else: redcar_and_cleveland_council_tax_reduction_ndd_working_top_band else: redcar_and_cleveland_council_tax_reduction_ndd_not_in_remunerative_work_band else: redcar_and_cleveland_council_tax_reduction_ndd_no_deduction_band
+
+  - name: redcar_and_cleveland_council_tax_reduction_individual_ndd_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 9.8 and 9.12
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "i) Less than £279.00, the deduction will be £5.20 per week."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: selected deduction band
+                column_key: weekly deduction
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-20
+              excerpt: "9.12 Non-dependant deductions will not be made in the following circumstances:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_ndd_weekly_deduction_by_band[redcar_and_cleveland_council_tax_reduction_ndd_band]
+
+  - name: redcar_and_cleveland_council_tax_reduction_maximum_support_exceeds_household_ndd_weekly
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 9.2 and 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.2 The amount of a person’s Maximum Council Tax Support for any day for which they are liable to pay Council Tax will be 82.5%. Less any non-dependant deductions."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.8 A deduction from a person’s maximum Council Tax Support will be made for non-dependants, as follows:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_eligible_liability_weekly * redcar_and_cleveland_council_tax_reduction_maximum_support_rate > redcar_and_cleveland_council_tax_reduction_household_non_dependant_deductions_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_maximum_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 9.2 and 9.8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.2 The amount of a person’s Maximum Council Tax Support for any day for which they are liable to pay Council Tax will be 82.5%. Less any non-dependant deductions."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.8 A deduction from a person’s maximum Council Tax Support will be made for non-dependants, as follows:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_maximum_support_exceeds_household_ndd_weekly: redcar_and_cleveland_council_tax_reduction_eligible_liability_weekly * redcar_and_cleveland_council_tax_reduction_maximum_support_rate - redcar_and_cleveland_council_tax_reduction_household_non_dependant_deductions_weekly else: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+
+  - name: redcar_and_cleveland_council_tax_reduction_income_including_tariff_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.9 and 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.9 They will have their Support calculated by means test, which will compare their income to their applicable amount. The Maximum Council Tax Support amount of 82.5% will be reduced by 20% of the amount by which the applicable amount is exceeded, less any deductions for non-dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_assessed_income_weekly + redcar_and_cleveland_council_tax_reduction_tariff_income_weekly > redcar_and_cleveland_council_tax_reduction_applicable_amount_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.5 and 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.4 Residents can claim If they receive a passporting income such as:\n\n1. Income Support 2. Income-based Jobseeker’s Allowance 3. Income-based Employment and Support Allowance"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.5 In these circumstances they will be entitled to a Maximum Council Tax Support of 82.5% of their council tax liability, less any deductions for non-dependants"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.6 The percentage of excess income over the applicable amount which will be deducted from the weekly maximum Council Tax Support will be 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_receives_passporting_income: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount else: if redcar_and_cleveland_council_tax_reduction_income_including_tariff_exceeds_applicable_amount: redcar_and_cleveland_council_tax_reduction_assessed_income_weekly + redcar_and_cleveland_council_tax_reduction_tariff_income_weekly - redcar_and_cleveland_council_tax_reduction_applicable_amount_weekly else: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+
+  - name: redcar_and_cleveland_council_tax_reduction_income_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraph 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.6 The percentage of excess income over the applicable amount which will be deducted from the weekly maximum Council Tax Support will be 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_excess_income_weekly * redcar_and_cleveland_council_tax_reduction_weekly_taper_rate
+
+  - name: redcar_and_cleveland_council_tax_reduction_maximum_support_exceeds_income_reduction
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.9 and 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.9 They will have their Support calculated by means test, which will compare their income to their applicable amount. The Maximum Council Tax Support amount of 82.5% will be reduced by 20% of the amount by which the applicable amount is exceeded, less any deductions for non-dependants."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.6 The percentage of excess income over the applicable amount which will be deducted from the weekly maximum Council Tax Support will be 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_maximum_weekly_amount > redcar_and_cleveland_council_tax_reduction_income_taper_deduction_weekly
+
+  - name: redcar_and_cleveland_council_tax_reduction_amount_before_award_conditions_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.9 and 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.9 They will have their Support calculated by means test, which will compare their income to their applicable amount. The Maximum Council Tax Support amount of 82.5% will be reduced by 20% of the amount by which the applicable amount is exceeded, less any deductions for non-dependants."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-19
+              excerpt: "9.6 The percentage of excess income over the applicable amount which will be deducted from the weekly maximum Council Tax Support will be 20%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_maximum_support_exceeds_income_reduction: redcar_and_cleveland_council_tax_reduction_maximum_weekly_amount - redcar_and_cleveland_council_tax_reduction_income_taper_deduction_weekly else: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+
+  - name: redcar_and_cleveland_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.1 and 5.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.1 Working age claimants"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.3 Redcar and Cleveland Borough Council residents over the age of 18 with a council tax liability for a property that they live in, and with capital of less than £16,000, can make a claim."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          redcar_and_cleveland_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and redcar_and_cleveland_council_tax_reduction_capital_eligible
+
+  - name: simulated_redcar_and_cleveland_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 paragraphs 5.9 and 9.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-5
+              excerpt: "5.9 They will have their Support calculated by means test, which will compare their income to their applicable amount. The Maximum Council Tax Support amount of 82.5% will be reduced by 20% of the amount by which the applicable amount is exceeded, less any deductions for non-dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if redcar_and_cleveland_council_tax_reduction_award_conditions_met: redcar_and_cleveland_council_tax_reduction_amount_before_award_conditions_weekly else: redcar_and_cleveland_council_tax_reduction_zero_weekly_amount
+
+  - name: redcar_and_cleveland_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Redcar and Cleveland Borough Council Council Tax Support Scheme 2026-27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-redcar-and-cleveland/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "This means that Council Tax Support will be worked out on 82.5% of a working aged resident’s Council Tax liability for the 2026/27 financial year."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_redcar_and_cleveland_council_tax_reduction_weekly_amount
+inputs:
+  - name: local_authority_is_redcar_and_cleveland
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: council_tax_reduction_household_in_england
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: redcar_and_cleveland_council_tax_reduction_applicant_is_in_working_age_local_scheme
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: redcar_and_cleveland_council_tax_reduction_receives_passporting_income
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: redcar_and_cleveland_council_tax_reduction_assessed_capital
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: redcar_and_cleveland_council_tax_reduction_eligible_liability_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: redcar_and_cleveland_council_tax_reduction_assessed_income_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: redcar_and_cleveland_council_tax_reduction_applicable_amount_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: redcar_and_cleveland_council_tax_reduction_household_non_dependant_deductions_weekly
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: redcar_and_cleveland_council_tax_reduction_non_dependant_deduction_applies
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: redcar_and_cleveland_council_tax_reduction_non_dependant_in_remunerative_work
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: redcar_and_cleveland_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP

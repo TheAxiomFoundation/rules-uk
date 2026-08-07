@@ -1,0 +1,1019 @@
+format: rulespec/v1
+rules:
+  - name: hartlepool_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.1 Subject to paragraphs (2) to (4), the amount of a person’s maximum Council Tax Reduction in respect of a day for which he is liable to pay council tax, shall be 90 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.90
+
+  - name: hartlepool_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "5. Any applicant whose capital is greater than £10,000 shall not be entitled to any Council Tax Reduction whatsoever (subject to Schedule 3 Capital Disregards)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: hartlepool_council_tax_reduction_schedule_3_paragraph_7_disregard_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "7. Where an applicant is on income support, an income-based jobseeker’s allowance or an income- related employment and support allowance, the whole of his capital provided that it is no more than £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: hartlepool_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5 daily deduction conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.5 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to shall be £5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: hartlepool_council_tax_reduction_zero_band_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: &grid_source
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: &grid_excerpt |-
+                Discount Weekly Net Income (after disregards) Single Single with 1 dependant Single with 2 dependants or more Couples Couple with 1 dependant Couple with 2 dependants or more Band 1* 90% £0 to £116.20 £0 to £185.92 £0 to £255.65 £0 to £162.69 £0 to £238.23 £0 to £302.13 Band 2 70% £116.21 to £209.17 £185.93 to £278.89 £255.66 to £342.81 £162.70 to £278.89 £238.24 to £326.53 £302.14 to £395.09 Band 3 40% £209.18 to £249.84 £278.90 to £296.32 £342.82 to £406.71 £278.90 to £336.99 £326.54 to £371.85 £395.10 to £464.82 Band 4 20% £249.85 to £296.32 £296.33 to £325.36 £406.72 to £522.91 £337.00 to £395.08 £371.86 to £429.95 £464.83 to £557.77 Band 5 0% £296.33+ £325.37+ £522.92+ £395.09+ £429.96+ £557.78+
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: hartlepool_council_tax_reduction_band_1_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: hartlepool_council_tax_reduction_band_2_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: hartlepool_council_tax_reduction_band_3_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: hartlepool_council_tax_reduction_band_4_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: hartlepool_council_tax_reduction_one_dependant_child_or_young_person_in_grid
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 one-dependant family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: hartlepool_council_tax_reduction_maximum_dependant_children_or_young_persons_in_grid
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "4. Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: hartlepool_council_tax_reduction_single_no_dependant_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 single family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: hartlepool_council_tax_reduction_single_one_dependant_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 single-with-one-dependant family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: hartlepool_council_tax_reduction_single_two_plus_dependants_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 single-with-two-or-more-dependants family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: hartlepool_council_tax_reduction_couple_no_dependant_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 couples family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: hartlepool_council_tax_reduction_couple_one_dependant_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 couple-with-one-dependant family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: hartlepool_council_tax_reduction_couple_two_plus_dependants_family_index
+    kind: parameter
+    dtype: Number
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 couple-with-two-or-more-dependants family column
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: hartlepool_council_tax_reduction_zero_annual_amount
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 zero award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: hartlepool_council_tax_reduction_non_dependant_weekly_deduction_per_chargeable_unit
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5 flat deduction per chargeable non-dependant unit
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.5 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to shall be £5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: hartlepool_council_tax_reduction_support_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: hartlepool_council_tax_reduction_selected_band_index
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 discount grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band
+                column_key: discount percentage
+          - path: versions[0].values
+            kind: ordering
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme. c. The income of the applicant and partner as defined within this scheme; d. The capital of the applicant and partner as defined within this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 0.90
+          2: 0.70
+          3: 0.40
+          4: 0.20
+
+  - name: hartlepool_council_tax_reduction_band_2_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hartlepool_council_tax_reduction_family_category_index
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 2 lower weekly income bounds
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band 2
+                column_key: family weekly income range
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 116.21
+          1: 185.93
+          2: 255.66
+          3: 162.70
+          4: 238.24
+          5: 302.14
+
+  - name: hartlepool_council_tax_reduction_band_3_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hartlepool_council_tax_reduction_family_category_index
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 3 lower weekly income bounds
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band 3
+                column_key: family weekly income range
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 209.18
+          1: 278.90
+          2: 342.82
+          3: 278.90
+          4: 326.54
+          5: 395.10
+
+  - name: hartlepool_council_tax_reduction_band_4_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hartlepool_council_tax_reduction_family_category_index
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 4 lower weekly income bounds
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band 4
+                column_key: family weekly income range
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 249.85
+          1: 296.33
+          2: 406.72
+          3: 337.00
+          4: 371.86
+          5: 464.83
+
+  - name: hartlepool_council_tax_reduction_zero_band_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: hartlepool_council_tax_reduction_family_category_index
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 Band 5 lower weekly income bounds
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band 5
+                column_key: family weekly income range
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 296.33
+          1: 325.37
+          2: 522.92
+          3: 395.09
+          4: 429.96
+          5: 557.78
+
+  - name: hartlepool_council_tax_reduction_applicant_or_partner_receives_income_support
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Class D paragraph 1.7(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(b) he has attained the qualifying age for state pension credit and he, or if he has a partner, his partner, is a person on income support, on income-based jobseeker’s allowance or an income-related employment and support allowance; or a person with an award of universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_receives_income_support
+          or hartlepool_council_tax_reduction_partner_receives_income_support
+
+  - name: hartlepool_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Class D paragraph 1.7(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(b) he has attained the qualifying age for state pension credit and he, or if he has a partner, his partner, is a person on income support, on income-based jobseeker’s allowance or an income-related employment and support allowance; or a person with an award of universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_receives_income_related_esa
+          or hartlepool_council_tax_reduction_partner_receives_income_related_esa
+
+  - name: hartlepool_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Class D paragraph 1.7(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(b) he has attained the qualifying age for state pension credit and he, or if he has a partner, his partner, is a person on income support, on income-based jobseeker’s allowance or an income-related employment and support allowance; or a person with an award of universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_receives_income_based_jsa
+          or hartlepool_council_tax_reduction_partner_receives_income_based_jsa
+
+  - name: hartlepool_council_tax_reduction_applicant_is_in_working_age_class
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraphs 1.6 and 1.7 working-age class
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "has not attained the qualifying age for state pension credit; or"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(b) he has attained the qualifying age for state pension credit and he, or if he has a partner, his partner, is a person on income support, on income-based jobseeker’s allowance or an income-related employment and support allowance; or a person with an award of universal credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_or_partner_is_below_state_pension_credit_qualifying_age
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_support
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_universal_credit
+
+  - name: hartlepool_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraphs 1.6 and 1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The authority is required to specify a scheme for working age and therefore this scheme only applies to a person who;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "has made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_hartlepool
+          and council_tax_reduction_household_in_england
+          and hartlepool_council_tax_reduction_applicant_is_in_working_age_class
+          and would_claim_council_tax_reduction
+
+  - name: hartlepool_council_tax_reduction_applicant_or_partner_receives_schedule_3_paragraph_7_qualifying_benefit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "7. Where an applicant is on income support, an income-based jobseeker’s allowance or an income- related employment and support allowance, the whole of his capital provided that it is no more than £16,000."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-23
+              excerpt: "any reference to the ‘ applicant’ shall, except where the context otherwise requires be construed for the purposes of this scheme as if it were a reference to his partner."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_or_partner_receives_income_support
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+
+  - name: hartlepool_council_tax_reduction_schedule_3_paragraph_7_disregard_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "7. Where an applicant is on income support, an income-based jobseeker’s allowance or an income- related employment and support allowance, the whole of his capital provided that it is no more than £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_or_partner_receives_schedule_3_paragraph_7_qualifying_benefit
+          and hartlepool_council_tax_reduction_capital_after_other_disregards_for_year <= hartlepool_council_tax_reduction_schedule_3_paragraph_7_disregard_limit
+
+  - name: hartlepool_council_tax_reduction_schedule_3_paragraph_8_joint_claim_disregard_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 3 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-75
+              excerpt: "8. Where the applicant is a member of a joint-claim couple for the purposes of the Jobseekers Act 1995 and his partner is on income-based jobseeker’s allowance, the whole of the applicant’s capital."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_is_member_of_joint_claim_couple_for_jobseekers_act_1995
+          and hartlepool_council_tax_reduction_partner_receives_income_based_jsa
+
+  - name: hartlepool_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "5. Any applicant whose capital is greater than £10,000 shall not be entitled to any Council Tax Reduction whatsoever (subject to Schedule 3 Capital Disregards)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_capital_after_other_disregards_for_year <= hartlepool_council_tax_reduction_capital_limit
+          or hartlepool_council_tax_reduction_schedule_3_paragraph_7_disregard_applies
+          or hartlepool_council_tax_reduction_schedule_3_paragraph_8_joint_claim_disregard_applies
+
+  - name: hartlepool_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 working-age eligibility and Schedule 1 capital condition
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The authority is required to specify a scheme for working age and therefore this scheme only applies to a person who;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "5. Any applicant whose capital is greater than £10,000 shall not be entitled to any Council Tax Reduction whatsoever (subject to Schedule 3 Capital Disregards)."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(c) be liable to pay council tax in respect of a dwelling in which he is solely or mainly resident;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(d) is not deemed to be absent from the dwelling;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(e) not fall within a class of person prescribed for the purposes of paragraph 2(9) of Schedule 1A to the Local Government Finance Act 1992 and excluded from the authority’s scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_working_age_scheme_applies
+          and hartlepool_council_tax_reduction_capital_eligible
+          and hartlepool_council_tax_reduction_class_d_residency_absence_and_exclusion_conditions_met
+
+  - name: hartlepool_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "7. *Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_applicant_or_partner_receives_income_support
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_related_esa
+          or hartlepool_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
+
+  - name: hartlepool_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "4. Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(hartlepool_council_tax_reduction_number_of_dependant_children_or_young_persons, hartlepool_council_tax_reduction_maximum_dependant_children_or_young_persons_in_grid)
+
+  - name: hartlepool_council_tax_reduction_family_category_index
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: household family column
+                column_key: weekly income range
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "4. Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hartlepool_council_tax_reduction_has_partner: if hartlepool_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid >= hartlepool_council_tax_reduction_maximum_dependant_children_or_young_persons_in_grid: hartlepool_council_tax_reduction_couple_two_plus_dependants_family_index else: if hartlepool_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid >= hartlepool_council_tax_reduction_one_dependant_child_or_young_person_in_grid: hartlepool_council_tax_reduction_couple_one_dependant_family_index else: hartlepool_council_tax_reduction_couple_no_dependant_family_index else: if hartlepool_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid >= hartlepool_council_tax_reduction_maximum_dependant_children_or_young_persons_in_grid: hartlepool_council_tax_reduction_single_two_plus_dependants_family_index else: if hartlepool_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid >= hartlepool_council_tax_reduction_one_dependant_child_or_young_person_in_grid: hartlepool_council_tax_reduction_single_one_dependant_family_index else: hartlepool_council_tax_reduction_single_no_dependant_family_index
+
+  - name: hartlepool_council_tax_reduction_selected_band_index
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 banded discount grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band
+                column_key: family weekly income range
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "7. *Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hartlepool_council_tax_reduction_passported_to_band_1: hartlepool_council_tax_reduction_band_1_index else: if hartlepool_council_tax_reduction_assessed_weekly_net_income < hartlepool_council_tax_reduction_band_2_lower_weekly_income_by_family[hartlepool_council_tax_reduction_family_category_index]: hartlepool_council_tax_reduction_band_1_index else: if hartlepool_council_tax_reduction_assessed_weekly_net_income < hartlepool_council_tax_reduction_band_3_lower_weekly_income_by_family[hartlepool_council_tax_reduction_family_category_index]: hartlepool_council_tax_reduction_band_2_index else: if hartlepool_council_tax_reduction_assessed_weekly_net_income < hartlepool_council_tax_reduction_band_4_lower_weekly_income_by_family[hartlepool_council_tax_reduction_family_category_index]: hartlepool_council_tax_reduction_band_3_index else: if hartlepool_council_tax_reduction_assessed_weekly_net_income < hartlepool_council_tax_reduction_zero_band_lower_weekly_income_by_family[hartlepool_council_tax_reduction_family_category_index]: hartlepool_council_tax_reduction_band_4_index else: hartlepool_council_tax_reduction_zero_band_index
+
+  - name: hartlepool_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 discount grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_support_rate_by_band[hartlepool_council_tax_reduction_selected_band_index]
+
+  - name: hartlepool_council_tax_reduction_daily_non_dependant_deduction_per_chargeable_unit
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.5 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to shall be £5 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_non_dependant_weekly_deduction_per_chargeable_unit / hartlepool_council_tax_reduction_days_per_week
+
+  - name: hartlepool_council_tax_reduction_annual_non_dependant_deductions
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraphs 48.1, 48.5, and 48.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.5 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to shall be £5 x 1/7"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "B is the number of days in that financial year,"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.6 *Only one deduction shall be made under this section in respect of a couple or, as the case may be, members of a polygamous marriage"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_daily_non_dependant_deduction_per_chargeable_unit * hartlepool_council_tax_reduction_chargeable_non_dependant_deduction_units * hartlepool_council_tax_reduction_number_of_days_in_financial_year
+
+  - name: hartlepool_council_tax_reduction_maximum_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "48.1 Subject to paragraphs (2) to (4), the amount of a person’s maximum Council Tax Reduction in respect of a day for which he is liable to pay council tax, shall be 90 per cent, of the amount A divided by B where;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "B is the number of days in that financial year,"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "less any deductions in respect of non-dependants which fall to be made within this section (non-dependant deductions)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(hartlepool_council_tax_reduction_zero_annual_amount, hartlepool_council_tax_reduction_maximum_eligible_liability_for_year * hartlepool_council_tax_reduction_maximum_support_rate - hartlepool_council_tax_reduction_annual_non_dependant_deductions)
+
+  - name: hartlepool_council_tax_reduction_amount_before_eligibility_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              <<: *grid_source
+              table:
+                header: Discount Weekly Net Income (after disregards)
+                row_key: Band
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          hartlepool_council_tax_reduction_maximum_for_year * hartlepool_council_tax_reduction_selected_support_rate
+
+  - name: simulated_hartlepool_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 working-age Schedule 1 award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "5. Any applicant whose capital is greater than £10,000 shall not be entitled to any Council Tax Reduction whatsoever (subject to Schedule 3 Capital Disregards)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if hartlepool_council_tax_reduction_award_conditions_met: hartlepool_council_tax_reduction_amount_before_eligibility_for_year else: hartlepool_council_tax_reduction_zero_annual_amount
+
+  - name: hartlepool_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Hartlepool Borough Council Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "1 The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_hartlepool_council_tax_reduction_annual_amount
+
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-hartlepool/manual/council-tax-reduction-scheme-2026-2027/page-62
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Hartlepool Borough Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Hartlepool’s 2026-27 working-age award first calculates a daily 90-percent maximum, less the printed £5/7 non-dependant deduction, then applies the Schedule 1 90/70/40/20/0-percent income band to that maximum. The ordinary capital cliff is £10,000 after other capital assessment; Schedule 3 paragraph 7 disregards capital at or below £16,000 for the named applicant-or-partner benefit cases and paragraph 8 has its separate joint-claim full-disregard branch. The calculation page is a banded scheme, with no tariff-income rule, local excess-income taper, or separate minimum-award floor printed.
+  deferred_outputs:
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/sections-11-to-24-and-schedules-2-and-4#assessed_weekly_net_income
+      reason: The working-age grid consumes weekly net income after the scheme’s income, earnings, Universal Credit, disregard, self-employment, and child-care calculations; those detailed assessment rules are outside this award-surface module.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/sections-25-to-34-and-schedule-3-except-paragraphs-7-and-8#capital_after_other_disregards_for_year
+      reason: This module applies the local £10,000 capital cliff and the Schedule 3 paragraphs 7 and 8 passported-capital disregards after the scheme’s valuation, attribution, notional-capital, and other capital-disregard calculations.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/schedule-3-paragraph-8#joint_claim_couple_status
+      reason: The paragraph 8 full-capital-disregard branch consumes the source-defined joint-claim-couple classification; the partner income-based-JSA fact is modeled directly with the shared household benefit-status inputs.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/paragraphs-48.2-to-48.4#maximum_eligible_liability_for_year
+      reason: This module consumes the source-defined liability after statutory discounts and joint-liability apportionment; dwelling charge calculation and liability allocation are outside this award surface.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/class-d-c-to-e#residency_absence_and_exclusion_conditions
+      reason: This module consumes the Class D resident-liability, absence, and prescribed-class eligibility determination; its fact-intensive classification is outside the locally parameterised award calculation.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/paragraph-48.1#number_of_days_in_financial_year
+      reason: The maximum is defined daily using the number of days in the financial year; this module consumes the calendar-day count for the award period rather than inventing a fixed annual-week constant.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/paragraphs-48.6-and-58.5-to-58.9#chargeable_non_dependant_deduction_units
+      reason: The flat per-unit deduction is encoded, while joint-liability apportionment, couple coordination, disability protection, benefit, student, absence, armed-forces, and Universal Credit no-earned-income exemption classification are deferred as the source-defined deduction-unit input.
+    - output: uk-hartlepool:policies/hartlepool/council-tax-reduction/class-c#alternative_maximum_council_tax_reduction
+      reason: The separate pension-age alternative maximum Council Tax Reduction is outside this working-age local award surface.
+
+inputs:
+  local_authority_is_hartlepool: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_applicant_or_partner_is_below_state_pension_credit_qualifying_age: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_class_d_residency_absence_and_exclusion_conditions_met: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_capital_after_other_disregards_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  hartlepool_council_tax_reduction_maximum_eligible_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  hartlepool_council_tax_reduction_number_of_days_in_financial_year: {dtype: Number, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_assessed_weekly_net_income: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  hartlepool_council_tax_reduction_has_partner: {dtype: Boolean, entity: Household, period: Week}
+  hartlepool_council_tax_reduction_number_of_dependant_children_or_young_persons: {dtype: Number, entity: Household, period: Week}
+  hartlepool_council_tax_reduction_applicant_or_partner_receives_universal_credit: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_applicant_receives_income_support: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_applicant_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_applicant_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_partner_receives_income_support: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_partner_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_partner_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_applicant_is_member_of_joint_claim_couple_for_jobseekers_act_1995: {dtype: Boolean, entity: Household, period: Year}
+  hartlepool_council_tax_reduction_chargeable_non_dependant_deduction_units: {dtype: Number, entity: Household, period: Week}

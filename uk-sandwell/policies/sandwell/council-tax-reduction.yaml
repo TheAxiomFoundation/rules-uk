@@ -1,0 +1,1376 @@
+format: rulespec/v1
+imports:
+  - "uk:regulations/uksi/2006/213/52#ordinary_capital_tariff_income_lower_threshold"
+  - "uk:regulations/uksi/2006/213/52#prescribed_circumstances_capital_tariff_income_lower_threshold"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_upper_limit"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_band_size"
+  - "uk:regulations/uksi/2006/213/52#capital_tariff_income_weekly_amount_per_band"
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    # rationale: LGFA 1992 section 13A delegates the working-age scheme to Sandwell Metropolitan Borough Council, so the adopted document is operative.
+  summary: |-
+    Sandwell's operative 2026-27 working-age award is the Schedule 1 Banded Discount Scheme, not an excess-income taper. The defined maximum is the lower of actual and Band B liability, at 85 percent for ordinary applicants and 100 percent for a resident dependant child aged five or under; applicable non-dependant deductions are inside that maximum. The family-specific weekly-income grid then composes its 100, 90, 75, 50, 25, or zero percent discount rate onto the defined maximum. Capital above £3,000 excludes entitlement, and an award below £1 per reduction week is not payable. Section 17.1 incorporates Regulation 52 tariff income; imported national threshold-and-step constants supply that incorporated calculation while the local proof atom records Sandwell's adoption. Pension-age prescribed-scheme provisions are outside this working-age local module.
+  deferred_outputs:
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/sections-1.6-to-1.7#applicant_is_in_local_working_age_class
+      reason: This award-surface module consumes the local claimant-and-partner working-age classifier, including the statutory-age and qualifying-benefit conditions.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/sections-1.6-to-1.7-class-d#applicant_satisfies_class_d_general_conditions
+      reason: This module separately consumes Class D's residence, liability, non-absence, prescribed-exclusion, and maximum-calculability conditions. It encodes the local capital cliff and Schedule 1 income-band result directly.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/sections-9-to-18-and-schedules-2-to-5#assessed_weekly_income_before_tariff
+      reason: The Schedule 1 selector consumes weekly income after the scheme's family, income, disregard, childcare, Universal Credit, capital-valuation, attribution, and disregard rules.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/section-57#actual_liability_band_b_liability_and_financial_year_day_count
+      reason: This module applies the printed lower-of-actual-and-Band-B maximum; council-tax charging, statutory discounts, joint-liability apportionment, and calendar-day calculation are future outputs.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/sections-58.3-to-58.9#chargeable_non_dependant_deduction_units
+      reason: >-
+        This module encodes the £5 and £10 weekly deduction table and the claimant-wide protection gate. Each supplied deduction unit has already applied section 58.3: a couple or polygamous-marriage group contributes one unit in its higher applicable band, while separately chargeable people contribute separate units. The detailed group, student, training, absence, armed-forces, disability, and apportionment classifiers remain future outputs.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/section-17-and-regulation-52#prescribed_circumstances_for_tariff_income
+      reason: The imported Regulation 52 special £10,000 tariff-threshold classifier is consumed as an input. It cannot affect an award that passes Sandwell's £3,000 capital cliff.
+    - output: uk-sandwell:policies/sandwell/council-tax-reduction/sections-60-to-61e#extended_reduction_amount
+      reason: Extended-reduction eligibility, duration, and amount are a distinct post-employment-change award route outside this ordinary working-age award calculation.
+rules:
+  - name: sandwell_council_tax_reduction_family_category_single_person_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 single-person column
+    metadata: &sandwell_family_category_code_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: |-
+                2026/27
+
+                Single person
+
+                Single person with one child
+
+                Single person with two or more
+
+                children Couple Couple with one child Couple with two or more children
+              table:
+                header: Schedule 1 family columns
+                row_key: family composition
+                column_key: implementation category code
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: sandwell_council_tax_reduction_family_category_single_person_one_child_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 single-parent-one-child column
+    metadata: *sandwell_family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_family_category_single_person_two_or_more_children_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 single-parent-two-or-more-children column
+    metadata: *sandwell_family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: sandwell_council_tax_reduction_family_category_couple_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 couple column
+    metadata: *sandwell_family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: sandwell_council_tax_reduction_family_category_couple_one_child_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 couple-one-child column
+    metadata: *sandwell_family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: sandwell_council_tax_reduction_family_category_couple_two_or_more_children_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 couple-two-or-more-children column
+    metadata: *sandwell_family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: sandwell_council_tax_reduction_income_band_no_award_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 zero-discount row
+    metadata: &sandwell_grid_scalar_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: &sandwell_grid_source
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: &sandwell_grid_excerpt |-
+                2026/27
+
+                Single person
+
+                Single person with one child
+
+                Single person with two or more
+
+                children Couple Couple with one child Couple with two or more children
+
+                Income from Discount Income from Discount Income from Discount Income from Discount Income from Discount Income from Discount £0 100% £0 100% £0 100% £0 100% £0 100% £0 100% £98.06 90% £206.16 90% £294.04 90% £153.93 90%
+
+                £349.91 90%
+
+                £236.16 75%
+
+                £183.93 75%
+
+                £379.91 75% £266.16 50% £213.93 50% £409.91 50% £296.16 25% £243.93 25% £439.91 25% £326.16 0 £273.93 0 £469.91 0 2 The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme; b. The Council Tax family as defined within this scheme c. The income of the applicant as defined within this scheme; d. The capital of the applicant as defined within this scheme. 3 For the sake of clarity all incomes shown within the table above are weekly in accordance with the scheme requirements and definitions. 4 Discount bands vary depending on both weekly income and the household (family as defined within this scheme). For the sake of clarity, it should be noted that in any application for reduction is limited to a maximum of two dependant children or young persons. 5 Any applicant who capital is greater than £3,000 shall not be entitled to any Council Tax Reductions whatsoever. 6 The authority may increase the level of incomes within the grid specified in paragraph 1 on an annual basis by the appropriate level of inflation measured by the Consumer Price Index (CPI) at 1st October preceding the effective financial year or by a percentage representing the increase in personal allowance within the applicable amounts for Housing Benefit for the relevant financial year, whichever is the lowest. 7 Where an applicant or partner is in receipt of a relevant benefit namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at 100% of the appropriate level of maximum level of liability (100% £262.03 90% £128.06 75% £324.04 75% £292.03 75% £158.06 50%
+
+                £354.04 50%
+
+                £322.03 50%
+
+                £188.06 25%
+
+                £384.04 25%
+
+                £352.03 25%
+
+                £218.06 0
+
+                £414.04 0
+
+                £382.03 0
+              table: &sandwell_grid_table
+                header: Schedule 1 weekly income-from grid and discount rates
+                row_key: income band and family category
+                column_key: discount rate
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: sandwell_council_tax_reduction_income_band_full_support_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 100 percent row
+    metadata: *sandwell_grid_scalar_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_income_band_ninety_percent_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 90 percent row
+    metadata: *sandwell_grid_scalar_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: sandwell_council_tax_reduction_income_band_seventy_five_percent_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 75 percent row
+    metadata: *sandwell_grid_scalar_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: sandwell_council_tax_reduction_income_band_fifty_percent_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 50 percent row
+    metadata: *sandwell_grid_scalar_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: sandwell_council_tax_reduction_income_band_twenty_five_percent_code
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 25 percent row
+    metadata: *sandwell_grid_scalar_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: sandwell_council_tax_reduction_ordinary_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "shall be 85 per cent, of the amount A/B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.85
+
+  - name: sandwell_council_tax_reduction_protected_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "the percentage shown in paragraph 57.1 shall be 100."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_protected_child_age_limit
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "a dependant child who is aged 5 years and under"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: sandwell_council_tax_reduction_one_dependant_child
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "Single person with one child"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_maximum_dependant_children
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: sandwell_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-51
+              excerpt: "the prescribed amount is £3,000 and no reduction shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3000
+
+  - name: sandwell_council_tax_reduction_ordinary_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#ordinary_capital_tariff_income_lower_threshold
+              output: ordinary_capital_tariff_income_lower_threshold
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          ordinary_capital_tariff_income_lower_threshold
+
+  - name: sandwell_council_tax_reduction_prescribed_circumstances_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#prescribed_circumstances_capital_tariff_income_lower_threshold
+              output: prescribed_circumstances_capital_tariff_income_lower_threshold
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          prescribed_circumstances_capital_tariff_income_lower_threshold
+
+  - name: sandwell_council_tax_reduction_tariff_income_upper_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_upper_limit
+              output: capital_tariff_income_upper_limit
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_upper_limit
+
+  - name: sandwell_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_band_size
+              output: capital_tariff_income_band_size
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_band_size
+
+  - name: sandwell_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+          - path: versions[0].formula
+            kind: import
+            import:
+              target: uk:regulations/uksi/2006/213/52#capital_tariff_income_weekly_amount_per_band
+              output: capital_tariff_income_weekly_amount_per_band
+              hash: sha256:a64dd9211b1955257893c3c5f6dfe689a5a47f77e1ae0af641a69afddb1f1983
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          capital_tariff_income_weekly_amount_per_band
+
+  - name: sandwell_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.1 daily-to-weekly conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "£10.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: sandwell_council_tax_reduction_minimum_award_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "less that £1.00 per reduction week"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_no_reduction_for_day
+    kind: parameter
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "no amount shall be payable whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: sandwell_council_tax_reduction_no_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: sandwell_council_tax_reduction_other_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.1(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.00 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction class
+                column_key: implementation deduction-band code
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: sandwell_council_tax_reduction_in_remunerative_work_non_dependant_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.00 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction class
+                column_key: implementation deduction-band code
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: sandwell_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_highest_non_dependant_deduction_band
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 58.1 and 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.00 x 1/7."
+              table:
+                header: Chargeable non-dependant weekly deductions
+                row_key: work-status deduction band
+                column_key: weekly deduction
+          - path: versions[0].values
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5
+          2: 10
+
+  - name: sandwell_council_tax_reduction_band_ninety_percent_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_family_category
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 90 percent income-from row
+    metadata: &sandwell_grid_values_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *sandwell_grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 98.06
+          1: 206.16
+          2: 294.04
+          3: 153.93
+          4: 262.03
+          5: 349.91
+
+  - name: sandwell_council_tax_reduction_band_seventy_five_percent_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_family_category
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 75 percent income-from row
+    metadata: *sandwell_grid_values_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 128.06
+          1: 236.16
+          2: 324.04
+          3: 183.93
+          4: 292.03
+          5: 379.91
+
+  - name: sandwell_council_tax_reduction_band_fifty_percent_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_family_category
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 50 percent income-from row
+    metadata: *sandwell_grid_values_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 158.06
+          1: 266.16
+          2: 354.04
+          3: 213.93
+          4: 322.03
+          5: 409.91
+
+  - name: sandwell_council_tax_reduction_band_twenty_five_percent_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_family_category
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 25 percent income-from row
+    metadata: *sandwell_grid_values_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 188.06
+          1: 296.16
+          2: 384.04
+          3: 243.93
+          4: 352.03
+          5: 439.91
+
+  - name: sandwell_council_tax_reduction_no_award_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: sandwell_council_tax_reduction_family_category
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 zero-discount income-from row
+    metadata: *sandwell_grid_values_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 218.06
+          1: 326.16
+          2: 414.04
+          3: 273.93
+          4: 382.03
+          5: 469.91
+
+  - name: sandwell_council_tax_reduction_discount_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: sandwell_council_tax_reduction_income_band
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 discount rows
+    metadata: *sandwell_grid_values_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 1
+          2: 0.90
+          3: 0.75
+          4: 0.50
+          5: 0.25
+
+  - name: sandwell_council_tax_reduction_class_d_general_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Class D qualifying conditions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-8
+              excerpt: "Class D To obtain reduction the individual (or partner) must:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_applicant_satisfies_class_d_general_conditions
+
+  - name: sandwell_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 1.6-1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-8
+              excerpt: "THE SCHEME FOR WORKING AGE APPLICANTS – THE COUNCIL’S LOCAL SCHEME"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-8
+              excerpt: "has made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_sandwell and council_tax_reduction_household_in_england and sandwell_council_tax_reduction_applicant_is_in_local_working_age_class and sandwell_council_tax_reduction_class_d_general_conditions_met and would_claim_council_tax_reduction
+
+  - name: sandwell_council_tax_reduction_protected_child_class_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Where the applicant or partner is responsible for a dependant child who is aged 5 years and under and who resides with the applicant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_applicant_or_partner_responsible_for_resident_dependant_child and sandwell_council_tax_reduction_youngest_resident_dependant_child_age <= sandwell_council_tax_reduction_protected_child_age_limit
+
+  - name: sandwell_council_tax_reduction_selected_maximum_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 57.1-57.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "shall be 85 per cent, of the amount A/B where;"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "the percentage shown in paragraph 57.1 shall be 100."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_protected_child_class_applies: sandwell_council_tax_reduction_protected_maximum_support_rate else: sandwell_council_tax_reduction_ordinary_maximum_support_rate
+
+  - name: sandwell_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 33.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-51
+              excerpt: "no reduction shall be granted when the applicant has an amount greater than this level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_assessed_capital_for_year <= sandwell_council_tax_reduction_capital_limit
+
+  - name: sandwell_council_tax_reduction_tariff_income_threshold_for_household
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_tariff_income_prescribed_circumstances: sandwell_council_tax_reduction_prescribed_circumstances_tariff_income_threshold else: sandwell_council_tax_reduction_ordinary_tariff_income_threshold
+
+  - name: sandwell_council_tax_reduction_tariff_income_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_assessed_capital_for_year > sandwell_council_tax_reduction_tariff_income_threshold_for_household and sandwell_council_tax_reduction_assessed_capital_for_year <= sandwell_council_tax_reduction_tariff_income_upper_limit
+
+  - name: sandwell_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1, incorporating Housing Benefit Regulations 2006 regulation 52
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_tariff_income_applies: ceil((sandwell_council_tax_reduction_assessed_capital_for_year - sandwell_council_tax_reduction_tariff_income_threshold_for_household) / sandwell_council_tax_reduction_tariff_income_step) * sandwell_council_tax_reduction_tariff_income_weekly_amount_per_step else: sandwell_council_tax_reduction_no_reduction_for_day * sandwell_council_tax_reduction_days_per_week
+
+  - name: sandwell_council_tax_reduction_assessed_weekly_income_including_tariff
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 section 17.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-34
+              excerpt: "by adding to that amount the weekly income calculated in line with regulation 52 of the Housing Benefit Regulations 2006 (calculation to tariff income from capital);"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_assessed_weekly_income_before_tariff + sandwell_council_tax_reduction_tariff_income_weekly
+
+  - name: sandwell_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 family columns and paragraph 4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: |-
+                Single person
+
+                Single person with one child
+
+                Single person with two or more
+
+                children Couple Couple with one child Couple with two or more children
+              table:
+                header: Schedule 1 family columns
+                row_key: household family composition
+                column_key: family category
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "in any application for reduction is limited to a maximum of two dependant children or young persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_has_partner: if sandwell_council_tax_reduction_dependant_children >= sandwell_council_tax_reduction_maximum_dependant_children: sandwell_council_tax_reduction_family_category_couple_two_or_more_children_code else: if sandwell_council_tax_reduction_dependant_children >= sandwell_council_tax_reduction_one_dependant_child: sandwell_council_tax_reduction_family_category_couple_one_child_code else: sandwell_council_tax_reduction_family_category_couple_code else: if sandwell_council_tax_reduction_dependant_children >= sandwell_council_tax_reduction_maximum_dependant_children: sandwell_council_tax_reduction_family_category_single_person_two_or_more_children_code else: if sandwell_council_tax_reduction_dependant_children >= sandwell_council_tax_reduction_one_dependant_child: sandwell_council_tax_reduction_family_category_single_person_one_child_code else: sandwell_council_tax_reduction_family_category_single_person_code
+
+  - name: sandwell_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 weekly income-from grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *sandwell_grid_source
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "For the sake of clarity all incomes shown within the table above are weekly in accordance with the scheme requirements and definitions."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_assessed_weekly_income_including_tariff < sandwell_council_tax_reduction_band_ninety_percent_lower_weekly_income_by_family[sandwell_council_tax_reduction_family_category]: sandwell_council_tax_reduction_income_band_full_support_code else: if sandwell_council_tax_reduction_assessed_weekly_income_including_tariff < sandwell_council_tax_reduction_band_seventy_five_percent_lower_weekly_income_by_family[sandwell_council_tax_reduction_family_category]: sandwell_council_tax_reduction_income_band_ninety_percent_code else: if sandwell_council_tax_reduction_assessed_weekly_income_including_tariff < sandwell_council_tax_reduction_band_fifty_percent_lower_weekly_income_by_family[sandwell_council_tax_reduction_family_category]: sandwell_council_tax_reduction_income_band_seventy_five_percent_code else: if sandwell_council_tax_reduction_assessed_weekly_income_including_tariff < sandwell_council_tax_reduction_band_twenty_five_percent_lower_weekly_income_by_family[sandwell_council_tax_reduction_family_category]: sandwell_council_tax_reduction_income_band_fifty_percent_code else: if sandwell_council_tax_reduction_assessed_weekly_income_including_tariff < sandwell_council_tax_reduction_no_award_lower_weekly_income_by_family[sandwell_council_tax_reduction_family_category]: sandwell_council_tax_reduction_income_band_twenty_five_percent_code else: sandwell_council_tax_reduction_income_band_no_award_code
+
+  - name: sandwell_council_tax_reduction_relevant_benefit_passported
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "Where an applicant or partner is in receipt of a relevant benefit namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_receives_income_support or sandwell_council_tax_reduction_receives_income_related_esa or sandwell_council_tax_reduction_receives_income_based_jsa
+
+  - name: sandwell_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1 and 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *sandwell_grid_source
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "discount will be awarded at 100% of the appropriate level of maximum level of liability (100%"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-106
+              excerpt: "where the applicant is in a protected group and 85% where the applicant is not in the protected group)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_relevant_benefit_passported: sandwell_council_tax_reduction_discount_rate_by_income_band[sandwell_council_tax_reduction_income_band_full_support_code] else: sandwell_council_tax_reduction_discount_rate_by_income_band[sandwell_council_tax_reduction_income_band]
+
+  - name: sandwell_council_tax_reduction_non_dependant_deduction_protection_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection
+
+  - name: sandwell_council_tax_reduction_highest_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 58.1, 58.3, and 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.00 x 1/7."
+              table:
+                header: Working-age non-dependant deductions
+                row_key: deduction class
+                column_key: implementation deduction-band code
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Only one deduction shall be made under this section in respect of a couple or, as the case may be, members of a polygamous marriage"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "the higher amount shall be deducted."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_non_dependant_deduction_protection_applies: sandwell_council_tax_reduction_no_non_dependant_deduction_band else: if sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_in_remunerative_work > sandwell_council_tax_reduction_no_non_dependant_deduction_band: sandwell_council_tax_reduction_in_remunerative_work_non_dependant_deduction_band else: if sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_not_in_remunerative_work > sandwell_council_tax_reduction_no_non_dependant_deduction_band: sandwell_council_tax_reduction_other_non_dependant_deduction_band else: sandwell_council_tax_reduction_no_non_dependant_deduction_band
+
+  - name: sandwell_council_tax_reduction_non_dependant_deductions_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 58.1, 58.3, and 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "in respect of a non-dependant aged 18 or over in remunerative work, £10.00 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.00 x 1/7."
+              table:
+                header: Chargeable non-dependant weekly deductions
+                row_key: work-status deduction band
+                column_key: weekly deduction
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Only one deduction shall be made under this section in respect of a couple or, as the case may be, members of a polygamous marriage"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "the higher amount shall be deducted."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-70
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is–"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_non_dependant_deduction_protection_applies: sandwell_council_tax_reduction_non_dependant_weekly_deduction_by_band[sandwell_council_tax_reduction_highest_non_dependant_deduction_band] else: if sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_in_remunerative_work > sandwell_council_tax_reduction_no_non_dependant_deduction_band: sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_in_remunerative_work * sandwell_council_tax_reduction_non_dependant_weekly_deduction_by_band[sandwell_council_tax_reduction_highest_non_dependant_deduction_band] + sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_not_in_remunerative_work * sandwell_council_tax_reduction_non_dependant_weekly_deduction_by_band[sandwell_council_tax_reduction_other_non_dependant_deduction_band] else: sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_not_in_remunerative_work * sandwell_council_tax_reduction_non_dependant_weekly_deduction_by_band[sandwell_council_tax_reduction_highest_non_dependant_deduction_band]
+
+  - name: sandwell_council_tax_reduction_non_dependant_deductions_daily
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "£10.00 x 1/7"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "£5.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_non_dependant_deductions_weekly / sandwell_council_tax_reduction_days_per_week
+
+  - name: sandwell_council_tax_reduction_band_b_capped_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "A is the lower of either; i. the amount set by the appropriate authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; or ii. the amount set by the appropriate authority as the council tax for the relevant financial year in respect of a dwelling within Band B;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(sandwell_council_tax_reduction_actual_council_tax_liability_for_year, sandwell_council_tax_reduction_band_b_council_tax_liability_for_year)
+
+  - name: sandwell_council_tax_reduction_maximum_amount_before_grid_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraphs 57.1-57.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "shall be 85 per cent, of the amount A/B where;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Less any deductions in respect of non-dependants,"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "the percentage shown in paragraph 57.1 shall be 100."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(sandwell_council_tax_reduction_no_reduction_for_day, sandwell_council_tax_reduction_band_b_capped_liability_for_year * sandwell_council_tax_reduction_selected_maximum_support_rate / sandwell_council_tax_reduction_number_of_days_in_financial_year - sandwell_council_tax_reduction_non_dependant_deductions_daily)
+
+  - name: sandwell_council_tax_reduction_amount_before_minimum_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_maximum_amount_before_grid_for_day * sandwell_council_tax_reduction_selected_discount_rate
+
+  - name: sandwell_council_tax_reduction_minimum_award_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Day
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 paragraph 57A.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Where an applicant’s entitlement is less that £1.00 per reduction week in respect of a day for which he is liable to pay council tax, no amount shall be payable whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_amount_before_minimum_for_day * sandwell_council_tax_reduction_days_per_week >= sandwell_council_tax_reduction_minimum_award_weekly
+
+  - name: sandwell_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Day
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 working-age award conditions
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-8
+              excerpt: "not have capital savings above £3,000;"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "no amount shall be payable whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          sandwell_council_tax_reduction_working_age_scheme_applies and sandwell_council_tax_reduction_capital_eligible and sandwell_council_tax_reduction_minimum_award_met
+
+  - name: simulated_sandwell_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: |-
+                The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis
+
+                of the following Banded Discount Scheme:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-69
+              excerpt: "Less any deductions in respect of non-dependants,"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if sandwell_council_tax_reduction_award_conditions_met: sandwell_council_tax_reduction_amount_before_minimum_for_day * sandwell_council_tax_reduction_number_of_days_in_financial_year else: sandwell_council_tax_reduction_no_reduction_for_day * sandwell_council_tax_reduction_number_of_days_in_financial_year
+
+  - name: sandwell_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Sandwell MBC Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-5
+              excerpt: "1.2 This document details how the scheme will operate for both pension credit age and working age applicants and in accordance with Section 13A of the Local Government Finance Act 1992 specifies the classes of person who are to be entitled to a reduction under the scheme and is effective from 1st April 2026 for a period of one financial year."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-sandwell/manual/council-tax-reduction-policy-2026-2027/page-105
+              excerpt: |-
+                The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis
+
+                of the following Banded Discount Scheme:
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_sandwell_council_tax_reduction_annual_amount
+inputs:
+  - name: local_authority_is_sandwell
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: council_tax_reduction_household_in_england
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_applicant_is_in_local_working_age_class
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_applicant_satisfies_class_d_general_conditions
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_assessed_capital_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: sandwell_council_tax_reduction_assessed_weekly_income_before_tariff
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+  - name: sandwell_council_tax_reduction_tariff_income_prescribed_circumstances
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_actual_council_tax_liability_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: sandwell_council_tax_reduction_band_b_council_tax_liability_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: sandwell_council_tax_reduction_number_of_days_in_financial_year
+    entity: Household
+    dtype: Number
+    period: Year
+  - name: sandwell_council_tax_reduction_has_partner
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_dependant_children
+    entity: Household
+    dtype: Number
+    period: Year
+  - name: sandwell_council_tax_reduction_applicant_or_partner_responsible_for_resident_dependant_child
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: sandwell_council_tax_reduction_youngest_resident_dependant_child_age
+    entity: Household
+    dtype: Number
+    period: Year
+  - name: sandwell_council_tax_reduction_receives_income_support
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: sandwell_council_tax_reduction_receives_income_related_esa
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: sandwell_council_tax_reduction_receives_income_based_jsa
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: sandwell_council_tax_reduction_applicant_or_partner_has_non_dependant_deduction_protection
+    entity: Household
+    dtype: Boolean
+    period: Week
+  - name: sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_in_remunerative_work
+    entity: Household
+    dtype: Number
+    period: Week
+  - name: sandwell_council_tax_reduction_chargeable_non_dependant_deduction_units_not_in_remunerative_work
+    entity: Household
+    dtype: Number
+    period: Week

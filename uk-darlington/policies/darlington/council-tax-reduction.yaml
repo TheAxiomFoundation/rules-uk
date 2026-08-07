@@ -1,0 +1,1195 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Darlington Borough Council, so the adopted document is operative. The apply-stage encoder strips this attestation to the singular source-verification contract after local gates pass.
+  summary: |-
+    Darlington's 2026-2027 working-age Council Tax Support pays 80% of weekly eligible liability, after the scheme's joint-liability rule, and reduces that maximum by applicable non-dependant deductions and a 20% weekly excess-income taper. Means-tested routes require capital below £16,000; qualifying Income Support, income-based Jobseekers Allowance, and income-related Employment and Support Allowance are capital-disregarded. The module encodes Table 3's individual non-dependant amounts and the maximum deduction for unknown income, while consuming the detailed protection, exemption, and aggregation classifiers. No working-age protected maximum rate, minimum-award floor, or Council Tax-band cap is printed in the award calculation. Pension-age provisions are outside this working-age module.
+  deferred_outputs:
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-44-to-53#applicable_amount_and_universal_credit_maximum_award
+      reason: This award surface consumes the weekly applicable amount and Universal Credit maximum award; the detailed personal-allowance and premium schedules are outside this module.
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-63-to-105#assessed_weekly_income_after_disregards
+      reason: This module uses the resulting weekly income inputs; earnings, other-income, disregard, and Universal Credit assessment calculations remain outside the award surface.
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-106-to-116#assessed_capital_after_disregards
+      reason: This module applies the local capital limit and tariff rule to the resulting capital amount; capital valuation, attribution, and detailed disregard calculations remain outside the award surface.
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-118-to-119#weekly_liability_after_discounts
+      reason: This module consumes liability already normalized from the printed A divided by B calculation after discounts, then encodes the local joint-liability division.
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-123-to-127#non_dependant_deduction_before_joint_liability_apportionment
+      reason: This module encodes the individual Table 3 bands and the final joint-liability apportionment, but consumes the detailed income-disregard, couple, protection, absence, student, benefit, and armed-forces classifiers and their aggregate result.
+    - output: uk-darlington:policies/darlington/council-tax-reduction/paragraphs-136-to-137#extended_reduction
+      reason: The separate four-week extended-reduction safeguard is outside the ordinary working-age maximum and taper calculation.
+rules:
+  - name: darlington_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 117
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "117. The amount of a person’s maximum Council Tax Support for a day which they are liable to pay Council Tax will be 80%."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: darlington_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 21, 23, 25, and 27
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "(c) Capital is less than £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: darlington_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: darlington_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: darlington_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1.00
+
+  - name: darlington_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 121
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "24. Having claimed Council Tax Support, this class of people will have their income compared to their applicable amount. The amount of Council Tax Support will be reduced by 20% of the amount the income exceeds the applicable amount. Entitlement will be up to a maximum of 80% of their eligible Council Tax, less any deductions for non-dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.20
+
+  - name: darlington_council_tax_reduction_non_dependant_minimum_age
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          18
+
+  - name: darlington_council_tax_reduction_remunerative_work_hours
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 70
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "(a) A person must be treated as in remunerative work if they are engaged on average, for not less than 16 hours a week, in work for which payment is made or expected"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16
+
+  - name: darlington_council_tax_reduction_non_dependant_low_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Less than £279.00 £5.20"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          279.00
+
+  - name: darlington_council_tax_reduction_non_dependant_middle_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £279.00 and less than £485.00 £10.60"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          485.00
+
+  - name: darlington_council_tax_reduction_non_dependant_high_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £485.00 and less than £605.00 £13.30"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          605.00
+
+  - name: darlington_council_tax_reduction_joint_liability_single_person_count
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 119
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Where a person is jointly and severally liable for Council Tax, which they are liable with one or more other persons, the maximum amount of Council Tax Support will be the amount in A divided by the number of people who are jointly and severally liable."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: darlington_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 126
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "126. Non-dependant deductions will not be made in the following circumstances:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: darlington_council_tax_reduction_non_dependant_no_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 126
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "126. Non-dependant deductions will not be made in the following circumstances:"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: no deduction
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: darlington_council_tax_reduction_non_dependant_working_low_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Less than £279.00 £5.20"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: remunerative work below £279.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: darlington_council_tax_reduction_non_dependant_working_middle_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £279.00 and less than £485.00 £10.60"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: remunerative work from £279.00 to below £485.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: darlington_council_tax_reduction_non_dependant_working_high_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £485.00 and less than £605.00 £13.30"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: remunerative work from £485.00 to below £605.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: darlington_council_tax_reduction_non_dependant_working_top_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £605.00 £15.95"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: remunerative work at least £605.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_working_middle_band + darlington_council_tax_reduction_non_dependant_working_middle_band
+
+  - name: darlington_council_tax_reduction_non_dependant_not_in_remunerative_work_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "A non-dependant aged 18 or over not in remunerative work £5.20"
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: not in remunerative work
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_working_top_band + darlington_council_tax_reduction_non_dependant_working_low_band
+
+  - name: darlington_council_tax_reduction_unknown_income_maximum_deduction_band
+    kind: parameter
+    dtype: Number
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 127
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "127. Where the income of the non-dependant is not known or has not been provided, the Council will assume that the maximum deduction will apply."
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: income unknown
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "Not less than £605.00 £15.95"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_working_top_band + darlington_council_tax_reduction_non_dependant_working_middle_band
+
+  - name: darlington_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: darlington_council_tax_reduction_non_dependant_deduction_band
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3 and paragraphs 126-127
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: |-
+                Table 3: Non-dependant deductions 2026-2027
+
+                Non-dependant type Weekly amount
+
+                A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:
+
+                Less than £279.00 £5.20 Not less than £279.00 and less than £485.00 £10.60 Not less than £485.00 and less than £605.00 £13.30 Not less than £605.00 £15.95 A non-dependant aged 18 or over not in remunerative work £5.20
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: deduction band
+                column_key: weekly amount
+          - path: versions[0].values[0]
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "126. Non-dependant deductions will not be made in the following circumstances:"
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.60
+          3: 13.30
+          4: 15.95
+          5: 5.20
+          6: 15.95
+
+  - name: darlington_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 2, 4, and 18
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "2. Pensioners are protected from the effects of local schemes by a national framework of rules and eligibility. Working aged people however are subject to the provisions of the locally defined scheme."
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-2
+              excerpt: "4. This document sets out Darlington Borough Council’s scheme for 2026-2027 and should be read in conjunction with the following regulations."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "18. The classes of working aged people entitled to a reduction under the Council’s scheme are as follows:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "(b) Liable to pay Council Tax on a dwelling they occupy as their sole or main residence"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_darlington and council_tax_reduction_household_in_england and darlington_council_tax_reduction_applicant_is_working_age and darlington_council_tax_reduction_applicant_is_liable_resident
+
+  - name: darlington_council_tax_reduction_qualifying_income_based_benefit_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 19
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "c) Entitled to Income Support, income-based Jobseekers Allowance or income-related Employment and Support Allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_claimant_or_partner_receives_income_support or darlington_council_tax_reduction_claimant_or_partner_receives_income_based_jobseekers_allowance or darlington_council_tax_reduction_claimant_or_partner_receives_income_related_employment_and_support_allowance
+
+  - name: darlington_council_tax_reduction_capital_is_below_limit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 21, 23, 25, and 27
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "(c) Capital is less than £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_assessed_capital_for_year < darlington_council_tax_reduction_capital_limit
+
+  - name: darlington_council_tax_reduction_resources_exceed_tariff_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_assessed_capital_for_year > darlington_council_tax_reduction_tariff_income_threshold
+
+  - name: darlington_council_tax_reduction_resources_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 19, 21, and 115
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "115. The following capital held by the claimant or partner will be disregarded in full, unless otherwise stated:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "(h) The capital of a person in receipt of Income Support, income based Jobseekers Allowance or income related Employment and Support Allowance"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "(c) Capital is less than £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_qualifying_income_based_benefit_applies or darlington_council_tax_reduction_capital_is_below_limit
+
+  - name: darlington_council_tax_reduction_tariff_income_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "115. The following capital held by the claimant or partner will be disregarded in full, unless otherwise stated:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "(h) The capital of a person in receipt of Income Support, income based Jobseekers Allowance or income related Employment and Support Allowance"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_resources_exceed_tariff_threshold and darlington_council_tax_reduction_capital_is_below_limit and not darlington_council_tax_reduction_qualifying_income_based_benefit_applies
+
+  - name: darlington_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_tariff_income_applies: ceil((darlington_council_tax_reduction_assessed_capital_for_year - darlington_council_tax_reduction_tariff_income_threshold) / darlington_council_tax_reduction_tariff_income_step) * darlington_council_tax_reduction_tariff_income_weekly_amount_per_step else: darlington_council_tax_reduction_zero_weekly_amount
+
+  - name: darlington_council_tax_reduction_universal_credit_route_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 25
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(d) In receipt of Universal Credit"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(b) Liable to pay Council Tax on a dwelling they occupy as their sole or main residence"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_claimant_or_partner_receives_universal_credit and darlington_council_tax_reduction_applicant_is_liable_resident
+
+  - name: darlington_council_tax_reduction_applicable_amount_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 51
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-17
+              excerpt: "51. People in receipt of Universal Credit will have their Council Tax Support calculated based on their Universal Credit maximum award."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_universal_credit_route_applies: darlington_council_tax_reduction_universal_credit_maximum_award_weekly else: darlington_council_tax_reduction_legacy_applicable_amount_weekly
+
+  - name: darlington_council_tax_reduction_assessed_income_before_tariff_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 63 and 65
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "63. The income of the claimant and their partner will be added together, for the purpose of calculating entitlement to Council Tax Support. Where the person is receiving Universal Credit, the income will be the assessment of income provided by Universal Credit, plus the award of Universal Credit."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "65. Income will be calculated on a weekly basis."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_universal_credit_route_applies: darlington_council_tax_reduction_universal_credit_assessed_income_weekly + darlington_council_tax_reduction_universal_credit_award_weekly else: darlington_council_tax_reduction_legacy_assessed_income_weekly
+
+  - name: darlington_council_tax_reduction_assessed_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 63, 65, and 100
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Where the claimant and their partner have capital in excess of £6,000 (but less than £16,000), a tariff income of £1.00 each week will be taken into account for every £250, or part of £250, over £6,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_assessed_income_before_tariff_weekly + darlington_council_tax_reduction_tariff_income_weekly
+
+  - name: darlington_council_tax_reduction_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 23 and 28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "(d) Income is more than their applicable amount."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "(e) Assessment of income provided by Universal Credit plus the award of Universal Credit is more than their Universal Credit maximum award."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          not darlington_council_tax_reduction_qualifying_income_based_benefit_applies and darlington_council_tax_reduction_assessed_income_weekly > darlington_council_tax_reduction_applicable_amount_weekly
+
+  - name: darlington_council_tax_reduction_excess_income_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 24 and 28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "24. Having claimed Council Tax Support, this class of people will have their income compared to their applicable amount. The amount of Council Tax Support will be reduced by 20% of the amount the income exceeds the applicable amount."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "28. Having claimed Council Tax Support, this class of people will have their assessment of income provided by Universal Credit plus the award of Universal Credit compared to their Universal Credit maximum award."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_income_exceeds_applicable_amount: darlington_council_tax_reduction_assessed_income_weekly - darlington_council_tax_reduction_applicable_amount_weekly else: darlington_council_tax_reduction_zero_weekly_amount
+
+  - name: darlington_council_tax_reduction_income_taper_deduction_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 121
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "24. Having claimed Council Tax Support, this class of people will have their income compared to their applicable amount. The amount of Council Tax Support will be reduced by 20% of the amount the income exceeds the applicable amount. Entitlement will be up to a maximum of 80% of their eligible Council Tax, less any deductions for non-dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_excess_income_weekly * darlington_council_tax_reduction_weekly_taper_rate
+
+  - name: darlington_council_tax_reduction_joint_liability_apportionment_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 119
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "This will not apply if the only person they are jointly and severally liable with is their partner."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Where a person is jointly and severally liable for Council Tax, which they are liable with one or more other persons, the maximum amount of Council Tax Support will be the amount in A divided by the number of people who are jointly and severally liable."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_jointly_liable_person_count > darlington_council_tax_reduction_joint_liability_single_person_count and not darlington_council_tax_reduction_only_jointly_liable_person_is_partner
+
+  - name: darlington_council_tax_reduction_eligible_council_tax_liability_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 118-119
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "118. The amount of Council Tax Support will be calculated as A divided by B and multiplied by 80% where:"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "Where a person is jointly and severally liable for Council Tax, which they are liable with one or more other persons, the maximum amount of Council Tax Support will be the amount in A divided by the number of people who are jointly and severally liable."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_joint_liability_apportionment_applies: darlington_council_tax_reduction_council_tax_liability_weekly_after_discounts / darlington_council_tax_reduction_jointly_liable_person_count else: darlington_council_tax_reduction_council_tax_liability_weekly_after_discounts
+
+  - name: darlington_council_tax_reduction_non_dependant_joint_liability_apportionment_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 125
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "125. Where a person is jointly and severally liable for Council Tax for a dwelling they reside in, which they are liable with one or more other persons, the amount of the non-dependant deduction will be apportioned equally between those liable persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_jointly_liable_person_count > darlington_council_tax_reduction_joint_liability_single_person_count
+
+  - name: darlington_council_tax_reduction_non_dependant_deductions_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 125
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "125. Where a person is jointly and severally liable for Council Tax for a dwelling they reside in, which they are liable with one or more other persons, the amount of the non-dependant deduction will be apportioned equally between those liable persons."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_non_dependant_joint_liability_apportionment_applies: darlington_council_tax_reduction_non_dependant_deductions_weekly_before_joint_liability_apportionment / darlington_council_tax_reduction_jointly_liable_person_count else: darlington_council_tax_reduction_non_dependant_deductions_weekly_before_joint_liability_apportionment
+
+  - name: darlington_council_tax_reduction_maximum_amount_before_non_dependant_deductions_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 118
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "118. The amount of Council Tax Support will be calculated as A divided by B and multiplied by 80% where:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_eligible_council_tax_liability_weekly * darlington_council_tax_reduction_maximum_support_rate
+
+  - name: darlington_council_tax_reduction_maximum_amount_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 118 and 122
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "(c) Less any non-dependant deductions."
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "122. A deduction from a person’s maximum Council Tax Support will be made for non- dependants, as follows."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(darlington_council_tax_reduction_zero_weekly_amount, darlington_council_tax_reduction_maximum_amount_before_non_dependant_deductions_weekly - darlington_council_tax_reduction_non_dependant_deductions_weekly)
+
+  - name: darlington_council_tax_reduction_calculated_award_before_eligibility_weekly
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 121-122
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "121. The percentage of excess income over the applicable amount (or Universal Credit maximum award) which will be deducted from the weekly maximum Council Tax Support will be 20%."
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "122. A deduction from a person’s maximum Council Tax Support will be made for non- dependants, as follows."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(darlington_council_tax_reduction_zero_weekly_amount, darlington_council_tax_reduction_maximum_amount_weekly - darlington_council_tax_reduction_income_taper_deduction_weekly)
+
+  - name: darlington_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 18-28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "18. The classes of working aged people entitled to a reduction under the Council’s scheme are as follows:"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "20. Having claimed Council Tax Support, this class of people will be entitled to a maximum support of 80% of their eligible Council Tax, less any deductions for non-dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_working_age_scheme_applies and darlington_council_tax_reduction_resources_eligible and would_claim_council_tax_reduction
+
+  - name: simulated_darlington_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraphs 20, 24, 26, and 28
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "20. Having claimed Council Tax Support, this class of people will be entitled to a maximum support of 80% of their eligible Council Tax, less any deductions for non-dependants."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "24. Having claimed Council Tax Support, this class of people will have their income compared to their applicable amount. The amount of Council Tax Support will be reduced by 20% of the amount the income exceeds the applicable amount. Entitlement will be up to a maximum of 80% of their eligible Council Tax, less any deductions for non-dependants."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-8
+              excerpt: "28. Having claimed Council Tax Support, this class of people will have their assessment of income provided by Universal Credit plus the award of Universal Credit compared to their Universal Credit maximum award. The amount of Council Tax Support will be reduced by 20% of the amount the income exceeds the Universal Credit maximum award. Entitlement will be up to a maximum of 80% of their eligible Council Tax, less any deductions for non- dependants."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if darlington_council_tax_reduction_award_conditions_met: darlington_council_tax_reduction_calculated_award_before_eligibility_weekly else: darlington_council_tax_reduction_zero_weekly_amount
+
+  - name: darlington_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 calculation of entitlement
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-41
+              excerpt: "118. The amount of Council Tax Support will be calculated as A divided by B and multiplied by 80% where:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_darlington_council_tax_reduction_weekly_amount
+
+  - name: darlington_council_tax_reduction_person_is_adult_for_table_3
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3 and paragraph 126(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-43
+              excerpt: "(i) Where the non-dependant is aged under 18"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_age >= darlington_council_tax_reduction_non_dependant_minimum_age
+
+  - name: darlington_council_tax_reduction_non_dependant_meets_remunerative_work_hours
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 70
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "(a) A person must be treated as in remunerative work if they are engaged on average, for not less than 16 hours a week, in work for which payment is made or expected"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_weekly_hours >= darlington_council_tax_reduction_remunerative_work_hours
+
+  - name: darlington_council_tax_reduction_non_dependant_in_remunerative_work
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 paragraph 70
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "(a) A person must be treated as in remunerative work if they are engaged on average, for not less than 16 hours a week, in work for which payment is made or expected"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "(f) A person must not be treated as engaged in remunerative work if they are on maternity leave, paternity leave, adoption leave, shared parental leave, parental bereavement leave, or if they are absent from work because they are ill."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_meets_remunerative_work_hours and not darlington_council_tax_reduction_non_dependant_is_excluded_from_remunerative_work
+
+  - name: darlington_council_tax_reduction_non_dependant_deduction_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3 and paragraphs 126-127
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "126. Non-dependant deductions will not be made in the following circumstances:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_person_is_non_dependant and darlington_council_tax_reduction_person_is_adult_for_table_3 and not darlington_council_tax_reduction_non_dependant_deduction_exempt
+
+  - name: darlington_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3 and paragraphs 126-127
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: |-
+                Table 3: Non-dependant deductions 2026-2027
+
+                Non-dependant type Weekly amount
+
+                A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:
+
+                Less than £279.00 £5.20 Not less than £279.00 and less than £485.00 £10.60 Not less than £485.00 and less than £605.00 £13.30 Not less than £605.00 £15.95 A non-dependant aged 18 or over not in remunerative work £5.20
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: non-dependant type and income band
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if not darlington_council_tax_reduction_non_dependant_deduction_applies: darlington_council_tax_reduction_non_dependant_no_deduction_band else: if darlington_council_tax_reduction_non_dependant_income_is_unknown: darlington_council_tax_reduction_unknown_income_maximum_deduction_band else: if not darlington_council_tax_reduction_non_dependant_in_remunerative_work: darlington_council_tax_reduction_non_dependant_not_in_remunerative_work_band else: if darlington_council_tax_reduction_non_dependant_normal_gross_weekly_income < darlington_council_tax_reduction_non_dependant_low_income_threshold: darlington_council_tax_reduction_non_dependant_working_low_band else: if darlington_council_tax_reduction_non_dependant_normal_gross_weekly_income < darlington_council_tax_reduction_non_dependant_middle_income_threshold: darlington_council_tax_reduction_non_dependant_working_middle_band else: if darlington_council_tax_reduction_non_dependant_normal_gross_weekly_income < darlington_council_tax_reduction_non_dependant_high_income_threshold: darlington_council_tax_reduction_non_dependant_working_high_band else: darlington_council_tax_reduction_non_dependant_working_top_band
+
+  - name: darlington_council_tax_reduction_individual_non_dependant_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Darlington Borough Council Council Tax Support Scheme 2026-2027 Table 3 and paragraph 127
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-darlington/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: |-
+                Table 3: Non-dependant deductions 2026-2027
+
+                Non-dependant type Weekly amount
+
+                A non-dependant aged 18 or over in remunerative work where their normal gross weekly income is:
+
+                Less than £279.00 £5.20 Not less than £279.00 and less than £485.00 £10.60 Not less than £485.00 and less than £605.00 £13.30 Not less than £605.00 £15.95 A non-dependant aged 18 or over not in remunerative work £5.20
+              table:
+                header: Table 3 non-dependant deductions 2026-2027
+                row_key: non-dependant type and income band
+                column_key: weekly amount
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          darlington_council_tax_reduction_non_dependant_weekly_deduction_by_band[darlington_council_tax_reduction_non_dependant_deduction_band]
+
+inputs:
+  local_authority_is_darlington: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_applicant_is_working_age: {dtype: Boolean, entity: Household, period: Year}
+  darlington_council_tax_reduction_applicant_is_liable_resident: {dtype: Boolean, entity: Household, period: Year}
+  darlington_council_tax_reduction_claimant_or_partner_receives_income_support: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_claimant_or_partner_receives_income_based_jobseekers_allowance: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_claimant_or_partner_receives_income_related_employment_and_support_allowance: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_claimant_or_partner_receives_universal_credit: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_assessed_capital_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  darlington_council_tax_reduction_council_tax_liability_weekly_after_discounts: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_jointly_liable_person_count: {dtype: Number, entity: Household, period: Week}
+  darlington_council_tax_reduction_only_jointly_liable_person_is_partner: {dtype: Boolean, entity: Household, period: Week}
+  darlington_council_tax_reduction_non_dependant_deductions_weekly_before_joint_liability_apportionment: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_legacy_assessed_income_weekly: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_legacy_applicable_amount_weekly: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_universal_credit_assessed_income_weekly: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_universal_credit_award_weekly: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_universal_credit_maximum_award_weekly: {dtype: Money, entity: Household, period: Week, unit: GBP}
+  darlington_council_tax_reduction_person_is_non_dependant: {dtype: Boolean, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_age: {dtype: Number, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_deduction_exempt: {dtype: Boolean, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_income_is_unknown: {dtype: Boolean, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_weekly_hours: {dtype: Number, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_is_excluded_from_remunerative_work: {dtype: Boolean, entity: Person, period: Week}
+  darlington_council_tax_reduction_non_dependant_normal_gross_weekly_income: {dtype: Money, entity: Person, period: Week, unit: GBP}

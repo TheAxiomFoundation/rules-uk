@@ -1,0 +1,302 @@
+- name: cambridge_ctr_printed_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_support_rate: 1
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_taper_whole_percentage_points: 2
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_taper_fraction_numerator: 6
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_per_cent_unit: 0.01
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_daily_taper_rate: "0.0285714285714285714285714286"
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_days_per_week: 7
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_weekly_taper_rate: 0.2
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_limit: 16000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_threshold: 6000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_step: 250
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_weeks_per_year: 52
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_dependant_low_income_threshold: 266
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_dependant_middle_income_threshold: 462.99
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_dependant_high_income_threshold: 463
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_dependant_top_income_threshold: 576.99
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_no_deduction_band_key: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_basic_deduction_band_key: 1
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key: 2
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key: 3
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_high_income_deduction_band_key: 4
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_top_income_fallback_band_key: 5
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_universal_credit_deduction_band_key: 6
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_end_of_calculation_deduction_rate: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_universal_credit_minimum_entitlement_daily: 0.01
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_zero_amount_for_year: 0
+
+- name: cambridge_ctr_full_maximum_at_tariff_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 10000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_working_age_scheme_applies: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_eligible: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_exceeds_tariff_income_threshold: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_income_exceeds_applicable_amount: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_excess_income_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_income_taper_deduction_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_exceeds_non_dependant_deductions: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_council_tax_reduction_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_amount_exceeds_income_taper_deduction: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_amount_a_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_award_conditions_met: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_end_of_calculation_deduction_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 2000
+
+- name: cambridge_ctr_tariff_taper_and_non_dependant_inside_maximum
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 11000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 100
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_exceeds_tariff_income_threshold: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_for_year: 52
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_income_exceeds_applicable_amount: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_excess_income_for_year: 1052
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_income_taper_deduction_for_year: 210.4
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_council_tax_reduction_for_year: 1900
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_amount_exceeds_income_taper_deduction: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 1689.6
+
+- name: cambridge_ctr_non_dependant_deductions_at_maximum_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 100
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 100
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year: 100
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_exceeds_non_dependant_deductions: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_maximum_council_tax_reduction_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_award_conditions_met: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 0
+
+- name: cambridge_ctr_tariff_complete_step
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6250
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_for_year: 52
+
+- name: cambridge_ctr_tariff_second_step_first_penny
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6250.01
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_for_year: 104
+
+- name: cambridge_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 2080
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_eligible: holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_tariff_income_for_year: 2080
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 2000
+
+- name: cambridge_ctr_capital_first_penny_over_limit_is_zero
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 2080
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_capital_eligible: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_award_conditions_met: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 0
+
+- name: cambridge_ctr_taper_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.local_authority_is_cambridge: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_household_is_not_receiving_universal_credit: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_eligible_liability_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_assessed_income_for_year: 20000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_applicable_amount_for_year: 10000
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_income_taper_deduction_for_year: 2000
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_amount_exceeds_income_taper_deduction: not_holds
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_non_universal_credit_annual_amount: 0
+
+- name: cambridge_ctr_non_dependant_no_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 0
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 0
+
+- name: cambridge_ctr_non_dependant_not_in_remunerative_work
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 1
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 5.35
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 1
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 5.35
+
+- name: cambridge_ctr_non_dependant_below_266
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 265.99
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 1
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 5.35
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 1
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 5.35
+
+- name: cambridge_ctr_non_dependant_at_266
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 266
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 2
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 13.50
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 2
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 13.50
+
+- name: cambridge_ctr_non_dependant_below_462_99
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 462.98
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 2
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 13.50
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 2
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 13.50
+
+- name: cambridge_ctr_non_dependant_at_462_99
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 462.99
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 3
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 16.10
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 3
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 16.10
+
+- name: cambridge_ctr_non_dependant_at_463
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 463
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 4
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 16.10
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 4
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 16.10
+
+- name: cambridge_ctr_non_dependant_below_576_99
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 576.98
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 4
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 16.10
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 4
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 16.10
+
+- name: cambridge_ctr_non_dependant_at_576_99
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 576.99
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 5
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 16.10
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 5
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 16.10
+
+- name: cambridge_ctr_non_dependant_universal_credit_flat_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: true
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+    uk-cambridge:policies/cambridge/council-tax-reduction#input.cambridge_council_tax_reduction_other_adult_deduction_table_key: 6
+  output:
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band: 8.36
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_other_adult_deduction_band: 6
+    uk-cambridge:policies/cambridge/council-tax-reduction#cambridge_council_tax_reduction_individual_other_adult_deduction_weekly: 8.36

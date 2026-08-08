@@ -1,0 +1,1176 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+    # upstream_source_check:
+    # status: delegated_scheme
+    # checked_paths:
+    # - uk/statutes/ukpga/1992/14/13A
+    # - uk/regulations/uksi/2012/2885
+    # - uk/regulations/uksi/2012/2886
+    # rationale: Section 13A of the Local Government Finance Act 1992 delegates the working-age scheme to Cambridge City Council, so its adopted scheme document is the operative legal source for the locally set working-age values.
+  summary: |-
+    Cambridge's operative 2026-27 non-Universal-Credit working-age Classes D and E award starts from 100 percent of eligible council-tax liability. Paragraph 47 defines that maximum after the applicable non-dependant deduction; paragraph 49 then subtracts the Class E excess-income amount. The printed daily 2 6/7 percent taper is derived to a weekly rate, and capital over £16,000 is an eligibility cliff with tariff income above £6,000. The current end-of-calculation deduction is zero, so the listed protected classes do not change the current award. The separate Universal Credit Class F table is deferred because the adopted February 2026 minutes require its income bands and contribution levels to be uprated but do not print the replacement cells; its printed £0.01 minimum-entitlement threshold and the minutes' £8.36 Universal Credit non-dependant amount are encoded. Pension-age provisions are outside this working-age module.
+  deferred_outputs:
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/paragraphs-44-to-45-and-schedule-1#applicable_amount
+      reason: The category-specific allowances, premiums, components, and transitional additions used to calculate the applicable amount are outside this award-surface module.
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/parts-15-to-17-and-schedules-2-to-4#assessed_income_and_capital
+      reason: Detailed income disregards, attribution, valuation, notional capital, and capital disregards are outside this award-surface module.
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/paragraph-47#eligible_liability_after_discounts_and_joint_liability
+      reason: The award surface consumes eligible liability after council-tax discounts, exemptions, and joint-liability apportionment.
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/paragraph-48.3-to-48.10#non_dependant_exemption_couple_and_apportionment
+      reason: This module encodes the published deduction amounts and consumes the resulting household total; detailed exemption, couple, and apportionment classifiers are outside its scope.
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/paragraph-49a.3#protected_end_of_calculation_deduction_classification
+      reason: The current end-of-calculation deduction is zero for every claimant, so its protected-class classifier has no 2026-27 monetary effect.
+    - output: uk-cambridge:policies/cambridge/council-tax-reduction/schedule-a1#universal_credit_class_f_annual_award
+      reason: The unamended £0.01 minimum-entitlement threshold is encoded, but the February 2026 adoption minutes require the Class F Universal Credit income bands and contribution levels to be uprated without publishing the replacement 2026-27 table cells; this module does not infer them from the superseded base table.
+rules:
+  - name: cambridge_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cambridge City Council Full Council minutes, 26 February 2026, recommendation 3; Council Tax Reduction Scheme paragraph 47(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-2
+              excerpt: "Approved and Made by Council 10 October 2022 Coming into effect in relation to financial years beginning on or after 1 April 2025"
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "That 100% of the Council Tax liability shall continue to be used as the starting point for the calculation of entitlement under both Council Tax Reduction Schemes."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-59
+              excerpt: "Where an applicant falls within paragraph 37 (class D) or 38 (class E), the amount of an applicant’s maximum council tax reduction in respect of a day is 100 per cent of the amount A /"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cambridge_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(ii), derived from the printed mixed-number percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (cambridge_council_tax_reduction_taper_whole_percentage_points + cambridge_council_tax_reduction_taper_fraction_numerator / cambridge_council_tax_reduction_days_per_week) * cambridge_council_tax_reduction_per_cent_unit
+
+  - name: cambridge_council_tax_reduction_taper_whole_percentage_points
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: cambridge_council_tax_reduction_taper_fraction_numerator
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
+
+  - name: cambridge_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 47(1), percentage notation unit
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-59
+              excerpt: "Where an applicant falls within paragraph 37 (class D) or 38 (class E), the amount of an applicant’s maximum council tax reduction in respect of a day is 100 per cent of the amount A /"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+
+  - name: cambridge_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: cambridge_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: Cambridge City Council Council Tax Reduction Scheme paragraphs 38(f)(ii) and 48(1)(a), derived from the printed daily rate and seven-day denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "Council Cnl/22 Thursday, 26 February 2026"
+          - path: versions[0].formula
+            kind: definition
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "It was RESOLVED to agree the recommendations:"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_daily_taper_rate * cambridge_council_tax_reduction_days_per_week
+
+  - name: cambridge_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 42(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-57
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: cambridge_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 76(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "£1 for each complete £250 in excess of £6,000, but not exceeding £16,000, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cambridge_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 76(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "£1 for each complete £250 in excess of £6,000, but not exceeding £16,000, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: cambridge_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 76(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "£1 for each complete £250 in excess of £6,000, but not exceeding £16,000, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cambridge_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 56(1)(b)(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-69
+              excerpt: "by multiplying the amount of the payment by 12 and dividing the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: cambridge_council_tax_reduction_non_dependant_low_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Paragraph 48(2) non-dependant weekly income bands
+                row_key: £266.00 to £462.99
+                column_key: weekly-income threshold
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          266.00
+
+  - name: cambridge_council_tax_reduction_non_dependant_middle_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Paragraph 48(2) non-dependant weekly income bands
+                row_key: £266.00 to £462.99
+                column_key: weekly-income threshold
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          462.99
+
+  - name: cambridge_council_tax_reduction_non_dependant_high_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Paragraph 48(2) non-dependant weekly income bands
+                row_key: £463.00 to £576.99
+                column_key: weekly-income threshold
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          463.00
+
+  - name: cambridge_council_tax_reduction_non_dependant_top_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Paragraph 48(2) non-dependant weekly income bands
+                row_key: £463.00 to £576.99
+                column_key: weekly-income threshold
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          576.99
+
+  - name: cambridge_council_tax_reduction_other_adult_no_deduction_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-63
+              excerpt: "(9) Subject to sub-paragraph (8A), no non-dependant deduction is to be made in respect of a"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: exempt non-dependant
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: cambridge_council_tax_reduction_other_adult_basic_deduction_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraphs 48(1)(b) and 48(2)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(b) in respect of each non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, [88£5.35] x 1/7.;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: non-remunerative work
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(a) less than [89266.00], the non-dependant deduction to be made under this paragraph is the amount specified in sub-paragraph (1)(b);"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative work below £266.00
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £266.00 to less than £462.99
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraphs 48(1)(a), 48(2)(b), and 48(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative-work fallback between printed thresholds
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: upper edge of £266.00 to less than £462.99
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: lower edge of £463.00 to less than £576.99
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: cambridge_council_tax_reduction_other_adult_high_income_deduction_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £463.00 to less than £576.99
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key + cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key
+
+  - name: cambridge_council_tax_reduction_other_adult_top_income_fallback_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Council Tax Reduction Scheme paragraphs 48(1)(a) and 48(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative-work fallback at or above the top printed threshold
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: upper edge of £463.00 to less than £576.99
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key + cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key
+
+  - name: cambridge_council_tax_reduction_other_adult_universal_credit_deduction_band_key
+    kind: parameter
+    dtype: Integer
+    source: Cambridge City Council Full Council minutes, 26 February 2026, recommendation 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "Where the household was on universal credit to retain a flat rate scheme for non-dependence of £8.36 for 2026/27 with an annual uprating in accordance with the September consumer price index and annually increased by September CIP thereafter."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: universal credit household
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key + cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key
+
+  - name: cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cambridge_council_tax_reduction_other_adult_deduction_table_key
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48 and Full Council minutes, 26 February 2026, recommendation 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-63
+              excerpt: "(9) Subject to sub-paragraph (8A), no non-dependant deduction is to be made in respect of a"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: exempt non-dependant
+                column_key: no weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(b) in respect of each non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, [88£5.35] x 1/7.;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: non-remunerative work
+                column_key: £5.35 weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £266.00 to less than £462.99
+                column_key: £13.50 weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative work
+                column_key: £16.10 weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £463.00 to less than £576.99
+                column_key: £16.10 weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative work
+                column_key: £16.10 weekly deduction
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "Where the household was on universal credit to retain a flat rate scheme for non-dependence of £8.36 for 2026/27 with an annual uprating in accordance with the September consumer price index and annually increased by September CIP thereafter."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: universal credit household
+                column_key: £8.36 weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.35
+          2: 13.50
+          3: 16.10
+          4: 16.10
+          5: 16.10
+          6: 8.36
+
+  - name: cambridge_council_tax_reduction_end_of_calculation_deduction_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 49A(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+              excerpt: "The end of calculation deduction effective from 1st April 2021 is “zero” per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: cambridge_council_tax_reduction_universal_credit_minimum_entitlement_daily
+    kind: parameter
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38A(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-53
+              excerpt: "in respect of whom a council tax reduction of at least £0.01 has been determined in accordance with Schedule A1."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+
+  - name: cambridge_council_tax_reduction_zero_amount_for_year
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 49A(2), current zero end-of-calculation deduction
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+              excerpt: "The end of calculation deduction effective from 1st April 2021 is “zero” per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: cambridge_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "38. Class E: persons who are not pensioners whose income is greater than the applicable amount78"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_cambridge and council_tax_reduction_household_in_england and cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner
+
+  - name: cambridge_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 42(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-57
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_assessed_capital_for_year <= cambridge_council_tax_reduction_capital_limit
+
+  - name: cambridge_council_tax_reduction_capital_exceeds_tariff_income_threshold
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 76(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "£1 for each complete £250 in excess of £6,000, but not exceeding £16,000, and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_assessed_capital_for_year > cambridge_council_tax_reduction_tariff_income_threshold
+
+  - name: cambridge_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 76(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "(a) £1 for each complete £250 in excess of £6,000, but not exceeding £16,000, and"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-98
+              excerpt: "(b) £1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cambridge_council_tax_reduction_capital_exceeds_tariff_income_threshold: cambridge_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil((cambridge_council_tax_reduction_assessed_capital_for_year - cambridge_council_tax_reduction_tariff_income_threshold) / cambridge_council_tax_reduction_tariff_income_step) * cambridge_council_tax_reduction_weeks_per_year else: cambridge_council_tax_reduction_zero_amount_for_year
+
+  - name: cambridge_council_tax_reduction_income_exceeds_applicable_amount
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(e)-(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "whose income for the relevant week is greater than his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_assessed_income_for_year + cambridge_council_tax_reduction_tariff_income_for_year > cambridge_council_tax_reduction_applicable_amount_for_year
+
+  - name: cambridge_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cambridge_council_tax_reduction_income_exceeds_applicable_amount: cambridge_council_tax_reduction_assessed_income_for_year + cambridge_council_tax_reduction_tariff_income_for_year - cambridge_council_tax_reduction_applicable_amount_for_year else: cambridge_council_tax_reduction_zero_amount_for_year
+
+  - name: cambridge_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(ii)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "amount B is 2 and 6/7 per cent of the difference between his income for the relevant week and his applicable amount;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_excess_income_for_year * cambridge_council_tax_reduction_weekly_taper_rate
+
+  - name: cambridge_council_tax_reduction_other_adult_deduction_band
+    kind: derived
+    entity: Person
+    dtype: Integer
+    period: Week
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48 and Full Council minutes, 26 February 2026, recommendation 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(2) In the case of a non-dependant aged 18 or over to whom sub-paragraph (1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is -"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative-work income bands
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-63
+              excerpt: "(9) Subject to sub-paragraph (8A), no non-dependant deduction is to be made in respect of a"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: exempt non-dependant
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(b) in respect of each non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, [88£5.35] x 1/7.;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: non-remunerative work
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(a) less than [89266.00], the non-dependant deduction to be made under this paragraph is the amount specified in sub-paragraph (1)(b);"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative work below £266.00
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(b) not less than [90£266.00] but less than [91£462.99], the non-dependant deduction to be made under this paragraph is [92£13.50] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £266.00 to less than £462.99
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+              table:
+                header: Non-dependant weekly deductions
+                row_key: remunerative-work fallback
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-61
+              excerpt: "(c) not less than [93£463.00] but less than [94£576.99], the non-dependant deduction to be made under this paragraph is [95£16.10] x 1/7."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: £463.00 to less than £576.99
+                column_key: deduction band
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "Where the household was on universal credit to retain a flat rate scheme for non-dependence of £8.36 for 2026/27 with an annual uprating in accordance with the September consumer price index and annually increased by September CIP thereafter."
+              table:
+                header: Non-dependant weekly deductions
+                row_key: universal credit household
+                column_key: deduction band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cambridge_council_tax_reduction_non_dependant_deduction_applies: if cambridge_council_tax_reduction_non_dependant_in_universal_credit_household: cambridge_council_tax_reduction_other_adult_universal_credit_deduction_band_key else: if cambridge_council_tax_reduction_non_dependant_in_remunerative_work: if cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income < cambridge_council_tax_reduction_non_dependant_low_income_threshold: cambridge_council_tax_reduction_other_adult_basic_deduction_band_key else: if cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income < cambridge_council_tax_reduction_non_dependant_middle_income_threshold: cambridge_council_tax_reduction_other_adult_middle_income_deduction_band_key else: if cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income < cambridge_council_tax_reduction_non_dependant_high_income_threshold: cambridge_council_tax_reduction_other_adult_middle_high_gap_fallback_band_key else: if cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income < cambridge_council_tax_reduction_non_dependant_top_income_threshold: cambridge_council_tax_reduction_other_adult_high_income_deduction_band_key else: cambridge_council_tax_reduction_other_adult_top_income_fallback_band_key else: cambridge_council_tax_reduction_other_adult_basic_deduction_band_key else: cambridge_council_tax_reduction_other_adult_no_deduction_band_key
+
+  - name: cambridge_council_tax_reduction_individual_other_adult_deduction_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 48 and Full Council minutes, 26 February 2026, recommendation 5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "(a) in respect of each non-dependant aged 18 or over in remunerative work, [87£16.10] x 1/7;"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/full-council-minutes-2026-02-26/page-22
+              excerpt: "Where the household was on universal credit to retain a flat rate scheme for non-dependence of £8.36 for 2026/27 with an annual uprating in accordance with the September consumer price index and annually increased by September CIP thereafter."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_other_adult_weekly_deduction_by_band[cambridge_council_tax_reduction_other_adult_deduction_band]
+
+  - name: cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 47(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-59
+              excerpt: "Where an applicant falls within paragraph 37 (class D) or 38 (class E), the amount of an applicant’s maximum council tax reduction in respect of a day is 100 per cent of the amount A /"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_eligible_liability_for_year * cambridge_council_tax_reduction_maximum_support_rate
+
+  - name: cambridge_council_tax_reduction_maximum_exceeds_non_dependant_deductions
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 47(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "B, less any deductions in respect of non-dependants which fall to be made under paragraph 48 (non- dependant deductions)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year > cambridge_council_tax_reduction_non_dependant_deductions_for_year
+
+  - name: cambridge_council_tax_reduction_maximum_council_tax_reduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 47(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-60
+              excerpt: "B, less any deductions in respect of non-dependants which fall to be made under paragraph 48 (non- dependant deductions)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cambridge_council_tax_reduction_maximum_exceeds_non_dependant_deductions: cambridge_council_tax_reduction_maximum_before_non_dependant_deductions_for_year - cambridge_council_tax_reduction_non_dependant_deductions_for_year else: cambridge_council_tax_reduction_zero_amount_for_year
+
+  - name: cambridge_council_tax_reduction_amount_a_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)(i)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: definition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "(i) amount A is the maximum council tax reduction in his case; and"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_maximum_council_tax_reduction_for_year
+
+  - name: cambridge_council_tax_reduction_amount_exceeds_income_taper_deduction
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 38(f)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "(f) in respect of whom amount A exceeds amount B where -"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_amount_a_for_year > cambridge_council_tax_reduction_income_taper_deduction_for_year
+
+  - name: cambridge_council_tax_reduction_non_universal_credit_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Cambridge City Council Council Tax Reduction Scheme Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "(h) who neither has, nor jointly with his partner has, an award of universal credit."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "(g) who has made an application, or is treated as having made an application, for a reduction under this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_working_age_scheme_applies and cambridge_council_tax_reduction_capital_eligible and would_claim_council_tax_reduction and cambridge_council_tax_reduction_household_is_not_receiving_universal_credit and cambridge_council_tax_reduction_amount_exceeds_income_taper_deduction
+
+  - name: cambridge_council_tax_reduction_end_of_calculation_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 49A(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+              excerpt: "The end of calculation deduction effective from 1st April 2021 is “zero” per cent."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cambridge_council_tax_reduction_zero_amount_for_year
+
+  - name: cambridge_council_tax_reduction_non_universal_credit_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cambridge City Council Council Tax Reduction Scheme paragraph 49(2)-(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+              excerpt: "(2) Where the person falls within paragraph 37 (class D), that amount is the amount which is the maximum council tax reduction under paragraph 47(1) in respect of the day in the applicant’s case, less the end of calculation deduction under paragraph 49A."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-65
+              excerpt: "(3) Where the person falls within paragraph 38 (class E), that amount is the amount found by deducting amount B from amount A, where “amount A” and “amount B” have the meanings given in paragraph 38(f), less the end of calculation deduction under paragraph 49A."
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-cambridge/manual/council-tax-reduction-scheme-working-age/page-52
+              excerpt: "(f) in respect of whom amount A exceeds amount B where -"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cambridge_council_tax_reduction_non_universal_credit_award_conditions_met: cambridge_council_tax_reduction_amount_a_for_year - cambridge_council_tax_reduction_income_taper_deduction_for_year - cambridge_council_tax_reduction_end_of_calculation_deduction_for_year else: cambridge_council_tax_reduction_zero_amount_for_year
+
+inputs:
+  - name: local_authority_is_cambridge
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: council_tax_reduction_household_in_england
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cambridge_council_tax_reduction_applicant_is_person_who_is_not_pensioner
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cambridge_council_tax_reduction_household_is_not_receiving_universal_credit
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: cambridge_council_tax_reduction_assessed_capital_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cambridge_council_tax_reduction_eligible_liability_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cambridge_council_tax_reduction_assessed_income_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cambridge_council_tax_reduction_applicable_amount_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cambridge_council_tax_reduction_non_dependant_deductions_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: cambridge_council_tax_reduction_non_dependant_deduction_applies
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: cambridge_council_tax_reduction_non_dependant_in_universal_credit_household
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: cambridge_council_tax_reduction_non_dependant_in_remunerative_work
+    entity: Person
+    dtype: Boolean
+    period: Week
+  - name: cambridge_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP

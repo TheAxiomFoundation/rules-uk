@@ -1,0 +1,498 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+      # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority so the adopted document is operative.
+  summary: |-
+    Tameside's adopted 2026/27 working-age scheme applies its four weekly-income discount bands to the scheme-defined maximum Council Tax Reduction. That maximum is 75 percent of the lower of discounted actual liability and discounted Band A liability. Capital of £6,000 or above gives no award, Band 4 gives zero, specified passported benefits give Band 1, and the scheme states that there are no non-dependant deductions. The local award provisions state no excess-income taper or minimum-entitlement floor. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-tameside:policies/tameside/council-tax-reduction/sections-2-to-47-and-schedules-2-to-3#assessed_weekly_income
+      reason: The award surface consumes the scheme-defined weekly income after its detailed income, disregard, and attribution rules.
+    - output: uk-tameside:policies/tameside/council-tax-reduction/sections-2-to-47-and-schedules-2-to-3#assessed_capital
+      reason: The award surface consumes capital after the detailed valuation, attribution, and disregard rules.
+    - output: uk-tameside:policies/tameside/council-tax-reduction/paragraph-48#actual_and_band_a_annual_liability
+      reason: Liability, discounts, and joint-liability shares are boundary inputs to paragraph 48's lower-of calculation.
+rules:
+  - name: tameside_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: tameside_council_tax_reduction_family_category
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Single £0 to £110.00 £110.01 to £160.00 £160.01 to £210.00 £210.01 or more Couple £0 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £275.01 or more Weekly Net Income Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant £0 £0 £0 to to to £210.00 £295.00 £275.00 £210.01 £295.01 £275.01 to to to £260.00 £345.00 £325.00 £260.01 £345.01 £325.01 to to to £310.00 £395.00 £375.00 £310.01 £395.01 £375.01 or or or more more more Couple with 2 or more dependants £0 to £360.00 £360.01 to £410.00 £410.01 to £460.00 £460.01 or more"
+              table: {header: "Schedule 1 Table 1 family columns", row_key: "family category", column_key: "implementation category code"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+
+  - name: tameside_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: tameside_council_tax_reduction_income_band
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0%"
+              table: {header: "Schedule 1 Table 1 discount bands", row_key: "discount band", column_key: "implementation band code"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+
+  - name: tameside_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-44, excerpt: "shall be 75 per cent, of the amount A divided by B"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.75
+
+  - name: tameside_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61, excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reduction whatsoever."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: tameside_council_tax_reduction_one_dependant_child
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant"
+              table: {header: "Schedule 1 Table 1 family columns", row_key: "family category", column_key: "dependant count"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: tameside_council_tax_reduction_family_category_single_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: &family_category_code_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Single £0 to £110.00 £110.01 to £160.00 £160.01 to £210.00 £210.01 or more Couple £0 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £275.01 or more Weekly Net Income Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant £0 £0 £0 to to to £210.00 £295.00 £275.00 £210.01 £295.01 £275.01 to to to £260.00 £345.00 £325.00 £260.01 £345.01 £325.01 to to to £310.00 £395.00 £375.00 £310.01 £395.01 £375.01 or or or more more more Couple with 2 or more dependants £0 to £360.00 £360.01 to £410.00 £410.01 to £460.00 £460.01 or more"
+              table: {header: "Schedule 1 Table 1 family columns", row_key: "family category", column_key: "implementation category code"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: tameside_council_tax_reduction_family_category_couple_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: *family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: tameside_council_tax_reduction_family_category_lone_parent_one_dependant_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: *family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: tameside_council_tax_reduction_family_category_lone_parent_two_or_more_dependants_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: *family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: tameside_council_tax_reduction_family_category_couple_one_dependant_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: *family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: tameside_council_tax_reduction_family_category_couple_two_or_more_dependants_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata: *family_category_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+
+  - name: tameside_council_tax_reduction_income_band_no_award_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata: &income_band_code_proof
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0%"
+              table: {header: "Schedule 1 Table 1 discount bands", row_key: "discount band", column_key: "implementation band code"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: tameside_council_tax_reduction_income_band_1_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata: *income_band_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: tameside_council_tax_reduction_income_band_2_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata: *income_band_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: tameside_council_tax_reduction_income_band_3_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata: *income_band_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+
+  - name: tameside_council_tax_reduction_income_band_4_code
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata: *income_band_code_proof
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+
+  - name: tameside_council_tax_reduction_two_or_more_dependant_children
+    kind: parameter
+    dtype: Number
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant"
+              table: {header: "Schedule 1 Table 1 family columns", row_key: "family category", column_key: "dependant count"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: tameside_council_tax_reduction_band_2_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tameside_council_tax_reduction_family_category
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 Band 2
+    metadata: &table_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0% Single £0 to £110.00 £110.01 to £160.00 £160.01 to £210.00 £210.01 or more Couple £0 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £275.01 or more Weekly Net Income Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant £0 £0 £0 to to to £210.00 £295.00 £275.00 £210.01 £295.01 £275.01 to to to £260.00 £345.00 £325.00 £260.01 £345.01 £325.01 to to to £310.00 £395.00 £375.00 £310.01 £395.01 £375.01 or or or more more more Couple with 2 or more dependants £0 to £360.00 £360.01 to £410.00 £410.01 to £460.00 £460.01 or more"
+              table: {header: "Schedule 1 Table 1", row_key: "income band", column_key: "family category"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 110.01, 1: 175.01, 2: 210.01, 3: 295.01, 4: 275.01, 5: 360.01}
+
+  - name: tameside_council_tax_reduction_band_3_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tameside_council_tax_reduction_family_category
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 Band 3
+    metadata: *table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 160.01, 1: 225.01, 2: 260.01, 3: 345.01, 4: 325.01, 5: 410.01}
+
+  - name: tameside_council_tax_reduction_band_4_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tameside_council_tax_reduction_family_category
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 Band 4
+    metadata: *table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 210.01, 1: 275.01, 2: 310.01, 3: 395.01, 4: 375.01, 5: 460.01}
+
+  - name: tameside_council_tax_reduction_last_discount_band_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tameside_council_tax_reduction_family_category
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 Band 3 and Band 4
+    metadata: *table_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 210.00, 1: 275.00, 2: 310.00, 3: 395.00, 4: 375.00, 5: 460.00}
+
+  - name: tameside_council_tax_reduction_discount_rate_by_band
+    kind: parameter
+    dtype: Rate
+    period: Year
+    indexed_by: tameside_council_tax_reduction_income_band
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 discount bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0%"
+              table: {header: "Schedule 1 Table 1 discount bands", row_key: "discount band", column_key: "discount percentage"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.00, 1: 0.75, 2: 0.50, 3: 0.25, 4: 0.00}
+
+  - name: tameside_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: tameside_council_tax_reduction_non_dependant_deduction_band
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 paragraph 48.5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-45
+              excerpt: "There shall be no non-dependant deductions."
+              table: {header: "Working-age non-dependant deductions", row_key: "deduction band", column_key: "weekly deduction"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0}
+
+  - name: tameside_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 sections 1.6-1.7
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-7, excerpt: "The authority is required to specify a scheme for working age and therefore this scheme only applies to a person who;"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_tameside and council_tax_reduction_household_in_england and tameside_council_tax_reduction_applicant_is_in_working_age_class and would_claim_council_tax_reduction
+
+  - name: tameside_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 family columns
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Single £0 to £110.00 £110.01 to £160.00 £160.01 to £210.00 £210.01 or more Couple £0 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £275.01 or more Weekly Net Income Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant £0 £0 £0 to to to £210.00 £295.00 £275.00 £210.01 £295.01 £275.01 to to to £260.00 £345.00 £325.00 £260.01 £345.01 £325.01 to to to £310.00 £395.00 £375.00 £310.01 £395.01 £375.01 or or or more more more Couple with 2 or more dependants £0 to £360.00 £360.01 to £410.00 £410.01 to £460.00 £460.01 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tameside_council_tax_reduction_has_partner: if tameside_council_tax_reduction_dependant_children >= tameside_council_tax_reduction_two_or_more_dependant_children: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_couple_two_or_more_dependants_code] else: if tameside_council_tax_reduction_dependant_children >= tameside_council_tax_reduction_one_dependant_child: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_couple_one_dependant_code] else: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_couple_code] else: if tameside_council_tax_reduction_dependant_children >= tameside_council_tax_reduction_two_or_more_dependant_children: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_lone_parent_two_or_more_dependants_code] else: if tameside_council_tax_reduction_dependant_children >= tameside_council_tax_reduction_one_dependant_child: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_lone_parent_one_dependant_code] else: tameside_council_tax_reduction_family_category_codes[tameside_council_tax_reduction_family_category_single_code]
+
+  - name: tameside_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0% Single £0 to £110.00 £110.01 to £160.00 £160.01 to £210.00 £210.01 or more Couple £0 to £175.00 £175.01 to £225.00 £225.01 to £275.00 £275.01 or more Weekly Net Income Lone Parent Lone Parent Couple with 1 with 2 or more with 1 dependant dependants dependant £0 £0 £0 to to to £210.00 £295.00 £275.00 £210.01 £295.01 £275.01 to to to £260.00 £345.00 £325.00 £260.01 £345.01 £325.01 to to to £310.00 £395.00 £375.00 £310.01 £395.01 £375.01 or or or more more more Couple with 2 or more dependants £0 to £360.00 £360.01 to £410.00 £410.01 to £460.00 £460.01 or more"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tameside_council_tax_reduction_assessed_weekly_income < tameside_council_tax_reduction_band_2_lower_weekly_income_by_family[tameside_council_tax_reduction_family_category]: tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_1_code] else: if tameside_council_tax_reduction_assessed_weekly_income < tameside_council_tax_reduction_band_3_lower_weekly_income_by_family[tameside_council_tax_reduction_family_category]: tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_2_code] else: if tameside_council_tax_reduction_assessed_weekly_income < tameside_council_tax_reduction_band_4_lower_weekly_income_by_family[tameside_council_tax_reduction_family_category]: tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_3_code] else: if tameside_council_tax_reduction_assessed_weekly_income <= tameside_council_tax_reduction_last_discount_band_upper_weekly_income_by_family[tameside_council_tax_reduction_family_category]: tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_4_code] else: tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_no_award_code]
+
+  - name: tameside_council_tax_reduction_passported_benefit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 7
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: exception, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61, excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tameside_council_tax_reduction_receives_income_support or tameside_council_tax_reduction_receives_income_related_esa or tameside_council_tax_reduction_receives_income_based_jsa
+
+  - name: tameside_council_tax_reduction_selected_discount_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 Table 1 and paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Table 1 Discount Band 1* 75% Band 2 50% Band 3 25% Band 4 0%"
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tameside_council_tax_reduction_passported_benefit: tameside_council_tax_reduction_discount_rate_by_band[tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_1_code]] else: tameside_council_tax_reduction_discount_rate_by_band[tameside_council_tax_reduction_income_band]
+
+  - name: tameside_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61, excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reduction whatsoever."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tameside_council_tax_reduction_assessed_capital < tameside_council_tax_reduction_capital_limit
+
+  - name: tameside_council_tax_reduction_maximum_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 paragraph 48.1(a)
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-44, excerpt: "A is the lower of: (i) the amount set by the authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; or (ii) the amount set by the authority for a dwelling with a Council Tax Band A value, subject to any discount which may be appropriate under the 1992 Act;"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(tameside_council_tax_reduction_actual_annual_liability_after_discounts, tameside_council_tax_reduction_band_a_annual_liability_after_discounts)
+
+  - name: tameside_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 paragraph 48.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-44, excerpt: "shall be 75 per cent, of the amount A divided by B"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tameside_council_tax_reduction_maximum_eligible_liability_for_year * tameside_council_tax_reduction_maximum_support_rate
+
+  - name: tameside_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 5
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: condition, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61, excerpt: "Any applicant whose capital is £6,000 or above shall not be entitled to any Council Tax Reduction whatsoever."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          tameside_council_tax_reduction_working_age_scheme_applies and tameside_council_tax_reduction_capital_eligible
+
+  - name: tameside_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Tameside MBC Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 2
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-tameside/manual/council-tax-support-scheme-2026-2027/page-61, excerpt: "In all cases (Table 1), the amount of reduction to be granted is to be based on the following factors:"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if tameside_council_tax_reduction_award_conditions_met: tameside_council_tax_reduction_maximum_amount_for_year * tameside_council_tax_reduction_selected_discount_rate else: tameside_council_tax_reduction_maximum_amount_for_year * tameside_council_tax_reduction_discount_rate_by_band[tameside_council_tax_reduction_income_band_codes[tameside_council_tax_reduction_income_band_no_award_code]]
+inputs:
+  - {name: local_authority_is_tameside, entity: Household, dtype: Boolean, period: Year}
+  - {name: council_tax_reduction_household_in_england, entity: Household, dtype: Boolean, period: Year}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
+  - {name: tameside_council_tax_reduction_applicant_is_in_working_age_class, entity: Household, dtype: Boolean, period: Year}
+  - {name: tameside_council_tax_reduction_assessed_capital, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: tameside_council_tax_reduction_actual_annual_liability_after_discounts, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: tameside_council_tax_reduction_band_a_annual_liability_after_discounts, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: tameside_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: tameside_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
+  - {name: tameside_council_tax_reduction_dependant_children, entity: Household, dtype: Number, period: Year}
+  - {name: tameside_council_tax_reduction_receives_income_support, entity: Household, dtype: Boolean, period: Year}
+  - {name: tameside_council_tax_reduction_receives_income_related_esa, entity: Household, dtype: Boolean, period: Year}
+  - {name: tameside_council_tax_reduction_receives_income_based_jsa, entity: Household, dtype: Boolean, period: Year}

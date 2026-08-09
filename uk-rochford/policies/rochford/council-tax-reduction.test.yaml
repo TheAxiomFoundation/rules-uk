@@ -1,0 +1,830 @@
+- name: rochford_ctr_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_maximum_support_rate: 0.75
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_capital_limit: 6000
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_1: 1
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_2: 2
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_3: 3
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_4: 4
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_5: 5
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band_6: 6
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_single_person: 0
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_couple_with_no_children: 1
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_single_with_1_child: 2
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_couple_with_1_child: 3
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_single_with_2_or_more_children: 4
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_couple_with_2_or_more_children: 5
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_income_key_category_multiplier: 10
+
+- name: rochford_ctr_capital_eligible_at_5999_99
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 5999.99
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_capital_eligible: holds
+
+- name: rochford_ctr_capital_ineligible_at_6000
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_capital_eligible: not_holds
+
+- name: rochford_ctr_household_category_single_person
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category: 0
+
+- name: rochford_ctr_income_band_at_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_income_band: 2
+
+- name: rochford_ctr_household_income_key
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_income_key: 11
+
+- name: rochford_ctr_selected_discount_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_selected_discount_rate: 0.75
+
+- name: rochford_ctr_maximum_amount_for_year
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_maximum_amount_for_year: 900
+
+- name: rochford_ctr_single_person_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_person_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_person_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_person_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_person_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_person_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_person_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_person_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_person_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_person_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_no_children_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_no_children_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_no_children_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_no_children_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_no_children_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_no_children_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_no_children_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_no_children_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_no_children_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_no_children_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_one_child_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_one_child_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_one_child_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_one_child_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_one_child_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_one_child_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_one_child_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_one_child_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_one_child_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_one_child_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_one_child_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_one_child_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_one_child_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_one_child_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_one_child_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_one_child_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_one_child_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_one_child_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_one_child_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_one_child_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 1
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_two_or_more_children_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_two_or_more_children_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_two_or_more_children_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_single_two_or_more_children_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_two_or_more_children_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_single_two_or_more_children_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_two_or_more_children_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_single_two_or_more_children_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_two_or_more_children_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_single_two_or_more_children_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_two_or_more_children_income_105
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_two_or_more_children_income_105_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 105.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_two_or_more_children_income_185
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 675
+
+- name: rochford_ctr_couple_two_or_more_children_income_185_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 185.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_two_or_more_children_income_265
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 450
+
+- name: rochford_ctr_couple_two_or_more_children_income_265_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 265.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_two_or_more_children_income_345
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 225
+
+- name: rochford_ctr_couple_two_or_more_children_income_345_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 345.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_two_or_more_children_income_425
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+
+- name: rochford_ctr_couple_two_or_more_children_income_425_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_capital_for_year: 0
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_assessed_weekly_income: 425.01
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_has_partner: true
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_number_of_dependants: 2
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_applicant_or_partner_receives_relevant_benefit: false
+    uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
+  output:
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
+

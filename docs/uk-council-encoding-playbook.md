@@ -180,6 +180,15 @@ derived-output entity per case. Hand-derive expected values from the printed
 grid. Quote the engine's exact decimal string when division repeats; do not use
 a float-truncated expectation.
 
+Indexed-table assertion boundary (adjudicated wave 8): direct per-index
+assertions are required where the index is a factual input slot; where the
+index is derived, complete spanning coverage through cases that derive and
+assert the resulting legal outcomes is sufficient. The pinned validator makes
+the direct form impossible for derived indices (it requires the `indexed_by`
+selector in case input and rejects computed outputs as inputs), and replacing a
+derived index with an input slot bypasses legally meaningful classification
+logic — do not restructure modules to force direct assertions.
+
 ### Embedded scalars versus parameter rules
 
 Every legally meaningful constant is a named, grounded parameter rule. Derived

@@ -1,0 +1,1440 @@
+- name: bury_ctr_all_scalar_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_maximum_support_rate: 0.80
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_capital_limit: 8000
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_non_dependant_monthly_deduction: 40.00
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_months_per_year: 12
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_weeks_per_year: 52
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_minimum_weekly_entitlement: 1.00
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_nil_band_code: 0
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_nil_earnings_band_code: 1
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_band_2_code: 2
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_band_3_code: 3
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_band_4_code: 4
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_one_child_threshold: 1
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_two_children_threshold: 2
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_three_or_more_children_threshold: 3
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_zero_award: 0
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_single_one_child_band_2_upper_earnings: 100
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_two_child_band_2_upper_earnings: 200
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_three_child_band_2_upper_earnings: 300
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_single_band_3_upper_earnings: 500
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_couple_band_3_upper_earnings: 600
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_one_child_band_3_upper_earnings: 700
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_two_plus_children_band_3_upper_earnings: 800
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_single_band_4_upper_earnings: 900
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_couple_band_4_upper_earnings: 1000
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_one_child_band_4_upper_earnings: 1100
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_two_plus_children_band_4_upper_earnings: 1200
+- name: bury_ctr_single_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_couple_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_earnings_100
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 100
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_earnings_100_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 100.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_earnings_600
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 600
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_earnings_600_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 600.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_earnings_1000
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_earnings_1000_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1000.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_couple_three_plus_children_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_couple_three_plus_children_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_three_plus_children_earnings_300
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_three_plus_children_earnings_300_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_three_plus_children_earnings_800
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_three_plus_children_earnings_800_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_three_plus_children_earnings_1200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_three_plus_children_earnings_1200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_couple_two_children_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_couple_two_children_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_two_children_earnings_300
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_two_children_earnings_300_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_two_children_earnings_800
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_two_children_earnings_800_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_two_children_earnings_1200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_two_children_earnings_1200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_couple_one_child_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_couple_one_child_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_one_child_earnings_200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_couple_one_child_earnings_200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_one_child_earnings_700
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 700
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_couple_one_child_earnings_700_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 700.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_one_child_earnings_1100
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1100
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_couple_one_child_earnings_1100_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1100.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_single_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_single_earnings_100
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 100
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_single_earnings_100_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 100.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_single_earnings_500
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_single_earnings_500_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 500.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_single_earnings_900
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 900
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_single_earnings_900_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 900.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_one_child_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_one_child_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_one_child_earnings_200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_one_child_earnings_200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_one_child_earnings_700
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 700
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_one_child_earnings_700_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 700.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_one_child_earnings_1100
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1100
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_one_child_earnings_1100_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1100.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 1
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_two_children_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_two_children_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_two_children_earnings_300
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_two_children_earnings_300_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_two_children_earnings_800
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_two_children_earnings_800_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_two_children_earnings_1200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_two_children_earnings_1200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 2
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_three_plus_children_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1
+- name: bury_ctr_three_plus_children_earnings_0_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_three_plus_children_earnings_300
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 2
+- name: bury_ctr_three_plus_children_earnings_300_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 300.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_three_plus_children_earnings_800
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 3
+- name: bury_ctr_three_plus_children_earnings_800_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 800.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_three_plus_children_earnings_1200
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 4
+- name: bury_ctr_three_plus_children_earnings_1200_01
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 1200.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 3
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 0
+- name: bury_ctr_working_age_scheme_applies
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_working_age_scheme_applies: holds
+- name: bury_ctr_capital_at_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_capital_eligible: holds
+- name: bury_ctr_capital_over_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_capital_eligible: not_holds
+- name: bury_ctr_selected_rate_nil_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 900.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_selected_support_rate: 0
+
+- name: bury_ctr_selected_rate_band_one
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_selected_support_rate: 0.80
+
+- name: bury_ctr_selected_rate_band_two
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_selected_support_rate: 0.60
+
+- name: bury_ctr_selected_rate_band_three
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_selected_support_rate: 0.40
+- name: bury_ctr_band_b_cap_binding
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 2000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_eligible_liability_for_year: 1500
+- name: bury_ctr_band_b_cap_non_binding
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1400
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_eligible_liability_for_year: 1400
+- name: bury_ctr_protected_group_band_b_exception
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 2000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_eligible_liability_for_year: 2000
+- name: bury_ctr_protected_group_top_band_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 2000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_annual_amount: 1600
+- name: bury_ctr_non_dependant_flag_false
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_non_dependant_deduction_band: not_holds
+- name: bury_ctr_non_dependant_flag_true
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 1
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_non_dependant_deduction_band: holds
+- name: bury_ctr_non_dependant_annual_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 1
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_annual_non_dependant_deduction: 480
+- name: bury_ctr_calculated_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_calculated_annual_amount: 600
+- name: bury_ctr_minimum_weekly_entitlement_below
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 64.9875
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 64.9875
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_annual_amount: 0
+- name: bury_ctr_selected_rate_band_four
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 500.01
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_selected_support_rate: 0.20
+
+- name: bury_ctr_minimum_weekly_entitlement_at
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 65
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 65
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_annual_amount: 52
+- name: bury_ctr_couple_earnings_0
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-bury:policies/bury/council-tax-reduction#input.local_authority_is_bury: true
+    uk-bury:policies/bury/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-bury:policies/bury/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_is_working_age: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_assessed_capital_for_year: 8000
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_monthly_earned_income: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_applicant_has_partner: true
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_number_of_children: 0
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_actual_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_band_b_liability_for_year: 1500
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_protected_group: false
+    uk-bury:policies/bury/council-tax-reduction#input.bury_council_tax_reduction_chargeable_non_dependant_count: 0
+  output:
+    uk-bury:policies/bury/council-tax-reduction#bury_council_tax_reduction_earnings_band: 1

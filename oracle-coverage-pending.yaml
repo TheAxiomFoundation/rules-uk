@@ -8299,4 +8299,37 @@ entries:
 - legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_working_age_scheme_applies
   source: manual
   since: 2026-08-03
-ceiling: 2766
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_couple_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_couple_one_dependant_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_couple_two_or_more_dependants_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_lone_parent_one_dependant_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_lone_parent_two_or_more_dependants_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_family_category_single_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_income_band_1_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_income_band_2_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_income_band_3_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_income_band_4_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_income_band_no_award_code
+  source: manual
+  since: 2026-08-03
+ceiling: 2777

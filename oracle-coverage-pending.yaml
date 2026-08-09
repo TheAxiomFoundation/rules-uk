@@ -8305,4 +8305,13 @@ entries:
 - legal_id: uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_selected_discount_rate
   source: manual
   since: 2026-08-03
-ceiling: 2768
+- legal_id: uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_one_child_dependant_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_two_or_more_children_dependant_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_zero_discount_rate
+  source: manual
+  since: 2026-08-03
+ceiling: 2771

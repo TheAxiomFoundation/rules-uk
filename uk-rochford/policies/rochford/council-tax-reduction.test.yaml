@@ -22,6 +22,9 @@
     uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_couple_with_1_child: 3
     uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_single_with_2_or_more_children: 4
     uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_category_couple_with_2_or_more_children: 5
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_one_child_dependant_threshold: 1
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_two_or_more_children_dependant_threshold: 2
+    uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_zero_discount_rate: 0
     uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_household_income_key_category_multiplier: 10
 
 - name: rochford_ctr_capital_eligible_at_5999_99
@@ -827,4 +830,3 @@
     uk-rochford:policies/rochford/council-tax-reduction#input.rochford_council_tax_reduction_maximum_eligible_liability_for_year: 1200
   output:
     uk-rochford:policies/rochford/council-tax-reduction#rochford_council_tax_reduction_annual_amount: 0
-

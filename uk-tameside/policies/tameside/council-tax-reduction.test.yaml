@@ -1,0 +1,104 @@
+- name: tameside_ctr_single_band_1_and_all_parameter_baseline
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: &base
+    uk-tameside:policies/tameside/council-tax-reduction#input.local_authority_is_tameside: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_capital: 5999.99
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_actual_annual_liability_after_discounts: 1000
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_band_a_annual_liability_after_discounts: 1000
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 110.00
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_has_partner: false
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_dependant_children: 0
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_receives_income_support: false
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_receives_income_related_esa: false
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_receives_income_based_jsa: false
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 562.5
+- name: tameside_ctr_single_band_2_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 110.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 375
+- name: tameside_ctr_single_band_3_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 160.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 187.5
+- name: tameside_ctr_single_band_4_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 210.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_band_a_ceiling_binds_above_band_a
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_actual_annual_liability_after_discounts: 2000
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_band_a_annual_liability_after_discounts: 1000
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 562.5
+- name: tameside_ctr_capital_cliff_at_6000
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_capital: 6000
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_passported_benefit_selects_band_1
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 210.01
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_receives_income_support: true
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 562.5
+- name: tameside_ctr_couple_category_exercises_all_couple_band_thresholds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_has_partner: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 275.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_lone_parent_one_category_exercises_all_thresholds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_dependant_children: 1
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 310.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_lone_parent_two_category_exercises_all_thresholds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_dependant_children: 2
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 395.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_couple_one_category_exercises_all_thresholds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_has_partner: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_dependant_children: 1
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 375.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0
+- name: tameside_ctr_couple_two_category_exercises_all_thresholds
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    <<: *base
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_has_partner: true
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_dependant_children: 2
+    uk-tameside:policies/tameside/council-tax-reduction#input.tameside_council_tax_reduction_assessed_weekly_income: 460.01
+  output:
+    uk-tameside:policies/tameside/council-tax-reduction#tameside_council_tax_reduction_annual_amount: 0

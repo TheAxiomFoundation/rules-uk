@@ -1,0 +1,311 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-42
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+      # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority so the adopted document is operative.
+  summary: |-
+    Wakefield's adopted 2026-27 working-age scheme is a liability-direct banded award. Annex 2 selects 70, 55, 40, 25, or 0 percent from assessed weekly income, and Rule 41 multiplies the daily Council Tax liability by that percentage before subtracting Rule 42 non-dependant deductions. Rule 41 literally says that the percentage is determined in Rule 41, although Rule 40 and the document structure identify Annex 2 as the determination; the proof atom retains the printed self-reference verbatim. The adopted document prints neither a capital limit, tariff-income rule, excess-income taper, minimum award nor band cap. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-wakefield:policies/wakefield/council-tax-reduction/part-3-section-1#universal_credit_assessed_weekly_income
+      reason: Rule 15 directs a person with a current Universal Credit claim to Part 3 Section 1; its detailed income and capital assessment remains self-scoped.
+    - output: uk-wakefield:policies/wakefield/council-tax-reduction/part-3-section-2#non_universal_credit_assessed_weekly_income
+      reason: Rule 15 directs a person without a current Universal Credit claim to Part 3 Section 2; its detailed income and capital assessment remains self-scoped.
+    - output: uk-wakefield:policies/wakefield/council-tax-reduction/rule-39#daily_council_tax_liability
+      reason: Rule 41 consumes the daily liability calculated under Rule 39, including its discounts and joint-liability rules.
+    - output: uk-wakefield:policies/wakefield/council-tax-reduction/rule-42#non_dependant_exemption_and_apportionment
+      reason: This module encodes the printed standard amount; Rule 42's disability, residence, couple, and joint-liability classifiers remain boundary inputs.
+rules:
+  - name: wakefield_council_tax_reduction_income_above_285_weekly_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72
+              excerpt: "Council Tax Support Percentage Award | Assessed Weekly Income Band 70% | £0.00 to £55.00 55% | £55.01 to £165.00 40% | £165.01 to £220.00 25% | £220.01 to £285.00 0% | Income above £285.00"
+              table: {header: "ANNEX 2 – SCHEME BANDS 2026 - 2027", row_key: "0%", column_key: "Assessed Weekly Income Band"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 285.00
+
+  - name: wakefield_council_tax_reduction_support_rate_income_above_285
+    kind: parameter
+    dtype: Rate
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72
+              excerpt: "Council Tax Support Percentage Award | Assessed Weekly Income Band 70% | £0.00 to £55.00 55% | £55.01 to £165.00 40% | £165.01 to £220.00 25% | £220.01 to £285.00 0% | Income above £285.00"
+              table: {header: "ANNEX 2 – SCHEME BANDS 2026 - 2027", row_key: "0%", column_key: "Council Tax Support Percentage Award"}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0
+
+  - name: wakefield_council_tax_reduction_income_220_01_to_285_weekly_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "25% | £220.01 to £285.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 220.01
+
+  - name: wakefield_council_tax_reduction_support_rate_income_220_01_to_285
+    kind: parameter
+    dtype: Rate
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "25% | £220.01 to £285.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.25
+
+  - name: wakefield_council_tax_reduction_income_165_01_to_220_weekly_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "40% | £165.01 to £220.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 165.01
+
+  - name: wakefield_council_tax_reduction_support_rate_income_165_01_to_220
+    kind: parameter
+    dtype: Rate
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "40% | £165.01 to £220.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.40
+
+  - name: wakefield_council_tax_reduction_income_55_01_to_165_weekly_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "55% | £55.01 to £165.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 55.01
+
+  - name: wakefield_council_tax_reduction_support_rate_income_55_01_to_165
+    kind: parameter
+    dtype: Rate
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "55% | £55.01 to £165.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.55
+
+  - name: wakefield_council_tax_reduction_income_0_to_55_weekly_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "70% | £0.00 to £55.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.00
+
+  - name: wakefield_council_tax_reduction_support_rate_income_0_to_55
+    kind: parameter
+    dtype: Rate
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72, excerpt: "70% | £0.00 to £55.00"}}]}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.70
+
+  - name: wakefield_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wakefield_council_tax_reduction_non_dependant_deduction_band
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-43
+              excerpt: "Subject to the following provisions of this Rule, the non-dependant deduction in respect of a day referred to in Rule 41 for a non-dependant aged 18 or over is £7.50 x 1/7;"
+              table: {header: "Rule 42 non-dependant deduction", row_key: "deduction band", column_key: "weekly deduction"}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 7.50}
+
+  - name: wakefield_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 42 daily conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-43
+              excerpt: "£7.50 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: wakefield_council_tax_reduction_zero_daily_award
+    kind: parameter
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Annex 2 scheme bands
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-72
+              excerpt: "0% | Income above £285.00"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0
+
+  - name: wakefield_council_tax_reduction_assessed_weekly_income
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 15
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-16
+              excerpt: "Except where paragraph (3) applies, where a person has a current claim for Universal Credit, income and capital will be assessed in accordance with Part 3 Section 1 of this scheme."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-16
+              excerpt: "Where a person does not have a current claim for Universal Credit, income and capital will be assessed in accordance with Part 3 Section 2 of this scheme."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wakefield_council_tax_reduction_has_current_universal_credit_claim: wakefield_council_tax_reduction_universal_credit_assessed_weekly_income else: wakefield_council_tax_reduction_non_universal_credit_assessed_weekly_income
+
+  - name: wakefield_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 40 and Annex 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-41
+              excerpt: "The percentage award of Council Tax Support will be determined by comparing a persons Assessed Weekly Income, as determined in Part 3, to the Assessed Weekly Income Bands shown in Annex 2."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wakefield_council_tax_reduction_assessed_weekly_income > wakefield_council_tax_reduction_income_above_285_weekly_income_threshold: wakefield_council_tax_reduction_support_rate_income_above_285 else: if wakefield_council_tax_reduction_assessed_weekly_income >= wakefield_council_tax_reduction_income_220_01_to_285_weekly_income_threshold: wakefield_council_tax_reduction_support_rate_income_220_01_to_285 else: if wakefield_council_tax_reduction_assessed_weekly_income >= wakefield_council_tax_reduction_income_165_01_to_220_weekly_income_threshold: wakefield_council_tax_reduction_support_rate_income_165_01_to_220 else: if wakefield_council_tax_reduction_assessed_weekly_income >= wakefield_council_tax_reduction_income_55_01_to_165_weekly_income_threshold: wakefield_council_tax_reduction_support_rate_income_55_01_to_165 else: wakefield_council_tax_reduction_support_rate_income_0_to_55
+
+  - name: wakefield_council_tax_reduction_non_dependant_deductions_for_day
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-43
+              excerpt: "A deduction is to be made under this paragraph in respect of each member of a couple or, as the case may be, members of a polygamous marriage."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wakefield_council_tax_reduction_non_dependant_count * wakefield_council_tax_reduction_non_dependant_weekly_deduction_by_band[wakefield_council_tax_reduction_non_dependant_deduction_band] / wakefield_council_tax_reduction_days_per_week
+
+  - name: wakefield_council_tax_reduction_non_dependant_deduction_is_exempt
+    kind: derived
+    entity: Household
+    dtype: Boolean
+    period: Day
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 42
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-43
+              excerpt: "No deduction is to be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wakefield_council_tax_reduction_non_dependant_deduction_exempt
+
+  - name: wakefield_council_tax_reduction_daily_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Wakefield Council Tax Support Scheme 2026-2027 Rule 41
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wakefield/manual/council-tax-support-scheme-working-age/block-42
+              excerpt: "The amount of Council Tax Support will be determined by multiplying the daily Council Tax liability, as determined by Rule 39, by the percentage award determined in Rule 41, less any deductions in respect of non-dependants which fall to be made under Rule 42."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(wakefield_council_tax_reduction_zero_daily_award, wakefield_council_tax_reduction_daily_council_tax_liability * wakefield_council_tax_reduction_income_band - wakefield_council_tax_reduction_non_dependant_deductions_for_day)
+inputs:
+  - {name: wakefield_council_tax_reduction_has_current_universal_credit_claim, entity: Household, dtype: Boolean, period: Week}
+  - {name: wakefield_council_tax_reduction_universal_credit_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: wakefield_council_tax_reduction_non_universal_credit_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: wakefield_council_tax_reduction_daily_council_tax_liability, entity: Household, dtype: Money, period: Day, unit: GBP}
+  - {name: wakefield_council_tax_reduction_non_dependant_count, entity: Household, dtype: Number, period: Day}
+  - {name: wakefield_council_tax_reduction_non_dependant_deduction_exempt, entity: Household, dtype: Boolean, period: Day}
+  - {name: wakefield_council_tax_reduction_non_dependant_deduction_band, entity: Household, dtype: Number, period: Day}

@@ -1,0 +1,219 @@
+- name: oldham_ctr_printed_parameters
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_maximum_support_rate: 1
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_award_reduction_rate: 0.15
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_taper_whole_percentage_points: 2
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_taper_fraction_numerator: 6
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_days_per_week: 7
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_per_cent_unit: 0.01
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_weekly_taper_rate: '0.0285714285714285714285714286'
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_capital_limit: 16000
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_tariff_income_threshold: 6000
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_tariff_income_step: 250
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_weeks_per_year: 52
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_other_case_deduction_weekly: 5.0
+    ? uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_remunerative_work_deduction_weekly
+    : 15.35
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_low_income_threshold: 266.0
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_middle_income_threshold: 463.0
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_top_income_threshold: 577.0
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_middle_deduction_weekly: 10.2
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_non_dependant_high_deduction_weekly: 12.8
+- name: oldham_ctr_positive_taper_band_a_binding
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 1200
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 520
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_working_age_scheme_applies: holds
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_band_a_capped_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_excess_income_for_year: 520
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_income_taper_deduction_for_year: '14.857142857142857142857142872'
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: '835.1428571428571428571428571'
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_award_conditions_met: holds
+- name: oldham_ctr_positive_taper_band_a_non_binding
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 520
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 800
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_band_a_capped_liability_for_year: 800
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: '665.14285714285714285714285713'
+- name: oldham_ctr_taper_equality_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 1200
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 29750
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_maximum_council_tax_reduction_for_year: 850
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_income_taper_deduction_for_year: 850
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_award_conditions_met: not_holds
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: 0
+- name: oldham_ctr_taper_exhaustion_zero_award
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 1200
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 30000
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_award_conditions_met: not_holds
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: 0
+- name: oldham_ctr_capital_limit_eligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 1200
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 2080
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_capital_eligible: holds
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_tariff_income_for_year: 2080
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: 850
+- name: oldham_ctr_capital_cliff_ineligible
+  period:
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.local_authority_is_oldham: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicant_is_not_pensioner: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_actual_liability_for_year: 1200
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_band_a_liability_for_year: 1000
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_income_for_year: 520
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_applicable_amount_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deductions_for_year: 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_assessed_capital_for_year: 16000.01
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_capital_eligible: not_holds
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_annual_amount: 0
+- name: oldham_ctr_non_dependant_exemption_no_deduction
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: false
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 0
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 0
+- name: oldham_ctr_non_remunerative_other_case
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: false
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 0
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: true
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.0
+- name: oldham_ctr_remunerative_below_266
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: true
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 265.99
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.0
+- name: oldham_ctr_remunerative_266_to_below_463
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: true
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 266.0
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.2
+- name: oldham_ctr_remunerative_463_to_below_577
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: true
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 463.0
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 12.8
+- name: oldham_ctr_remunerative_at_least_577
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_in_remunerative_work: true
+    ? uk-oldham:policies/oldham/council-tax-reduction#input.oldham_council_tax_reduction_non_dependant_normal_gross_weekly_income
+    : 577.0
+  output:
+    uk-oldham:policies/oldham/council-tax-reduction#oldham_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.35

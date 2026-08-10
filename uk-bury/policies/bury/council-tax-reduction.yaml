@@ -1,0 +1,450 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-10
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+      # rationale: LGFA 1992 section 13A delegates the working-age scheme to Bury Council, so the adopted document is operative.
+  summary: |-
+    Bury's operative 2026-27 working-age award is a direct earnings-banded percentage of the capped liability: 80, 60, 40, 20, or nil. The document prints no working-age excess-income taper and no working-age tariff-income rule; its sole local capital rule is the £8,000 cliff. Paragraphs 36-37 prescribe the award order but contain no sentence expressly stating that a grid percentage is multiplied by a separately calculated 80 percent maximum; this module therefore applies the printed grid percentage directly to the actual-or-Band-B-capped liability. The Band-B cap does not apply to protected groups. Pension-age provisions are outside scope.
+  deferred_outputs:
+    - output: uk-bury:policies/bury/council-tax-reduction/paragraphs-14-to-25#assessed_monthly_earnings
+      reason: Earnings assessment, Universal Credit earnings retrieval, and the detailed applicant/partner aggregation rules are outside this award-surface module.
+    - output: uk-bury:policies/bury/council-tax-reduction/paragraphs-26-to-33-and-appendix-5#assessed_capital
+      reason: Capital valuation, attribution, notional-capital, and disregard rules are outside this award-surface module.
+    - output: uk-bury:policies/bury/council-tax-reduction/paragraph-12#protected_group_classifier
+      reason: The detailed benefit, carer, lone-parent, and bereavement classifiers are supplied as a boundary fact.
+    - output: uk-bury:policies/bury/council-tax-reduction/paragraphs-43-to-52#chargeable_non_dependant_count
+      reason: The detailed non-dependant membership, age, couple, and exemption classifiers are outside this flat-deduction calculation.
+rules:
+  - name: bury_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 36
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-10
+              excerpt: "80% of the amount of council tax set by the council for the applicant’s dwelling"
+    versions: [{effective_from: '2026-04-01', formula: "0.80"}]
+
+  - name: bury_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 27
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-9
+              excerpt: "£8,000 for working-age applicants"
+    versions: [{effective_from: '2026-04-01', formula: "8000"}]
+
+  - name: bury_council_tax_reduction_non_dependant_monthly_deduction
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 51
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-13
+              excerpt: "The deduction is £40.00 a month."
+    versions: [{effective_from: '2026-04-01', formula: "40.00"}]
+
+  - name: bury_council_tax_reduction_months_per_year
+    kind: parameter
+    dtype: Number
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 51
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-13
+              excerpt: "multiplying the amount by 12 and dividing by 52"
+    versions: [{effective_from: '2026-04-01', formula: "12"}]
+
+  - name: bury_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 51
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-13
+              excerpt: "multiplying the amount by 12 and dividing by 52"
+    versions: [{effective_from: '2026-04-01', formula: "52"}]
+
+  - name: bury_council_tax_reduction_minimum_weekly_entitlement
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 41
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-11
+              excerpt: "minimum weekly entitlement of £1.00 a week"
+    versions: [{effective_from: '2026-04-01', formula: "1.00"}]
+
+  - name: bury_council_tax_reduction_support_rate_by_earnings_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: bury_council_tax_reduction_earnings_band
+    source: Bury Council Tax Support Scheme 2026-27 paragraphs 9 and 10
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6
+              excerpt: "Band\n\nMonthly earned income Discount\n\nSingle Single +1 child Single +2 child Single +3 child Couple Couple +1 child Couple +2 child Couple +3 child\n\n1\n\n0 0 0 0 0 0 0 0 80% 2\n\n0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60% 3\n\n100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40% 4\n\n500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20% 6\n\nOver 900 Over 1100 Over 1200 Over 1200 Over 1000 Over 1100 Over 1200 Over 1200 Nil"
+              table:
+                header: Monthly earned income and discount
+                row_key: earnings band
+                column_key: discount
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 0.80, 2: 0.60, 3: 0.40, 4: 0.20}
+
+  - name: bury_council_tax_reduction_nil_band_code
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "Band\n\nMonthly earned income Discount\n\nSingle Single +1 child Single +2 child Single +3 child Couple Couple +1 child Couple +2 child Couple +3 child\n\n1\n\n0 0 0 0 0 0 0 0 80% 2\n\n0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60% 3\n\n100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40% 4\n\n500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20% 6\n\nOver 900 Over 1100 Over 1200 Over 1200 Over 1000 Over 1100 Over 1200 Over 1200 Nil"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+  - name: bury_council_tax_reduction_nil_earnings_band_code
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "Band\n\nMonthly earned income Discount\n\nSingle Single +1 child Single +2 child Single +3 child Couple Couple +1 child Couple +2 child Couple +3 child\n\n1\n\n0 0 0 0 0 0 0 0 80% 2\n\n0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60% 3"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+  - name: bury_council_tax_reduction_band_2_code
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "1\n\n0 0 0 0 0 0 0 0 80% 2\n\n0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+  - name: bury_council_tax_reduction_band_3_code
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60% 3\n\n100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "3"}]
+  - name: bury_council_tax_reduction_band_4_code
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40% 4\n\n500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "4"}]
+  - name: bury_council_tax_reduction_one_child_threshold
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "Single +1 child"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+  - name: bury_council_tax_reduction_two_children_threshold
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "Single +2 child"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+  - name: bury_council_tax_reduction_three_or_more_children_threshold
+    kind: parameter
+    dtype: Integer
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "Single +3 child"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "3"}]
+  - name: bury_council_tax_reduction_zero_award
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 41
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-11, excerpt: "if the calculation results in an amount less than £1.00 a week, no support is awarded."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+
+  - name: bury_council_tax_reduction_single_one_child_band_2_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "100"}]
+  - name: bury_council_tax_reduction_two_child_band_2_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "200"}]
+  - name: bury_council_tax_reduction_three_child_band_2_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "0.01- 100 0.01- 200 0.01- 300 0.01- 300 0.01- 100 0.01- 200 0.01- 300 0.01- 300 60%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "300"}]
+  - name: bury_council_tax_reduction_single_band_3_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "500"}]
+  - name: bury_council_tax_reduction_couple_band_3_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "600"}]
+  - name: bury_council_tax_reduction_one_child_band_3_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "700"}]
+  - name: bury_council_tax_reduction_two_plus_children_band_3_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "100.01- 500 200.01- 700 300.01- 800 300.01- 800 100.01- 600 200.01- 700 300.01- 800.00 300.01- 800.00 40%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "800"}]
+  - name: bury_council_tax_reduction_single_band_4_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "900"}]
+  - name: bury_council_tax_reduction_couple_band_4_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1000"}]
+  - name: bury_council_tax_reduction_one_child_band_4_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1100"}]
+  - name: bury_council_tax_reduction_two_plus_children_band_4_upper_earnings
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 9 table
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6, excerpt: "500.01- 900 700.01- 1100 800.01- 1200 800.01- 1200 600.01- 1000 700.01- 1100 800.01- 1200 800.01- 1200 20%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1200"}]
+
+  - name: bury_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Bury Council Tax Support Scheme 2026-27 paragraphs 1 and 9
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-4
+              excerpt: "This document describes the scheme set up by Bury Council for the period 1st April 2026 until 31st March 2027."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_bury and council_tax_reduction_household_in_england and bury_council_tax_reduction_applicant_is_working_age and would_claim_council_tax_reduction
+
+  - name: bury_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 27
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-9
+              excerpt: "If an applicant has more than £16,000 (£8,000 for working-age applicants) in capital, no council tax support is applied under this scheme."
+    versions: [{effective_from: '2026-04-01', formula: "bury_council_tax_reduction_assessed_capital_for_year <= bury_council_tax_reduction_capital_limit"}]
+
+  - name: bury_council_tax_reduction_earnings_band
+    kind: derived
+    entity: Household
+    dtype: Integer
+    period: Month
+    source: Bury Council Tax Support Scheme 2026-27 paragraphs 9 and 10
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6
+              excerpt: "The percentage support awarded depends on where the applicant’s earnings fall in the ranges listed in the table."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if bury_council_tax_reduction_monthly_earned_income == bury_council_tax_reduction_zero_award: bury_council_tax_reduction_nil_earnings_band_code else: if bury_council_tax_reduction_number_of_children >= bury_council_tax_reduction_three_or_more_children_threshold: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_three_child_band_2_upper_earnings: bury_council_tax_reduction_band_2_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_two_plus_children_band_3_upper_earnings: bury_council_tax_reduction_band_3_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_two_plus_children_band_4_upper_earnings: bury_council_tax_reduction_band_4_code else: bury_council_tax_reduction_nil_band_code else: if bury_council_tax_reduction_number_of_children == bury_council_tax_reduction_two_children_threshold: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_three_child_band_2_upper_earnings: bury_council_tax_reduction_band_2_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_two_plus_children_band_3_upper_earnings: bury_council_tax_reduction_band_3_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_two_plus_children_band_4_upper_earnings: bury_council_tax_reduction_band_4_code else: bury_council_tax_reduction_nil_band_code else: if bury_council_tax_reduction_number_of_children == bury_council_tax_reduction_one_child_threshold: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_two_child_band_2_upper_earnings: bury_council_tax_reduction_band_2_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_one_child_band_3_upper_earnings: bury_council_tax_reduction_band_3_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_one_child_band_4_upper_earnings: bury_council_tax_reduction_band_4_code else: bury_council_tax_reduction_nil_band_code else: if bury_council_tax_reduction_applicant_has_partner: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_single_one_child_band_2_upper_earnings: bury_council_tax_reduction_band_2_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_couple_band_3_upper_earnings: bury_council_tax_reduction_band_3_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_couple_band_4_upper_earnings: bury_council_tax_reduction_band_4_code else: bury_council_tax_reduction_nil_band_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_single_one_child_band_2_upper_earnings: bury_council_tax_reduction_band_2_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_single_band_3_upper_earnings: bury_council_tax_reduction_band_3_code else: if bury_council_tax_reduction_monthly_earned_income <= bury_council_tax_reduction_single_band_4_upper_earnings: bury_council_tax_reduction_band_4_code else: bury_council_tax_reduction_nil_band_code
+
+  - name: bury_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 10
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-6
+              excerpt: "The percentage support awarded depends on where the applicant’s earnings fall in the ranges listed in the table."
+    versions: [{effective_from: '2026-04-01', formula: "bury_council_tax_reduction_support_rate_by_earnings_band[bury_council_tax_reduction_earnings_band]"}]
+
+  - name: bury_council_tax_reduction_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraphs 11, 12, 36, and 37
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-10
+              excerpt: "For working-age applicants, the maximum amount of council tax support is the lower of: • 80% of the amount of council tax set by the council for the applicant’s dwelling, after the deduction of any appropriate discount, or • in the case of households living in a property in a higher council tax band than band B, 80% of the amount of council tax liability for a band B property, after the deduction of any appropriate discount, unless they are in a protected group."
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-10
+              excerpt: "For working-age applicants, the maximum amount of council tax support is the lower of: • 80% of the amount of council tax set by the council for the applicant’s dwelling, after the deduction of any appropriate discount, or • in the case of households living in a property in a higher council tax band than band B, 80% of the amount of council tax liability for a band B property, after the deduction of any appropriate discount, unless they are in a protected group."
+    versions: [{effective_from: '2026-04-01', formula: "if bury_council_tax_reduction_protected_group: bury_council_tax_reduction_actual_liability_for_year else: min(bury_council_tax_reduction_actual_liability_for_year, bury_council_tax_reduction_band_b_liability_for_year)"}]
+
+  - name: bury_council_tax_reduction_non_dependant_deduction_band
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Bury Council Tax Support Scheme 2026-27 paragraphs 51 and 52
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-13
+              excerpt: "No non-dependant deductions are applied where the non-dependant:"
+    versions: [{effective_from: '2026-04-01', formula: "bury_council_tax_reduction_chargeable_non_dependant_count > bury_council_tax_reduction_zero_award"}]
+
+  - name: bury_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 51
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-13
+              excerpt: "Weekly amount shall be determined by multiplying the amount by 12 and dividing by 52."
+    versions: [{effective_from: '2026-04-01', formula: "if bury_council_tax_reduction_non_dependant_deduction_band: bury_council_tax_reduction_chargeable_non_dependant_count * bury_council_tax_reduction_non_dependant_monthly_deduction * bury_council_tax_reduction_months_per_year else: bury_council_tax_reduction_zero_award"}]
+
+  - name: bury_council_tax_reduction_calculated_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 37
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-10
+              excerpt: "For working-age applicants, the calculation of council tax support is made in the following order: a. the actual liability for council tax, capped at a band B property charge; b. apply the maximum council tax support in accordance with the table at paragraph 9; c. apply any non-dependant deductions set out in paragraph 51."
+    versions: [{effective_from: '2026-04-01', formula: "max(bury_council_tax_reduction_zero_award, bury_council_tax_reduction_eligible_liability_for_year * bury_council_tax_reduction_selected_support_rate - bury_council_tax_reduction_annual_non_dependant_deduction)"}]
+
+  - name: bury_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Bury Council Tax Support Scheme 2026-27 paragraph 41
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-bury/manual/council-tax-support-scheme-2026-27/page-11
+              excerpt: "if the calculation results in an amount less than £1.00 a week, no support is awarded."
+    versions: [{effective_from: '2026-04-01', formula: "if bury_council_tax_reduction_working_age_scheme_applies and bury_council_tax_reduction_capital_eligible and bury_council_tax_reduction_calculated_annual_amount / bury_council_tax_reduction_weeks_per_year >= bury_council_tax_reduction_minimum_weekly_entitlement: bury_council_tax_reduction_calculated_annual_amount else: bury_council_tax_reduction_zero_award"}]
+inputs:
+  local_authority_is_bury: {dtype: Boolean, entity: Household, period: Year}
+  council_tax_reduction_household_in_england: {dtype: Boolean, entity: Household, period: Year}
+  would_claim_council_tax_reduction: {dtype: Boolean, entity: Household, period: Year}
+  bury_council_tax_reduction_applicant_is_working_age: {dtype: Boolean, entity: Household, period: Year}
+  bury_council_tax_reduction_assessed_capital_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  bury_council_tax_reduction_monthly_earned_income: {dtype: Money, entity: Household, period: Month, unit: GBP}
+  bury_council_tax_reduction_applicant_has_partner: {dtype: Boolean, entity: Household, period: Month}
+  bury_council_tax_reduction_number_of_children: {dtype: Integer, entity: Household, period: Month}
+  bury_council_tax_reduction_actual_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  bury_council_tax_reduction_band_b_liability_for_year: {dtype: Money, entity: Household, period: Year, unit: GBP}
+  bury_council_tax_reduction_protected_group: {dtype: Boolean, entity: Household, period: Year}
+  bury_council_tax_reduction_chargeable_non_dependant_count: {dtype: Integer, entity: Household, period: Year}

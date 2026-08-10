@@ -1,0 +1,434 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-15
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+      # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority so the adopted document is operative.
+  summary: |-
+    Leeds's adopted 2026-27 Universal Credit scheme is a local UC-only award surface. Class 1 receives the full weekly liability less the 15 percent surplus-income deduction; Classes 2 to 4 receive 75 percent less that deduction, except that a Class 2 claimant who no longer meets a paragraph 7.2.1 condition receives £0.00. Capital over £16,000 excludes entitlement. The personal allowance is the nationally prescribed UC standard allowance, converted to weekly, and is supplied to this local award surface as an assessed boundary input. The document prints no local tariff-income rule or non-dependant deduction schedule. Pension-age and Leeds's separate General Scheme are outside scope.
+  deferred_outputs:
+    - output: uk-leeds:policies/leeds/council-tax-reduction/paragraph-8-4#council_tax_support_personal_allowance_weekly
+      reason: Paragraph 8.4 imports the applicable Universal Credit Regulation 36 standard allowance and its claimant classification; this local award-surface module consumes the resulting weekly allowance.
+    - output: uk-leeds:policies/leeds/council-tax-reduction/paragraph-5-2#capital_assessment_and_tariff_income
+      reason: Paragraph 5.2 prints the £16,000 exclusion and imports UC capital assessment, but prints no tariff-income threshold, step, or amount for this scheme.
+    - output: uk-leeds:policies/leeds/council-tax-reduction/paragraph-8-3#eligible_income_assessment
+      reason: Eligible-income composition, disregards, and weekly conversion feed the deduction but are outside this award-surface module.
+    - output: uk-leeds:policies/leeds/council-tax-reduction/paragraphs-4-and-7-2-1#class_membership_and_class_2_conditions
+      reason: The detailed class classifiers and revoked Class 2 conditions are supplied as boundary facts to the award calculation.
+    - output: uk-leeds:policies/leeds/council-tax-reduction/paragraph-6#weekly_council_tax_liability
+      reason: Daily charge conversion and joint-liability apportionment determine the weekly liability consumed by the award surface.
+    - output: uk-leeds:policies/leeds/council-tax-reduction/non_dependant_deductions#non_dependant_deduction_schedule
+      reason: No non-dependant deduction schedule is printed in this adopted UC scheme document.
+rules:
+  - name: leeds_council_tax_reduction_ordinary_class_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraphs 7.2 to 7.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "the person is entitled to 75% of the maximum council tax reduction less any surplus income deduction as specified in paragraph 8."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.75
+
+  - name: leeds_council_tax_reduction_surplus_income_deduction_rate
+    kind: parameter
+    dtype: Rate
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-20
+              excerpt: "The Surplus Income Deduction is 15% of the amount that the applicants’ eligible income exceeds their Council Tax Support Personal Allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0.15
+
+  - name: leeds_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 5.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-12
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 16000
+
+  - name: leeds_council_tax_reduction_zero_weekly_amount
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 7.2.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "their Council Tax Support reduction shall be £0.00."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 0
+
+  - name: leeds_council_tax_reduction_class_1_code
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-6
+              excerpt: "Class 1 Universal Credit war pensioner"
+    versions: [{effective_from: '2026-04-01', formula: 1}]
+
+  - name: leeds_council_tax_reduction_class_2_code
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-7
+              excerpt: "Class 2 Universal Credit jobseeker"
+    versions: [{effective_from: '2026-04-01', formula: 2}]
+
+  - name: leeds_council_tax_reduction_class_3_code
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-8
+              excerpt: "Class 3 Universal Credit claimant"
+    versions: [{effective_from: '2026-04-01', formula: 3}]
+
+  - name: leeds_council_tax_reduction_class_4_code
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-9
+              excerpt: "Class 4 Former Universal Credit claimant"
+    versions: [{effective_from: '2026-04-01', formula: 4}]
+
+  - name: leeds_council_tax_reduction_class_2_continuous_month_limit
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 7.2.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "Has not yet fallen within class 2 (Universal Credit Jobseeker) for a continuous period that exceeds 6 months"
+    versions: [{effective_from: '2026-04-01', formula: 6}]
+
+  - name: leeds_council_tax_reduction_months_per_year
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-24
+              excerpt: "by multiplying the monthly amount by 12 and dividing the result by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 12
+
+  - name: leeds_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-24
+              excerpt: "by multiplying the monthly amount by 12 and dividing the result by 52."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: 52
+
+  - name: leeds_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 5.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-12
+              excerpt: "The class of person described in this paragraph consists of any person whose capital exceeds £16,000."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: leeds_council_tax_reduction_assessed_capital_for_week <= leeds_council_tax_reduction_capital_limit
+
+  - name: leeds_council_tax_reduction_income_exceeds_personal_allowance
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-22
+              excerpt: "This shall be the eligible Income less the Council Tax Support personal allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: leeds_council_tax_reduction_eligible_income_for_week > leeds_council_tax_reduction_personal_allowance_for_week
+
+  - name: leeds_council_tax_reduction_surplus_eligible_income_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-22
+              excerpt: "This shall be the eligible Income less the Council Tax Support personal allowance."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-22
+              excerpt: "the surplus eligible income shall be £0.00."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if leeds_council_tax_reduction_income_exceeds_personal_allowance: leeds_council_tax_reduction_eligible_income_for_week - leeds_council_tax_reduction_personal_allowance_for_week else: leeds_council_tax_reduction_zero_weekly_amount
+
+  - name: leeds_council_tax_reduction_surplus_income_deduction_for_week
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 8.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-21
+              excerpt: "This shall be 15% of the Surplus Eligible Income."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: leeds_council_tax_reduction_surplus_eligible_income_for_week * leeds_council_tax_reduction_surplus_income_deduction_rate
+
+  - name: leeds_council_tax_reduction_class_2_zero_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 7.2.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "Where a person falls within Class 2 Universal Credit Jobseeker, and does not meet any of the conditions in 7.2.1 a) to d) above then their Council Tax Support reduction shall be £0.00."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: leeds_council_tax_reduction_is_class_2 and not leeds_council_tax_reduction_class_2_within_continuous_month_limit
+
+  - name: leeds_council_tax_reduction_is_class_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-6
+              excerpt: "Class 1 Universal Credit war pensioner"
+    versions: [{effective_from: '2026-04-01', formula: leeds_council_tax_reduction_claimant_class_code == leeds_council_tax_reduction_class_1_code}]
+
+  - name: leeds_council_tax_reduction_is_class_2
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-7
+              excerpt: "Class 2 Universal Credit jobseeker"
+    versions: [{effective_from: '2026-04-01', formula: leeds_council_tax_reduction_claimant_class_code == leeds_council_tax_reduction_class_2_code}]
+
+  - name: leeds_council_tax_reduction_is_class_3
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.3
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-8
+              excerpt: "Class 3 Universal Credit claimant"
+    versions: [{effective_from: '2026-04-01', formula: leeds_council_tax_reduction_claimant_class_code == leeds_council_tax_reduction_class_3_code}]
+
+  - name: leeds_council_tax_reduction_is_class_4
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 4.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-9
+              excerpt: "Class 4 Former Universal Credit claimant"
+    versions: [{effective_from: '2026-04-01', formula: leeds_council_tax_reduction_claimant_class_code == leeds_council_tax_reduction_class_4_code}]
+
+  - name: leeds_council_tax_reduction_class_2_within_continuous_month_limit
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 7.2.1(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "Has not yet fallen within class 2 (Universal Credit Jobseeker) for a continuous period that exceeds 6 months"
+    versions: [{effective_from: '2026-04-01', formula: leeds_council_tax_reduction_class_2_continuous_months <= leeds_council_tax_reduction_class_2_continuous_month_limit}]
+
+  - name: leeds_council_tax_reduction_ordinary_class_award_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraphs 7.2 to 7.4
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "Where a person falls within Class 2 Universal Credit Jobseeker and any one of the conditions a) to d) below are met"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-18
+              excerpt: "Where a person falls within Class 3 Universal Credit claimant"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-19
+              excerpt: "Where a person falls within Class 4 Former Universal Credit claimant"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (leeds_council_tax_reduction_is_class_2 and leeds_council_tax_reduction_class_2_within_continuous_month_limit)
+          or leeds_council_tax_reduction_is_class_3
+          or leeds_council_tax_reduction_is_class_4
+
+  - name: leeds_council_tax_reduction_weekly_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Leeds City Council Council Tax Support Scheme (Universal Credit) 2026 to 2027 paragraph 7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-16
+              excerpt: "the amount of the reduction shall be the maximum reduction less the surplus income deduction as specified in paragraph 8."
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-18
+              excerpt: "the amount of the reduction shall be 75% of the maximum weekly reduction less the surplus income deduction as specified in paragraph 8."
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-leeds/manual/council-tax-support-scheme-universal-credit-2026-2027/block-17
+              excerpt: "their Council Tax Support reduction shall be £0.00."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if leeds_council_tax_reduction_is_class_1 and leeds_council_tax_reduction_capital_eligible: max(leeds_council_tax_reduction_zero_weekly_amount, leeds_council_tax_reduction_weekly_council_tax_liability - leeds_council_tax_reduction_surplus_income_deduction_for_week) elif leeds_council_tax_reduction_ordinary_class_award_applies and leeds_council_tax_reduction_capital_eligible: max(leeds_council_tax_reduction_zero_weekly_amount, leeds_council_tax_reduction_weekly_council_tax_liability * leeds_council_tax_reduction_ordinary_class_support_rate - leeds_council_tax_reduction_surplus_income_deduction_for_week) else: leeds_council_tax_reduction_zero_weekly_amount

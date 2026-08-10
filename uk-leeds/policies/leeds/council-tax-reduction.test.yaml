@@ -1,0 +1,158 @@
+- name: leeds_ctr_all_printed_parameters
+  period: &benefit_week
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input: {}
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_support_rate: 0.75
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_rate: 0.15
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_capital_limit: 16000
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_zero_weekly_amount: 0
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_1_code: 1
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_code: 2
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_3_code: 3
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_4_code: 4
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_continuous_month_limit: 6
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_months_per_year: 12
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weeks_per_year: 52
+
+- name: leeds_ctr_class_1_positive_award_after_positive_sid
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 150
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 1
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 0
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_1: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_income_exceeds_personal_allowance: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_eligible_income_for_week: 50
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: not_holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 7.5
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 92.5
+
+- name: leeds_ctr_class_2_at_six_month_limit_uses_7_2_1_rate
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 150
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 2
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 6
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_2: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_within_continuous_month_limit: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_zero_award_applies: not_holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 7.5
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 67.5
+
+- name: leeds_ctr_class_2_immediately_outside_six_month_limit_is_7_2_2_nil
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 2
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 6.01
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_2: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_within_continuous_month_limit: not_holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_zero_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 0
+
+- name: leeds_ctr_class_3_positive_ordinary_award
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 150
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 3
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 0
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_3: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 7.5
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 67.5
+
+- name: leeds_ctr_class_4_positive_ordinary_award
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 150
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 4
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 0
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_4: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 7.5
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 67.5
+
+- name: leeds_ctr_sid_equal_to_applicable_maximum_floors_to_zero
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 600
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 2
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 6
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_within_continuous_month_limit: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 75
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 0
+
+- name: leeds_ctr_sid_exceeding_applicable_maximum_floors_to_zero
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 700
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 2
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 6
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_class_2_within_continuous_month_limit: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_ordinary_class_award_applies: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 90
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 0
+
+- name: leeds_ctr_capital_at_16000_is_eligible_with_positive_award
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 16000
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 3
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 0
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_3: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_capital_eligible: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 75
+
+- name: leeds_ctr_capital_at_16000_01_is_ineligible_with_zero_award
+  period: *benefit_week
+  input:
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_assessed_capital_for_week: 16000.01
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_eligible_income_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_personal_allowance_for_week: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_weekly_council_tax_liability: 100
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_claimant_class_code: 3
+    uk-leeds:policies/leeds/council-tax-reduction#input.leeds_council_tax_reduction_class_2_continuous_months: 0
+  output:
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_is_class_3: holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_capital_eligible: not_holds
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_surplus_income_deduction_for_week: 0
+    uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_weekly_amount: 0

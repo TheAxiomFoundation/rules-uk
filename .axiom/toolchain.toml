@@ -1,4 +1,4 @@
 [toolchain]
-axiom_corpus_release = "uk-rulespec-2026-08-08"
-axiom_corpus_release_content_sha256 = "aa1369860b2467197b8d61a689b0b6cf26254b0243cc05dfaff9cc26b21374a5"
+axiom_corpus_release = "uk-rulespec-2026-08-10"
+axiom_corpus_release_content_sha256 = "835714abb9c3bf36962094cee893e4f284263b3ab4ad2fcdc47a13d616aa9fea"
 validation_waiver_set_sha256 = "115c52e0b2f0f6e2c6af4db1c458b3e9c0a8b58cd58427562dc6e8f05bdfff8c"

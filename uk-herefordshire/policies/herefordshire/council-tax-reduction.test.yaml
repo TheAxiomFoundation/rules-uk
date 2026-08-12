@@ -1,0 +1,146 @@
+- name: herefordshire_ctr_parameters
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_maximum_support_rate: 1
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_days_per_week: 7
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_taper_rate: 0.20
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_capital_limit: 6000
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_middle_threshold: 279
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_high_threshold: 485
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_top_threshold: 605
+
+- name: herefordshire_ctr_maximum_and_taper
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.local_authority_is_herefordshire: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_capital: 0
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_eligible_liability_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_income_weekly: 150
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_maximum_weekly_amount: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_excess_income_weekly: 50
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_taper_deduction_weekly: 10
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_calculated_weekly_amount: 90
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_award_conditions_met: holds
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_amount: 90
+
+- name: herefordshire_ctr_capital_at_limit
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.local_authority_is_herefordshire: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_capital: 6000
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_eligible_liability_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_income_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_capital_eligible: holds
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_amount: 100
+
+- name: herefordshire_ctr_taper_exhausts_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.local_authority_is_herefordshire: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_capital: 0
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_eligible_liability_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_income_weekly: 600
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_excess_income_weekly: 500
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_taper_deduction_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_calculated_weekly_amount: 0
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_award_conditions_met: holds
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_amount: 0
+
+- name: herefordshire_ctr_capital_first_penny_over_is_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.local_authority_is_herefordshire: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_capital: 6000.01
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_eligible_liability_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_assessed_income_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_capital_eligible: not_holds
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_amount: 0
+
+- name: herefordshire_ctr_non_dep_278_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 0
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: herefordshire_ctr_non_dep_279
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 1
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: herefordshire_ctr_non_dep_484_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 1
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: herefordshire_ctr_non_dep_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 2
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: herefordshire_ctr_non_dep_604_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 2
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: herefordshire_ctr_non_dep_605
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band: 3
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: herefordshire_ctr_non_dep_exempt_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#input.herefordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 700
+  output:
+    uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

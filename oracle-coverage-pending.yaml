@@ -8731,6 +8731,69 @@ entries:
 - legal_id: uk-leeds:policies/leeds/council-tax-reduction#leeds_council_tax_reduction_zero_weekly_amount
   source: manual
   since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_award_conditions_met
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_calculated_weekly_amount
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_capital_eligible
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_daily_taper_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_days_per_week
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_excess_income_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_individual_non_dependant_deduction_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_maximum_weekly_amount
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_deduction_by_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_high_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_middle_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_non_dependant_top_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_taper_deduction_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_amount
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_weekly_taper_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_per_cent_unit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_taper_fraction_numerator
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-herefordshire:policies/herefordshire/council-tax-reduction#herefordshire_council_tax_reduction_taper_whole_percentage_points
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_assessed_weekly_income_with_tariff
   source: manual
   since: 2026-08-03
@@ -8756,6 +8819,9 @@ entries:
   source: manual
   since: 2026-08-03
 - legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_income_band_75_lower_bound
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_non_dependant_weekly_deduction
   source: manual
   since: 2026-08-03
 - legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_non_dependant_weekly_deduction_by_band
@@ -8800,7 +8866,4 @@ entries:
 - legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_terminal_illness_support_within_limit
   source: manual
   since: 2026-08-03
-- legal_id: uk-county-durham:policies/county-durham/council-tax-reduction#county_durham_council_tax_reduction_non_dependant_weekly_deduction
-  source: manual
-  since: 2026-08-03
-ceiling: 2934
+ceiling: 2955

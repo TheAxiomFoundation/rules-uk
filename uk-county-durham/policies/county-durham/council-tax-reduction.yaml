@@ -1,0 +1,253 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+      # rationale: LGFA 1992 section 13A delegates the working-age scheme to this authority so the adopted document is operative.
+  summary: |-
+    Durham County Council's adopted 2026/27 working-age scheme selects a 90, 75, 50, 25, or 0 percent discount from assessed weekly income. The document separately defines the daily maximum liability after discounts and exemptions, but contains no sentence linking the selected percentage to that maximum or directly to liability; this module therefore exposes each printed award-basis component and does not infer a monetary multiplication. A terminally ill household member with SR1 confirmation raises an existing 90 percent award to 100 percent for up to 12 months. Capital of £10,000 or more excludes entitlement, and capital above £6,000 produces £1 weekly tariff income per £250 or part. Pension-age provisions and detailed income, capital, liability, rounding, and non-dependant exemption classifiers are outside this module.
+  deferred_outputs:
+    - output: uk-county-durham:policies/county-durham/council-tax-reduction/sections-3-to-5-and-annexes-1-and-3#assessed_weekly_income
+      reason: The detailed earnings, Universal Credit, disregard, and minimum-income-floor rules determine the boundary assessed-income input.
+    - output: uk-county-durham:policies/county-durham/council-tax-reduction/sections-6-to-8-and-annex-2#assessed_capital
+      reason: Capital valuation, attribution, notional capital, and disregard rules determine the boundary assessed-capital input.
+    - output: uk-county-durham:policies/county-durham/council-tax-reduction/section-9#daily_maximum_council_tax_reduction
+      reason: Discounts, exemptions, joint-liability shares, and rounding determine the boundary daily maximum amount.
+    - output: uk-county-durham:policies/county-durham/council-tax-reduction/section-10#non_dependant_exemption_and_apportionment
+      reason: The detailed non-dependant exemption, household membership, and joint-liability apportionment classifiers remain boundary inputs.
+rules:
+  - name: county_durham_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 6.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "capital of £10,000 or more"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 10000}]
+
+  - name: county_durham_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 8.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "£1 for each £250 in excess of £6,000 but not £10,000 or more."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 6000}]
+
+  - name: county_durham_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 8.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "£1 for each £250 in excess of £6,000 but not £10,000 or more."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 250}]
+
+  - name: county_durham_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 8.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "£1 for each £250 in excess of £6,000 but not £10,000 or more."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 1}]
+
+  - name: county_durham_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: county_durham_council_tax_reduction_non_dependant_deduction_band
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 10.2
+    metadata:
+      proof:
+        atoms:
+          - path: "versions[0].values"
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-10
+              excerpt: "a deduction of £10.00 per week is applied for each non-dependant aged 18 or over, unless they are exempt. For non-dependant couples, a £10.00 deduction is applied to each person"
+              table: {header: "Section 10.2 non-dependant deduction", row_key: "1", column_key: "weekly deduction"}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 10.00}}]
+
+  - name: county_durham_council_tax_reduction_support_rate_90
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Household weekly income % discount awarded £0.00 - £69.99 90% £70.00 - £125.00 75% £125.01 – 200.00 50% £200.01 - £275.00 25% £275.01 or more 0%", table: {header: "Household weekly income", row_key: "£0.00 - £69.99", column_key: "% discount awarded"}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0.90}]
+
+  - name: county_durham_council_tax_reduction_support_rate_75
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Household weekly income % discount awarded £0.00 - £69.99 90% £70.00 - £125.00 75% £125.01 – 200.00 50% £200.01 - £275.00 25% £275.01 or more 0%", table: {header: "Household weekly income", row_key: "£70.00 - £125.00", column_key: "% discount awarded"}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0.75}]
+
+  - name: county_durham_council_tax_reduction_support_rate_50
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Household weekly income % discount awarded £0.00 - £69.99 90% £70.00 - £125.00 75% £125.01 – 200.00 50% £200.01 - £275.00 25% £275.01 or more 0%", table: {header: "Household weekly income", row_key: "£125.01 – 200.00", column_key: "% discount awarded"}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0.50}]
+
+  - name: county_durham_council_tax_reduction_support_rate_25
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Household weekly income % discount awarded £0.00 - £69.99 90% £70.00 - £125.00 75% £125.01 – 200.00 50% £200.01 - £275.00 25% £275.01 or more 0%", table: {header: "Household weekly income", row_key: "£200.01 - £275.00", column_key: "% discount awarded"}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0.25}]
+
+  - name: county_durham_council_tax_reduction_support_rate_0
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Household weekly income % discount awarded £0.00 - £69.99 90% £70.00 - £125.00 75% £125.01 – 200.00 50% £200.01 - £275.00 25% £275.01 or more 0%", table: {header: "Household weekly income", row_key: "£275.01 or more", column_key: "% discount awarded"}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0}]
+
+  - name: county_durham_council_tax_reduction_income_band_75_lower_bound
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "£70.00 - £125.00 75%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 70.00}]
+
+  - name: county_durham_council_tax_reduction_income_band_50_lower_bound
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "£125.01 – 200.00 50%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 125.01}]
+
+  - name: county_durham_council_tax_reduction_income_band_25_lower_bound
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "£200.01 - £275.00 25%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 200.01}]
+
+  - name: county_durham_council_tax_reduction_income_band_0_lower_bound
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3 income bands
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "£275.01 or more 0%"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 275.01}]
+
+  - name: county_durham_council_tax_reduction_terminal_illness_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "100% support for up to 12 months"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 1}]
+
+  - name: county_durham_council_tax_reduction_terminal_illness_support_month_limit
+    kind: parameter
+    dtype: Number
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "100% support for up to 12 months"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 12}]
+
+  - name: county_durham_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Boolean
+    period: Week
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 sections 2.2 and 6.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "If an applicant has capital of £10,000 or more, they will not be eligible for a discount under this scheme."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if county_durham_council_tax_reduction_assessed_capital < county_durham_council_tax_reduction_capital_limit: true else: false"}]
+
+  - name: county_durham_council_tax_reduction_tariff_income_for_week
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 8.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "£1 for each £250 in excess of £6,000 but not £10,000 or more. b) £1 for any excess which is not a complete £250."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if county_durham_council_tax_reduction_assessed_capital > county_durham_council_tax_reduction_tariff_income_threshold: ceil((county_durham_council_tax_reduction_assessed_capital - county_durham_council_tax_reduction_tariff_income_threshold) / county_durham_council_tax_reduction_tariff_income_step) * county_durham_council_tax_reduction_tariff_income_weekly_amount_per_step else: county_durham_council_tax_reduction_assessed_capital - county_durham_council_tax_reduction_assessed_capital
+
+  - name: county_durham_council_tax_reduction_non_dependant_weekly_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 10.2
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-10, excerpt: "a deduction of £10.00 per week is applied for each non-dependant aged 18 or over, unless they are exempt. For non-dependant couples, a £10.00 deduction is applied to each person"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "county_durham_council_tax_reduction_non_dependant_count * county_durham_council_tax_reduction_non_dependant_weekly_deduction_by_band[county_durham_council_tax_reduction_non_dependant_deduction_band]"}]
+
+  - name: county_durham_council_tax_reduction_assessed_weekly_income_with_tariff
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 sections 2.3 and 8.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "The capital of an applicant, will be treated as if it were a weekly income of:"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "county_durham_council_tax_reduction_assessed_weekly_income + county_durham_council_tax_reduction_tariff_income_for_week"}]
+
+  - name: county_durham_council_tax_reduction_base_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Week
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.3
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-4, excerpt: "The percentage of discount awarded is determined by the applicant’s weekly income, as assessed against the income bands set out below."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if county_durham_council_tax_reduction_assessed_weekly_income_with_tariff >= county_durham_council_tax_reduction_income_band_0_lower_bound: county_durham_council_tax_reduction_support_rate_0 else: if county_durham_council_tax_reduction_assessed_weekly_income_with_tariff >= county_durham_council_tax_reduction_income_band_25_lower_bound: county_durham_council_tax_reduction_support_rate_25 else: if county_durham_council_tax_reduction_assessed_weekly_income_with_tariff >= county_durham_council_tax_reduction_income_band_50_lower_bound: county_durham_council_tax_reduction_support_rate_50 else: if county_durham_council_tax_reduction_assessed_weekly_income_with_tariff >= county_durham_council_tax_reduction_income_band_75_lower_bound: county_durham_council_tax_reduction_support_rate_75 else: county_durham_council_tax_reduction_support_rate_90
+
+  - name: county_durham_council_tax_reduction_terminal_illness_support_within_limit
+    kind: derived
+    entity: Person
+    dtype: Boolean
+    period: Week
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Any household awarded, or currently receiving, a 90% discount will automatically qualify for 100% support for up to 12 months if a member of the household has been diagnosed with a terminal illness."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if county_durham_council_tax_reduction_terminal_illness_support_months <= county_durham_council_tax_reduction_terminal_illness_support_month_limit: true else: false"}]
+
+  - name: county_durham_council_tax_reduction_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Week
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 2.4
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-5, excerpt: "Any household awarded, or currently receiving, a 90% discount will automatically qualify for 100% support for up to 12 months if a member of the household has been diagnosed with a terminal illness."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if county_durham_council_tax_reduction_capital_eligible == true: if county_durham_council_tax_reduction_terminal_illness_sr1_confirmed: if county_durham_council_tax_reduction_terminal_illness_support_within_limit == true: if county_durham_council_tax_reduction_base_support_rate == county_durham_council_tax_reduction_support_rate_90: county_durham_council_tax_reduction_terminal_illness_support_rate else: county_durham_council_tax_reduction_base_support_rate else: county_durham_council_tax_reduction_base_support_rate else: county_durham_council_tax_reduction_base_support_rate else: county_durham_council_tax_reduction_support_rate_0
+
+  - name: county_durham_council_tax_reduction_daily_maximum_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: Durham County Council Working-age Council Tax Reduction Scheme 2026/27 section 9.1
+    metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-county-durham/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "the maximum amount of council tax reduction is determined by first applying any relevant discounts or exemptions to the account and then calculating the daily liability."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: county_durham_council_tax_reduction_daily_liability_after_discounts_and_exemptions}]
+inputs:
+  - {name: county_durham_council_tax_reduction_assessed_capital, entity: Person, dtype: Money, period: Year, unit: GBP}
+  - {name: county_durham_council_tax_reduction_assessed_weekly_income, entity: Person, dtype: Money, period: Week, unit: GBP}
+  - {name: county_durham_council_tax_reduction_terminal_illness_sr1_confirmed, entity: Person, dtype: Boolean, period: Week}
+  - {name: county_durham_council_tax_reduction_terminal_illness_support_months, entity: Person, dtype: Number, period: Week}
+  - {name: county_durham_council_tax_reduction_non_dependant_count, entity: Person, dtype: Number, period: Week}
+  - {name: county_durham_council_tax_reduction_non_dependant_deduction_band, entity: Person, dtype: Number, period: Week}
+  - {name: county_durham_council_tax_reduction_daily_liability_after_discounts_and_exemptions, entity: Person, dtype: Money, period: Day, unit: GBP}

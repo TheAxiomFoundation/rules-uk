@@ -1368,6 +1368,31 @@
     uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_maximum_amount_before_non_dependant_deduction_for_year: 500
     uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_maximum_amount_for_year: 500
     uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_annual_amount: 250
+- name: wirral_liability_below_band_d_cap_is_retained
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-wirral:policies/wirral/council-tax-reduction#input.local_authority_is_wirral: true
+    uk-wirral:policies/wirral/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-wirral:policies/wirral/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_applicant_is_working_age: true
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_assessed_capital_for_year: 0
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_assessed_weekly_net_income: 100
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_annual_council_tax_liability_after_statutory_discounts_and_apportionment: 800
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_annual_band_d_council_tax_liability_after_statutory_discounts_and_apportionment: 1000
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_financial_year_days: 365
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_has_partner: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_has_one_dependant: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_has_two_or_more_dependants: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_receives_income_support: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_receives_income_related_esa: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_receives_income_based_jsa: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_receives_universal_credit: false
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_non_dependant_deduction_units_after_person_exemptions: 0
+    uk-wirral:policies/wirral/council-tax-reduction#input.wirral_council_tax_reduction_applicant_or_partner_is_protected_from_non_dependant_deductions: false
+  output:
+    uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_band_d_capped_eligible_liability_for_year: 800
+    uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_maximum_amount_before_non_dependant_deduction_for_year: 400
+    uk-wirral:policies/wirral/council-tax-reduction#wirral_council_tax_reduction_amount_before_award_conditions_for_year: 200
 - name: wirral_non_dependant_daily_deduction_composes_inside_maximum
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:

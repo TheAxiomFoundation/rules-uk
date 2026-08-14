@@ -549,10 +549,15 @@ rules:
     dtype: Money
     period: Year
     unit: GBP
-    source: Wirral Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 4
+    source: Wirral Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 2 and 4
     metadata:
       proof:
         atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wirral/manual/council-tax-reduction-scheme-2026-2027/page-63
+              excerpt: "2. In all cases (Table 1), the amount of reduction to be granted is to be based on the following factors:\n\n(a) The maximum Council Tax Reduction as defined within this scheme;"
           - path: versions[0].formula
             kind: formula
             source:

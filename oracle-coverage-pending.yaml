@@ -8902,6 +8902,9 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_maximum_support_rate
   source: manual
   since: 2026-08-03
+- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_percent_divisor
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_maximum_weekly_amount
   source: manual
   since: 2026-08-03
@@ -8944,6 +8947,15 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_tariff_income_weekly_amount_per_step
   source: manual
   since: 2026-08-03
+- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_fraction_denominator
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_fraction_numerator
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_whole_percentage_points
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_weekly_amount
   source: manual
   since: 2026-08-03
@@ -8953,4 +8965,4 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_working_age_scheme_applies
   source: manual
   since: 2026-08-03
-ceiling: 2984
+ceiling: 2988

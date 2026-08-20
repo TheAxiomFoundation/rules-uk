@@ -127,9 +127,9 @@
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_income_including_tariff_weekly: 100
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_excess_income_weekly: 0
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_income_taper_deduction_weekly: 0
-    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_award_conditions_met: holds
+    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_award_conditions_met: not_holds
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_maximum_weekly_amount: 100
-    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_weekly_amount: 100
+    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_weekly_amount: 0
 
 - name: worthing_ctr_capital_at_limit_has_maximum_award
   period: *benefit_week

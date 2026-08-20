@@ -5,7 +5,7 @@ module:
   source_verification:
     corpus_citation_path: uk-worthing/manual/council-tax-reduction-scheme-2026-2027/page-46
   summary: |-
-    Worthing's 2026/27 adopted working-age scheme is operative from 1 April 2026. Its standard working-age maximum is 100 percent of eligible weekly liability less non-dependant deductions, and the Class E award deducts the excess-income taper from that defined maximum. The printed per-cent wording supplies a percent divisor of 100. The daily taper printed as 2 6/7 percent is converted to a weekly rate only by multiplying by the printed seven-day denominator. Capital over £16,000 is an exclusion, while £1 weekly tariff income applies for each started £250 above £6,000 up to the capital limit. The corpus has no printed minimum-award floor or council-tax-band cap. Paragraph 30.0(2)(a) cross-references paragraph 58.1(b), a child-care provision, for the remunerative non-dependant row below £279; it therefore supplies no printed monetary amount for that row. This active module encodes every printed amount and carries that one source-defective amount, the paragraph 10 hours/exception classifier, and the couple-coordination selection as self-scoped boundary outputs rather than inferring a rate. Pension-age provisions are outside this working-age module.
+    Worthing's 2026/27 adopted working-age scheme is operative from 1 April 2026. Its standard working-age maximum is 100 percent of eligible weekly liability less non-dependant deductions, and the Class E award deducts the excess-income taper from that defined maximum. The operative taper sentence's printed per-cent wording supplies a percent divisor of 100. The daily taper printed as 2 6/7 percent is converted to a weekly rate only by multiplying by the printed seven-day denominator. Class D strictly requires income less than the applicable amount and Class E strictly requires income greater than it; the corpus assigns no class at equality, so this module preserves that drafting gap rather than extending either class. Capital over £16,000 is an exclusion, while £1 weekly tariff income applies for each started £250 above £6,000 up to the capital limit. The corpus has no printed minimum-award floor or council-tax-band cap. Paragraph 30.0(2)(a) cross-references paragraph 58.1(b), a child-care provision, for the remunerative non-dependant row below £279; it therefore supplies no printed monetary amount for that row. This active module encodes every printed amount and carries that one source-defective amount, the paragraph 10 hours/exception classifier, and the couple-coordination selection as self-scoped boundary outputs rather than inferring a rate. Pension-age provisions are outside this working-age module.
   deferred_outputs:
     - output: uk-worthing:policies/worthing/council-tax-reduction/applicable-amount#weekly_applicable_amount
       reason: The personal allowances, premiums, components, and transitional additions used to calculate the applicable amount are outside this award-surface module.
@@ -97,20 +97,15 @@ rules:
   - name: worthing_council_tax_reduction_percent_divisor
     kind: parameter
     dtype: Number
-    source: Worthing Borough Council Tax Reduction Scheme 2026/27 paragraph 29.0(1) percentage notation
+    source: Worthing Borough Council Tax Reduction Scheme 2026/27 paragraph 14.0(f)(ii) percentage notation
     metadata:
       proof:
         atoms:
           - path: versions[0].formula
             kind: amount
             source:
-              corpus_citation_path: uk-worthing/manual/council-tax-reduction-scheme-2026-2027/page-40
-              excerpt: "that person's maximum council tax reduction amount in respect of a day is 100 per cent of the amount A/B where:"
-          - path: versions[0].formula
-            kind: amount
-            source:
-              corpus_citation_path: uk-worthing/manual/council-tax-reduction-scheme-2026-2027/page-83
-              excerpt: "100.0 Extended reductions (qualifying contributory benefits)."
+              corpus_citation_path: uk-worthing/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
     versions:
       - effective_from: '2026-04-01'
         formula: |-
@@ -537,7 +532,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          worthing_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and worthing_council_tax_reduction_capital_eligible and (worthing_council_tax_reduction_income_including_tariff_weekly <= worthing_council_tax_reduction_applicable_amount_weekly or (worthing_council_tax_reduction_income_including_tariff_weekly > worthing_council_tax_reduction_applicable_amount_weekly and worthing_council_tax_reduction_maximum_weekly_amount > worthing_council_tax_reduction_income_taper_deduction_weekly))
+          worthing_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and worthing_council_tax_reduction_capital_eligible and (worthing_council_tax_reduction_income_including_tariff_weekly < worthing_council_tax_reduction_applicable_amount_weekly or (worthing_council_tax_reduction_income_including_tariff_weekly > worthing_council_tax_reduction_applicable_amount_weekly and worthing_council_tax_reduction_maximum_weekly_amount > worthing_council_tax_reduction_income_taper_deduction_weekly))
 
   - name: worthing_council_tax_reduction_weekly_amount
     kind: derived

@@ -139,8 +139,8 @@ rules:
     dtype: Judgment
     period: Year
     source: Isles of Scilly Council Tax Reduction Scheme 2026/27 section 1.6
-    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-isles-of-scilly/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "The adopted scheme for working age applicants is a means test"}}]}}
-    versions: [{effective_from: '2026-04-01', formula: 'local_authority_is_isles_of_scilly and council_tax_reduction_household_in_england and isles_of_scilly_council_tax_reduction_applicant_is_not_pensioner'}]
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-isles-of-scilly/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "The adopted scheme for working age applicants is a means test"}}, {path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-isles-of-scilly/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "the person’s income4 is less than their applicable amount5"}}, {path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-isles-of-scilly/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "the person’s income10 is more than their applicable amount11"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 'local_authority_is_isles_of_scilly and council_tax_reduction_household_in_england and isles_of_scilly_council_tax_reduction_applicant_is_not_pensioner and (isles_of_scilly_council_tax_reduction_assessed_income_for_year + isles_of_scilly_council_tax_reduction_tariff_income_for_year < isles_of_scilly_council_tax_reduction_applicable_amount_for_year or isles_of_scilly_council_tax_reduction_assessed_income_for_year + isles_of_scilly_council_tax_reduction_tariff_income_for_year > isles_of_scilly_council_tax_reduction_applicable_amount_for_year)'}]
   - name: isles_of_scilly_council_tax_reduction_capital_eligible
     kind: derived
     entity: Household

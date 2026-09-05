@@ -1,0 +1,476 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-31
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to Cherwell District Council, so the adopted scheme is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: >-
+    Cherwell's locally determined working-age scheme is a directly-liability-based
+    banded award. Pension-age prescribed provisions and detailed applicable-amount,
+    income-calculation and capital-disregard schedules are outside this award surface.
+  deferred_outputs:
+    - output: uk-cherwell:policies/cherwell/council-tax-reduction/part-6-and-schedule-3#applicable_weekly_amount
+      reason: Applicable-amount schedules are consumed as an assessed input.
+    - output: uk-cherwell:policies/cherwell/council-tax-reduction/part-10-and-schedule-10#assessed_capital
+      reason: Capital valuation and disregard rules are outside this award surface.
+    - output: uk-cherwell:policies/cherwell/council-tax-reduction/part-10#assessed_weekly_excess_income
+      reason: Income and excess-income calculations are consumed as an assessed input.
+    - output: uk-cherwell:policies/cherwell/council-tax-reduction/paragraph-30.6-to-30.10#non_dependant_protection_or_exemption
+      reason: The detailed protected and exempt non-dependant classifier is consumed as an input.
+rules:
+  - name: cherwell_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 29(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "the maximum council tax reduction payable to a person who is not a pensioner in respect of a day is 100 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cherwell_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+
+  - name: cherwell_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: cherwell_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          250
+
+  - name: cherwell_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for each £250 in excess of £6,000 but not exceeding £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: cherwell_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cherwell_council_tax_reduction_non_dependant_deduction_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "(a) in respect of a non-dependant aged 18 or over in remunerative work, £15.95 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £5.20 x 1/7. (2) In the case of a non-dependant aged 18 or over to whom paragraph 58.1(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is– (a) less than £279.00, the deduction to be made under this paragraph shall be that specified in paragraph 58.1(b); (b) not less than £279.00, but less than £463.00, the deduction to be made under this section shall be £10.20 x1/7 (c) not less than £463.00, but less than £554.00, the deduction to be made under this section shall be £13.30 x 1/7."
+              table:
+                header: Non-dependent deductions
+                row_key: deduction band
+                column_key: weekly deduction
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          0: 0
+          1: 5.20
+          2: 10.20
+          3: 13.30
+          4: 15.95
+
+  - name: cherwell_council_tax_reduction_passported_award_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: cherwell_council_tax_reduction_income_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "Working age passported and/or War Pensioners Income Band Excess Income CTR Award based on Council Tax Liability 1 £0 and over 100%"
+              table:
+                header: Working age passported and/or War Pensioners
+                row_key: income band
+                column_key: CTR Award
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 100% 2 £5.00 - £14.99 95% 3 £15.00 - £29.99 87% 4 £30.00 - £49.99 80% 5 £50.00 – 74.99 65% 6 £75.00 - £99.99 42% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0% Working age non-passported with children Income Band Excess Income CTR Award based on Council Tax Liability 1 £0.00 - £4.99 100% 2 £5.00 - £14.99 93% 3 £15.00 – 29.99 83% 4 £30.00 - £49.99 78% 5 £50.00 - £74.99 59% 6 £75.00 - £99.99 32% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0% Working age non-passported other Income Band Excess Income CTR Award based on Council Tax Liability 1 £0.00 - £4.99 96% 2 £5.00 - £14.99 85% 3 £15.00 – 29.99 73% 4 £30.00 - £49.99 66% 5 £50.00 - £74.99 42% 6 £75.00 - £99.99 28% 7 £100.00 - £124.99 18% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported grids
+                row_key: client group and income band
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 1
+          2: 1
+          3: 1
+          4: 1
+          5: 1
+          6: 1
+          7: 1
+          8: 1
+
+  - name: cherwell_council_tax_reduction_disabled_award_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: cherwell_council_tax_reduction_income_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 100% 2 £5.00 - £14.99 95% 3 £15.00 - £29.99 87% 4 £30.00 - £49.99 80% 5 £50.00 – 74.99 65% 6 £75.00 - £99.99 42% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported disabled
+                row_key: income band
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values: {1: 1, 2: 0.95, 3: 0.87, 4: 0.80, 5: 0.65, 6: 0.42, 7: 0.25, 8: 0}
+
+  - name: cherwell_council_tax_reduction_children_award_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: cherwell_council_tax_reduction_income_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 100% 2 £5.00 - £14.99 93% 3 £15.00 – 29.99 83% 4 £30.00 - £49.99 78% 5 £50.00 - £74.99 59% 6 £75.00 - £99.99 32% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported with children
+                row_key: income band
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values: {1: 1, 2: 0.93, 3: 0.83, 4: 0.78, 5: 0.59, 6: 0.32, 7: 0.25, 8: 0}
+
+  - name: cherwell_council_tax_reduction_other_award_rate_by_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: cherwell_council_tax_reduction_income_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 96% 2 £5.00 - £14.99 85% 3 £15.00 – 29.99 73% 4 £30.00 - £49.99 66% 5 £50.00 - £74.99 42% 6 £75.00 - £99.99 28% 7 £100.00 - £124.99 18% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported other
+                row_key: income band
+                column_key: CTR Award
+    versions:
+      - effective_from: '2026-04-01'
+        values: {1: 0.96, 2: 0.85, 3: 0.73, 4: 0.66, 5: 0.42, 6: 0.28, 7: 0.18, 8: 0}
+
+  - name: cherwell_council_tax_reduction_band_lower_excess_income
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: cherwell_council_tax_reduction_income_band
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 100% 2 £5.00 - £14.99 95% 3 £15.00 - £29.99 87% 4 £30.00 - £49.99 80% 5 £50.00 – 74.99 65% 6 £75.00 - £99.99 42% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported disabled
+                row_key: income band
+                column_key: excess income lower bound
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 0
+          2: 5
+          3: 15
+          4: 30
+          5: 50
+          6: 75
+          7: 100
+          8: 125
+
+  - name: cherwell_council_tax_reduction_income_band_code
+    kind: parameter
+    dtype: Number
+    indexed_by: cherwell_council_tax_reduction_income_band_ordinal
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(9)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "1 £0.00 - £4.99 100% 2 £5.00 - £14.99 95% 3 £15.00 - £29.99 87% 4 £30.00 - £49.99 80% 5 £50.00 – 74.99 65% 6 £75.00 - £99.99 42% 7 £100.00 - £124.99 25% 8 £125.00 upwards 0%"
+              table:
+                header: Working age non-passported disabled
+                row_key: income band ordinal
+                column_key: income band code
+    versions:
+      - effective_from: '2026-04-01'
+        values:
+          1: 1
+          2: 2
+          3: 3
+          4: 4
+          5: 5
+          6: 6
+          7: 7
+          8: 8
+
+  - name: cherwell_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 28(3)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-28
+              excerpt: "multiply the maximum amount by 12 and divide the product by 52"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          52
+
+  - name: cherwell_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-26
+              excerpt: "any person whose capital exceeds £16,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cherwell_council_tax_reduction_assessed_capital_for_year <= cherwell_council_tax_reduction_capital_limit
+
+  - name: cherwell_council_tax_reduction_tariff_income_weekly
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-64
+              excerpt: "£1 for any excess which is not a complete £250"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cherwell_council_tax_reduction_tariff_income_weekly_amount_per_step * ceil(max(0, cherwell_council_tax_reduction_assessed_capital_for_year - cherwell_council_tax_reduction_tariff_income_threshold) / cherwell_council_tax_reduction_tariff_income_step)
+
+  - name: cherwell_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(7)-(8)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "The income band is the number allocated to the excess income range and related percentage. (8) The income range is the applicant and partner’s weekly excess income"
+              table:
+                header: Working-age income bands
+                row_key: weekly excess income
+                column_key: income band
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[8]]: cherwell_council_tax_reduction_income_band_code[8] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[7]]: cherwell_council_tax_reduction_income_band_code[7] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[6]]: cherwell_council_tax_reduction_income_band_code[6] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[5]]: cherwell_council_tax_reduction_income_band_code[5] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[4]]: cherwell_council_tax_reduction_income_band_code[4] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[3]]: cherwell_council_tax_reduction_income_band_code[3] else: if cherwell_council_tax_reduction_weekly_excess_income >= cherwell_council_tax_reduction_band_lower_excess_income[cherwell_council_tax_reduction_income_band_code[2]]: cherwell_council_tax_reduction_income_band_code[2] else: cherwell_council_tax_reduction_income_band_code[1]
+
+  - name: cherwell_council_tax_reduction_selected_award_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Week
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32(8)-(10)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "Working age non-passported other Income Band Excess Income CTR Award based on Council Tax Liability"
+              table:
+                header: Working-age award grid
+                row_key: client group and income band
+                column_key: CTR percentage
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cherwell_council_tax_reduction_is_passported_or_war_pensioner: cherwell_council_tax_reduction_passported_award_rate_by_band[cherwell_council_tax_reduction_income_band] else: if cherwell_council_tax_reduction_is_non_passported_disabled: cherwell_council_tax_reduction_disabled_award_rate_by_band[cherwell_council_tax_reduction_income_band] else: if cherwell_council_tax_reduction_is_non_passported_with_children: cherwell_council_tax_reduction_children_award_rate_by_band[cherwell_council_tax_reduction_income_band] else: cherwell_council_tax_reduction_other_award_rate_by_band[cherwell_council_tax_reduction_income_band]
+
+  - name: cherwell_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 30
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-29
+              excerpt: "£15.95 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          cherwell_council_tax_reduction_non_dependant_weekly_deduction_by_band[cherwell_council_tax_reduction_non_dependant_deduction_band] * cherwell_council_tax_reduction_weeks_per_year
+
+  - name: cherwell_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Cherwell Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "Class D: persons who are not pensioners who are entitled to maximum reduction under this scheme."
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-16
+              excerpt: "Class E: persons who are not pensioners whose calculated excess income is higher than Band 1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_cherwell and council_tax_reduction_household_in_england and cherwell_council_tax_reduction_applicant_is_working_age and would_claim_council_tax_reduction
+
+  - name: cherwell_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Cherwell Council Tax Reduction Scheme 2026/27 paragraph 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "Where the person is within class E the percentage to be applied will be based on the excess income of the applicant and partner’s, according to specified income bands shown in the tables below."
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-cherwell/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "Where the person is within class D the maximum reduction is equivalent to band 1 percentage in the Working age passported and/or War Pensions table below, applied against Council Tax liability."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if cherwell_council_tax_reduction_working_age_scheme_applies and cherwell_council_tax_reduction_capital_eligible: max(0, cherwell_council_tax_reduction_maximum_eligible_liability_for_year * cherwell_council_tax_reduction_maximum_support_rate * cherwell_council_tax_reduction_selected_award_rate - cherwell_council_tax_reduction_annual_non_dependant_deduction) else: 0

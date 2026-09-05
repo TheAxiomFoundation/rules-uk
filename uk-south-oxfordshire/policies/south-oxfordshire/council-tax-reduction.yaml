@@ -1,0 +1,362 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-132
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: Section 13A delegates the working-age scheme to South Oxfordshire District Council, so its adopted scheme document is operative. The pinned singular source-verification contract strips this apply-stage attestation.
+  summary: |-
+    South Oxfordshire's adopted 2026-27 working-age scheme calculates a daily award from 100 percent of daily council-tax liability, less the daily excess-income taper and any non-dependant deduction. Pension-age provisions and second-adult rebate are outside this working-age award surface.
+  deferred_outputs:
+    - output: uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction/parts-6-and-8#assessed_income_and_applicable_amount
+      reason: Detailed income, capital valuation, disregard, and applicable-amount schedules are outside this award-surface module.
+    - output: uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction/rule-241-paragraphs-3-to-9#non_dependant_aggregation_and_exemption
+      reason: Couple aggregation, apportionment, and protected or exempt non-dependant classification are consumed as inputs.
+    - output: uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction/rule-240-and-part-13#second_adult_rebate
+      reason: Alternative maximum council tax reduction is a separate Class C award.
+rules:
+  - name: south_oxfordshire_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 239(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+
+  - name: south_oxfordshire_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "100 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "0.01"}]
+
+  - name: south_oxfordshire_council_tax_reduction_taper_whole_percentage_points
+    kind: parameter
+    dtype: Number
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 242
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-136
+              excerpt: "shall be 2 6/7 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+
+  - name: south_oxfordshire_council_tax_reduction_taper_fraction_numerator
+    kind: parameter
+    dtype: Number
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 242
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-136
+              excerpt: "shall be 2 6/7 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "6"}]
+
+  - name: south_oxfordshire_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134
+              excerpt: "£12.43 x 1/7"
+    versions: [{effective_from: '2026-04-01', formula: "7"}]
+
+  - name: south_oxfordshire_council_tax_reduction_daily_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 242, derived from its printed mixed-number percentage
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-136
+              excerpt: "shall be 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "(south_oxfordshire_council_tax_reduction_taper_whole_percentage_points + south_oxfordshire_council_tax_reduction_taper_fraction_numerator / south_oxfordshire_council_tax_reduction_days_per_week) * south_oxfordshire_council_tax_reduction_per_cent_unit"
+
+  - name: south_oxfordshire_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 129
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "the prescribed amount is £16,000 and no support shall be granted when the applicant has an amount greater than this level"
+    versions: [{effective_from: '2026-04-01', formula: "16000"}]
+
+  - name: south_oxfordshire_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 138(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-99
+              excerpt: "exceeds £6,000 it shall be treated as equivalent to a weekly income of £1 for each complete £250 of in excess of £6,000 but not exceeding £16,000"
+    versions: [{effective_from: '2026-04-01', formula: "6000"}]
+
+  - name: south_oxfordshire_council_tax_reduction_tariff_income_step
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 138(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-99
+              excerpt: "£1 for each complete £250 of in excess of £6,000 but not exceeding £16,000"
+    versions: [{effective_from: '2026-04-01', formula: "250"}]
+
+  - name: south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 138(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-99
+              excerpt: "weekly income of £1 for each complete £250"
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: south_oxfordshire_council_tax_reduction_non_dependant_deduction_band
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(1)-(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134
+              excerpt: "the non- dependant deductions in respect of a day referred to in section 239 (maximum council tax reduction) shall be; (a) in respect of a non-dependant aged 18 or over in remunerative work, £12.43 x 1/7; (b) in respect of a non-dependant aged 18 or over to whom sub- paragraph (a) does not apply, £4.20 x 1/7.\n\n(2) In the case of a non-dependant aged 18 or over to whom paragraph 241(1)(a) applies, where it is shown to the appropriate authority that his normal gross weekly income is- (a) less than £212.00, the deduction to be made under this paragraph shall be that specified in paragraph 239(1)(b); (b) not less than £212.00, but less than £364.00, the deduction to be made under this section shall be £8.19; (c) not less than £364.00, but less than £453.00, the deduction to be made under this section shall be £10.44;"
+              table:
+                header: "241 Non-dependant deductions"
+                row_key: "deduction band"
+                column_key: "weekly deduction"
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 4.20, 2: 12.43, 3: 8.19, 4: 10.44}
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_low_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(2)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134
+              excerpt: "less than £212.00"
+    versions: [{effective_from: '2026-04-01', formula: "212"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_other_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(1)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134, excerpt: "£4.20 x 1/7"}
+    versions: [{effective_from: '2026-04-01', formula: "4.20"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_low_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(1)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134, excerpt: "£12.43 x 1/7"}
+    versions: [{effective_from: '2026-04-01', formula: "12.43"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_middle_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134, excerpt: "shall be £8.19"}
+    versions: [{effective_from: '2026-04-01', formula: "8.19"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_high_weekly_deduction
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(2)(c)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source: {corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134, excerpt: "shall be £10.44"}
+    versions: [{effective_from: '2026-04-01', formula: "10.44"}]
+
+  - name: south_oxfordshire_council_tax_reduction_non_dependant_middle_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241(2)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134
+              excerpt: "less than £364.00"
+    versions: [{effective_from: '2026-04-01', formula: "364"}]
+
+  - name: south_oxfordshire_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Day
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 129
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-91
+              excerpt: "no support shall be granted when the applicant has an amount greater than this level"
+    versions: [{effective_from: '2026-04-01', formula: "south_oxfordshire_council_tax_reduction_assessed_capital_for_year <= south_oxfordshire_council_tax_reduction_capital_limit"}]
+
+  - name: south_oxfordshire_council_tax_reduction_tariff_income_daily
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 138
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-99
+              excerpt: "where any part of the excess is not a complete £250 that part shall be treated as equivalent to a weekly tariff income of £1"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "if south_oxfordshire_council_tax_reduction_assessed_capital_for_year > south_oxfordshire_council_tax_reduction_tariff_income_threshold: ceil((south_oxfordshire_council_tax_reduction_assessed_capital_for_year - south_oxfordshire_council_tax_reduction_tariff_income_threshold) / south_oxfordshire_council_tax_reduction_tariff_income_step) * south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step / south_oxfordshire_council_tax_reduction_days_per_week else: south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step - south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step"
+
+  - name: south_oxfordshire_council_tax_reduction_daily_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rule 241
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-134
+              excerpt: "£12.43 x 1/7"
+    versions: [{effective_from: '2026-04-01', formula: "if not south_oxfordshire_council_tax_reduction_has_chargeable_non_dependant or south_oxfordshire_council_tax_reduction_non_dependant_protected_or_exempt: south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step - south_oxfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step else: if not south_oxfordshire_council_tax_reduction_non_dependant_in_remunerative_work: south_oxfordshire_council_tax_reduction_non_dependant_other_weekly_deduction / south_oxfordshire_council_tax_reduction_days_per_week else: if south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income < south_oxfordshire_council_tax_reduction_non_dependant_low_income_threshold: south_oxfordshire_council_tax_reduction_non_dependant_low_weekly_deduction / south_oxfordshire_council_tax_reduction_days_per_week else: if south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income < south_oxfordshire_council_tax_reduction_non_dependant_middle_income_threshold: south_oxfordshire_council_tax_reduction_non_dependant_middle_weekly_deduction / south_oxfordshire_council_tax_reduction_days_per_week else: south_oxfordshire_council_tax_reduction_non_dependant_high_weekly_deduction / south_oxfordshire_council_tax_reduction_days_per_week"}]
+
+  - name: south_oxfordshire_council_tax_reduction_daily_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: South Oxfordshire Council Tax Reduction Scheme 2026/27 rules 239 and 242
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-132
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-south-oxfordshire/manual/council-tax-reduction-scheme-2026-2027/page-136
+              excerpt: "their council tax reduction shall be calculated by deducting their excess income multiplied by the taper from their maximum council tax reduction as defined within rule 239 of this scheme"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "if local_authority_is_south_oxfordshire and south_oxfordshire_council_tax_reduction_applicant_is_working_age and would_claim_council_tax_reduction and south_oxfordshire_council_tax_reduction_capital_eligible: max(0, south_oxfordshire_council_tax_reduction_daily_eligible_liability * south_oxfordshire_council_tax_reduction_maximum_support_rate - max(0, south_oxfordshire_council_tax_reduction_assessed_daily_income + south_oxfordshire_council_tax_reduction_tariff_income_daily - south_oxfordshire_council_tax_reduction_applicable_daily_amount) * south_oxfordshire_council_tax_reduction_daily_taper_rate - south_oxfordshire_council_tax_reduction_daily_non_dependant_deduction) else: south_oxfordshire_council_tax_reduction_daily_eligible_liability - south_oxfordshire_council_tax_reduction_daily_eligible_liability"

@@ -1,0 +1,71 @@
+- name: south_oxfordshire_ctr_baseline_and_taper
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.local_authority_is_south_oxfordshire: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicant_is_working_age: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_daily_eligible_liability: 10
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_daily_income: 20
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicable_daily_amount: 10
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_capital_eligible: holds
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_tariff_income_daily: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_daily_non_dependant_deduction: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_daily_amount: "9.714285714285714285714285714"
+
+- name: south_oxfordshire_ctr_tariff_first_complete_step
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.local_authority_is_south_oxfordshire: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicant_is_working_age: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_daily_eligible_liability: 10
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_daily_income: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicable_daily_amount: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 212
+  output:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_daily_amount: "8.825918367346938775510204082"
+
+- name: south_oxfordshire_ctr_tariff_partial_step_and_top_band
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.local_authority_is_south_oxfordshire: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicant_is_working_age: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_capital_for_year: 6250.01
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_daily_eligible_liability: 10
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_daily_income: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicable_daily_amount: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_in_remunerative_work: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 364
+  output:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_tariff_income_daily: "0.2857142857142857142857142857"
+
+- name: south_oxfordshire_ctr_capital_cliff_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.local_authority_is_south_oxfordshire: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicant_is_working_age: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_daily_eligible_liability: 10
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_assessed_daily_income: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_applicable_daily_amount: 0
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_protected_or_exempt: true
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_in_remunerative_work: false
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#input.south_oxfordshire_council_tax_reduction_non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_capital_eligible: not_holds
+    uk-south-oxfordshire:policies/south-oxfordshire/council-tax-reduction#south_oxfordshire_council_tax_reduction_daily_amount: 0

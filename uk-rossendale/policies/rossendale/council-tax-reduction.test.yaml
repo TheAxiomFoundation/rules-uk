@@ -1,0 +1,179 @@
+- name: rossendale_ctr_parameters
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_maximum_support_rate: 1
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_daily_taper_rate: '0.0285714285714285714285714286'
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_taper_whole_percentage_points: 2
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_taper_fraction_numerator: 6
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_per_cent_unit: 0.01
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_days_per_week: 7
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_weekly_taper_rate: 0.20
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_standard_deduction_rate: 0.20
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_capital_limit: 16000
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_threshold: 6000
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_step: 250
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_middle_threshold: 279
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_high_threshold: 485
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_top_threshold: 605
+
+- name: rossendale_ctr_maximum_and_taper
+  period:
+    period_kind: benefit_week
+    start: '2026-04-06'
+    end: '2026-04-12'
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.local_authority_is_rossendale: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 0
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_eligible_liability_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_income_weekly: 150
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicable_amount_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_maximum_weekly_amount: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_effective_support_rate: 0.80
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_excess_income_weekly: 50
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_taper_deduction_weekly: 10
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_award_conditions_met: holds
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_weekly_amount: 72
+
+- name: rossendale_ctr_capital_at_limit
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.local_authority_is_rossendale: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 16000
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_eligible_liability_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_income_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicable_amount_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_capital_eligible: holds
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly: 40
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_weekly_amount: 73.6
+
+- name: rossendale_ctr_capital_first_penny_over_is_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.local_authority_is_rossendale: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 16000.01
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_eligible_liability_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_income_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicable_amount_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_capital_eligible: not_holds
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_weekly_amount: 0
+
+- name: rossendale_ctr_taper_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.local_authority_is_rossendale: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicant_is_in_working_age_class: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 0
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_eligible_liability_weekly: 10
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_income_weekly: 600
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_applicable_amount_weekly: 100
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_amount_before_eligibility_weekly: 0
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_weekly_amount: 0
+
+- name: rossendale_ctr_tariff_threshold_has_zero_tariff
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 6000
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly: 0
+
+- name: rossendale_ctr_tariff_first_penny_is_one_pound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 6000.01
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly: 1
+
+- name: rossendale_ctr_tariff_complete_step_is_one_pound
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 6250
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly: 1
+
+- name: rossendale_ctr_tariff_second_step_first_penny_is_two_pounds
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_assessed_capital: 6250.01
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_tariff_income_weekly: 2
+
+- name: rossendale_ctr_non_dep_278_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 278.99
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 0
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 5.20
+
+- name: rossendale_ctr_non_dep_279
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 1
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: rossendale_ctr_non_dep_484_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 1
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 10.60
+
+- name: rossendale_ctr_non_dep_485
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 2
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: rossendale_ctr_non_dep_604_99
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 2
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 13.30
+
+- name: rossendale_ctr_non_dep_605
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: true
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_non_dependant_band: 3
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 15.95
+
+- name: rossendale_ctr_non_dep_exempt_zero
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_deduction_applies: false
+    uk-rossendale:policies/rossendale/council-tax-reduction#input.rossendale_council_tax_reduction_non_dependant_normal_gross_weekly_income: 700
+  output:
+    uk-rossendale:policies/rossendale/council-tax-reduction#rossendale_council_tax_reduction_individual_non_dependant_deduction_weekly: 0

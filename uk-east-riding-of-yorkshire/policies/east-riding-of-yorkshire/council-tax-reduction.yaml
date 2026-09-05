@@ -132,48 +132,75 @@ rules:
           1: 25
           2: 10.00
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_codes
+  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_single_no_children_code
     kind: parameter
     dtype: Number
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 household classification
-    metadata:
-      proof:
-        atoms:
-          - path: versions[0].values
-            kind: parameter_table
-            source: &grid_source
-              corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-54
-              excerpt: &grid_excerpt "CTS reduction award level\n\nHouseholds on IS, JSAIB, ESAIR Single no children Couple no children Family with one child Family with two or more children Income Per week Income Per Week Income Per week Income Per week 80% Yes Yes Yes Yes Yes 70% No £0 to £96.53 £0 to £151.55 £0 to £221.09 £0 to £291.68 60% No £96.54 to £149.47 £151.56 to £204.49 £221.10 to £274.03 £291.69 to £334.62 50% No £149.48 to £202.41 £204.50 to £257.42 £274.04 to £326.97 £334.63 to £397.25 25% No £202.42 to £255.35 £257.43 to £309.32 £326.98 to £379.91 £397.26 to £450.49 £255.36 and over £309.33 and over £379.92 and over £450.50 and over"
-              table: &grid_table
-                header: CTS reduction award level and weekly income by family
-                row_key: discount band
-                column_key: family category
-    versions:
-      - effective_from: '2026-04-01'
-        values: {0: 0, 1: 1, 2: 2, 3: 3}
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 family category
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: &grid_source {corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-54, excerpt: &grid_excerpt "CTS reduction award level\n\nHouseholds on IS, JSAIB, ESAIR Single no children Couple no children Family with one child Family with two or more children Income Per week Income Per Week Income Per week Income Per week 80% Yes Yes Yes Yes Yes 70% No £0 to £96.53 £0 to £151.55 £0 to £221.09 £0 to £291.68 60% No £96.54 to £149.47 £151.56 to £204.49 £221.10 to £274.03 £291.69 to £334.62 50% No £149.48 to £202.41 £204.50 to £257.42 £274.04 to £326.97 £334.63 to £397.25 25% No £202.42 to £255.35 £257.43 to £309.32 £326.98 to £379.91 £397.26 to £450.49 £255.36 and over £309.33 and over £379.92 and over £450.50 and over", table: {header: CTS reduction award level and weekly income by family, row_key: discount band, column_key: family category}}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_codes
+  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_couple_no_children_code
     kind: parameter
     dtype: Number
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_income_band
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
-    metadata:
-      proof:
-        atoms:
-          - path: versions[0].values
-            kind: parameter_table
-            source: {<<: *grid_source}
-    versions:
-      - effective_from: '2026-04-01'
-        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 family category
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 1}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_one_child_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 family category
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 2}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_two_or_more_children_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 family category
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 3}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 1}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_2_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 2
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 2}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_3_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 3
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 3}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_4_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 4
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 4}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_5_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 5
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 5}]
 
   - name: east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family
     kind: parameter
     dtype: Money
     period: Week
     unit: GBP
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category
+    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
@@ -185,7 +212,7 @@ rules:
     dtype: Money
     period: Week
     unit: GBP
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category
+    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
@@ -197,7 +224,7 @@ rules:
     dtype: Money
     period: Week
     unit: GBP
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category
+    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
@@ -209,7 +236,7 @@ rules:
     dtype: Money
     period: Week
     unit: GBP
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category
+    indexed_by: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
@@ -219,12 +246,12 @@ rules:
   - name: east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band
     kind: parameter
     dtype: Rate
-    indexed_by: east_riding_of_yorkshire_council_tax_reduction_income_band
+    indexed_by: east_riding_of_yorkshire_council_tax_reduction_selected_income_band
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
       - effective_from: '2026-04-01'
-        values: {0: 0.80, 1: 0.80, 2: 0.70, 3: 0.60, 4: 0.50, 5: 0.25}
+        values: {1: 0.80, 2: 0.70, 3: 0.60, 4: 0.50, 5: 0.25}
 
   - name: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     kind: derived
@@ -236,7 +263,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if east_riding_of_yorkshire_council_tax_reduction_has_two_or_more_children: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[3] else: if east_riding_of_yorkshire_council_tax_reduction_has_one_child: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[2] else: if east_riding_of_yorkshire_council_tax_reduction_has_partner: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[1] else: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[0]
+          if east_riding_of_yorkshire_council_tax_reduction_has_two_or_more_children: east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_two_or_more_children_code else: if east_riding_of_yorkshire_council_tax_reduction_has_one_child: east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_one_child_code else: if east_riding_of_yorkshire_council_tax_reduction_has_partner: east_riding_of_yorkshire_council_tax_reduction_family_category_couple_no_children_code else: east_riding_of_yorkshire_council_tax_reduction_family_category_single_no_children_code
 
   - name: east_riding_of_yorkshire_council_tax_reduction_selected_income_band
     kind: derived
@@ -248,7 +275,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[0] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_5_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[5] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_4_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[4] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_3_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[3] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[2] else: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[1]
+          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_5_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_5_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_4_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_4_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_3_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_3_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_2_code else: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
 
   - name: east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate
     kind: derived
@@ -371,8 +398,6 @@ rules:
         formula: |-
           if east_riding_of_yorkshire_council_tax_reduction_award_conditions_met: east_riding_of_yorkshire_council_tax_reduction_amount_before_eligibility else: east_riding_of_yorkshire_council_tax_reduction_zero_amount
 inputs:
-  - {name: east_riding_of_yorkshire_council_tax_reduction_family_category, entity: Household, dtype: Number, period: Year}
-  - {name: east_riding_of_yorkshire_council_tax_reduction_income_band, entity: Household, dtype: Number, period: Week}
   - {name: local_authority_is_east_riding_of_yorkshire, entity: Household, dtype: Boolean, period: Year}
   - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
   - {name: east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age, entity: Household, dtype: Boolean, period: Year}

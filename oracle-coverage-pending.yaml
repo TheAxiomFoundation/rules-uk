@@ -9088,12 +9088,6 @@ entries:
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band
   source: manual
   since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_codes
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_codes
-  source: manual
-  since: 2026-08-03
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year
   source: manual
   since: 2026-08-03
@@ -9127,4 +9121,31 @@ entries:
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_zero_amount
   source: manual
   since: 2026-08-03
-ceiling: 3042
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_couple_no_children_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_one_child_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_family_with_two_or_more_children_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_single_no_children_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_2_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_3_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_4_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_5_code
+  source: manual
+  since: 2026-08-03
+ceiling: 3049

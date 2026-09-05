@@ -1,8 +1,6 @@
 - name: east_riding_ctr_single_96_53
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input: &base_input
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -18,22 +16,70 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_passported: false
   output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_selected: 0
+
+- name: east_riding_ctr_single_96_53_selected_income_band
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_selected_income_band: 1
+
+- name: east_riding_ctr_single_96_53_selected_discount_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate: 0.80
+
+- name: east_riding_ctr_single_96_53_band_b_capped_eligible_liability_for_year
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 1000
+
+- name: east_riding_ctr_single_96_53_daily_non_dependant_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_daily_non_dependant_deduction: 0
+
+- name: east_riding_ctr_single_96_53_annual_non_dependant_deduction
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_non_dependant_deduction: 0
+
+- name: east_riding_ctr_single_96_53_capital_eligible
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_capital_eligible: holds
+
+- name: east_riding_ctr_single_96_53_maximum_amount_for_year
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year: 800
+
+- name: east_riding_ctr_single_96_53_amount_before_eligibility
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_amount_before_eligibility: 640
+
+- name: east_riding_ctr_single_96_53_award_conditions_met
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_award_conditions_met: holds
+
+- name: east_riding_ctr_single_96_53_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *base_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 640
 
 - name: east_riding_ctr_single_96_54
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -53,8 +99,6 @@
 - name: east_riding_ctr_single_149_47
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -74,8 +118,6 @@
 - name: east_riding_ctr_single_149_48
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -95,8 +137,6 @@
 - name: east_riding_ctr_single_202_41
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -116,8 +156,6 @@
 - name: east_riding_ctr_single_202_42
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -137,8 +175,6 @@
 - name: east_riding_ctr_single_255_35
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -158,8 +194,6 @@
 - name: east_riding_ctr_single_255_36
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -179,8 +213,6 @@
 - name: east_riding_ctr_couple_151_55
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -200,8 +232,6 @@
 - name: east_riding_ctr_couple_151_56
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -221,8 +251,6 @@
 - name: east_riding_ctr_couple_204_49
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -242,8 +270,6 @@
 - name: east_riding_ctr_couple_204_5
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -263,8 +289,6 @@
 - name: east_riding_ctr_couple_257_42
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -284,8 +308,6 @@
 - name: east_riding_ctr_couple_257_43
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -305,8 +327,6 @@
 - name: east_riding_ctr_couple_309_32
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -326,8 +346,6 @@
 - name: east_riding_ctr_couple_309_33
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -347,8 +365,6 @@
 - name: east_riding_ctr_one_child_221_09
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -368,8 +384,6 @@
 - name: east_riding_ctr_one_child_221_1
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -389,8 +403,6 @@
 - name: east_riding_ctr_one_child_274_03
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -410,8 +422,6 @@
 - name: east_riding_ctr_one_child_274_04
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -431,8 +441,6 @@
 - name: east_riding_ctr_one_child_326_97
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -452,8 +460,6 @@
 - name: east_riding_ctr_one_child_326_98
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -473,8 +479,6 @@
 - name: east_riding_ctr_one_child_379_91
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -494,8 +498,6 @@
 - name: east_riding_ctr_one_child_379_92
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -515,8 +517,6 @@
 - name: east_riding_ctr_two_plus_291_68
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -536,8 +536,6 @@
 - name: east_riding_ctr_two_plus_291_69
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -557,8 +555,6 @@
 - name: east_riding_ctr_two_plus_334_62
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -578,8 +574,6 @@
 - name: east_riding_ctr_two_plus_334_63
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -599,8 +593,6 @@
 - name: east_riding_ctr_two_plus_397_25
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -620,8 +612,6 @@
 - name: east_riding_ctr_two_plus_397_26
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -641,8 +631,6 @@
 - name: east_riding_ctr_two_plus_450_49
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -662,8 +650,6 @@
 - name: east_riding_ctr_two_plus_450_5
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -682,9 +668,7 @@
 
 - name: east_riding_ctr_passported_band_1
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
-  input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
+  input: &passported_band_1_input
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -699,14 +683,17 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_passported: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income: 999
   output:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_selected_income_band: 0
+    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_selected_income_band: 1
+
+- name: east_riding_ctr_passported_band_1_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *passported_band_1_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 640
 
 - name: east_riding_ctr_band_b_ceiling_binding
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
-  input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
+  input: &band_b_ceiling_binding_input
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -722,13 +709,16 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_band_b_liability_for_year: 900
   output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 900
+
+- name: east_riding_ctr_band_b_ceiling_binding_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *band_b_ceiling_binding_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 576
 
 - name: east_riding_ctr_band_b_ceiling_strictly_non_binding
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
-  input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
+  input: &band_b_ceiling_strictly_non_binding_input
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -744,13 +734,16 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_actual_liability_for_year: 900
   output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_band_b_capped_eligible_liability_for_year: 900
+
+- name: east_riding_ctr_band_b_ceiling_strictly_non_binding_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *band_b_ceiling_strictly_non_binding_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 576
 
 - name: east_riding_ctr_capital_5999_99
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -770,8 +763,6 @@
 - name: east_riding_ctr_capital_6000
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
   input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -790,9 +781,7 @@
 
 - name: east_riding_ctr_remunerative_non_dependant_daily
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
-  input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
+  input: &remunerative_non_dependant_daily_input
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -808,13 +797,16 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_non_dependant_band: 1
   output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_daily_non_dependant_deduction: "3.5714285714285714285714285714"
+
+- name: east_riding_ctr_remunerative_non_dependant_daily_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *remunerative_non_dependant_daily_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 0
 
 - name: east_riding_ctr_other_non_dependant_daily_and_zero_floor
   period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
-  input:
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_family_category: 0
-    uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_income_band: 1
+  input: &other_non_dependant_daily_and_zero_floor_input
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.local_authority_is_east_riding_of_yorkshire: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age: true
@@ -830,4 +822,9 @@
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#input.east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income: 202.42
   output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_daily_non_dependant_deduction: "1.4285714285714285714285714286"
+
+- name: east_riding_ctr_other_non_dependant_daily_and_zero_floor_annual_amount
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: *other_non_dependant_daily_and_zero_floor_input
+  output:
     uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_annual_amount: 0

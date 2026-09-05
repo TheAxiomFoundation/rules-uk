@@ -1,0 +1,294 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-31
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Reading Borough Council, so its adopted scheme is the operative source.
+  summary: Reading working-age award surface for 2026-27; pension-age provisions are out of scope.
+  deferred_outputs:
+    - output: uk-reading:policies/reading/council-tax-reduction/applicable-amount#applicable_premiums_amount
+      reason: Category-specific applicable-premium schedules are outside this award-surface module.
+rules:
+  - name: reading_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 29(1A)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "70 per cent of the amount A/B"
+    versions: [{effective_from: '2026-04-01', formula: "0.70"}]
+
+  - name: reading_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 23(1)(b)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "any person who is not a pensioner whose capital exceeds £6,000"
+    versions: [{effective_from: '2026-04-01', formula: "6000"}]
+
+  - name: reading_council_tax_reduction_tariff_income_threshold
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-63
+              excerpt: "has capital of less than £6,000 (the maximum capital limit), no tariff income shall be calculated"
+    versions: [{effective_from: '2026-04-01', formula: "6000"}]
+
+  - name: reading_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "100 per cent of the amount A/B"
+    versions: [{effective_from: '2026-04-01', formula: "0.01"}]
+
+  - name: reading_council_tax_reduction_taper_whole_per_cent
+    kind: parameter
+    dtype: Number
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "2 6/7 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "2"}]
+
+  - name: reading_council_tax_reduction_taper_numerator
+    kind: parameter
+    dtype: Number
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "2 6/7 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "6"}]
+
+  - name: reading_council_tax_reduction_taper_denominator
+    kind: parameter
+    dtype: Number
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "2 6/7 per cent"
+    versions: [{effective_from: '2026-04-01', formula: "7"}]
+
+  - name: reading_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 30A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "£10.00 x 1/7"
+    versions: [{effective_from: '2026-04-01', formula: "7"}]
+
+  - name: reading_council_tax_reduction_weeks_per_year
+    kind: parameter
+    dtype: Number
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 annual conversion
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "divide the product by 52"
+    versions: [{effective_from: '2026-04-01', formula: "52"}]
+
+  - name: reading_council_tax_reduction_withdrawal_rate
+    kind: parameter
+    dtype: Rate
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "amount B is 2 6/7 per cent of the difference between their income for the relevant week and their applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "((reading_council_tax_reduction_taper_whole_per_cent + reading_council_tax_reduction_taper_numerator / reading_council_tax_reduction_taper_denominator) * reading_council_tax_reduction_per_cent_unit) * reading_council_tax_reduction_days_per_week"
+
+  - name: reading_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: reading_council_tax_reduction_non_dependant_deduction_band
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 30A(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-30
+              excerpt: "the non-dependant deduction in respect of a day referred to in paragraph 29 is in respect of a non-dependant aged 18 (whether in remunerative work or not) £10.00 x 1/7"
+              table: {header: Working-age non-dependant deductions, row_key: deduction band, column_key: weekly deduction}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 10.00}
+
+  - name: reading_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Classes D and E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "persons who are not pensioners whose income is less than the applicable amount"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "persons who are not pensioners whose income is greater than the applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "local_authority_is_reading and council_tax_reduction_household_in_england and not council_tax_reduction_household_has_pensioner"
+
+  - name: reading_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 23
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-25
+              excerpt: "any person who is not a pensioner whose capital exceeds £6,000"
+    versions: [{effective_from: '2026-04-01', formula: "reading_council_tax_reduction_assessed_capital_for_year <= reading_council_tax_reduction_capital_limit"}]
+
+  - name: reading_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-63
+              excerpt: "has capital of less than £6,000 (the maximum capital limit), no tariff income shall be calculated"
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+
+  - name: reading_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "difference between their income for the relevant week and their applicable amount"
+    versions: [{effective_from: '2026-04-01', formula: "max(0, reading_council_tax_reduction_applicable_income_for_year - reading_council_tax_reduction_applicable_amount_for_year)"}]
+
+  - name: reading_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 Class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-18
+              excerpt: "amount B is 2 6/7 per cent of the difference between their income for the relevant week and their applicable amount"
+    versions: [{effective_from: '2026-04-01', formula: "reading_council_tax_reduction_excess_income_for_year * reading_council_tax_reduction_withdrawal_rate"}]
+
+  - name: reading_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Reading Borough Council Tax Reduction Scheme 2026/27 paragraphs 29 and 32
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-27
+              excerpt: "less any deductions in respect of non-dependants which fall to be made under paragraph 30A"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-reading/manual/council-tax-reduction-scheme-2026-2027/page-31
+              excerpt: "that amount is the amount found by deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: "if reading_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and reading_council_tax_reduction_capital_eligible: max(0, reading_council_tax_reduction_maximum_eligible_liability_for_year * reading_council_tax_reduction_maximum_support_rate - reading_council_tax_reduction_income_taper_deduction_for_year - reading_council_tax_reduction_non_dependant_deductions_for_year) else: 0"

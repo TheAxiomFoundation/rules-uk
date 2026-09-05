@@ -1,0 +1,269 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-37
+    # upstream_source_check:
+      # status: delegated_scheme
+      # checked_paths:
+        # - uk/statutes/ukpga/1992/14/13A
+        # - uk/regulations/uksi/2012/2885
+        # - uk/regulations/uksi/2012/2886
+      # rationale: Section 13A delegates the working-age scheme to East Suffolk Council, so its adopted scheme document is the operative legal source for locally set working-age values.
+  summary: East Suffolk's 2026-27 working-age award is 91.5 percent of liability, less the statutory mixed-number excess-income deduction and its locally specified capital and non-dependant rules. Pension-age provisions are outside this module.
+  deferred_outputs:
+    - output: uk-east-suffolk:policies/east-suffolk/council-tax-reduction/part-6#applicable_amount
+      reason: Category-specific applicable amounts and premiums are not encoded by this award-surface module.
+    - output: uk-east-suffolk:policies/east-suffolk/council-tax-reduction/paragraph-30#non_dependant_exemptions_and_aggregation
+      reason: This module encodes the printed working-age single-deduction amount; exemption and household aggregation classifications remain future outputs.
+rules:
+  - name: east_suffolk_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 paragraph 29A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "91.5 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.915
+
+  - name: east_suffolk_council_tax_reduction_taper_whole_percentage_points
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+
+  - name: east_suffolk_council_tax_reduction_taper_fraction_numerator
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
+
+  - name: east_suffolk_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 mixed-number denominator
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "amount B is 2 6/7 per cent"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7
+
+  - name: east_suffolk_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "100 per cent of the amount A/B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+
+  - name: east_suffolk_council_tax_reduction_weekly_taper_rate
+    kind: parameter
+    dtype: Rate
+    period: Week
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 class E mixed-number taper
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          (east_suffolk_council_tax_reduction_taper_whole_percentage_points + east_suffolk_council_tax_reduction_taper_fraction_numerator / east_suffolk_council_tax_reduction_days_per_week) * east_suffolk_council_tax_reduction_per_cent_unit
+
+  - name: east_suffolk_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 paragraph 23A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "any person whose capital exceeds £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          10000
+
+  - name: east_suffolk_council_tax_reduction_non_dependant_deduction_weekly
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 paragraph 30(2)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-38
+              excerpt: "£7.40 per week from 01/04/22"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          7.40
+
+  - name: east_suffolk_council_tax_reduction_tariff_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 paragraph 72
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-81
+              excerpt: "72.0 This is no longer used"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
+
+  - name: east_suffolk_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 paragraph 23A
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-32
+              excerpt: "any person whose capital exceeds £10,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_suffolk_council_tax_reduction_assessed_capital_for_year <= east_suffolk_council_tax_reduction_capital_limit
+
+  - name: east_suffolk_council_tax_reduction_excess_income_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 class E
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          max(0, east_suffolk_council_tax_reduction_assessed_income_for_year - east_suffolk_council_tax_reduction_applicable_amount_for_year)
+
+  - name: east_suffolk_council_tax_reduction_income_taper_deduction_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 class E amount B
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-22
+              excerpt: "amount B is 2 6/7 per cent of the difference between his income for the relevant week and his applicable amount"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_suffolk_council_tax_reduction_excess_income_for_year * east_suffolk_council_tax_reduction_weekly_taper_rate
+
+  - name: east_suffolk_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Suffolk Council Tax Reduction Scheme 2026-27 working-age amount calculation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-37
+              excerpt: "less any deductions in respect of non-dependants"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-east-suffolk/manual/council-tax-reduction-scheme-2026-2027/page-42
+              excerpt: "deducting amount B from amount A"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_suffolk_council_tax_reduction_capital_eligible and would_claim_council_tax_reduction: max(0, east_suffolk_council_tax_reduction_liability_for_year * east_suffolk_council_tax_reduction_maximum_support_rate - east_suffolk_council_tax_reduction_income_taper_deduction_for_year - east_suffolk_council_tax_reduction_non_dependant_deductions_for_year) else: 0

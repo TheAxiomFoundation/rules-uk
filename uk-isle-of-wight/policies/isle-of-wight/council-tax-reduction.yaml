@@ -38,41 +38,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          isle_of_wight_council_tax_reduction_maximum_support_percentage_points * isle_of_wight_council_tax_reduction_per_cent_unit
-  - name: isle_of_wight_council_tax_reduction_per_cent_unit
-    kind: parameter
-    dtype: Rate
-    period: Year
-    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 57.1 percentage notation
-    metadata:
-      proof:
-        atoms:
-          - path: versions[0].formula
-            kind: amount
-            source:
-              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
-              excerpt: "shall be 100 per cent, of the amount A divided by B"
-    versions:
-      - effective_from: '2026-04-01'
-        formula: |-
-          0.01
-  - name: isle_of_wight_council_tax_reduction_maximum_support_percentage_points
-    kind: parameter
-    dtype: Number
-    period: Year
-    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 57.1
-    metadata:
-      proof:
-        atoms:
-          - path: versions[0].formula
-            kind: amount
-            source:
-              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
-              excerpt: "shall be 100 per cent, of the amount A divided by B"
-    versions:
-      - effective_from: '2026-04-01'
-        formula: |-
-          100
+          1
   - name: isle_of_wight_council_tax_reduction_capital_limit
     kind: parameter
     dtype: Money
@@ -542,7 +508,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year * isle_of_wight_council_tax_reduction_maximum_support_percentage_points * isle_of_wight_council_tax_reduction_per_cent_unit
+          isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year * isle_of_wight_council_tax_reduction_maximum_support_rate
   - name: isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year
     kind: derived
     entity: Person

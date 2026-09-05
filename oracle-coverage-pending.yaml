@@ -9115,4 +9115,34 @@ entries:
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount
   source: manual
   since: 2026-08-03
-ceiling: 3038
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_five_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_four_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_passported_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_six_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_three_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_two_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_chargeable_non_dependant_deduction_band_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_no_non_dependant_deduction_band_code
+  source: manual
+  since: 2026-08-03
+ceiling: 3048

@@ -1,0 +1,84 @@
+- name: cumberland_ctr_parameters
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_band: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_maximum_support_rate: 1
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_per_cent_unit: 0.01
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_taper_whole_percentage_points: 2
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_taper_fraction_numerator: 6
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_days_per_week: 7
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_weekly_taper_rate: '0.0285714285714285714285714286'
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_capital_limit: 16000
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_threshold: 6000
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_step: 250
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_non_dependant_weekly_deduction_by_band: 5.2
+- name: cumberland_ctr_non_dependant_band_one
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_band: 1}
+  output: {uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_non_dependant_weekly_deduction_by_band: 10.6}
+- name: cumberland_ctr_non_dependant_band_two
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_band: 2}
+  output: {uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_non_dependant_weekly_deduction_by_band: 13.3}
+- name: cumberland_ctr_non_dependant_band_three
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input: {uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_band: 3}
+  output: {uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_non_dependant_weekly_deduction_by_band: 15.95}
+- name: cumberland_ctr_taper_and_tariff_first_step
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_capital_for_year: 6250
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_income_weekly: 110
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_applicable_amount_weekly: 100
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_liability_weekly: 50
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly: 1
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_excess_income_weekly: 11
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_maximum_amount_weekly: 50
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_award_weekly: '49.685714285714285714285714285'
+- name: cumberland_ctr_tariff_partial_step
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_capital_for_year: 6250.01
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_income_weekly: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_applicable_amount_weekly: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_liability_weekly: 10
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly: 2
+- name: cumberland_ctr_capital_at_limit
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_capital_for_year: 16000
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_income_weekly: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_applicable_amount_weekly: 100
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_liability_weekly: 50
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_capital_eligible: holds
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_award_weekly: 50
+- name: cumberland_ctr_capital_cliff_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_income_weekly: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_applicable_amount_weekly: 100
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_liability_weekly: 50
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_capital_eligible: not_holds
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_award_weekly: 0
+- name: cumberland_ctr_taper_exhaustion_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_capital_for_year: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_assessed_income_weekly: 1850
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_applicable_amount_weekly: 100
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_liability_weekly: 50
+    uk-cumberland:policies/cumberland/council-tax-reduction#input.cumberland_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly: 0
+    uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_award_weekly: 0

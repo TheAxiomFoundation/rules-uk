@@ -9055,4 +9055,52 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_working_age_scheme_applies
   source: manual
   since: 2026-08-03
-ceiling: 3018
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_award_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_capital_eligible
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_days_per_week
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_excess_income_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_maximum_amount_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_non_dependant_weekly_deduction_by_band
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_per_cent_unit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_taper_fraction_numerator
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_taper_whole_percentage_points
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_tariff_income_weekly_amount_per_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-cumberland:policies/cumberland/council-tax-reduction#cumberland_council_tax_reduction_weekly_taper_rate
+  source: manual
+  since: 2026-08-03
+ceiling: 3034

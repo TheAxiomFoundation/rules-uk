@@ -1,0 +1,336 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Wealden District Council, so the adopted document is operative. The pinned singular source-verification contract rejects and strips this attestation as a live field.
+  summary: |-
+    Wealden's operative 2026-27 local working-age CTR award is a four-band weekly-income grid. The selected 100, 80, 60, or 40 percent discount is applied to the scheme-defined maximum (100 percent of eligible liability). Capital greater than £6,000 is a cliff. The grid contains no taper, tariff-income, non-dependant deduction, or minimum-award rule. Pension-age prescribed provisions are out of scope.
+  deferred_outputs:
+    - output: uk-wealden:policies/wealden/council-tax-reduction/sections-12-to-38-and-schedules-2-to-3#assessed_weekly_income_and_capital
+      reason: Detailed income and capital assessment, disregards, attribution and valuation feed the award-surface inputs.
+    - output: uk-wealden:policies/wealden/council-tax-reduction/section-39#maximum_eligible_liability_after_discounts_and_apportionment
+      reason: Statutory discounts and joint-liability apportionment determine the eligible liability consumed by this award surface.
+rules:
+  - name: wealden_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Wealden Council Tax Reduction Scheme 2026/27 paragraph 39.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+
+  - name: wealden_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wealden Council Tax Reduction Scheme 2026/27 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "the prescribed amount is £6,000"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: wealden_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: wealden_council_tax_reduction_family_category
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Single Person (1) Couple no children / young person (2) Couple/ lone parent with one child/ young person (3) Couple/ lone parent with two or more children / young persons (4)"
+              table: &grid_table
+                header: Proposed (2026/27) Council Tax Reduction Scheme Income Levels
+                row_key: group
+                column_key: weekly income by family category
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3}
+
+  - name: wealden_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: wealden_council_tax_reduction_income_band
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+
+  - name: wealden_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: wealden_council_tax_reduction_income_band
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "1 100 £0.00 - £110.03 £0.00 - £162.50 £0.00 - £227.75 £0.00 - £291.72 2 80 £110.04 - £175.27 £162.51 - £227.75 £227.76 - £291.72 £291.73 - £356.97 3 60 £175.28 - £240.55 £227.76 - £291.72 £291.73 - £356.97 £356.98 - £422.24 4 40 £240.56 - £307.07 £291.73 - £344.19 £356.98 - £422.24 £422.25 - £487.50"
+              table:
+                header: Proposed (2026/27) Council Tax Reduction Scheme Income Levels
+                row_key: group
+                column_key: discount percentage
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 1, 1: 0.8, 2: 0.6, 3: 0.4, 4: 0}
+
+  - name: wealden_council_tax_reduction_band_2_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wealden_council_tax_reduction_family_category
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: &grid_proof
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "2 80 £110.04 - £175.27 £162.51 - £227.75 £227.76 - £291.72 £291.73 - £356.97"
+              table: *grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 110.04, 1: 162.51, 2: 227.76, 3: 291.73}
+
+  - name: wealden_council_tax_reduction_band_3_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wealden_council_tax_reduction_family_category
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 175.28, 1: 227.76, 2: 291.73, 3: 356.98}
+
+  - name: wealden_council_tax_reduction_band_4_lower_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wealden_council_tax_reduction_family_category
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata: *grid_proof
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 240.56, 1: 291.73, 2: 356.98, 3: 422.25}
+
+  - name: wealden_council_tax_reduction_band_4_upper_weekly_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: wealden_council_tax_reduction_family_category
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid upper bounds
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "4 40 £240.56 - £307.07 £291.73 - £344.19 £356.98 - £422.24 £422.25 - £487.50"
+              table: *grid_table
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 307.07, 1: 344.19, 2: 422.24, 3: 487.50}
+
+  - name: wealden_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Wealden Council Tax Reduction Scheme 2026/27 sections 1.6-1.7
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The adopted scheme for working age applicants is an income banded / grid scheme means test"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "has made a valid application for reduction."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_wealden
+          and council_tax_reduction_household_in_england
+          and wealden_council_tax_reduction_applicant_is_working_age
+          and would_claim_council_tax_reduction
+
+  - name: wealden_council_tax_reduction_family_category
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wealden_council_tax_reduction_has_two_or_more_dependants: wealden_council_tax_reduction_family_category_codes[3] else: if wealden_council_tax_reduction_has_one_dependant: wealden_council_tax_reduction_family_category_codes[2] else: if wealden_council_tax_reduction_has_partner: wealden_council_tax_reduction_family_category_codes[1] else: wealden_council_tax_reduction_family_category_codes[0]
+
+  - name: wealden_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    source: Wealden Council Tax Reduction Scheme 2026/27 paragraph 27.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-36
+              excerpt: "no support shall be granted when the applicant has an amount greater that this level"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wealden_council_tax_reduction_assessed_capital_for_year <= wealden_council_tax_reduction_capital_limit
+
+  - name: wealden_council_tax_reduction_income_band
+    kind: derived
+    entity: Person
+    dtype: Number
+    period: Week
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wealden_council_tax_reduction_assessed_weekly_income > wealden_council_tax_reduction_band_4_upper_weekly_income_by_family[wealden_council_tax_reduction_family_category]: wealden_council_tax_reduction_income_band_codes[4] else: if wealden_council_tax_reduction_assessed_weekly_income >= wealden_council_tax_reduction_band_4_lower_weekly_income_by_family[wealden_council_tax_reduction_family_category]: wealden_council_tax_reduction_income_band_codes[3] else: if wealden_council_tax_reduction_assessed_weekly_income >= wealden_council_tax_reduction_band_3_lower_weekly_income_by_family[wealden_council_tax_reduction_family_category]: wealden_council_tax_reduction_income_band_codes[2] else: if wealden_council_tax_reduction_assessed_weekly_income >= wealden_council_tax_reduction_band_2_lower_weekly_income_by_family[wealden_council_tax_reduction_family_category]: wealden_council_tax_reduction_income_band_codes[1] else: wealden_council_tax_reduction_income_band_codes[0]
+
+  - name: wealden_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Person
+    dtype: Rate
+    period: Year
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 grid
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wealden_council_tax_reduction_support_rate_by_income_band[wealden_council_tax_reduction_income_band]
+
+  - name: wealden_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wealden Council Tax Reduction Scheme 2026/27 paragraph 39.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-44
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          wealden_council_tax_reduction_maximum_eligible_liability_for_year * wealden_council_tax_reduction_maximum_support_rate
+
+  - name: simulated_wealden_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wealden Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-5
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: ordering
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme"
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-60
+              excerpt: "Any applicant who capital is greater than £6,000 shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if wealden_council_tax_reduction_working_age_scheme_applies and wealden_council_tax_reduction_capital_eligible: wealden_council_tax_reduction_maximum_amount_for_year * wealden_council_tax_reduction_selected_support_rate else: 0
+
+  - name: wealden_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Wealden Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: effective_period
+            source:
+              corpus_citation_path: uk-wealden/manual/council-tax-reduction-scheme-2026-2027/page-4
+              excerpt: "is effective from 1st April 2026 for a period of one financial year."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_wealden_council_tax_reduction_annual_amount

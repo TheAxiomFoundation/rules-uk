@@ -1,0 +1,75 @@
+- name: east_hertfordshire_ctr_printed_parameters
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.local_authority_is_east_hertfordshire: false
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_working_age: false
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: false
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_weekly_liability: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_income_weekly: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_applicable_amount_weekly: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_maximum_support_rate: 0.915
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_whole_percentage_points: 2
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_fraction_numerator: 6
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_days_per_week: 7
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_per_cent_unit: 0.01
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_taper_rate: '0.0285714285714285714285714286'
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_capital_limit: 16000
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_threshold: 6000
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_step: 250
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step: 1
+- name: east_hertfordshire_ctr_positive_taper
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.local_authority_is_east_hertfordshire: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_working_age: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_weekly_liability: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_income_weekly: 150
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_capital_eligible: holds
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_weekly: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_maximum_weekly: 91.5
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_excess_income_weekly: 50
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_award_conditions_met: holds
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_deduction_weekly: '1.42857142857142857142857143'
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_amount: '90.07142857142857142857142857'
+- name: east_hertfordshire_ctr_tariff_first_step
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_capital_for_year: 6250.01
+  output:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_weekly: 2
+- name: east_hertfordshire_ctr_capital_cliff
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.local_authority_is_east_hertfordshire: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_working_age: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_capital_for_year: 16000.01
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_weekly_liability: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_income_weekly: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_capital_eligible: not_holds
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_amount: 0
+- name: east_hertfordshire_ctr_taper_exhaustion_zero_award
+  period: {period_kind: benefit_week, start: '2026-04-06', end: '2026-04-12'}
+  input:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.local_authority_is_east_hertfordshire: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_working_age: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_capital_for_year: 0
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_weekly_liability: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_assessed_income_weekly: 4000
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_applicable_amount_weekly: 100
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#input.east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly: 0
+  output:
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_award_conditions_met: not_holds
+    uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_amount: 0

@@ -1,0 +1,368 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Fareham Borough Council, so the adopted scheme document is operative. The singular source-verification contract strips this attestation as a live field.
+  summary: |-
+    Fareham's 2026/27 local working-age Council Tax Reduction is a five-band weekly-income discount scheme. Schedule 1 selects 100, 75, 50, 25, or zero percent of the section 48 maximum according to family category and weekly income; Income Support, income-related ESA, and income-based JSA passport an applicant or partner to Band 1. Capital of £16,000 or more excludes an award. The working-age award provisions print no excess-income taper, tariff-income rule, minimum award, or non-dependant deduction.
+  deferred_outputs:
+    - output: uk-fareham:policies/fareham/council-tax-reduction/sections-11-to-25-and-schedules-2-and-4#assessed_weekly_income
+      reason: The detailed income, earnings, and disregard provisions determine the Schedule 1 weekly-income input and are outside this award-surface module.
+    - output: uk-fareham:policies/fareham/council-tax-reduction/sections-27-to-34-and-schedule-3#assessed_capital_for_year
+      reason: The detailed capital valuation and disregard provisions determine the capital input; this module applies the printed £16,000 exclusion.
+    - output: uk-fareham:policies/fareham/council-tax-reduction/paragraph-48#annual_maximum_council_tax_reduction_before_schedule_1_discount
+      reason: Liability discounts and joint-liability apportionment determine the section 48 maximum consumed by this Schedule 1 award surface.
+rules:
+  - name: fareham_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Fareham Council Tax Support Scheme 2026/27 paragraph 48.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-45
+              excerpt: "shall be 100 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+  - name: fareham_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Fareham Council Tax Support Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "the prescribed amount is £16,000 and no reduction shall be granted when the applicant has an amount of £16,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          16000
+  - name: fareham_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: fareham_council_tax_reduction_family_category
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: &grid_excerpt |-
+                1 The authority’s Council Tax Support scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme: Discount Single Couple Lone Parent with 1 dependant Couple with 1 dependant Lone Parent with 2 dependant Couple with 2 dependants Band 1* 100% £0 to £199.00 £0 to £299.99 £0 to £299.99 £0 to £349.99 £0 to £349.99 £0 to £399.99 Band 2 75% £200.00 to £249.99 £300.00 to £349.99 £300.00 to £349.99 £350.00 to £399.99 £350.00 to £399.99 £400.00 to £449.99 Band 3 50% £250.00 to £299.99 £350.00 to £399.99 £350.00 to £399.99 £400.00 to £449.99 £400.00 to £449.99 £450.00 to £499.99 Band 4 25% £300.00 to £349.99 £400.00 to £449.00 £400.00 to £449.00 £450.00 to £499.00 £450.00 to £499.00 £500.00 to £549.99 Band 5 0% £350.00 or more £450.00 or more £450.00 or more £500.00 or more £500.00 or more £550.00 or more
+              table:
+                header: Banded Discount Scheme
+                row_key: discount band
+                column_key: weekly income by family category
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+  - name: fareham_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: fareham_council_tax_reduction_income_band
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+  - name: fareham_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: fareham_council_tax_reduction_income_band
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 1, 1: 0.75, 2: 0.50, 3: 0.25, 4: 0}
+  - name: fareham_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: fareham_council_tax_reduction_family_category
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 200, 1: 300, 2: 300, 3: 350, 4: 350, 5: 400}
+  - name: fareham_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: fareham_council_tax_reduction_family_category
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 250, 1: 350, 2: 350, 3: 400, 4: 400, 5: 450}
+  - name: fareham_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: fareham_council_tax_reduction_family_category
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 300, 1: 400, 2: 400, 3: 450, 4: 450, 5: 500}
+  - name: fareham_council_tax_reduction_band_5_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: fareham_council_tax_reduction_family_category
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 350, 1: 450, 2: 450, 3: 500, 4: 500, 5: 550}
+  - name: fareham_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 section 1.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-7
+              excerpt: "The adopted scheme for working age applicants is an income band scheme means test, which compares income against a range of discounts available."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_fareham and council_tax_reduction_household_in_england and fareham_council_tax_reduction_applicant_is_working_age and would_claim_council_tax_reduction
+  - name: fareham_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if fareham_council_tax_reduction_has_partner: if fareham_council_tax_reduction_has_two_or_more_dependants: fareham_council_tax_reduction_family_category_codes[5] else: if fareham_council_tax_reduction_has_one_dependant: fareham_council_tax_reduction_family_category_codes[3] else: fareham_council_tax_reduction_family_category_codes[1] else: if fareham_council_tax_reduction_has_two_or_more_dependants: fareham_council_tax_reduction_family_category_codes[4] else: if fareham_council_tax_reduction_has_one_dependant: fareham_council_tax_reduction_family_category_codes[2] else: fareham_council_tax_reduction_family_category_codes[0]
+  - name: fareham_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "Where an applicant or partner is in receipt of Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance (passported benefit), discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          fareham_council_tax_reduction_receives_income_support or fareham_council_tax_reduction_receives_income_related_esa or fareham_council_tax_reduction_receives_income_based_jsa
+  - name: fareham_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "discount will be awarded at Band 1 level."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if fareham_council_tax_reduction_passported_to_band_1: fareham_council_tax_reduction_income_band_codes[0] else: if fareham_council_tax_reduction_assessed_weekly_income >= fareham_council_tax_reduction_band_5_lower_income_by_family[fareham_council_tax_reduction_family_category]: fareham_council_tax_reduction_income_band_codes[4] else: if fareham_council_tax_reduction_assessed_weekly_income >= fareham_council_tax_reduction_band_4_lower_income_by_family[fareham_council_tax_reduction_family_category]: fareham_council_tax_reduction_income_band_codes[3] else: if fareham_council_tax_reduction_assessed_weekly_income >= fareham_council_tax_reduction_band_3_lower_income_by_family[fareham_council_tax_reduction_family_category]: fareham_council_tax_reduction_income_band_codes[2] else: if fareham_council_tax_reduction_assessed_weekly_income >= fareham_council_tax_reduction_band_2_lower_income_by_family[fareham_council_tax_reduction_family_category]: fareham_council_tax_reduction_income_band_codes[1] else: fareham_council_tax_reduction_income_band_codes[0]
+  - name: fareham_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          fareham_council_tax_reduction_support_rate_by_income_band[fareham_council_tax_reduction_income_band]
+  - name: fareham_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 paragraph 26.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-34
+              excerpt: "no reduction shall be granted when the applicant has an amount of £16,000 or greater."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          fareham_council_tax_reduction_assessed_capital_for_year < fareham_council_tax_reduction_capital_limit
+  - name: fareham_council_tax_reduction_amount_before_award_conditions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Support as defined within this scheme"
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "Discount bands vary depending on both weekly income and the household (family as defined within this scheme)."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          fareham_council_tax_reduction_maximum_amount_for_year * fareham_council_tax_reduction_selected_support_rate
+  - name: fareham_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "Any applicant whose capital is £16,000 or above shall not be entitled to any Council Tax Reductions whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          fareham_council_tax_reduction_working_age_scheme_applies and fareham_council_tax_reduction_capital_eligible
+  - name: simulated_fareham_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Fareham Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "The authority’s Council Tax Support scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if fareham_council_tax_reduction_award_conditions_met: fareham_council_tax_reduction_amount_before_award_conditions_for_year else: fareham_council_tax_reduction_amount_before_award_conditions_for_year - fareham_council_tax_reduction_amount_before_award_conditions_for_year
+  - name: fareham_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Fareham Council Tax Support Scheme 2026/27 operative working-age award
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-fareham/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "The authority’s Council Tax Support scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          simulated_fareham_council_tax_reduction_annual_amount
+inputs:
+  - {name: local_authority_is_fareham, entity: Household, dtype: Boolean, period: Year}
+  - {name: council_tax_reduction_household_in_england, entity: Household, dtype: Boolean, period: Year}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_applicant_is_working_age, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_assessed_capital_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: fareham_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: fareham_council_tax_reduction_maximum_amount_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: fareham_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_has_one_dependant, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_has_two_or_more_dependants, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_receives_income_support, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_receives_income_related_esa, entity: Household, dtype: Boolean, period: Year}
+  - {name: fareham_council_tax_reduction_receives_income_based_jsa, entity: Household, dtype: Boolean, period: Year}

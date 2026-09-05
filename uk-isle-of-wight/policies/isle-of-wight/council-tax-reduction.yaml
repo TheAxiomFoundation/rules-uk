@@ -22,8 +22,6 @@ module:
       reason: Capital valuation, attribution, and disregard calculations are outside this award-surface module.
     - output: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction/paragraphs-58.6-to-58.9#non_dependant_protection_or_exemption
       reason: Detailed protected and exempt non-dependant classification is consumed as an input.
-    - output: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction/paragraph-57.1#maximum_eligible_liability_for_year
-      reason: Liability lookup, Band C cap, discount, and joint-liability apportionment are supplied as the capped liability input.
 rules:
   - name: isle_of_wight_council_tax_reduction_maximum_support_rate
     kind: parameter
@@ -40,7 +38,41 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          1
+          isle_of_wight_council_tax_reduction_maximum_support_percentage_points * isle_of_wight_council_tax_reduction_per_cent_unit
+  - name: isle_of_wight_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 57.1 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+  - name: isle_of_wight_council_tax_reduction_maximum_support_percentage_points
+    kind: parameter
+    dtype: Number
+    period: Year
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "shall be 100 per cent, of the amount A divided by B"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          100
   - name: isle_of_wight_council_tax_reduction_capital_limit
     kind: parameter
     dtype: Money
@@ -130,6 +162,125 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         values: {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
+  - name: isle_of_wight_council_tax_reduction_band_code
+    kind: parameter
+    dtype: Number
+    indexed_by: isle_of_wight_council_tax_reduction_band_level
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].values
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+              table: {header: Banded Discount Scheme, row_key: band, column_key: band code}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
+  - name: isle_of_wight_council_tax_reduction_band_passported_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+  - name: isle_of_wight_council_tax_reduction_band_two_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          2
+  - name: isle_of_wight_council_tax_reduction_band_three_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          3
+  - name: isle_of_wight_council_tax_reduction_band_four_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          4
+  - name: isle_of_wight_council_tax_reduction_band_five_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          5
+  - name: isle_of_wight_council_tax_reduction_band_six_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Band Level of Council Tax Reduction Couple with children Couple with no children Single parent with one child Single parent with two or more children Single person 1 75% Passport benefit Passport benefit Passport benefit Passport benefit Passport benefit 2 75% £0.00 - £315.00 £0.00 - £145.00 £0.00 - £180.00 £0.00 - £265.00 £0.00 - £95.00 3 65% £310.01 - £365.00 £145.01 - £195.00 £180.01 - £230.00 £265.01 - £315.00 £95.01 - £145.00 4 45% £365.01 - £415.00 £195.01 - £245.00 £230.01 - £280.00 £315.01 - £365.00 £145.01 - £195.00 5 25% £415.01 - £465.00 £245.01 - £295.00 £280.01 - £330.00 £365.01 - £415.00 £195.01 - £245.00 6 0% £465.01+ £295.01+ £330.01+ £415.01+ £245.01+"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6
   - name: isle_of_wight_council_tax_reduction_support_rate_by_band
     kind: parameter
     dtype: Rate
@@ -264,7 +415,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if isle_of_wight_council_tax_reduction_passported_benefit: isle_of_wight_council_tax_reduction_band_level[1] else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_level[6] else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_5_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_level[5] else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_4_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_level[4] else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_3_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_level[3] else: isle_of_wight_council_tax_reduction_band_level[2]
+          if isle_of_wight_council_tax_reduction_passported_benefit: isle_of_wight_council_tax_reduction_band_passported_code else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_six_code else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_5_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_five_code else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_4_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_four_code else: if isle_of_wight_council_tax_reduction_assessed_weekly_income >= isle_of_wight_council_tax_reduction_band_3_lower_income_by_household[isle_of_wight_council_tax_reduction_household_category]: isle_of_wight_council_tax_reduction_band_three_code else: isle_of_wight_council_tax_reduction_band_two_code
   - name: isle_of_wight_council_tax_reduction_selected_support_rate
     kind: derived
     entity: Person
@@ -284,6 +435,40 @@ rules:
       - effective_from: '2026-04-01'
         formula: |-
           isle_of_wight_council_tax_reduction_support_rate_by_band[isle_of_wight_council_tax_reduction_income_band]
+  - name: isle_of_wight_council_tax_reduction_chargeable_non_dependant_deduction_band_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 58.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "the non-dependant deductions in respect of a day referred to in section 57 (maximum council tax reduction) shall be £2.00 x 1/7"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          1
+  - name: isle_of_wight_council_tax_reduction_no_non_dependant_deduction_band_code
+    kind: parameter
+    dtype: Number
+    period: Week
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 58.6
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: exception
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-62
+              excerpt: "No deduction shall be made in respect of any non-dependants occupying an applicant’s dwelling if the applicant or his partner is"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
   - name: isle_of_wight_council_tax_reduction_non_dependant_deduction_band
     kind: derived
     entity: Person
@@ -301,7 +486,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if isle_of_wight_council_tax_reduction_has_chargeable_non_dependant and not isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: 1 else: 0
+          if isle_of_wight_council_tax_reduction_has_chargeable_non_dependant and not isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: isle_of_wight_council_tax_reduction_chargeable_non_dependant_deduction_band_code else: isle_of_wight_council_tax_reduction_no_non_dependant_deduction_band_code
   - name: isle_of_wight_council_tax_reduction_annual_non_dependant_deduction
     kind: derived
     entity: Person
@@ -357,7 +542,26 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year * isle_of_wight_council_tax_reduction_maximum_support_rate
+          isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year * isle_of_wight_council_tax_reduction_maximum_support_percentage_points * isle_of_wight_council_tax_reduction_per_cent_unit
+  - name: isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Isle of Wight Council Local Council Tax Support Scheme 2026/27 paragraph 57.1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-61
+              excerpt: "A is the lower of either;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year, isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year)
   - name: simulated_isle_of_wight_council_tax_reduction_annual_amount
     kind: derived
     entity: Person

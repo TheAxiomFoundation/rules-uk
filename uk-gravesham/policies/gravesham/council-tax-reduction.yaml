@@ -11,7 +11,7 @@ module:
   summary: Gravesham's 2026-27 local working-age award is a banded weekly-income discount applied to the scheme-defined maximum Council Tax Reduction. It is not an excess-income taper scheme. Pension-age provisions are outside this module.
   deferred_outputs:
     - output: uk-gravesham:policies/gravesham/council-tax-reduction/sections-11-to-25-and-schedule-2#assessed_weekly_income
-      reason: Income assessment, disregards, and the minimum-income floor determine the weekly-income input.
+      reason: Income assessment, disregards, the minimum-income floor, and the tariff income calculated under paragraphs 34A.1-34A.2 determine the post-tariff assessed weekly-income input consumed by the band selector.
     - output: uk-gravesham:policies/gravesham/council-tax-reduction/sections-26-to-34A-and-schedule-3#assessed_capital
       reason: Capital valuation and disregard rules determine the capital input.
     - output: uk-gravesham:policies/gravesham/council-tax-reduction/paragraphs-48.1-to-48.4#maximum_eligible_liability
@@ -187,4 +187,4 @@ rules:
     unit: GBP
     source: Gravesham Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 1-2
     metadata: {proof: {atoms: [{path: "versions[0].formula", kind: formula, source: {corpus_citation_path: uk-gravesham/manual/council-tax-reduction-scheme-2026-2027/page-66, excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme"}}]}}
-    versions: [{effective_from: '2026-04-01', formula: "if gravesham_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and gravesham_council_tax_reduction_capital_eligible: gravesham_council_tax_reduction_maximum_amount_for_year * gravesham_council_tax_reduction_selected_support_rate - gravesham_council_tax_reduction_non_dependant_deductions_for_year else: 0"}]
+    versions: [{effective_from: '2026-04-01', formula: "if gravesham_council_tax_reduction_working_age_scheme_applies and would_claim_council_tax_reduction and gravesham_council_tax_reduction_capital_eligible: max(0, gravesham_council_tax_reduction_maximum_amount_for_year * gravesham_council_tax_reduction_selected_support_rate - gravesham_council_tax_reduction_non_dependant_deductions_for_year) else: 0"}]

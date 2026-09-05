@@ -1,0 +1,419 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Epsom & Ewell Borough Council, so the adopted scheme document is operative. The singular source-verification contract strips this attestation as a live field.
+  summary: |-
+    Epsom & Ewell's 2026-27 working-age Council Tax Income Discount is a monthly-income banded scheme. The Schedule 1 percentage is applied to the section 36 defined maximum (80 percent of eligible liability); capital above £6,000 excludes entitlement, and the £38.00 monthly non-dependant contribution is deducted through the assessed annual contribution input. The scheme prints neither a taper nor a tariff-income rule.
+  deferred_outputs:
+    - output: uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction/sections-39-to-59#assessed_monthly_income
+      reason: The detailed income calculation, including income attribution and disregards, is outside this award-surface module.
+    - output: uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction/sections-57-to-59-and-schedule-3#assessed_capital_for_year
+      reason: The detailed capital calculation and disregards are outside this award-surface module.
+    - output: uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction/section-37#annual_non_dependant_contributions
+      reason: Resident-level non-dependant exemptions and calendar-day apportionment determine the annual contribution consumed by this award-surface module.
+rules:
+  - name: epsom_and_ewell_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraph 36(1)
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "is 80 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.80
+
+  - name: epsom_and_ewell_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraph 32(g)
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "not have capital and/or savings in excess of £6,000.00;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          6000
+
+  - name: epsom_and_ewell_council_tax_reduction_monthly_non_dependant_contribution
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraph 37(1)
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: amount
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "will equate to £38.00 per calendar month"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          38.00
+
+  - name: epsom_and_ewell_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: epsom_and_ewell_council_tax_reduction_income_band
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].values'
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: &grid_excerpt |-
+                Household Type & monthly income Council Tax reduction percentage
+
+                Passported
+
+                Single, no children
+
+                Couple, no children
+
+                Lone parent/couple with one child Lone parent/couple with two or more children Band A – 80% Relevant Benefit £0.00 - £426.00 £0.00 - £795.00 £0.00 – £1039.00 £0.00 - £1,348.00 Band B – 65%
+
+                N/A £426.01 - £638.00 £795.01 - £1022.00 £1039.01 - £1,234.00 £1,348.01 - £1,583.00 Band C – 50%
+
+                N/A £638.01 - £751.00 £1022.01 - £1,217.00 £1,234.01 - £1,369.00 £1,583.01 - £1,943.00 Band D – 40%
+
+                N/A £751.01 - £1,525.00 £1,217.01- £1,925.00 £1,360.01 - £2,337.00 £1,943.01 - £3,793.00
+              table:
+                header: Household Type & monthly income Council Tax reduction percentage
+                row_key: band
+                column_key: household type
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0, 1: 1, 2: 2, 3: 3}
+
+  - name: epsom_and_ewell_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: epsom_and_ewell_council_tax_reduction_income_band
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].values'
+            kind: parameter_table
+            source: *grid_source
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 0.80, 1: 0.65, 2: 0.50, 3: 0.40}
+
+  - name: epsom_and_ewell_council_tax_reduction_band_b_lower_income_by_household
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    indexed_by: epsom_and_ewell_council_tax_reduction_household_type
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 426.01, 1: 795.01, 2: 1039.01, 3: 1348.01}
+
+  - name: epsom_and_ewell_council_tax_reduction_band_c_lower_income_by_household
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    indexed_by: epsom_and_ewell_council_tax_reduction_household_type
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 638.01, 1: 1022.01, 2: 1234.01, 3: 1583.01}
+
+  - name: epsom_and_ewell_council_tax_reduction_band_d_lower_income_by_household
+    kind: parameter
+    dtype: Money
+    period: Month
+    unit: GBP
+    indexed_by: epsom_and_ewell_council_tax_reduction_household_type
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        values: {0: 751.01, 1: 1217.01, 2: 1360.01, 3: 1943.01}
+
+  - name: epsom_and_ewell_council_tax_reduction_applicant_is_in_local_working_age_scheme_class
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraph 1(5)
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-6
+              excerpt: "has not attained the qualifying age for state pension credit; or (b) has attained the age for qualifying for state pension credit if he, and his partner, is a person on Income Support, on an Income Based Jobseeker’s Allowance, or an Income Related Employment and Support Allowance or on Universal Credit."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_applicant_is_working_age
+          or epsom_and_ewell_council_tax_reduction_receives_income_support
+          or epsom_and_ewell_council_tax_reduction_receives_income_related_esa
+          or epsom_and_ewell_council_tax_reduction_receives_income_based_jsa
+          or epsom_and_ewell_council_tax_reduction_receives_universal_credit
+
+  - name: epsom_and_ewell_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraphs 1 and 32
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-46
+              excerpt: "have made a valid application for Council Tax Income Discount."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          local_authority_is_epsom_and_ewell
+          and council_tax_reduction_household_in_england
+          and epsom_and_ewell_council_tax_reduction_applicant_is_in_local_working_age_scheme_class
+          and would_claim_council_tax_reduction
+
+  - name: epsom_and_ewell_council_tax_reduction_household_type
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Month
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if epsom_and_ewell_council_tax_reduction_has_two_or_more_children: epsom_and_ewell_council_tax_reduction_income_band_codes[3] else: if epsom_and_ewell_council_tax_reduction_has_one_child: epsom_and_ewell_council_tax_reduction_income_band_codes[2] else: if epsom_and_ewell_council_tax_reduction_has_partner: epsom_and_ewell_council_tax_reduction_income_band_codes[1] else: epsom_and_ewell_council_tax_reduction_income_band_codes[0]
+
+  - name: epsom_and_ewell_council_tax_reduction_passported
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Month
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1 paragraph 2
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "Income Support; or\n\n(b) Income Based Jobseekers Allowance; or\n\n(c) Income related Employment and Support Allowance."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_receives_income_support
+          or epsom_and_ewell_council_tax_reduction_receives_income_related_esa
+          or epsom_and_ewell_council_tax_reduction_receives_income_based_jsa
+
+  - name: epsom_and_ewell_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Month
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if epsom_and_ewell_council_tax_reduction_passported: epsom_and_ewell_council_tax_reduction_income_band_codes[0] else: if epsom_and_ewell_council_tax_reduction_assessed_monthly_income >= epsom_and_ewell_council_tax_reduction_band_d_lower_income_by_household[epsom_and_ewell_council_tax_reduction_household_type]: epsom_and_ewell_council_tax_reduction_income_band_codes[3] else: if epsom_and_ewell_council_tax_reduction_assessed_monthly_income >= epsom_and_ewell_council_tax_reduction_band_c_lower_income_by_household[epsom_and_ewell_council_tax_reduction_household_type]: epsom_and_ewell_council_tax_reduction_income_band_codes[2] else: if epsom_and_ewell_council_tax_reduction_assessed_monthly_income >= epsom_and_ewell_council_tax_reduction_band_b_lower_income_by_household[epsom_and_ewell_council_tax_reduction_household_type]: epsom_and_ewell_council_tax_reduction_income_band_codes[1] else: epsom_and_ewell_council_tax_reduction_income_band_codes[0]
+
+  - name: epsom_and_ewell_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_support_rate_by_income_band[epsom_and_ewell_council_tax_reduction_income_band]
+
+  - name: epsom_and_ewell_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1 paragraph 6
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: condition
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "Any applicant whose capital is greater than £6,000 shall not be entitled to any Council Tax Income Discount whatsoever."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_assessed_capital_for_year <= epsom_and_ewell_council_tax_reduction_capital_limit
+
+  - name: epsom_and_ewell_council_tax_reduction_maximum_amount_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraph 36(1)
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-47
+              excerpt: "the amount of a person’s maximum Council Tax Income Discount in respect of a day is 80 per cent of the amount A/B where—"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_annual_eligible_liability * epsom_and_ewell_council_tax_reduction_maximum_support_rate
+
+  - name: epsom_and_ewell_council_tax_reduction_amount_before_award_conditions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 Schedule 1 paragraph 3
+    metadata:
+      proof:
+        atoms:
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "The amount of discount to be granted is to be based on the following factors:"
+          - path: 'versions[0].formula'
+            kind: formula
+            source:
+              corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-87
+              excerpt: "the maximum Council Tax reduction as defined within Section 36 of this scheme;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_maximum_amount_for_year * epsom_and_ewell_council_tax_reduction_selected_support_rate - epsom_and_ewell_council_tax_reduction_annual_non_dependant_contributions
+
+  - name: epsom_and_ewell_council_tax_reduction_award_conditions_met
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraphs 32 and Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-46, excerpt: "not have income above the levels specified in the scheme;"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          epsom_and_ewell_council_tax_reduction_working_age_scheme_applies
+          and epsom_and_ewell_council_tax_reduction_capital_eligible
+
+  - name: epsom_and_ewell_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Epsom & Ewell Council Tax Income Discount Scheme 2026 paragraphs 36, 37 and Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-epsom-and-ewell/manual/council-tax-reduction-scheme-2026-2027/page-47, excerpt: "the non-dependant contribution, for each non-dependent, in respect of a day referred to in paragraph 47, will equate to £38.00 per calendar month divided by the number of days in that month."}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if epsom_and_ewell_council_tax_reduction_award_conditions_met: if epsom_and_ewell_council_tax_reduction_amount_before_award_conditions_for_year > 0: epsom_and_ewell_council_tax_reduction_amount_before_award_conditions_for_year else: 0 else: 0
+
+inputs:
+  - name: local_authority_is_epsom_and_ewell
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: council_tax_reduction_household_in_england
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: would_claim_council_tax_reduction
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: epsom_and_ewell_council_tax_reduction_applicant_is_working_age
+    entity: Household
+    dtype: Boolean
+    period: Year
+  - name: epsom_and_ewell_council_tax_reduction_assessed_capital_for_year
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: epsom_and_ewell_council_tax_reduction_assessed_monthly_income
+    entity: Household
+    dtype: Money
+    period: Month
+    unit: GBP
+  - name: epsom_and_ewell_council_tax_reduction_annual_eligible_liability
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: epsom_and_ewell_council_tax_reduction_annual_non_dependant_contributions
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+  - name: epsom_and_ewell_council_tax_reduction_has_partner
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_has_one_child
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_has_two_or_more_children
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_receives_income_support
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_receives_income_related_esa
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_receives_income_based_jsa
+    entity: Household
+    dtype: Boolean
+    period: Month
+  - name: epsom_and_ewell_council_tax_reduction_receives_universal_credit
+    entity: Household
+    
+    period: Month

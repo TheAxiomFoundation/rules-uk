@@ -1,0 +1,76 @@
+- name: epsom_and_ewell_band_a_and_maximum_rate
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.local_authority_is_epsom_and_ewell: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_applicant_is_working_age: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_monthly_income: 426.00
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_eligible_liability: 1000
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_non_dependant_contributions: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_partner: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_one_child: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_two_or_more_children: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_support: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_related_esa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_based_jsa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_universal_credit: false
+  output:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_passported: holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_applicant_is_in_local_working_age_scheme_class: holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_working_age_scheme_applies: holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_household_type: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_capital_eligible: holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_income_band: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_selected_support_rate: 0.80
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_maximum_amount_for_year: 800
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_amount_before_award_conditions_for_year: 640
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_award_conditions_met: holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_annual_amount: 640
+
+- name: epsom_and_ewell_band_b_with_non_dependant_contribution
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.local_authority_is_epsom_and_ewell: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_applicant_is_working_age: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_capital_for_year: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_monthly_income: 426.01
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_eligible_liability: 1000
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_non_dependant_contributions: 456
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_partner: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_one_child: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_two_or_more_children: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_support: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_related_esa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_based_jsa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_universal_credit: false
+  output:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_passported: not_holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_income_band: 1
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_selected_support_rate: 0.65
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_annual_amount: 64
+
+- name: epsom_and_ewell_capital_cliff_and_zero_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.local_authority_is_epsom_and_ewell: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_applicant_is_working_age: true
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_assessed_monthly_income: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_eligible_liability: 1000
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_annual_non_dependant_contributions: 0
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_partner: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_one_child: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_has_two_or_more_children: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_support: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_related_esa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_income_based_jsa: false
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#input.epsom_and_ewell_council_tax_reduction_receives_universal_credit: false
+  output:
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_capital_eligible: not_holds
+    uk-epsom-and-ewell:policies/epsom-and-ewell/council-tax-reduction#epsom_and_ewell_council_tax_reduction_annual_amount: 0

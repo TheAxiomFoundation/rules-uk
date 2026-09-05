@@ -1,0 +1,114 @@
+- name: worcester_ctr_parameters_and_full_award
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#capital_eligible: holds
+    uk-worcester:policies/worcester/council-tax-reduction#maximum_council_tax_reduction: 800
+    uk-worcester:policies/worcester/council-tax-reduction#council_tax_reduction_award: 800
+- name: worcester_ctr_scalar_parameters
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input: {}
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#maximum_support_rate: 0.8
+    uk-worcester:policies/worcester/council-tax-reduction#capital_limit: 6000
+    uk-worcester:policies/worcester/council-tax-reduction#taper_whole_percentage_points: 2
+    uk-worcester:policies/worcester/council-tax-reduction#taper_fraction_numerator: 6
+    uk-worcester:policies/worcester/council-tax-reduction#days_per_week: 7
+    uk-worcester:policies/worcester/council-tax-reduction#per_cent_unit: 0.01
+    uk-worcester:policies/worcester/council-tax-reduction#daily_taper_rate: "0.0285714285714285714285714286"
+    uk-worcester:policies/worcester/council-tax-reduction#weekly_taper_rate: 0.2
+    uk-worcester:policies/worcester/council-tax-reduction#weeks_per_year: 52
+    uk-worcester:policies/worcester/council-tax-reduction#minimum_reduction_weekly: 5
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_low_threshold: 279
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_middle_threshold: 485
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_high_threshold: 605
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_low: 5.2
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_middle: 10.6
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_high: 13.3
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_top: 15.95
+- name: worcester_ctr_taper_and_minimum_threshold
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 50
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 279
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#weekly_excess_income: 50
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 10.6
+    uk-worcester:policies/worcester/council-tax-reduction#council_tax_reduction_award: 280
+- name: worcester_ctr_minimum_award_zero_branch
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 60
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 605
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 15.95
+    uk-worcester:policies/worcester/council-tax-reduction#council_tax_reduction_award: 0
+- name: worcester_ctr_capital_cliff_at_and_above_limit
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 6000.01
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: true
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 0
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#capital_eligible: not_holds
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 0
+    uk-worcester:policies/worcester/council-tax-reduction#council_tax_reduction_award: 0
+- name: worcester_ctr_capital_limit_inclusive
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 6000
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 484.99
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#capital_eligible: holds
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 10.6
+    uk-worcester:policies/worcester/council-tax-reduction#council_tax_reduction_award: 800
+- name: worcester_ctr_non_dependant_high_band_edges
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 485
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 13.3
+- name: worcester_ctr_non_dependant_top_band_lower_edge
+  period: {period_kind: tax_year, start: '2026-04-01', end: '2027-03-31'}
+  input:
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_capital: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_income: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.applicant_weekly_applicable_amount: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_council_tax_liability_after_statutory_discounts: 1000
+    uk-worcester:policies/worcester/council-tax-reduction#input.annual_non_dependant_deductions: 0
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_is_exempt: false
+    uk-worcester:policies/worcester/council-tax-reduction#input.non_dependant_normal_gross_weekly_income: 604.99
+  output:
+    uk-worcester:policies/worcester/council-tax-reduction#non_dependant_deduction_weekly: 13.3

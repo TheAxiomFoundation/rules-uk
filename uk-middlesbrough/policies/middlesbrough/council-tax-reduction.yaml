@@ -17,6 +17,23 @@ rules:
         formula: |-
           0.90
 
+  - name: middlesbrough_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    source: Middlesbrough Council Council Tax Reduction Scheme 2026/27 Schedule 1 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-middlesbrough/manual/council-tax-reduction-scheme-2026-2027/page-70
+              excerpt: "100 per cent. of such payments"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+
   - name: middlesbrough_council_tax_reduction_capital_limit
     kind: parameter
     dtype: Money
@@ -611,6 +628,26 @@ rules:
           or middlesbrough_council_tax_reduction_applicant_or_partner_receives_income_related_esa
           or middlesbrough_council_tax_reduction_applicant_or_partner_receives_income_based_jsa
 
+  - name: middlesbrough_council_tax_reduction_paragraph_8_adverse_evidence_or_failure_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Week
+    source: Middlesbrough Council Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 8
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: condition
+            source:
+              corpus_citation_path: uk-middlesbrough/manual/council-tax-reduction-scheme-2026-2027/page-65
+              excerpt: "8. Where an applicant is otherwise entitled to discount in bands 1 to 4, where that band is determined as a result of state benefit entitlement, but the authority has evidence or there has been a failure to respond to a request for evidence concerning income or capital that would otherwise mean no discount then no discount may be granted."
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          middlesbrough_council_tax_reduction_passported_to_band_1
+          and middlesbrough_council_tax_reduction_authority_has_paragraph_8_adverse_evidence_or_evidence_response_failure
+
   - name: middlesbrough_council_tax_reduction_capped_dependant_children_or_young_persons_for_grid
     kind: derived
     entity: Household
@@ -678,7 +715,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if middlesbrough_council_tax_reduction_passported_to_band_1: middlesbrough_council_tax_reduction_band_1_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_2_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_1_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_3_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_2_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_4_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_3_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income <= middlesbrough_council_tax_reduction_zero_band_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_4_index else: middlesbrough_council_tax_reduction_zero_band_index
+          if middlesbrough_council_tax_reduction_paragraph_8_adverse_evidence_or_failure_applies: middlesbrough_council_tax_reduction_zero_band_index else: if middlesbrough_council_tax_reduction_passported_to_band_1: middlesbrough_council_tax_reduction_band_1_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_2_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_1_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_3_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_2_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income < middlesbrough_council_tax_reduction_band_4_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_3_index else: if middlesbrough_council_tax_reduction_assessed_weekly_net_income <= middlesbrough_council_tax_reduction_zero_band_lower_weekly_income_by_family[middlesbrough_council_tax_reduction_family_category_index]: middlesbrough_council_tax_reduction_band_4_index else: middlesbrough_council_tax_reduction_zero_band_index
 
   - name: middlesbrough_council_tax_reduction_selected_support_rate
     kind: derived
@@ -848,5 +885,6 @@ inputs:
   middlesbrough_council_tax_reduction_partner_receives_income_support: {dtype: Boolean, entity: Household, period: Year}
   middlesbrough_council_tax_reduction_partner_receives_income_related_esa: {dtype: Boolean, entity: Household, period: Year}
   middlesbrough_council_tax_reduction_partner_receives_income_based_jsa: {dtype: Boolean, entity: Household, period: Year}
+  middlesbrough_council_tax_reduction_authority_has_paragraph_8_adverse_evidence_or_evidence_response_failure: {dtype: Boolean, entity: Household, period: Week}
   middlesbrough_council_tax_reduction_applicant_is_member_of_joint_claim_couple_for_jobseekers_act_1995: {dtype: Boolean, entity: Household, period: Year}
   middlesbrough_council_tax_reduction_chargeable_non_dependant_deduction_units: {dtype: Number, entity: Household, period: Week}

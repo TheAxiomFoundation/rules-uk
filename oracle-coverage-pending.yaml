@@ -9169,4 +9169,10 @@ entries:
 - legal_id: uk-middlesbrough:policies/middlesbrough/council-tax-reduction#simulated_middlesbrough_council_tax_reduction_annual_amount
   source: manual
   since: 2026-08-03
-ceiling: 3056
+- legal_id: uk-middlesbrough:policies/middlesbrough/council-tax-reduction#middlesbrough_council_tax_reduction_paragraph_8_adverse_evidence_or_failure_applies
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-middlesbrough:policies/middlesbrough/council-tax-reduction#middlesbrough_council_tax_reduction_per_cent_unit
+  source: manual
+  since: 2026-08-03
+ceiling: 3058

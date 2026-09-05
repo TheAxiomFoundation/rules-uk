@@ -16,8 +16,8 @@ module:
       reason: Detailed income and capital assessment is outside this award-surface module.
     - output: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction/sections-62-to-63#second_adult_reduction
       reason: The separate second-adult reduction is outside this module.
-    - output: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction/paragraphs-58.3-to-58.9#non_dependant_exemption_classifier
-      reason: Exemption, protection, couple and apportionment classifiers are consumed as inputs.
+    - output: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction/paragraphs-58.3-to-58.9#resolved_non_dependant_deduction_band
+      reason: Exemption, protection, couple coordination, apportionment, and the resulting selected deduction band are upstream factual determinations; this module applies the printed table to that selected band.
 rules:
   - name: east_hertfordshire_council_tax_reduction_maximum_support_rate
     kind: parameter
@@ -122,7 +122,7 @@ rules:
     unit: GBP
     source: East Hertfordshire Council Tax Reduction Scheme 2026/27 paragraph 57.1
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-east-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-71, excerpt: "the amount of a person’s maximum council tax reduction in respect of a day for which he is liable to pay council tax, shall be 91.5 per cent, of the amount A divided by B where;"}}]}}
-    versions: [{effective_from: '2026-04-01', formula: "east_hertfordshire_council_tax_reduction_weekly_liability * east_hertfordshire_council_tax_reduction_maximum_support_rate - east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly"}]
+    versions: [{effective_from: '2026-04-01', formula: "east_hertfordshire_council_tax_reduction_weekly_liability * east_hertfordshire_council_tax_reduction_maximum_support_rate - east_hertfordshire_council_tax_reduction_non_dependant_deduction_weekly[east_hertfordshire_council_tax_reduction_non_dependant_deduction_band]"}]
   - name: east_hertfordshire_council_tax_reduction_excess_income_weekly
     kind: derived
     entity: Household
@@ -147,8 +147,8 @@ rules:
     dtype: Judgment
     period: Week
     source: East Hertfordshire Council Tax Reduction Scheme 2026/27 Class E
-    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-east-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "be a person in respect of whom amount A exceeds amount B where;"}}]}}
-    versions: [{effective_from: '2026-04-01', formula: "local_authority_is_east_hertfordshire and east_hertfordshire_council_tax_reduction_working_age and would_claim_council_tax_reduction and east_hertfordshire_council_tax_reduction_capital_eligible and east_hertfordshire_council_tax_reduction_maximum_weekly > east_hertfordshire_council_tax_reduction_taper_deduction_weekly"}]
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-east-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-8, excerpt: "person’s income4 is less than their applicable amount5"}}, {path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-east-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "person’s income10 is more than their applicable amount11;"}}, {path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-east-hertfordshire/manual/council-tax-reduction-scheme-2026-2027/page-9, excerpt: "be a person in respect of whom amount A exceeds amount B where;"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "local_authority_is_east_hertfordshire and east_hertfordshire_council_tax_reduction_working_age and would_claim_council_tax_reduction and east_hertfordshire_council_tax_reduction_capital_eligible and (east_hertfordshire_council_tax_reduction_assessed_income_weekly + east_hertfordshire_council_tax_reduction_tariff_income_weekly < east_hertfordshire_council_tax_reduction_applicable_amount_weekly or (east_hertfordshire_council_tax_reduction_assessed_income_weekly + east_hertfordshire_council_tax_reduction_tariff_income_weekly > east_hertfordshire_council_tax_reduction_applicable_amount_weekly and east_hertfordshire_council_tax_reduction_maximum_weekly > east_hertfordshire_council_tax_reduction_taper_deduction_weekly))"}]
   - name: east_hertfordshire_council_tax_reduction_weekly_amount
     kind: derived
     entity: Household
@@ -166,5 +166,4 @@ inputs:
   - {name: east_hertfordshire_council_tax_reduction_weekly_liability, entity: Household, dtype: Money, period: Week, unit: GBP}
   - {name: east_hertfordshire_council_tax_reduction_assessed_income_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
   - {name: east_hertfordshire_council_tax_reduction_applicable_amount_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
-  - {name: east_hertfordshire_council_tax_reduction_non_dependant_deductions_weekly, entity: Household, dtype: Money, period: Week, unit: GBP}
-  - {name: east_hertfordshire_council_tax_reduction_non_dependant_deduction_band, entity: Person, dtype: Number, period: Week}
+  - {name: east_hertfordshire_council_tax_reduction_non_dependant_deduction_band, entity: Household, dtype: Number, period: Week}

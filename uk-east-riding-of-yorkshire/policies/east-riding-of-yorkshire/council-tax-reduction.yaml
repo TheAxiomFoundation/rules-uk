@@ -160,40 +160,47 @@ rules:
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 3}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
+  - name: east_riding_of_yorkshire_council_tax_reduction_passported_80_code
     kind: parameter
     dtype: Number
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 1
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 passported 80% band
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 1}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_2_code
+  - name: east_riding_of_yorkshire_council_tax_reduction_non_passported_70_code
     kind: parameter
     dtype: Number
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 2
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 non-passported 70% band
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 2}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_3_code
+  - name: east_riding_of_yorkshire_council_tax_reduction_non_passported_60_code
     kind: parameter
     dtype: Number
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 3
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 non-passported 60% band
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 3}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_4_code
+  - name: east_riding_of_yorkshire_council_tax_reduction_non_passported_50_code
     kind: parameter
     dtype: Number
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 4
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 non-passported 50% band
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 4}]
 
-  - name: east_riding_of_yorkshire_council_tax_reduction_income_band_5_code
+  - name: east_riding_of_yorkshire_council_tax_reduction_non_passported_25_code
     kind: parameter
     dtype: Number
-    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 Band 5
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 non-passported 25% band
     metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions: [{effective_from: '2026-04-01', formula: 5}]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_non_passported_0_code
+    kind: parameter
+    dtype: Number
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1 non-passported 0% band
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: {<<: *grid_source}}]}}
+    versions: [{effective_from: '2026-04-01', formula: 0}]
 
   - name: east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family
     kind: parameter
@@ -251,7 +258,7 @@ rules:
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
       - effective_from: '2026-04-01'
-        values: {1: 0.80, 2: 0.70, 3: 0.60, 4: 0.50, 5: 0.25}
+        values: {1: 0.80, 2: 0.70, 3: 0.60, 4: 0.50, 5: 0.25, 0: 0}
 
   - name: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
     kind: derived
@@ -275,7 +282,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_5_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_5_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_4_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_4_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_3_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_3_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_2_code else: east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
+          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_passported_80_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_5_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_non_passported_0_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_4_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_non_passported_25_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_3_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_non_passported_50_code else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_non_passported_60_code else: east_riding_of_yorkshire_council_tax_reduction_non_passported_70_code
 
   - name: east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate
     kind: derived

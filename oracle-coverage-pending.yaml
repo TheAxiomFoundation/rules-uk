@@ -9166,21 +9166,6 @@ entries:
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_family_category_single_no_children_code
   source: manual
   since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_1_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_2_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_3_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_4_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_income_band_5_code
-  source: manual
-  since: 2026-08-03
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year
   source: manual
   since: 2026-08-03
@@ -9202,4 +9187,22 @@ entries:
 - legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_zero_amount
   source: manual
   since: 2026-08-03
-ceiling: 3067
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_non_passported_0_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_non_passported_25_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_non_passported_50_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_non_passported_60_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_non_passported_70_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction#east_riding_of_yorkshire_council_tax_reduction_passported_80_code
+  source: manual
+  since: 2026-08-03
+ceiling: 3068

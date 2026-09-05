@@ -13,8 +13,6 @@ module:
   deferred_outputs:
     - output: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction/schedule-1#assessed_weekly_income
       reason: The band grid consumes the scheme-defined weekly income after its detailed income and disregard rules.
-    - output: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction/section-36#band_b_capped_eligible_liability_for_year
-      reason: This award surface consumes liability after the printed Band B ceiling, discounts, and joint-liability calculation.
     - output: uk-east-riding-of-yorkshire:policies/east-riding-of-yorkshire/council-tax-reduction/sections-26-to-34#assessed_capital
       reason: Capital valuation, attribution, and disregard rules are outside this award surface.
 rules:
@@ -33,7 +31,44 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          0.80
+          80 * east_riding_of_yorkshire_council_tax_reduction_per_cent_unit
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_per_cent_unit
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 percentage notation
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-36
+              excerpt: "shall be 80 per cent, of the amount A divided by B where;"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0.01
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_zero_amount
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-54
+              excerpt: "£255.36 and over £309.33 and over £379.92 and over £450.50 and over"
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          0
 
   - name: east_riding_of_yorkshire_council_tax_reduction_capital_limit
     kind: parameter
@@ -183,13 +218,37 @@ rules:
 
   - name: east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band
     kind: parameter
-    dtype: Rate
+    dtype: Number
     indexed_by: east_riding_of_yorkshire_council_tax_reduction_income_band
     source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
     metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {<<: *grid_source}}]}}
     versions:
       - effective_from: '2026-04-01'
-        values: {0: 0.80, 1: 0.70, 2: 0.60, 3: 0.50, 4: 0.25, 5: 0}
+        values: {0: 80, 1: 70, 2: 60, 3: 50, 4: 25, 5: 0}
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_family_category_selected
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Year
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_riding_of_yorkshire_council_tax_reduction_has_two_or_more_children: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[3] else: if east_riding_of_yorkshire_council_tax_reduction_has_one_child: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[2] else: if east_riding_of_yorkshire_council_tax_reduction_has_partner: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[1] else: east_riding_of_yorkshire_council_tax_reduction_family_category_codes[0]
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_selected_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[0] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_5_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[5] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_4_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[4] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_3_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[3] else: if east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income >= east_riding_of_yorkshire_council_tax_reduction_band_2_lower_income_by_family[east_riding_of_yorkshire_council_tax_reduction_family_category_selected]: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[2] else: east_riding_of_yorkshire_council_tax_reduction_income_band_codes[1]
 
   - name: east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate
     kind: derived
@@ -201,7 +260,46 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if east_riding_of_yorkshire_council_tax_reduction_passported: east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band[0] else: east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band[east_riding_of_yorkshire_council_tax_reduction_income_band]
+          east_riding_of_yorkshire_council_tax_reduction_discount_rate_by_band[east_riding_of_yorkshire_council_tax_reduction_selected_income_band] * east_riding_of_yorkshire_council_tax_reduction_per_cent_unit
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_band_b_capped_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 paragraph 36.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-36, excerpt: "A Is the lower of: i. the amount set by the authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; and ii. the amount set by the authority as the council tax for the relevant financial year in respect of the dwelling within Band B subject to any discount which may be appropriate to the applicant under the 1992 Act"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          min(east_riding_of_yorkshire_council_tax_reduction_actual_liability_for_year, east_riding_of_yorkshire_council_tax_reduction_band_b_liability_for_year)
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_daily_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Day
+    unit: GBP
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 paragraph 36.5
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-37, excerpt: "£25 x 1/7 (The deduction will be £25 per reductions week); (b) in respect of a non-dependant aged 18 or over to whom sub-paragraph (a) does not apply, £10.00 x 1/7. (The deduction will be £10 per reductions week)"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_riding_of_yorkshire_council_tax_reduction_non_dependant_deduction_by_band[east_riding_of_yorkshire_council_tax_reduction_non_dependant_band] / east_riding_of_yorkshire_council_tax_reduction_days_per_week
+
+  - name: east_riding_of_yorkshire_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: East Riding of Yorkshire Council Tax Support Scheme 2026/27 paragraph 36.5
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-east-riding-of-yorkshire/manual/council-tax-support-scheme-2026-2027/page-37, excerpt: "the non-dependant deductions in respect of a day referred to in paragraph 36.1 shall be:"}}]}}
+    versions:
+      - effective_from: '2026-04-01'
+        formula: |-
+          east_riding_of_yorkshire_council_tax_reduction_daily_non_dependant_deduction * east_riding_of_yorkshire_council_tax_reduction_financial_year_days
 
   - name: east_riding_of_yorkshire_council_tax_reduction_capital_eligible
     kind: derived
@@ -246,7 +344,7 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          max(0, min(east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year, east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year * east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate / east_riding_of_yorkshire_council_tax_reduction_maximum_support_rate) - east_riding_of_yorkshire_council_tax_reduction_non_dependant_deductions_for_year)
+          max(east_riding_of_yorkshire_council_tax_reduction_zero_amount, east_riding_of_yorkshire_council_tax_reduction_maximum_amount_for_year * east_riding_of_yorkshire_council_tax_reduction_selected_discount_rate - east_riding_of_yorkshire_council_tax_reduction_annual_non_dependant_deduction)
 
   - name: east_riding_of_yorkshire_council_tax_reduction_award_conditions_met
     kind: derived
@@ -271,16 +369,16 @@ rules:
     versions:
       - effective_from: '2026-04-01'
         formula: |-
-          if east_riding_of_yorkshire_council_tax_reduction_award_conditions_met: east_riding_of_yorkshire_council_tax_reduction_amount_before_eligibility else: 0
+          if east_riding_of_yorkshire_council_tax_reduction_award_conditions_met: east_riding_of_yorkshire_council_tax_reduction_amount_before_eligibility else: east_riding_of_yorkshire_council_tax_reduction_zero_amount
 inputs:
   - {name: local_authority_is_east_riding_of_yorkshire, entity: Household, dtype: Boolean, period: Year}
   - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
   - {name: east_riding_of_yorkshire_council_tax_reduction_applicant_is_working_age, entity: Household, dtype: Boolean, period: Year}
   - {name: east_riding_of_yorkshire_council_tax_reduction_assessed_capital, entity: Household, dtype: Money, period: Year, unit: GBP}
-  - {name: east_riding_of_yorkshire_council_tax_reduction_family_category, entity: Household, dtype: Number, period: Year}
-  - {name: east_riding_of_yorkshire_council_tax_reduction_income_band, entity: Household, dtype: Number, period: Week}
-  - {name: east_riding_of_yorkshire_council_tax_reduction_band_b_capped_eligible_liability_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
-  - {name: east_riding_of_yorkshire_council_tax_reduction_non_dependant_deductions_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: east_riding_of_yorkshire_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: east_riding_of_yorkshire_council_tax_reduction_actual_liability_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: east_riding_of_yorkshire_council_tax_reduction_band_b_liability_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: east_riding_of_yorkshire_council_tax_reduction_financial_year_days, entity: Household, dtype: Number, period: Year}
   - {name: east_riding_of_yorkshire_council_tax_reduction_non_dependant_band, entity: Household, dtype: Number, period: Week}
   - {name: east_riding_of_yorkshire_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
   - {name: east_riding_of_yorkshire_council_tax_reduction_has_one_child, entity: Household, dtype: Boolean, period: Year}

@@ -14,7 +14,7 @@ module:
     - output: uk-bracknell-forest:policies/bracknell-forest/council-tax-reduction/part-11#premium_classification
       reason: Schedule 1 premium entitlement determines Class D and is outside this award-surface module.
     - output: uk-bracknell-forest:policies/bracknell-forest/council-tax-reduction/parts-15-to-19#assessed_weekly_income
-      reason: Detailed income and capital assessment supplies the Class F band input and is outside this award-surface module.
+      reason: Detailed income and capital assessment supplies assessed income; this module applies paragraph 39's printed Class F grid to that input.
 rules:
   - name: bracknell_forest_council_tax_reduction_support_rate_by_class
     kind: parameter
@@ -32,7 +32,7 @@ rules:
               table: {header: paragraph 47 classes, row_key: class, column_key: support rate}
     versions:
       - effective_from: '2026-04-01'
-        values: {0: 0.80, 1: 0.75, 2: 0.75, 3: 0.70, 4: 0.60, 5: 0.50, 6: 0.40, 7: 0.30, 8: 0.20}
+        values: {0: 0.80, 1: 0.75, 2: 0.75, 3: 0.70, 4: 0.60, 5: 0.50, 6: 0.40, 7: 0.30, 8: 0.20, 9: 0}
   - name: bracknell_forest_council_tax_reduction_capital_limit
     kind: parameter
     dtype: Money
@@ -90,6 +90,15 @@ rules:
     source: Bracknell Forest Council Tax Support Scheme 2026/27 paragraph 49A
     metadata: {proof: {atoms: [{path: "versions[0].formula", kind: amount, source: {corpus_citation_path: uk-bracknell-forest/manual/council-tax-reduction-scheme-2026-2027/page-41, excerpt: "less than 50 pence per reduction week"}}]}}
     versions: [{effective_from: '2026-04-01', formula: '0.50'}]
+  - name: bracknell_forest_council_tax_reduction_class_f_income_thresholds
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: bracknell_forest_council_tax_reduction_class_code
+    source: Bracknell Forest Council Tax Support Scheme 2026/27 paragraph 39(1)(f)
+    metadata: {proof: {atoms: [{path: "versions[0].values", kind: parameter_table, source: {corpus_citation_path: uk-bracknell-forest/manual/council-tax-reduction-scheme-2026-2027/page-35, excerpt: "whose average weekly assessed income in accordance with parts 15, 16, 17 and 19 of this support scheme is – (i) £80 or less; (ii) not less than £80.01 but less than £140.01; (iii) not less than £140.01 but less than 200.01; (iv) not less than £200.01 but less than £260.01; (v) not less than £260.01 but less than £320.01; (vi) not less than £320.01 but less than £380.01; (vii)not less than £380.01 but less than £440.01 (viii) £440.01 or more"}}]}}
+    versions: [{effective_from: '2026-04-01', values: {2: 80, 3: 80.01, 4: 140.01, 5: 200.01, 6: 260.01, 7: 320.01, 8: 380.01, 9: 440.01}}]
   - name: bracknell_forest_council_tax_reduction_capital_eligible
     kind: derived
     entity: Person
@@ -114,7 +123,7 @@ rules:
     period: Week
     source: Bracknell Forest Council Tax Support Scheme 2026/27 paragraph 47
     metadata: {proof: {atoms: [{path: "versions[0].formula", kind: parameter_table, source: {corpus_citation_path: uk-bracknell-forest/manual/council-tax-reduction-scheme-2026-2027/page-38, excerpt: "where an applicant falls within – (a) paragraph 37 (class D), the amount of a person’s maximum council tax reduction in respect of a day is 80 per cent of the amount A/B; (b) paragraph 38 (class E), the amount of a person’s maximum council tax reduction in respect of a day is 75 per cent of the amount A/B; (c) paragraph 39 (class F), the amount of a person’s maximum council tax reduction in respect of a day is – (i) in respect of paragraph 39(f)(i), 75 per cent of the amount A/B; (ii) in respect of paragraph 39(f)(ii), 70 per cent of the amount A/B; (iii) in respect of paragraph 39(f)(iii), 60 per cent of the amount A/B; (iv) in respect of paragraph 39(f)(iv), 50 per cent of the amount A/B; (v) in respect of paragraph 39(f)(v), 40 per cent of the amount A/B; (vi) in respect of paragraph 39(f)(vi), 30 per cent of the amount A/B; (vii) in respect of paragraph 39(f)(vii), 20 per cent of the amount A/B;"}}]}}
-    versions: [{effective_from: '2026-04-01', formula: 'bracknell_forest_council_tax_reduction_support_rate_by_class[bracknell_forest_council_tax_reduction_class_code]'}]
+    versions: [{effective_from: '2026-04-01', formula: 'if bracknell_forest_council_tax_reduction_is_class_d: bracknell_forest_council_tax_reduction_support_rate_by_class[0] else: if bracknell_forest_council_tax_reduction_is_class_e: bracknell_forest_council_tax_reduction_support_rate_by_class[1] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income <= bracknell_forest_council_tax_reduction_class_f_income_thresholds[2]: bracknell_forest_council_tax_reduction_support_rate_by_class[2] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[3] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[4]: bracknell_forest_council_tax_reduction_support_rate_by_class[3] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[4] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[5]: bracknell_forest_council_tax_reduction_support_rate_by_class[4] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[5] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[6]: bracknell_forest_council_tax_reduction_support_rate_by_class[5] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[6] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[7]: bracknell_forest_council_tax_reduction_support_rate_by_class[6] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[7] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[8]: bracknell_forest_council_tax_reduction_support_rate_by_class[7] else: if bracknell_forest_council_tax_reduction_assessed_weekly_income >= bracknell_forest_council_tax_reduction_class_f_income_thresholds[8] and bracknell_forest_council_tax_reduction_assessed_weekly_income < bracknell_forest_council_tax_reduction_class_f_income_thresholds[9]: bracknell_forest_council_tax_reduction_support_rate_by_class[8] else: bracknell_forest_council_tax_reduction_support_rate_by_class[9]'}]
   - name: bracknell_forest_council_tax_reduction_pre_floor_weekly_amount
     kind: derived
     entity: Person
@@ -146,5 +155,9 @@ inputs:
   - {name: would_claim_council_tax_reduction, entity: Person, dtype: Boolean, period: Week}
   - {name: bracknell_forest_council_tax_reduction_assessed_capital_weekly, entity: Person, dtype: Money, period: Week, unit: GBP}
   - {name: bracknell_forest_council_tax_reduction_eligible_liability_weekly, entity: Person, dtype: Money, period: Week, unit: GBP}
+  # Parameter-table index only; paragraph 39 selection never reads this factual value.
   - {name: bracknell_forest_council_tax_reduction_class_code, entity: Person, dtype: Number, period: Week}
+  - {name: bracknell_forest_council_tax_reduction_is_class_d, entity: Person, dtype: Boolean, period: Week}
+  - {name: bracknell_forest_council_tax_reduction_is_class_e, entity: Person, dtype: Boolean, period: Week}
+  - {name: bracknell_forest_council_tax_reduction_assessed_weekly_income, entity: Person, dtype: Money, period: Week, unit: GBP}
   - {name: bracknell_forest_council_tax_reduction_non_dependant_band, entity: Person, dtype: Number, period: Week}

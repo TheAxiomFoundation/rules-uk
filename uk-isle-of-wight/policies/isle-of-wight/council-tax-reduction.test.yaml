@@ -1,4 +1,5 @@
 - name: isle_of_wight_couple_with_children_310
+  description: "Schedule 1 page 80's printed Band 2/3 overlap begins at £310.01; at £310.00 the engine deterministically returns Band 2, without resolving the source defect."
   period: &tax_year
     period_kind: tax_year
     start: '2026-04-01'
@@ -19,6 +20,7 @@
   output:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 750
 - name: isle_of_wight_couple_with_children_310_01
+  description: "Schedule 1 page 80 assigns £310.01 to both Band 2 and Band 3; the engine deterministically returns Band 3 while the source defect remains unresolved."
   period: *tax_year
   input:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
@@ -36,6 +38,7 @@
   output:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 650
 - name: isle_of_wight_couple_with_children_315
+  description: "Schedule 1 page 80 assigns £315.00 to both Band 2 and Band 3; the engine deterministically returns Band 3 while the source defect remains unresolved."
   period: *tax_year
   input:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
@@ -53,6 +56,7 @@
   output:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 650
 - name: isle_of_wight_couple_with_children_315_01
+  description: "Schedule 1 page 80's printed Band 2 range ends at £315.00; at £315.01 the engine deterministically returns Band 3, without resolving the source defect."
   period: *tax_year
   input:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
@@ -187,7 +191,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 750
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_income_band: 2
 - name: isle_of_wight_couple_no_children_145_01
   period: *tax_year
   input:
@@ -204,7 +208,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 650
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_selected_support_rate: 0.65
 - name: isle_of_wight_couple_no_children_195
   period: *tax_year
   input:
@@ -221,7 +225,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 650
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_maximum_amount_for_year: 1000
 - name: isle_of_wight_couple_no_children_195_01
   period: *tax_year
   input:
@@ -238,7 +242,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 450
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year: 1000
 - name: isle_of_wight_couple_no_children_245
   period: *tax_year
   input:
@@ -255,7 +259,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 450
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_working_age_scheme_applies: holds
 - name: isle_of_wight_couple_no_children_245_01
   period: *tax_year
   input:
@@ -272,7 +276,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 250
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount: 250
 - name: isle_of_wight_couple_no_children_295
   period: *tax_year
   input:
@@ -289,7 +293,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 250
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_non_dependant_deduction: 0
 - name: isle_of_wight_couple_no_children_295_01
   period: *tax_year
   input:
@@ -306,7 +310,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_non_dependant_deduction_band: 0
 - name: isle_of_wight_single_parent_one_child_180
   period: *tax_year
   input:
@@ -783,15 +787,6 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 750
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount: 750
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_eligible: holds
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_income_band: 2
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_selected_support_rate: 0.75
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_non_dependant_deduction_band: 0
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_non_dependant_deduction: 0
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_working_age_scheme_applies: holds
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_maximum_amount_for_year: 1000
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year: 1000
 - name: isle_of_wight_capital_6000
   period: *tax_year
   input:
@@ -808,7 +803,7 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 750
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_eligible: holds
 - name: isle_of_wight_capital_6000_01
   period: *tax_year
   input:
@@ -825,7 +820,6 @@
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_actual_eligible_liability_for_year: 1000
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_band_c_eligible_liability_for_year: 1000
   output:
-    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 0
     uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount: 0
 - name: isle_of_wight_chargeable_non_dependant
   period: *tax_year

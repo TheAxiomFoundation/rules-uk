@@ -13,6 +13,12 @@ module:
     scheme. It applies Schedule 1's household and weekly-income grid to the
     scheme-defined maximum (100 percent of the lower of actual liability and
     Band C liability), subject to the £6,000 capital cliff and deductions.
+    Schedule 1, page 80, prints the Couple with children Band 2 row as
+    "£0.00 - £315.00" and the Band 3 row as "£310.01 - £365.00", creating
+    an overlap from £310.01 to £315.00; no printed priority or corrected
+    table appears in the scheme text. The engine deterministically selects
+    Band 3 where its printed lower threshold is met, but that is not a
+    source-resolved controlling interpretation.
     The scheme prints no working-age excess-income taper or minimum award.
     Pension-age prescribed provisions are outside this module.
   deferred_outputs:
@@ -22,6 +28,8 @@ module:
       reason: Capital valuation, attribution, and disregard calculations are outside this award-surface module.
     - output: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction/paragraphs-58.6-to-58.9#non_dependant_protection_or_exemption
       reason: Detailed protected and exempt non-dependant classification is consumed as an input.
+    - output: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction/schedule-1#band_overlap_310_01_to_315_00_resolution
+      reason: Schedule 1 page 80 assigns Couple with children weekly income from £310.01 to £315.00 to both Band 2 and Band 3; the source provides no controlling priority or corrected table.
 rules:
   - name: isle_of_wight_council_tax_reduction_maximum_support_rate
     kind: parameter
@@ -372,6 +380,18 @@ rules:
     metadata:
       proof:
         atoms:
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "2 75% £0.00 - £315.00"
+              table: {header: Banded Discount Scheme, row_key: Band 2, column_key: Couple with children}
+          - path: versions[0].formula
+            kind: parameter_table
+            source:
+              corpus_citation_path: uk-isle-of-wight/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "3 65% £310.01 - £365.00"
+              table: {header: Banded Discount Scheme, row_key: Band 3, column_key: Couple with children}
           - path: versions[0].formula
             kind: parameter_table
             source:

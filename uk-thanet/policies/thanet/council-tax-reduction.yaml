@@ -1,0 +1,227 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80
+    # upstream_source_check:
+    #   status: delegated_scheme
+    #   checked_paths: [uk/statutes/ukpga/1992/14/13A, uk/regulations/uksi/2012/2885, uk/regulations/uksi/2012/2886]
+    #   rationale: LGFA 1992 section 13A delegates the working-age scheme to Thanet District Council, so the adopted scheme document is operative. The pinned singular contract strips this attestation as a live field.
+  summary: |-
+    Thanet's 2026-27 local working-age award is an income-banded discount: 100, 75, 50, 25, or zero percent of the scheme-defined maximum (the lower of actual and Band D liability). It has a £10,000 capital cliff, a £10 weekly non-dependant deduction subject to printed protections, and passported Band 1 routes for the named legacy benefits, UC with no earnings, and qualifying Kent care leavers. No local excess-income taper, tariff-income rule, or minimum award floor is printed. Pension-age provisions are outside scope.
+  deferred_outputs:
+    - output: uk-thanet:policies/thanet/council-tax-reduction/sections-12-to-33-and-schedules-2-to-3#assessed_weekly_income_and_capital
+      reason: Detailed income and capital assessment, disregards, attribution, and valuation feed the award-surface inputs but are outside this module.
+    - output: uk-thanet:policies/thanet/council-tax-reduction/paragraph-35#annual_liability_after_discounts_and_joint_liability_apportionment
+      reason: The award surface consumes liability already adjusted for statutory discounts and joint-liability apportionment before applying the printed Band D ceiling.
+    - output: uk-thanet:policies/thanet/council-tax-reduction/paragraph-36#chargeable_non_dependant_units
+      reason: The detailed non-dependant exemption, couple coordination, and apportionment rules determine the deduction units consumed here.
+rules:
+  - name: thanet_council_tax_reduction_maximum_support_rate
+    kind: parameter
+    dtype: Rate
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 35.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-49, excerpt: "shall be 100 per cent, of the amount A divided by B where;"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "1"}]
+  - name: thanet_council_tax_reduction_capital_limit
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-40, excerpt: "the prescribed amount is £10,000 and no reduction shall be granted when the applicant has an amount greater than this level."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "10000"}]
+  - name: thanet_council_tax_reduction_days_per_week
+    kind: parameter
+    dtype: Number
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 36.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-49, excerpt: "shall be £10 x 1/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "7"}]
+  - name: thanet_council_tax_reduction_non_dependant_weekly_deduction_by_band
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: thanet_council_tax_reduction_non_dependant_deduction_band
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 36.1
+    metadata: {proof: {atoms: [{path: 'versions[0].values', kind: parameter_table, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-49, excerpt: "36.1 Subject to the following provisions of this paragraph, the non-dependant deductions in respect of a day referred to in section 35 (maximum council tax reduction) shall be £10 x 1/7", table: {header: Non-dependant deductions, row_key: deduction band, column_key: weekly deduction}}}]}}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 10}}]
+  - name: thanet_council_tax_reduction_family_category_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: thanet_council_tax_reduction_family_category
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: &grid_proof
+      proof:
+        atoms:
+          - path: 'versions[0].values'
+            kind: parameter_table
+            source: &grid_source
+              corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80
+              excerpt: "Income Band Single Couple Family with 1 child Family with 2+ children Discount From To From To From To From To Band 1 0.00 109.00 0.00 164.00 0.00 246.00 0.00 327.00 100% Band 2 109.01 184.00 164.01 239.00 246.01 321.00 327.01 402.00 75% Band 3 184.01 259.00 239.01 314.00 321.01 396.00 402.01 477.00 50% Band 4 259.01 334.00 314.01 389.00 396.01 471.00 477.01 552.00 25%"
+              table: {header: Income Band, row_key: income band, column_key: household category}
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 1, 2: 2, 3: 3}}]
+  - name: thanet_council_tax_reduction_income_band_codes
+    kind: parameter
+    dtype: Number
+    indexed_by: thanet_council_tax_reduction_income_band
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}}]
+  - name: thanet_council_tax_reduction_support_rate_by_income_band
+    kind: parameter
+    dtype: Rate
+    indexed_by: thanet_council_tax_reduction_income_band
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 1, 1: 0.75, 2: 0.50, 3: 0.25, 4: 0}}]
+  - name: thanet_council_tax_reduction_band_2_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: thanet_council_tax_reduction_family_category
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 109.01, 1: 164.01, 2: 246.01, 3: 327.01}}]
+  - name: thanet_council_tax_reduction_band_3_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: thanet_council_tax_reduction_family_category
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 184.01, 1: 239.01, 2: 321.01, 3: 402.01}}]
+  - name: thanet_council_tax_reduction_band_4_lower_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: thanet_council_tax_reduction_family_category
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 259.01, 1: 314.01, 2: 396.01, 3: 477.01}}]
+  - name: thanet_council_tax_reduction_band_4_upper_income_by_family
+    kind: parameter
+    dtype: Money
+    period: Week
+    unit: GBP
+    indexed_by: thanet_council_tax_reduction_family_category
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: *grid_proof
+    versions: [{effective_from: '2026-04-01', values: {0: 334.00, 1: 389.00, 2: 471.00, 3: 552.00}}]
+  - name: thanet_council_tax_reduction_zero_award
+    kind: parameter
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: amount, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "Band 1 0.00 109.00"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "0"}]
+  - name: thanet_council_tax_reduction_working_age_scheme_applies
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "local_authority_is_thanet and council_tax_reduction_household_in_england and thanet_council_tax_reduction_applicant_is_working_age and would_claim_council_tax_reduction"}]
+  - name: thanet_council_tax_reduction_family_category
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if thanet_council_tax_reduction_has_two_or_more_dependants: thanet_council_tax_reduction_family_category_codes[3] else: if thanet_council_tax_reduction_has_one_dependant: thanet_council_tax_reduction_family_category_codes[2] else: if thanet_council_tax_reduction_has_partner: thanet_council_tax_reduction_family_category_codes[1] else: thanet_council_tax_reduction_family_category_codes[0]"}]
+  - name: thanet_council_tax_reduction_passported_to_band_1
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1 paragraphs 6-7
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: exception, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "Where an applicant or partner is in receipt of a ‘passporting benefit’ namely Income Support, Income Related Employment and Support Allowance or Income Based Jobseeker’s Allowance, discount will be awarded at Band 1 level."}}, {path: 'versions[0].formula', kind: exception, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "Where an applicant or partner is in receipt of Universal Credit and in the assessment period the DWP have assessed them as having no earnings from employment or self-employment the discount will be awarded at Band 1 level unless they have capital of more than £10,000 in which case they would not qualify under the scheme."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "thanet_council_tax_reduction_receives_income_support or thanet_council_tax_reduction_receives_income_related_esa or thanet_council_tax_reduction_receives_income_based_jsa or (thanet_council_tax_reduction_receives_universal_credit and thanet_council_tax_reduction_uc_has_no_earnings) or thanet_council_tax_reduction_is_qualifying_kent_care_leaver"}]
+  - name: thanet_council_tax_reduction_income_band
+    kind: derived
+    entity: Household
+    dtype: Number
+    period: Week
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if thanet_council_tax_reduction_passported_to_band_1: thanet_council_tax_reduction_income_band_codes[0] else: if thanet_council_tax_reduction_assessed_weekly_income > thanet_council_tax_reduction_band_4_upper_income_by_family[thanet_council_tax_reduction_family_category]: thanet_council_tax_reduction_income_band_codes[4] else: if thanet_council_tax_reduction_assessed_weekly_income >= thanet_council_tax_reduction_band_4_lower_income_by_family[thanet_council_tax_reduction_family_category]: thanet_council_tax_reduction_income_band_codes[3] else: if thanet_council_tax_reduction_assessed_weekly_income >= thanet_council_tax_reduction_band_3_lower_income_by_family[thanet_council_tax_reduction_family_category]: thanet_council_tax_reduction_income_band_codes[2] else: if thanet_council_tax_reduction_assessed_weekly_income >= thanet_council_tax_reduction_band_2_lower_income_by_family[thanet_council_tax_reduction_family_category]: thanet_council_tax_reduction_income_band_codes[1] else: thanet_council_tax_reduction_income_band_codes[0]"}]
+  - name: thanet_council_tax_reduction_selected_support_rate
+    kind: derived
+    entity: Household
+    dtype: Rate
+    period: Year
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: "thanet_council_tax_reduction_support_rate_by_income_band[thanet_council_tax_reduction_income_band]"}]
+  - name: thanet_council_tax_reduction_capital_eligible
+    kind: derived
+    entity: Household
+    dtype: Judgment
+    period: Year
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 26.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: condition, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-40, excerpt: "no reduction shall be granted when the applicant has an amount greater than this level."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "thanet_council_tax_reduction_assessed_capital_for_year <= thanet_council_tax_reduction_capital_limit"}]
+  - name: thanet_council_tax_reduction_band_d_capped_eligible_liability_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 35.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-49, excerpt: "A is the lowest of: i.the amount set by the appropriate authority as the council tax for the relevant financial year in respect of the dwelling in which he is a resident and for which he is liable, subject to any discount which may be appropriate to that dwelling under the 1992 Act; or ii.the amount set by the appropriate authority as the council tax for a Band D premises for the relevant financial year."}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if thanet_council_tax_reduction_actual_liability_for_year <= thanet_council_tax_reduction_band_d_liability_for_year: thanet_council_tax_reduction_actual_liability_for_year else: thanet_council_tax_reduction_band_d_liability_for_year"}]
+  - name: thanet_council_tax_reduction_annual_non_dependant_deduction
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 paragraph 36.1
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-49, excerpt: "the non-dependant deductions in respect of a day referred to in section 35 (maximum council tax reduction) shall be £10 x 1/7"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "thanet_council_tax_reduction_non_dependant_weekly_deduction_by_band[thanet_council_tax_reduction_non_dependant_deduction_band] * thanet_council_tax_reduction_chargeable_non_dependant_units * thanet_council_tax_reduction_financial_year_days / thanet_council_tax_reduction_days_per_week"}]
+  - name: thanet_council_tax_reduction_amount_before_award_conditions_for_year
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 Schedule 1 paragraph 2
+    metadata: {proof: {atoms: [{path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "The amount of discount to be granted is to be based on the following factors: a. The maximum Council Tax Reduction as defined within this scheme;"}}, {path: 'versions[0].formula', kind: parameter_table, source: *grid_source}]}}
+    versions: [{effective_from: '2026-04-01', formula: "max(thanet_council_tax_reduction_zero_award, thanet_council_tax_reduction_band_d_capped_eligible_liability_for_year * thanet_council_tax_reduction_maximum_support_rate * thanet_council_tax_reduction_selected_support_rate - thanet_council_tax_reduction_annual_non_dependant_deduction)"}]
+  - name: thanet_council_tax_reduction_annual_amount
+    kind: derived
+    entity: Household
+    dtype: Money
+    period: Year
+    unit: GBP
+    source: Thanet Council Tax Reduction Scheme 2026/27 operative working-age award
+    metadata: {proof: {atoms: [{path: 'versions[0].effective_from', kind: effective_period, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-4, excerpt: "is effective from 1st April 2026 for a period of one financial year."}}, {path: 'versions[0].formula', kind: formula, source: {corpus_citation_path: uk-thanet/manual/council-tax-reduction-scheme-2026-2027/page-80, excerpt: "The authority’s Council Tax Reduction scheme from 2026/27 shall be calculated on the basis of the following Banded Discount Scheme:"}}]}}
+    versions: [{effective_from: '2026-04-01', formula: "if thanet_council_tax_reduction_working_age_scheme_applies and thanet_council_tax_reduction_capital_eligible: thanet_council_tax_reduction_amount_before_award_conditions_for_year else: thanet_council_tax_reduction_zero_award"}]
+inputs:
+  - {name: local_authority_is_thanet, entity: Household, dtype: Boolean, period: Year}
+  - {name: council_tax_reduction_household_in_england, entity: Household, dtype: Boolean, period: Year}
+  - {name: would_claim_council_tax_reduction, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_applicant_is_working_age, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_assessed_capital_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: thanet_council_tax_reduction_assessed_weekly_income, entity: Household, dtype: Money, period: Week, unit: GBP}
+  - {name: thanet_council_tax_reduction_actual_liability_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: thanet_council_tax_reduction_band_d_liability_for_year, entity: Household, dtype: Money, period: Year, unit: GBP}
+  - {name: thanet_council_tax_reduction_financial_year_days, entity: Household, dtype: Number, period: Year}
+  - {name: thanet_council_tax_reduction_has_partner, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_has_one_dependant, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_has_two_or_more_dependants, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_receives_income_support, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_receives_income_related_esa, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_receives_income_based_jsa, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_receives_universal_credit, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_uc_has_no_earnings, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_is_qualifying_kent_care_leaver, entity: Household, dtype: Boolean, period: Year}
+  - {name: thanet_council_tax_reduction_non_dependant_deduction_band, entity: Household, dtype: Number, period: Year}
+  - {name: thanet_council_tax_reduction_chargeable_non_dependant_units, entity: Household, dtype: Number, period: Year}

@@ -9019,7 +9019,7 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_non_dependant_weekly_deduction_by_resolved_band
   source: manual
   since: 2026-08-03
-- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_percent_divisor
+- legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_per_cent_unit
   source: manual
   since: 2026-08-03
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_remunerative_work_hours

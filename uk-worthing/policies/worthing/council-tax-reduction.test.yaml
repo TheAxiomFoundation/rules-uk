@@ -10,7 +10,7 @@
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_whole_percentage_points: 2
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_fraction_numerator: 6
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_taper_fraction_denominator: 7
-    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_percent_divisor: 100
+    uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_per_cent_unit: 0.01
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_days_per_week: 7
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_weekly_taper_rate: 0.2
     uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_capital_limit: 16000

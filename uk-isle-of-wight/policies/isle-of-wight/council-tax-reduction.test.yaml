@@ -1,0 +1,95 @@
+- name: isle_of_wight_passported_band_c_ceiling_binds
+  period: &tax_year
+    period_kind: tax_year
+    start: '2026-04-01'
+    end: '2027-03-31'
+  input:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_applicant_is_working_age: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_capital_for_year: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_weekly_income: 999
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_household_category: 4
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_passported_benefit: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year: 1500
+  output:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_working_age_scheme_applies: holds
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_eligible: holds
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_income_band: 1
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_selected_support_rate: 0.75
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_non_dependant_deduction_band: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_non_dependant_deduction: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_maximum_amount_for_year: 1500
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount: 1125
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 1125
+- name: isle_of_wight_single_band_3_lower_edge
+  period: *tax_year
+  input:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_applicant_is_working_age: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_capital_for_year: 6000
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_weekly_income: 95.01
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_household_category: 4
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_passported_benefit: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+  output:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 650
+- name: isle_of_wight_single_band_3_upper_edge_with_non_dependant
+  period: *tax_year
+  input:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_applicant_is_working_age: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_capital_for_year: 5999.99
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_weekly_income: 145.00
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_household_category: 4
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_passported_benefit: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_has_chargeable_non_dependant: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+  output:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_non_dependant_deduction_band: 1
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_non_dependant_deduction: 104
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 546
+- name: isle_of_wight_capital_cliff_zero
+  period: *tax_year
+  input:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_applicant_is_working_age: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_capital_for_year: 6000.01
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_weekly_income: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_household_category: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_passported_benefit: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+  output:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_eligible: not_holds
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 0
+- name: isle_of_wight_zero_rate_band
+  period: *tax_year
+  input:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.local_authority_is_isle_of_wight: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.council_tax_reduction_household_in_england: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.would_claim_council_tax_reduction: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_applicant_is_working_age: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_capital_for_year: 0
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_assessed_weekly_income: 245.01
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_household_category: 4
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_passported_benefit: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_has_chargeable_non_dependant: false
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_non_dependant_protected_or_exempt: true
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#input.isle_of_wight_council_tax_reduction_maximum_eligible_liability_for_year: 1000
+  output:
+    uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount: 0

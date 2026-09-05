@@ -9055,6 +9055,60 @@ entries:
 - legal_id: uk-worthing:policies/worthing/council-tax-reduction#worthing_council_tax_reduction_working_age_scheme_applies
   source: manual
   since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_award_conditions_met
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_capital_eligible
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_days_per_week
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_excess_income_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_maximum_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_non_dependant_deduction_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_per_cent_unit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_deduction_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_fraction_numerator
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_taper_whole_percentage_points
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_threshold
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_weekly
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_tariff_income_weekly_amount_per_step
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_amount
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-east-hertfordshire:policies/east-hertfordshire/council-tax-reduction#east_hertfordshire_council_tax_reduction_weekly_taper_rate
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_annual_amount
   source: manual
   since: 2026-08-03
@@ -9070,16 +9124,43 @@ entries:
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_5_lower_income_by_household
   source: manual
   since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_five_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_four_code
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_level
   source: manual
   since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_lower_income_by_household
   source: manual
   since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_passported_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_six_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_three_code
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_two_code
+  source: manual
+  since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_eligible
   source: manual
   since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_capital_limit
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_chargeable_non_dependant_deduction_band_code
   source: manual
   since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_days_per_week
@@ -9092,6 +9173,9 @@ entries:
   source: manual
   since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_maximum_support_rate
+  source: manual
+  since: 2026-08-03
+- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_no_non_dependant_deduction_band_code
   source: manual
   since: 2026-08-03
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_non_dependant_deduction_band
@@ -9115,34 +9199,4 @@ entries:
 - legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#simulated_isle_of_wight_council_tax_reduction_annual_amount
   source: manual
   since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_c_capped_eligible_liability_for_year
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_five_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_four_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_passported_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_six_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_three_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_band_two_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_chargeable_non_dependant_deduction_band_code
-  source: manual
-  since: 2026-08-03
-- legal_id: uk-isle-of-wight:policies/isle-of-wight/council-tax-reduction#isle_of_wight_council_tax_reduction_no_non_dependant_deduction_band_code
-  source: manual
-  since: 2026-08-03
-ceiling: 3048
+ceiling: 3066
